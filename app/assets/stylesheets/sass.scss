@@ -1,7 +1,7 @@
 // sass media query sizes
-$phone-width: 600px;
-$tablet-width: 900px;
-$desktop-width: 1024px;
+$phone-width: 768px;
+$tablet-width: 992px;
+$desktop-width: 1200px;
 
 
 // color tests
@@ -27,13 +27,19 @@ $hover-bg: #fff;
 }
 
 @mixin tablet {
-  @media (min-width: #{$phone-width + 1}) and (max-width: #{$desktop-width - 1px}) {
+  @media (min-width: #{$phone-width + 1}) and (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$tablet-width + 1}) and (max-width: #{$desktop-width}) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: #{$desktop-width}) {
+  @media (min-width: #{$desktop-width + 1}) {
     @content;
   }
 }

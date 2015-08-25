@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 
 gem 'puma'
-
+gem 'font-awesome-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'refills'
