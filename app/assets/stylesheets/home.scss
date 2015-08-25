@@ -114,13 +114,16 @@
 
 .cover-content {
   position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   top: 50%;
   transform: translateY(-50%);
-  width: 100%;
+  width: 90%;
   text-align: center;
 
   h1 {
-    font-size: 100px;
+    font-size: 10vmax;
   }
 
   footer {
