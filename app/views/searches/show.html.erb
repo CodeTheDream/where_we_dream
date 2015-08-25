@@ -1,0 +1,21 @@
+<h1>Search Results</h1>
+
+<p><%= link_to 'Back', new_search_path %></p>
+
+<% if @search.search_schools.empty? %>
+
+  <p>No Info Found</p>
+<% else %>
+
+  <% @search.search_schools.each do |c| %>
+    <br>
+
+    <div class="div">
+      <h1><%= c.name %></h1>
+      <p>Scholarships: <%= c.scholarship %></p>
+      <p>School Rating: <%= c.rating %></p>
+    </div>
+
+  <% end %>
+
+<% end %>

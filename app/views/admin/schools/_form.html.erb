@@ -1,0 +1,64 @@
+<% @school.id ? correct_path = admin_school_path(@school) : correct_path = admin_schools_path %>
+
+<%= form_for(@school, url: correct_path) do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% @school.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :students %><br>
+    <%= f.number_field :students %>
+  </div>
+  <div class="field">
+    <%= f.label :undocumented_students %><br>
+    <%= f.number_field :undocumented_students %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.number_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :public %><br>
+    <%= f.check_box :public %>
+  </div>
+
+  <%= f.fields_for :rules do |ff| %>
+    <div class="field">
+      <%= ff.object.question! %><br>
+      <%= ff.radio_button :answer, true %> yes
+      <%= ff.radio_button :answer, false %> no
+      <%= ff.radio_button :answer, '' %> idk
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

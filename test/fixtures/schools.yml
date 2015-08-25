@@ -1,0 +1,23 @@
+one:
+  name: MyString
+  rating: 1
+  link: MyString
+  students: 1
+  undocumented_students: 1
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  public: true
+
+two:
+  name: MyString
+  rating: 1
+  link: MyString
+  students: 1
+  undocumented_students: 1
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  public: true

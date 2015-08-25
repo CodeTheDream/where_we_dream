@@ -1,0 +1,39 @@
+// sass media query sizes
+$phone-width: 600px;
+$tablet-width: 900px;
+$desktop-width: 1024px;
+
+
+// color tests
+$accent-color-1-bg: #1A1E25; // off-black//#32495A; //
+$accent-color-1-fg: #fff; // white
+$background-color: #f0f0f0; //
+
+$button-color-bg: lighten($accent-color-1-bg, 0%); // darken(#68747d, 20%); //#68747d; // #f8f8f8; //  ; // #859D82; //#32495A blue;
+$button-hover:darken($button-color-bg,10%);
+$button-text: $accent-color-1-fg;
+
+// sass variables
+$border-color: #ccc; // applies to all form elements
+$border-radius: 0px; // applies to all form elements
+$transition: .5s ease; // apply to anything we want to have on hover transition effect, like buttons, etc
+$hover-bg: #fff;
+
+// sass mixins
+@mixin mobile {
+  @media only screen and (min-width: 1px) and  (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$phone-width + 1}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

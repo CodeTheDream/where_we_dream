@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @school.rating %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @school.link %>
+</p>
+
+<p>
+  <strong>Students:</strong>
+  <%= @school.students %>
+</p>
+
+<p>
+  <strong>Undocumented Students:</strong>
+  <%= @school.undocumented_students %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @school.address %>
+</p>
+
+<p>
+  <strong>Public?:</strong>
+  <%= @school.public ? 'Yes' : 'No' %>
+</p>
+<%= @school.rules.count %>
+
+<% @school.rules.each do |r| %>
+  <p>
+    <strong><%= r.question! %></strong>
+    <%= r.answer %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_admin_school_path(@school) %> |
+<%= link_to 'Back', admin_schools_path %>
