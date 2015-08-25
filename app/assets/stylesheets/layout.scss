@@ -54,6 +54,14 @@ header.navigation {
     z-index: 9999;
     font-size: 24px;
     width: 80%;
+
+    @include tablet {
+      width: 90%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   .logo {
@@ -73,8 +81,9 @@ header.navigation {
 
   .navigation-menu-button {
     // color: $navigation-color;
-    color: white;
-    display: block;
+    color: black;
+    // display: block;
+    display: none;
     float: right;
     line-height: $navigation-height;
     margin: 0;
@@ -95,7 +104,8 @@ header.navigation {
   // Nav menu
 
   nav {
-    float: none;
+    // float: none;
+    float: left;
     min-height: $navigation-height;
     z-index: 9999999;
 
@@ -107,8 +117,10 @@ header.navigation {
   ul.navigation-menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
-    display: none;
-    margin: 0 auto;
+    // display: none;
+    display: inline;
+    // margin: 0 auto;
+    margin: 0;
     overflow: visible;
     padding: 0;
     width: 100%;
@@ -128,8 +140,10 @@ header.navigation {
   // The nav items
 
   ul li.nav-link {
-    background: $navigation-background;
-    display: block;
+    // background: $navigation-background;
+    background: transparent;
+    // display: block;
+    display: inline;
     line-height: $navigation-height;
     overflow: hidden;
     padding-right: 0.8em;
@@ -152,6 +166,8 @@ header.navigation {
       text-decoration: none;
       transition: color .2s;
 
+      padding-right: 1em;
+
       @include media ($horizontal-bar-mode) {
         padding-right: 1em;
       }
@@ -171,7 +187,8 @@ header.navigation {
   // Sub menus
 
   li.more.nav-link {
-    padding-right: 0;
+    // padding-right: 0;
+    padding-right: $navigation-submenu-padding;
 
     @include media($horizontal-bar-mode) {
       padding-right: $navigation-submenu-padding;
@@ -198,7 +215,9 @@ header.navigation {
 
   li.more {
     overflow: visible;
-    padding-right: 0;
+    // padding-right: 0;
+    padding-right: 0.8em;
+    position: relative;
 
     a {
       padding-right: 0.8em;
@@ -235,6 +254,10 @@ header.navigation {
     display: none;
     padding-left: 0;
 
+    left: -$navigation-submenu-padding;
+    position: absolute;
+    top: 1.5em;
+
     @include media($horizontal-bar-mode) {
       left: -$navigation-submenu-padding;
       position: absolute;
@@ -242,6 +265,9 @@ header.navigation {
     }
 
     .submenu {
+      left: $navigation-submenu-width - 0.2em;
+      top: 0;
+
       @include media($horizontal-bar-mode) {
         left: $navigation-submenu-width - 0.2em;
         top: 0;
@@ -286,9 +312,11 @@ header.navigation {
   // Elements on the far right
 
   .navigation-tools {
-    background: #505050;
-    clear: both;
-    display: block;
+    // background: #505050;
+    background: transparent;
+    // clear: both;
+    clear: none;
+    display: inline;
     height: $navigation-height;
     float: right;
     a {
@@ -311,7 +339,12 @@ header.navigation {
 
     float: left;
     padding: 0.85em 0.85em 0.7em 0.6em;
-    width: 60%;
+    // width: 60%;
+    width: 16em;
+
+
+    display: inline-block;
+    position: relative;
 
     form {
       position: relative;
