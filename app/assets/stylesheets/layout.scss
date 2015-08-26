@@ -21,13 +21,20 @@
 
 i.fa {
   font-size: 1.2em;
+  // position: absolute;
 }
 
-// span.fa-stack {
-//   i:last-child {
-//     top: -20px;
-//   }
-// }
+span.fa-stack {
+  i:first-child {
+    position: relative;
+  }
+  i:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
 header.navigation {
   $base-border-color: gainsboro !default;
