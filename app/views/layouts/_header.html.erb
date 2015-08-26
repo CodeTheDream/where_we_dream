@@ -12,15 +12,25 @@
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><a href="http://www.codethedream.org/about/">About Us</a></li>
-        <li class="nav-link"><a href="http://www.codethedream.org/contact/">Contact</a></li>
-        <li class="nav-link">
-          <a href="javascript:void(0)" class="login">
+        <div id="desktop">
+          <li class="nav-link"><a href="http://www.codethedream.org/about/">About Us</a></li>
+          <li class="nav-link"><a href="http://www.codethedream.org/contact/">Contact</a></li>
+          <li class="nav-link">
+            <a href="javascript:void(0)" class="login">
               <span class="fa-stack">
                 <i class="fa fa-circle-thin fa-stack-2x"></i>
                 <i class="fa fa-user fa-stack-1x"></i>
               </span>
               Login
+            </a>
+          </li>
+        </div>
+        <li id="mobile" class="nav-link">
+          <a href="javascript:void(0)" class="login">
+            <span class="fa-stack">
+              <i class="fa fa-circle-thin fa-stack-2x"></i>
+              <i class="fa fa-bars fa-stack-1x"></i>
+            </span>
           </a>
         </li>
       </ul>

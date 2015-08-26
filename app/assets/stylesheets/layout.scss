@@ -20,6 +20,20 @@
   font-size: 1.2em;
 }
 
+#mobile {
+  display: none;
+}
+
+@include mobile {
+  #mobile {
+    display: inline;
+  }
+
+  #desktop {
+    display: none;
+  }
+}
+
 header.navigation {
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
@@ -143,6 +157,9 @@ header.navigation {
     padding: 0;
     width: 100%;
     z-index: 9999;
+    li:last-child {
+      padding: 0;
+    }
 
     &.show {
       display: block;
@@ -168,6 +185,7 @@ header.navigation {
     text-align: right;
     width: 100%;
     z-index: 9999;
+    padding-right: 2em;
 
     @include mobile {
       background: transparent;
@@ -183,12 +201,6 @@ header.navigation {
       display: inline-block;
       text-decoration: none;
       @include transition( color .2s, text-shadow .2s );
-
-      padding-right: 1em;
-
-      @include media ($horizontal-bar-mode) {
-        padding-right: 1em;
-      }
 
       &:focus,
       &:hover {
