@@ -49,7 +49,7 @@ html {
 }
 
 /* line 17, c:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
-#mobile {
+#stack {
   display: none;
 }
 
@@ -60,7 +60,7 @@ html {
   }
 
   /* line 26, c:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
-  #mobile {
+  #stack {
     display: inline;
   }
 

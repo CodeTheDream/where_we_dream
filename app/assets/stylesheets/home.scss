@@ -3,6 +3,9 @@
   bottom: 0;
   right: 0;
   padding: 1em;
+  @include mobile {
+    padding: .8em;
+  }
 }
 
 .flex-boxes {

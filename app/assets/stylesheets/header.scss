@@ -1,3 +1,29 @@
+#mobile-nav {
+  display: none;
+  background-color: white;
+  width: 100%;
+  #nav-features {
+    text-align: center;
+  }
+  #nav-other {
+    float: left;
+  }
+}
+.header-text {
+  @include mobile {
+    display: none;
+  }
+}
+
+#stack {
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
+  @include mobile {
+    display: inline;
+  }
+}
 
 header.navigation {
   $base-border-color: gainsboro !default;
@@ -31,6 +57,10 @@ header.navigation {
   font-size: 1.3em;
   border-bottom: 1px solid #efefef;
 
+  @include mobile {
+    height: 55px;
+  }
+
   .navigation-wrapper {
     @include clearfix;
     @include outer-container;
@@ -62,34 +92,9 @@ header.navigation {
     }
   }
 
-  // Mobile view
-
-  .navigation-menu-button {
-    // color: $navigation-color;
-    color: $navigation-color;
-    // display: block;
-    display: none;
-    float: right;
-    line-height: $navigation-height;
-    margin: 0;
-    padding-right: 1em;
-    text-decoration: none;
-    text-transform: uppercase;
-
-    @include mobile {
-      line-height: $navigation-height-mobile;
-    }
-
-    &:focus,
-    &:hover {
-      color: $navigation-color-hover;
-    }
-  }
-
   // Nav menu
 
   nav {
-    // float: none;
     float: right;
     min-height: $navigation-height;
     z-index: 9999999;
@@ -103,35 +108,23 @@ header.navigation {
   ul.navigation-menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
-    // display: none;
     display: inline;
-    // margin: 0 auto;
     margin: 0;
     overflow: visible;
     padding: 0;
     width: 100%;
     z-index: 9999;
-    li:last-child {
-      padding: 0;
-    }
 
     &.show {
       display: block;
     }
 
-    @include media ($horizontal-bar-mode) {
-      display: inline;
-      margin: 0;
-      padding: 0;
-    }
   }
 
   // The nav items
 
   ul li.nav-link {
-    // background: $navigation-background;
     background: transparent;
-    // display: block;
     display: inline;
     line-height: $navigation-height;
     overflow: hidden;
@@ -141,16 +134,26 @@ header.navigation {
     z-index: 9999;
     padding-right: 2em;
 
+    @include immobile {
+      &:nth-last-child(2) {
+        padding: 0;
+      }
+    }
+
     @include mobile {
+      padding-right: .5em;
       background: transparent;
       display: inline;
       line-height: $navigation-height-mobile;
       text-decoration: none;
       width: auto;
+      &:last-child {
+        padding: 0;
+      }
+
     }
 
     a {
-      // color: $navigation-color;
       color: $navigation-color;
       display: inline-block;
       text-decoration: none;
@@ -159,7 +162,6 @@ header.navigation {
       &:focus,
       &:hover {
         color: $navigation-color-hover;
-        // text-shadow: .5px .5px gray;
       }
     }
   }

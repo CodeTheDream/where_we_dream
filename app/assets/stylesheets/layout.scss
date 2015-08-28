@@ -2,21 +2,3 @@
   width: 100%;
   font-family: 'Raleway', sans-serif;
 }
-
-#mobile {
-  display: none;
-}
-
-@include mobile {
-  header.navigation {
-    height: 55px;
-  }
-
-  #mobile {
-    display: inline;
-  }
-
-  #desktop {
-    display: none;
-  }
-}

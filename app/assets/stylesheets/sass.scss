@@ -43,3 +43,9 @@ $hover-bg: #fff;
     @content;
   }
 }
+
+@mixin immobile {
+  @media (min-width: #{$phone-width + 1}) {
+    @content;
+  }
+}
