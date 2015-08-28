@@ -8,8 +8,12 @@
   $space-below-logo: 68px;
 
   background: $footer-background;
-  padding: 60px 0 30px 0;
+  padding: 60px 0 30px;
   width: 100%;
+
+  @include mobile {
+    padding: 30px 0 20px;
+  }
 
   .left {
     float: left;
@@ -35,14 +39,24 @@
     @include mobile {
       width: 96%;
       ul {
-        li {
-          text-align: left;
-        }
         @include omega(1n);
         float: left;
       }
+      h3 {
+        margin: 0.4em 0;
+      }
       .copywrite {
         font-size: .8em;
+      }
+      .footer-logo {
+        padding-bottom: $space-below-logo/4;
+        margin-bottom: $space-below-logo/4;
+      }
+      .footer-links {
+        // margin: .5em;
+        margin: 0 0 25px;
+        // padding: .5em;
+        padding: 0 0 25px;
       }
     }
 
@@ -50,6 +64,7 @@
 
   .footer-logo {
     font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 1.3em;
     padding-bottom: $space-below-logo/2;
     margin-bottom: $space-below-logo/2;
     border-bottom: 1px solid darken(white, 80%);
@@ -64,7 +79,9 @@
 
   .footer-links {
     @include clearfix;
+    padding: 0 0 50px;
     margin: 0 0 50px;
+    border-bottom: 1px solid darken(white, 80%);
   }
 
   ul {
@@ -86,7 +103,6 @@
   li {
     line-height: 1.5em;
     list-style: none;
-    text-align: center;
 
     @include media($medium-screen) {
       text-align: left;
@@ -107,12 +123,6 @@
     color: $link-color;
     font-size: 1em;
     margin:  0 0 0.4em;
-  }
-
-  hr {
-    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
-    margin: 0 auto 50px;
-    width: 12em;
   }
 
   p {
