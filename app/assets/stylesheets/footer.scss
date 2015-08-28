@@ -3,7 +3,7 @@
   $large-screen: em(860) !default;
   $footer-background: lighten(black, 15%);
   $link-color: white;
-  $link-color-dim: transparentize($link-color, 0.6);
+  $link-color-dim: #919496;
   $footer-disclaimer-color: transparentize($link-color, 0.6);
   $space-below-logo: 68px;
 
@@ -34,6 +34,16 @@
 
     @include mobile {
       width: 96%;
+      ul {
+        li {
+          text-align: left;
+        }
+        @include omega(1n);
+        float: left;
+      }
+      .copywrite {
+        font-size: .8em;
+      }
     }
 
   }
