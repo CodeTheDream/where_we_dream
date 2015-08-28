@@ -2,13 +2,30 @@
   display: none;
   background-color: white;
   width: 100%;
+  border-bottom: 1px solid #efefef;
+
+  div {
+    margin: 3em 0;
+  }
+
+  h3 {
+    margin: 0 0 .5em;
+  }
+
+  p {
+    font-family: 'Exo', sans-serif;
+  }
+
   #nav-features {
     text-align: center;
   }
+
   #nav-other {
     float: left;
   }
+
 }
+
 .header-text {
   @include mobile {
     display: none;
@@ -150,7 +167,6 @@ header.navigation {
       &:last-child {
         padding: 0;
       }
-
     }
 
     a {
