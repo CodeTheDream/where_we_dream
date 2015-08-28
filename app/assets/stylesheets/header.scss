@@ -62,17 +62,15 @@ header.navigation {
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
 
-  // background-color: $navigation-background;
   background-color: white;
-  // border-bottom: 1px solid darken($navigation-background, 10);
   min-height: $navigation-height-mobile;
   width: 100%;
   z-index: 999;
   position: absolute;
-  // font-family: 'Exo', sans-serif;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 1.3em;
   border-bottom: 1px solid #efefef;
+  color: $navigation-color;
 
   @include mobile {
     height: 55px;

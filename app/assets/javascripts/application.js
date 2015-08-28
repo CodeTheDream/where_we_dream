@@ -23,12 +23,12 @@ function toggleMobileNav() {
 function setMobileNavHeight() {
   $('#stack').click(function() {
     if ($('#mobile-nav').css('display') != 'none') {
-      var headerHeight = $('#header-wrapper').height();
-      var height1 = $(window).height() - headerHeight;
+      var headerHeight = $('#header-wrapper').height;
+      var height1 = $(window).height - headerHeight;
       $('#mobile-nav').height( height1 );
-      var features = $('.feature').length
-      var featureHeight = $('.feature').height()
-      var height2 = ( $(window).height() - ( headerHeight + (features*featureHeight) ) )/( features + 1 );
+      var features = $('.feature').length;
+      var featureHeight = $('.feature').height;
+      var height2 = ( $(window).height - ( headerHeight + (features*featureHeight) ) )/( features + 1 );
       console.log(height2)
       $('.feature').css('margin', height2 + 'px 0');
     }
