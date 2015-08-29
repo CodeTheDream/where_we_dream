@@ -11,7 +11,7 @@
     </ul>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link">
+        <li id="admin" class="nav-link">
           <a href="javascript:void(0)" class="login">
             <span class="fa-stack">
               <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -29,7 +29,7 @@
             <span class='header-text'>Login<span>
           </a>
         </li>
-        <li id="stack" class="nav-link">
+        <li id="features" class="nav-link">
           <span class="fa-stack">
             <i class="fa fa-circle-thin fa-stack-2x"></i>
             <i class="fa fa-bars fa-stack-1x"></i>
@@ -38,26 +38,42 @@
       </ul>
     </nav>
   </div>
-  <nav id='mobile-nav'>
-    <div id='nav-features'>
-      <div class='feature'>
+  <nav id="mobile-nav">
+    <div id="nav-features">
+      <div class="feature">
+        <a href="javascript:void(0)"><span></span></a>
         <h3>Schools</h3>
         <p>Browse through our '7' schools and find out which is best for you!</p>
       </div>
-      <div class='feature'>
+      <div class="feature">
+        <a href="javascript:void(0)"><span></span></a>
         <h3>Scholarships</h3>
         <p>Browse through and apply for our '5' known immigrant-friendly scholarships!</p>
       </div>
-      <div class='feature'>
+      <div class="feature">
+        <a href="javascript:void(0)"><span></span></a>
         <h3>Sponsors</h3>
         <p>Browse through our sponsors and meet people who want to help fund your dreams!</p>
       </div>
-      <div class='feature'>
+      <div class="feature">
+        <a href="javascript:void(0)"><span></span></a>
         <h3>Students</h3>
         <p>Browse through our '29' students who strive to fulfill their DREAMs.</p>
       </div>
     </div>
-    <div id='nav-other'>
+    <div id="nav-admin">
+      <div class="feature">
+        <%= link_to '<span></span>'.html_safe, admin_schools_path %>
+        <h3>Schools</h3>
+        <p>Edit schools.</p>
+      </div>
+      <div class="feature">
+        <%= link_to '<span></span>'.html_safe, admin_questions_path %>
+        <h3>Questions</h3>
+        <p>Edit questions.</p>
+      </div>
+    </div>
+    <div id="nav-other">
 
     </div>
   </nav>

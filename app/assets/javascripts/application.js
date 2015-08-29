@@ -9,34 +9,36 @@ function responsiveCoverHeight() {
   $( window ).resize( setCoverHeight );
 };
 
-function toggleMobileNav() {
-  $('#stack').click( function() {
-    if ($('#mobile-nav').css('display') == 'none') {
-      $('#mobile-nav').show()
+function toggleMobileNavs() {
+  $('#js-navigation-menu li').click( function() {
+    var id = $(this).attr('id');
+    if ($('#nav-' + id).css('display') == 'none') {
+      $('#mobile-nav').show();
+      $('#nav-' + id ).show();
+      if (id=='admin') {
+        $('#nav-features').hide();
+      } else {
+        $('#nav-admin').hide();
+      }
+      setMobileNavHeight();
     } else {
-      $('#mobile-nav').hide()
+      $('#mobile-nav').hide();
+      $('#nav-features').hide();
+      $('#nav-admin').hide();
     };
-    $('#stack').css('color','black')
   });
 };
 
 function setMobileNavHeight() {
-  $('#stack').click(function() {
-    if ($('#mobile-nav').css('display') != 'none') {
-      var headerHeight = $('#header-wrapper').height;
-      var height1 = $(window).height - headerHeight;
-      $('#mobile-nav').height( height1 );
-      var features = $('.feature').length;
-      var featureHeight = $('.feature').height;
-      var height2 = ( $(window).height - ( headerHeight + (features*featureHeight) ) )/( features + 1 );
-      console.log(height2)
-      $('.feature').css('margin', height2 + 'px 0');
-    }
-  });
-
+  var headerHeight = $('#header-wrapper').height();
+  var height1 = $(window).height() - headerHeight;
+  $('#mobile-nav').height( height1 );
+  var features = $('.feature:visible').length;
+  var featureHeight = $('.feature:visible').height();
+  var height2=($(window).height()-(headerHeight+(features*featureHeight)))/(features*2);
+  $('.feature:visible').css('padding', height2 + 'px 0');
 };
 
 $(setCoverHeight);
 $(responsiveCoverHeight);
-$(toggleMobileNav);
-$(setMobileNavHeight);
+$(toggleMobileNavs);
