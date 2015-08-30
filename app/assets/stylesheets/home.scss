@@ -33,6 +33,7 @@
     @include justify-content(center);
     @include align-items(stretch);
     @include flex-wrap(wrap);
+    font-family: 'Raleway', sans-serif;
     clear: both;
     z-index: 1;
     text-align: center;

@@ -3,7 +3,6 @@
 //= require_tree .
 function setCoverHeight() {
   var height = $(window).height();
-  // var height = $(window).height() - $('header').height();
   $('.cover').height( height );
 };
 
@@ -44,25 +43,17 @@ function setMobileNavHeight() {
 previous = 0;
 function autoHideHeader() {
   $(window).scroll(function(){
-    clearTimeout(timer);
-    if ($(window).scrollTop() > previous) { //scroll down
+    // clearTimeout(timer);
+    if ($(window).scrollTop() > previous  && $(window).width() <= 768) {  //scroll down
       $('header').addClass('header--hidden');
-    } else {                                //scroll up
+    } else {                                                              //scroll up
       $('header').removeClass('header--hidden');
-      timedHide();
     };
     previous = $(window).scrollTop();
   });
-};
-
-function timedHide() {
-  timer = setTimeout( function() {
-    $('header').addClass('header--hidden');
-  }, 5000);
 };
 
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
 $(autoHideHeader);
-$(timedHide);

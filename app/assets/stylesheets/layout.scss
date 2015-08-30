@@ -1,4 +1,33 @@
-#content {
-  width: 100%;
+
+#body {
+  padding: 80px 10% 30px;
   font-family: 'Raleway', sans-serif;
+
+  @include mobile {
+    padding: 55px 10% 30px;
+  }
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
 }

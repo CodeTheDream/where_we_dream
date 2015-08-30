@@ -86,7 +86,7 @@ header.navigation {
   $horizontal-bar-mode: $large-screen;
 
   background-color: white;
-  min-height: $navigation-height-mobile;
+  height: $navigation-height;
   width: 100%;
   z-index: 999;
   position: fixed;
@@ -97,7 +97,7 @@ header.navigation {
   @include transition( transform .5s );
 
   @include mobile {
-    height: 55px;
+    height: $navigation-height-mobile;
   }
 
   .navigation-wrapper {
@@ -135,13 +135,7 @@ header.navigation {
 
   nav {
     float: right;
-    min-height: $navigation-height;
     z-index: 9999999;
-
-    @include mobile {
-      min-height: $navigation-height-mobile;
-    }
-
   }
 
   ul.navigation-menu {
