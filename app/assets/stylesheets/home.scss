@@ -101,14 +101,12 @@
 .cover {
   position: relative;
   background-color: #F8FE00;
-  min-height: 500px;
+  min-height: 300px;
   width: 100%;
   color: white;
-  font-family: 'Exo', sans-serif;
 }
 
 .cover-img {
-  // display: block;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -123,6 +121,7 @@
 }
 
 .cover-content {
+  font-family: 'Exo', sans-serif;
   position: absolute;
   left: 0;
   right: 0;

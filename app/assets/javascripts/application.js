@@ -2,7 +2,9 @@
 //= require jquery_ujs
 //= require_tree .
 function setCoverHeight() {
-  $('.cover').height( $(window).height() );
+  var height = $(window).height();
+  // var height = $(window).height() - $('header').height();
+  $('.cover').height( height );
 };
 
 function responsiveCoverHeight() {
@@ -39,6 +41,28 @@ function setMobileNavHeight() {
   $('.feature:visible').css('padding', height2 + 'px 0');
 };
 
+previous = 0;
+function autoHideHeader() {
+  $(window).scroll(function(){
+    clearTimeout(timer);
+    if ($(window).scrollTop() > previous) { //scroll down
+      $('header').addClass('header--hidden');
+    } else {                                //scroll up
+      $('header').removeClass('header--hidden');
+      timedHide();
+    };
+    previous = $(window).scrollTop();
+  });
+};
+
+function timedHide() {
+  timer = setTimeout( function() {
+    $('header').addClass('header--hidden');
+  }, 5000);
+};
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
+$(autoHideHeader);
+$(timedHide);
