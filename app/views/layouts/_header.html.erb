@@ -1,4 +1,18 @@
+<% if @page %>
+  <style>
+    #header-image {
+      background-image: none;
+    }
+    header.navigation {
+      color: #2e2f33;
+    }
+    header.navigation ul li.nav-link a {
+      color: #2e2f33;
+    }
+  </style>
+<% end %>
 <header class="navigation" role="banner">
+  <div id="header-image">
   <div id="header-wrapper" class="navigation-wrapper">
     <ul class="navigation-menu">
       <li class="nav-link">

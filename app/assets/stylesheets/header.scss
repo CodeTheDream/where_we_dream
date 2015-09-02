@@ -1,4 +1,13 @@
+#header-image {
+  height: 100%;
+  width: 100%;
+  background-image: asset_url('scenery_5_header.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
 #mobile-nav {
+  color: #2e2f33;
   display: none;
   background-color: white;
   width: 100%;
@@ -93,7 +102,9 @@ header.navigation {
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 1.3em;
   border-bottom: 1px solid #efefef;
-  color: $navigation-color;
+  // color: $navigation-color;
+  color: white;
+
   @include transition( transform .5s );
 
   @include mobile {
@@ -186,9 +197,11 @@ header.navigation {
     }
 
     a {
-      color: $navigation-color;
+      // color: $navigation-color;
+      color: white;
       display: inline-block;
       text-decoration: none;
+      @include filter( blur(0px) );
       @include transition( color .2s, text-shadow .2s );
 
       &:focus,
