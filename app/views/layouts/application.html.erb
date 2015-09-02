@@ -10,7 +10,10 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <%= yield %>
+  <%= render 'layouts/cover' if @page == 'home' %>
+  <div id='body'>
+    <%= yield %>
+  </div>
   <%= render 'layouts/footer' %>
 </body>
 </html>

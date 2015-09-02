@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-
-  get 'pages/home'
-  get 'pages/schools'
-
+  patch 'new_question_partial' => 'admin/questions#partial'
   get 'schools' => 'pages#schools'
   match 'schools', :via => :search, :to => 'admin/schools#search'
 

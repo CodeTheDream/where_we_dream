@@ -1,0 +1,4 @@
+$("#questions").replaceWith("<%= j( render 'questions', locals: {questions: @questions }) %>");
+$("#new_question").replaceWith("<%= j(link_to 'New Question', '/', id: 'new-question', remote: true ) %>");
+$(addQuestionsPartial);
+$(deleteQuestion);

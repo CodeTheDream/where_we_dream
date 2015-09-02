@@ -15,19 +15,21 @@ class Admin::QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def partial
+    @question = Question.new
+  end
+
   # GET /questions/1/edit
   def edit
   end
 
   # POST /questions
   def create
-
     @question = Question.new(question_params)
-
     if @question.value.blank?
       redirect_to admin_questions_path
     elsif @question.save
-      redirect_to admin_questions_path, notice: 'Question was successfully created.'
+      @questions = Question.all
     else
       render :new
     end
@@ -45,7 +47,7 @@ class Admin::QuestionsController < ApplicationController
   # DELETE /questions/1
   def destroy
     @question.destroy
-    redirect_to admin_questions_path, notice: 'Question was successfully destroyed.'
+    render nothing: true
   end
 
   private

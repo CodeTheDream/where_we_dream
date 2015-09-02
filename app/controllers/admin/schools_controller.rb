@@ -22,6 +22,7 @@ class Admin::SchoolsController < ApplicationController
     Question.all.each do |question|
       @school.rules.create(question: question)
     end
+    @states = School.states
   end
 
   def edit
@@ -29,12 +30,9 @@ class Admin::SchoolsController < ApplicationController
 
   def create
     @school = School.create(new_school_params)
-    p "nigga we made it"
-    p "params = #{params}"
     if @school.update(school_params)
       redirect_to admin_schools_path, notice: 'School was successfully created.'
     else
-      p "nope didn't make it :("
       School.destroy(@school.id)
       redirect_to admin_schools_path
     end

@@ -53,7 +53,27 @@ function autoHideHeader() {
   });
 };
 
+function addQuestionsPartial() {
+  $("#new-question").click(
+    function() {
+      // $(this).hide();
+      $.ajax({
+        url: "/new_question_partial",
+        type: "PATCH",
+      });
+    }
+  )
+}
+
+function deleteQuestion() {
+  $('form.button_to').click(function() {
+    $($(this).closest('tr')).hide();
+  });
+};
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
 $(autoHideHeader);
+$(addQuestionsPartial);
+$(deleteQuestion)
