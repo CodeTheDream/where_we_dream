@@ -38,7 +38,7 @@ class Admin::QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   def update
     if @question.update(question_params)
-      redirect_to admin_questions_path, notice: 'Question was successfully updated.'
+      render nothing: true
     else
       render :edit
     end

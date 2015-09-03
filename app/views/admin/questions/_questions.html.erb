@@ -1,9 +1,12 @@
-<tbody id="questions">
+<div id="questions">
   <% @questions.each do |question| %>
-    <tr>
-      <td><%= question.value %></td>
-      <td><%= link_to 'Edit', edit_admin_question_path(question) %></td>
-      <td><%= button_to 'Destroy', admin_question_path(question), method: :delete, remote: true %></td>
-    </tr>
+    <div>
+      <span>
+        <%= text_field_tag 'question', question.value, class: 'edit-question', id: question.id %>
+        <%= link_to admin_question_path(question), method: :delete, remote: true, class: 'destroy-button' do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </span>
+    </div>
   <% end %>
-</tbody>
+</div>
