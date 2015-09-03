@@ -88,8 +88,6 @@ function updateQuestion() {
 function sendQuestionUpdate(question) {
   var value = $(question).val();
   var id = $(question).attr('id');
-  console.log(value);
-  console.log(id);
   $.ajax({
     url: "/admin/questions/" + id,
     type: "PATCH",
@@ -101,6 +99,18 @@ function sendQuestionUpdate(question) {
   })
 }
 
+function makeTextareaElastic() {
+  $(window).on('load', function() {
+    goThruArray();
+  });
+};
+
+function goThruArray() {
+  $.each($('.edit-question'), function() {
+    $(this).height(this.scrollHeight - 4)
+  });
+}
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -108,3 +118,4 @@ $(autoHideHeader);
 $(addQuestionsPartial);
 $(deleteQuestion);
 $(updateQuestion);
+$(makeTextareaElastic);

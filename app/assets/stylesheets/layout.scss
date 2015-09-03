@@ -6,20 +6,19 @@
     padding: 55px 15px 30px;
   }
 }
-input[type="text"] {
+.edit-question {
   font: inherit;
-  &:focus {
-    outline: none;
-  }
-}
-#questions input[type="text"] {
-  margin-bottom: 1px;
-  border: 2px solid transparent;
+  // margin-bottom: 1px;
+  border: 1px solid transparent;
   width: 98%;
+  height: 1em;
+  resize: none;
+  padding-right: 1em;
   &:hover {
     border: 1px solid lightgray;
   }
   &:focus {
+    outline: none;
     border: 1px solid black;
   }
 }
@@ -27,12 +26,8 @@ input[type="text"] {
   position: relative;
 }
 .fa-trash-o {
-  background-color: white;
   color: crimson;
   position: absolute;
   right: 0;
-  margin: 0 .1em;
-  padding: 0 .4em;
-  top: 50%;
-  @include transform( translateY(-50%) );
+  margin: .3em;
 }
