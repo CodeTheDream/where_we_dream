@@ -150,7 +150,7 @@ header.navigation {
   }
 
   ul.navigation-menu {
-    // -webkit-transform-style: preserve-3d; // stop webkit flicker
+    -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
     display: inline;
     margin: 0;
@@ -201,7 +201,6 @@ header.navigation {
       color: white;
       display: inline-block;
       text-decoration: none;
-      @include filter( blur(0px) );
       @include transition( color .2s, text-shadow .2s );
 
       &:focus,
