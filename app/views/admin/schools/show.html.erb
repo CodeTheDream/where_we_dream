@@ -39,7 +39,7 @@
 <% @school.rules.each do |r| %>
   <p>
     <strong><%= r.question! %></strong>
-    <%= r.answer %>
+    <%= r.answer ? r.answer : "Unknown" %>
   </p>
 <% end %>
 

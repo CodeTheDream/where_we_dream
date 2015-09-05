@@ -4,6 +4,7 @@ class CreateRules < ActiveRecord::Migration
       t.references :school, index: true
       t.references :question, index: true
       t.boolean :answer
+      t.text :details
 
       t.timestamps null: false
     end

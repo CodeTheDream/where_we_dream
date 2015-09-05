@@ -26,6 +26,7 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def edit
+    @states = School.states
   end
 
   def create

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150824005209) do
     t.integer  "school_id"
     t.integer  "question_id"
     t.boolean  "answer"
+    t.text     "details"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
