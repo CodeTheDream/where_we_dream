@@ -10,7 +10,9 @@
 
 <p>
   <strong>Link:</strong>
-  <%= @school.link %>
+  <%= link_to @school.link, target: '_blank' do %>
+    <%= @school.link %>
+  <% end %>
 </p>
 
 <p>

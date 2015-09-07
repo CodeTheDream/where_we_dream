@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  has_many :rules, dependent: :destroy
   validate :actual_question
   validates :value, presence: true
 

@@ -27,11 +27,10 @@ class Admin::QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.value.blank?
-      redirect_to admin_questions_path
-    elsif @question.save
       @questions = Question.all
-    else
-      render :new
+    elsif @question.save
+      School.all.each{ |school| school.rules.create(question: @question) }
+      @questions = Question.all
     end
   end
 

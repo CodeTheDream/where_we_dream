@@ -3,7 +3,7 @@ class Admin::SchoolsController < ApplicationController
   before_action :set_states, only: [:new, :edit]
 
   def index
-    School.where(name: '').destroy_all
+    School.where(name: nil).destroy_all
     @schools = School.search(params[:search])
   end
 
@@ -19,13 +19,18 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def new
-    @school = School.create(name: "")
+    @school = School.create
     Question.all.each do |question|
       @school.rules.create(question: question)
     end
   end
 
   def edit
+    # if @school.rules.count != Question.count
+    #   Question.all.each do |question|
+    #     @school.rules.create(question: question)
+    #   end
+    # end
   end
 
   def create

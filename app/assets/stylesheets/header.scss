@@ -172,14 +172,13 @@ header.navigation {
     display: inline;
     line-height: $navigation-height;
     overflow: hidden;
-    padding-right: 0.8em;
     text-align: right;
     width: 100%;
     z-index: 9999;
-    padding-right: 2em;
+    padding-left: 2em;
 
     @include immobile {
-      &:nth-last-child(2) {
+      &:first-child {
         padding: 0;
       }
     }
