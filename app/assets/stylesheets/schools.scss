@@ -1,0 +1,18 @@
+.details-container {
+  display: none;
+}
+.details {
+  border: 1px solid lightgray;
+  // height: 1.55em;
+  height: 1.5em;
+  &:hover {
+    border: 1px solid gray;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid black;
+  }
+}
+.rule {
+  margin-bottom: 1em;
+}

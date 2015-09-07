@@ -100,16 +100,43 @@ function sendQuestionUpdate(question) {
 }
 
 function makeTextareaElastic() {
-  $(window).on('load', function() {
+  $(window).on('load resize', function() {
     goThruArray();
   });
 };
 
 function goThruArray() {
-  $.each($('.edit-question'), function() {
+  if ($('.edit-question').length > 0) {
+    var array = $('.edit-question');
+  } else {
+    var array = $('.details');
+  }
+  $.each(array, function() {
+    console.log(this.scrollHeight)
     $(this).height(this.scrollHeight - 4)
   });
 }
+
+function showAdditionalDetails() {
+  $(window).on('load', function() {
+    $.each($('.rule'), function() {
+      var val = $('input:checked',$(this)).val();
+      if (val == "true" || val == "false") {
+        $('.details-container', $(this)).show()
+      };
+    });
+  });
+  $('input[type="radio"]').click(function() {
+    var val = $(this).val();
+    var container = $('.details-container',$($(this)).closest('.rule'));
+    if (val == "true" || val == "false") {
+      container.show()
+      goThruArray();
+    } else {
+      container.hide()
+    }
+  });
+};
 
 $(setCoverHeight);
 $(responsiveCoverHeight);
@@ -118,4 +145,5 @@ $(autoHideHeader);
 $(addQuestionsPartial);
 $(deleteQuestion);
 $(updateQuestion);
+$(showAdditionalDetails);
 $(makeTextareaElastic);

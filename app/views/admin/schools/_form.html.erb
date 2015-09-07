@@ -51,11 +51,14 @@
   </div>
 
   <%= f.fields_for :rules do |ff| %>
-    <div class="field">
+    <div class="rule">
       <%= ff.object.question! %><br>
       <%= ff.radio_button :answer, true %> yes
       <%= ff.radio_button :answer, false %> no
       <%= ff.radio_button :answer, '' %> idk
+      <div class='details-container'>
+        <%= ff.text_area :details, class: 'details', placeholder: 'Additional Information' %>
+      </div>
     </div>
   <% end %>
   <div class="actions">

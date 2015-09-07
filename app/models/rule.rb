@@ -8,4 +8,15 @@ class Rule < ActiveRecord::Base
   def question!
     self.question.value
   end
+
+  def answer!
+    case answer
+    when true
+      "Yes"
+    when false
+      "No"
+    when nil
+      "Unknown"
+    end
+  end
 end

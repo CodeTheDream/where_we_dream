@@ -1,5 +1,6 @@
 class Admin::SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
+  before_action :set_states, only: [:new, :edit]
 
   def index
     School.where(name: '').destroy_all
@@ -22,11 +23,9 @@ class Admin::SchoolsController < ApplicationController
     Question.all.each do |question|
       @school.rules.create(question: question)
     end
-    @states = School.states
   end
 
   def edit
-    @states = School.states
   end
 
   def create
@@ -43,7 +42,7 @@ class Admin::SchoolsController < ApplicationController
     if @school.update(school_params)
       redirect_to admin_schools_path, notice: 'School was successfully updated.'
     else
-      render :edit
+      redirect_to edit_admin_school_path(@school), notice: 'Update failed'
     end
   end
 
@@ -57,6 +56,10 @@ class Admin::SchoolsController < ApplicationController
       @school = School.find(params[:id])
     end
 
+    def set_states
+      @states = School.states
+    end
+
     def new_school_params
       params.require(:school).permit(
         :name, :link, :rating, :students, :undocumented_students, :street, :city,
@@ -67,7 +70,7 @@ class Admin::SchoolsController < ApplicationController
     def school_params
       params.require(:school).permit(
         :name, :link, :rating, :students, :undocumented_students, :street, :city,
-        :state, :zip, :public, rules_attributes: [:id, :answer]
+        :state, :zip, :public, rules_attributes: [:id, :answer, :details]
       )
     end
 end

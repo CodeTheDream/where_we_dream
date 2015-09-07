@@ -2,7 +2,7 @@ class School < ActiveRecord::Base
   validates :name, presence: true, allow_blank: true
   validates :students, numericality: true, allow_blank: true
   validates :undocumented_students, numericality: true, allow_blank: true
-  validates :zip, length: {is: 5}, allow_blank: true
+  validates :zip, format: { with: /\A\d{5}(\z|-\d{4}\z)/, message: "Zip code should be 12345 or 12345-1234" }, allow_blank: true
 
   has_many :rules, dependent: :destroy
 
@@ -24,56 +24,10 @@ class School < ActiveRecord::Base
 
   def self.states
     [
-      'AL',
-      'AK',
-      'AZ',
-      'AR',
-      'CA',
-      'CO',
-      'CT',
-      'DE',
-      'FL',
-      'GA',
-      'HI',
-      'ID',
-      'IL',
-      'IN',
-      'IA',
-      'KS',
-      'KY',
-      'LA',
-      'ME',
-      'MD',
-      'MA',
-      'MI',
-      'MN',
-      'MS',
-      'MO',
-      'MT',
-      'NE',
-      'NV',
-      'NH',
-      'NJ',
-      'NM',
-      'NY',
-      'NC',
-      'ND',
-      'OH',
-      'OK',
-      'OR',
-      'PA',
-      'RI',
-      'SC',
-      'SD',
-      'TN',
-      'TX',
-      'UT',
-      'VT',
-      'VA',
-      'WA',
-      'WV',
-      'WI',
-      'WY'
+      'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA',
+      'KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ',
+      'NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT',
+      'VA','WA','WV','WI','WY'
     ]
   end
 

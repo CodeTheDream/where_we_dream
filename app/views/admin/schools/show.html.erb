@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @school.name %>
@@ -34,12 +32,13 @@
   <strong>Public?:</strong>
   <%= @school.public ? 'Yes' : 'No' %>
 </p>
-<%= @school.rules.count %>
+<strong>Number of questions:</strong> <%= @school.rules.count %>
 
 <% @school.rules.each do |r| %>
   <p>
     <strong><%= r.question! %></strong>
-    <%= r.answer ? r.answer : "Unknown" %>
+    <%= r.answer! %><br/>
+    <%= r.details ? r.details : () %>
   </p>
 <% end %>
 

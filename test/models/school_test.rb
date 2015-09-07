@@ -45,9 +45,15 @@ class SchoolTest < ActiveSupport::TestCase
     school1 = School.new(name: 'name', zip: '1234')
     school2 = School.new(name: 'name', zip: '12345')
     school3 = School.new(name: 'name', zip: '123456')
+    school4 = School.new(name: 'name', zip: '12345-789')
+    school5 = School.new(name: 'name', zip: '12345-7890')
+    school6 = School.new(name: 'name', zip: '12345-78901')
     refute school1.save
     assert school2.save
     refute school3.save
+    refute school4.save
+    assert school5.save
+    refute school6.save
   end
 
   test "public" do
