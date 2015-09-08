@@ -56,7 +56,6 @@ function autoHideHeader() {
 function addQuestionsPartial() {
   $("#new-question").click(
     function() {
-      // $(this).hide();
       $.ajax({
         url: "/new_question_partial",
         type: "PATCH",
@@ -78,8 +77,7 @@ function updateQuestion() {
     this.addEventListener('keypress', function (e) {
       var key = e.which || e.keyCode;
       if (key === 13) { // once ENTER key is presssed, do this:
-        // sendQuestionUpdate(this);
-        $(document.activeElement).blur();
+        $(this).blur();
       }} // close e function
     );
   });
@@ -112,7 +110,6 @@ function goThruArray() {
     var array = $('.details');
   }
   $.each(array, function() {
-    console.log(this.scrollHeight)
     $(this).height(this.scrollHeight - 4)
   });
 }

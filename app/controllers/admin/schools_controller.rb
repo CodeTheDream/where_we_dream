@@ -8,14 +8,14 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def show
-    unless @school.rules.count == Question.count
-      array1 = Question.all.map(&:id)
-      array2 = @school.rules.map{|x| x.question.id}
-      array1 -= array2
-      array1.each do |id|
-        @school.rules.create(question_id: id)
-      end
-    end
+    # unless @school.rules.count == Question.count
+    #   array1 = Question.all.map(&:id)
+    #   array2 = @school.rules.map{|x| x.question.id}
+    #   array1 -= array2
+    #   array1.each do |id|
+    #     @school.rules.create(question_id: id)
+    #   end
+    # end
   end
 
   def new
@@ -26,16 +26,12 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def edit
-    # if @school.rules.count != Question.count
-    #   Question.all.each do |question|
-    #     @school.rules.create(question: question)
-    #   end
-    # end
   end
 
   def create
     @school = School.create(new_school_params)
     if @school.update(school_params)
+      @school.update(rating: @school.rating!)
       redirect_to admin_schools_path, notice: 'School was successfully created.'
     else
       School.destroy(@school.id)
@@ -45,6 +41,7 @@ class Admin::SchoolsController < ApplicationController
 
   def update
     if @school.update(school_params)
+      @school.update(rating: @school.rating!)
       redirect_to admin_schools_path, notice: 'School was successfully updated.'
     else
       redirect_to edit_admin_school_path(@school), notice: 'Update failed'

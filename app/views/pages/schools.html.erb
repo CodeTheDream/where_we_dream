@@ -1,2 +1,33 @@
 <h1>Schools</h1>
-<p>This will have desktop and mobile</p>
+
+<%= form_tag schools_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search by name' %>
+  </p>
+<% end %>
+
+<table class="pretty">
+  <thead>
+    <tr>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "rating" %></th>
+      <th><%= sortable "public" %></th>
+      <th><%= sortable "city" %></th>
+      <th colspan='1'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr>
+        <td><%= school.name %></td>
+        <td><%= school.rating! %>%</td>
+        <td><%= school.public? %></td>
+        <td><%= school.city %></td>
+        <td><%= link_to 'Show', admin_school_path(school) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

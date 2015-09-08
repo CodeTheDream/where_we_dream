@@ -1,7 +1,6 @@
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
+<h3>
+  <%= @school.name %> (<%= @school.public? %>)
+</h3>
 
 <p>
   <strong>Rating:</strong>
@@ -30,10 +29,6 @@
   <%= @school.address %>
 </p>
 
-<p>
-  <strong>Public?:</strong>
-  <%= @school.public ? 'Yes' : 'No' %>
-</p>
 <strong>Number of questions:</strong> <%= @school.rules.count %>
 
 <% @school.rules.each do |r| %>

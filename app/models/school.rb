@@ -8,12 +8,6 @@ class School < ActiveRecord::Base
 
   accepts_nested_attributes_for :rules
 
-  # def initialize(*strings)
-  #   p strings
-  #   capitalize(strings)
-  #   save
-  # end
-
   def self.search(search)
     if search
       where(["name LIKE ?","%#{search}%"])
@@ -32,14 +26,26 @@ class School < ActiveRecord::Base
   end
 
   def address
-    if (street.blank? || city.blank?) || (state.blank? || zip.blank?)
-      nil
+    if street.blank?
+      if (city.blank?) || (state.blank? || zip.blank?)
+        nil
+      else
+        "#{city}, #{state} #{zip}"
+      end
     else
-      "#{street}, #{city}, #{state} #{zip}"
+      if (city.blank?) || (state.blank? || zip.blank?)
+        nil
+      else
+        "#{street}, #{city}, #{state} #{zip}"
+      end
     end
   end
 
-  def self.capitalize(string)
-    (string.split.map &:capitalize).join(' ')
+  def rating!
+    (((rules.all.select(&:answer).count).to_f/(rules.count).to_f)*100).round(2) rescue 0
+  end
+
+  def public?
+    public ? 'Public' : 'Private'
   end
 end

@@ -26,3 +26,19 @@ input[type="text"] {
   right: 0;
   margin: .3em;
 }
+table.pretty {
+	border-collapse: collapse;
+}
+
+.pretty td,
+.pretty th {
+  padding: 4px 10px;
+  border: solid 1px #AAA;
+}
+
+.asc:after{
+  content: " \25BC";
+}
+.desc:after{
+  content: " \25B2";
+}

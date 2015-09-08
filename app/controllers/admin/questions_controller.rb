@@ -4,6 +4,7 @@ class Admin::QuestionsController < ApplicationController
   # GET /questions
   def index
     @questions = Question.all
+    @question = Question.new
   end
 
   # GET /questions/1
