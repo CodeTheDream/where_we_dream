@@ -176,23 +176,17 @@ header.navigation {
     width: 100%;
     z-index: 9999;
     padding-left: 2em;
-
-    @include immobile {
-      &:first-child {
-        padding: 0;
-      }
+    &:first-child {
+      padding: 0;
     }
 
     @include mobile {
-      padding-right: .5em;
+      padding-left: .5em;
       background: transparent;
       display: inline;
       line-height: $navigation-height-mobile;
       text-decoration: none;
       width: auto;
-      &:last-child {
-        padding: 0;
-      }
     }
 
     a {

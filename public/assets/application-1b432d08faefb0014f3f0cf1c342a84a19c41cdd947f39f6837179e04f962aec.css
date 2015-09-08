@@ -40,40 +40,52 @@ html {
 }
 
 /* line 9, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
-.edit-question {
+textarea {
   font: inherit;
-  border: 1px solid transparent;
   width: 98%;
   height: 1em;
   resize: none;
-  padding-right: 1em;
-}
-/* line 17, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
-.edit-question:hover {
-  border: 1px solid lightgray;
-}
-/* line 20, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
-.edit-question:focus {
-  outline: none;
-  border: 1px solid black;
 }
 
-/* line 25, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
+/* line 16, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
 input[type="text"] {
+  font: inherit;
   width: 98%;
 }
 
-/* line 28, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
+/* line 20, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
 #questions span {
   position: relative;
 }
 
-/* line 31, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
+/* line 23, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
 .fa-trash-o {
   color: crimson;
   position: absolute;
   right: 0;
   margin: .3em;
+}
+
+/* line 29, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
+table.pretty {
+  border-collapse: collapse;
+}
+
+/* line 33, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
+.pretty td,
+.pretty th {
+  padding: 4px 10px;
+  border: solid 1px #AAA;
+}
+
+/* line 39, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
+.asc:after {
+  content: " \25BC";
+}
+
+/* line 42, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/layout.scss */
+.desc:after {
+  content: " \25B2";
 }
 
 /* line 1, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/home.scss */
@@ -472,6 +484,7 @@ header.navigation nav {
 }
 /* line 152, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation ul.navigation-menu {
+  -webkit-transform-style: preserve-3d;
   clear: both;
   display: inline;
   margin: 0;
@@ -490,34 +503,27 @@ header.navigation ul li.nav-link {
   display: inline;
   line-height: 80px;
   overflow: hidden;
-  padding-right: 0.8em;
   text-align: right;
   width: 100%;
   z-index: 9999;
-  padding-right: 2em;
+  padding-left: 2em;
 }
-@media (min-width: 769px) {
-  /* line 182, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
-  header.navigation ul li.nav-link:nth-last-child(2) {
-    padding: 0;
-  }
+/* line 179, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+header.navigation ul li.nav-link:first-child {
+  padding: 0;
 }
 @media only screen and (min-width: 1px) and (max-width: 768px) {
   /* line 170, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation ul li.nav-link {
-    padding-right: .5em;
+    padding-left: .5em;
     background: transparent;
     display: inline;
     line-height: 55px;
     text-decoration: none;
     width: auto;
   }
-  /* line 194, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
-  header.navigation ul li.nav-link:last-child {
-    padding: 0;
-  }
 }
-/* line 199, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 192, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation ul li.nav-link a {
   color: white;
   display: inline-block;
@@ -526,38 +532,38 @@ header.navigation ul li.nav-link a {
   -moz-transition: color 0.2s, text-shadow 0.2s;
   transition: color 0.2s, text-shadow 0.2s;
 }
-/* line 206, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 199, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation ul li.nav-link a:focus, header.navigation ul li.nav-link a:hover {
   color: #F2D50D;
 }
-/* line 213, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 206, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation .active-nav-item a {
   border-bottom: 1px solid #2e2f33;
   padding-bottom: 3px;
 }
-/* line 220, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 213, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more.nav-link {
   padding-right: 1em;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 220, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 213, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation li.more.nav-link {
     padding-right: 1em;
   }
 }
-/* line 228, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 221, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more.nav-link > ul > li:first-child a {
   padding-top: 1em;
 }
-/* line 232, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 225, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more.nav-link a {
   margin-right: 1em;
 }
-/* line 236, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 229, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more.nav-link > a {
   padding-right: 0.6em;
 }
-/* line 240, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 233, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more.nav-link > a:after {
   position: absolute;
   top: auto;
@@ -567,46 +573,46 @@ header.navigation li.more.nav-link > a:after {
   content: '\25BE';
   color: #2e2f33;
 }
-/* line 247, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 240, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more {
   overflow: visible;
   padding-right: 0.8em;
   position: relative;
 }
-/* line 253, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 246, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more a {
   padding-right: 0.8em;
 }
-/* line 257, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 250, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more > a {
   padding-right: 1.6em;
   position: relative;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 257, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 250, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation li.more > a {
     margin-right: 1em;
   }
 }
-/* line 265, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 258, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more > a:after {
   content: '›';
   font-size: 1.2em;
   position: absolute;
   right: 0.5em;
 }
-/* line 273, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 266, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation li.more:focus > .submenu, header.navigation li.more:hover > .submenu {
   display: block;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 247, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 240, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation li.more {
     padding-right: 0.8em;
     position: relative;
   }
 }
-/* line 284, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 277, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation ul.submenu {
   display: none;
   padding-left: 0;
@@ -615,44 +621,44 @@ header.navigation ul.submenu {
   top: 1.5em;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 284, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 277, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation ul.submenu {
     left: -1em;
     position: absolute;
     top: 1.5em;
   }
 }
-/* line 298, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 291, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation ul.submenu .submenu {
   left: 11.8em;
   top: 0;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 298, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 291, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation ul.submenu .submenu {
     left: 11.8em;
     top: 0;
   }
 }
-/* line 308, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 301, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation ul.submenu li {
   display: block;
   padding-right: 0;
   line-height: 61.53846px;
 }
 @media only screen and (min-width: 1px) and (max-width: 768px) {
-  /* line 308, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 301, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation ul.submenu li {
     line-height: 42.30769px;
   }
 }
-/* line 317, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 310, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation ul.submenu li a {
   display: inline-block;
   text-align: right;
   width: 100%;
 }
-/* line 327, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 320, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation .search-bar {
   float: left;
   padding: 0.85em 0.85em 0.7em 0.6em;
@@ -660,11 +666,11 @@ header.navigation .search-bar {
   display: inline-block;
   position: relative;
 }
-/* line 341, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 334, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation .search-bar form {
   position: relative;
 }
-/* line 344, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 337, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation .search-bar form input[type=search] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -680,12 +686,12 @@ header.navigation .search-bar form input[type=search] {
   width: 100%;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 344, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 337, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation .search-bar form input[type=search] {
     width: 100%;
   }
 }
-/* line 361, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 354, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation .search-bar form button[type=submit] {
   background: #ffb91a;
   border: none;
@@ -697,20 +703,20 @@ header.navigation .search-bar form button[type=submit] {
   right: 0.3em;
   top: 0.3em;
 }
-/* line 372, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+/* line 365, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
 header.navigation .search-bar form button[type=submit] img {
   height: 12px;
   opacity: 0.7;
   padding: 1px;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 327, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 320, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation .search-bar {
     display: inline-block;
     position: relative;
     width: 16em;
   }
-  /* line 385, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
+  /* line 378, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/header.scss */
   header.navigation .search-bar input {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -934,12 +940,52 @@ header.navigation .search-bar form button[type=submit] img {
   padding-right: 0;
 }
 
-/* line 30, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/application.css.scss */
+/* line 4, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/questions.scss */
+.edit-question {
+  border: 1px solid transparent;
+  padding-right: 1em;
+}
+/* line 7, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/questions.scss */
+.edit-question:hover {
+  border: 1px solid lightgray;
+}
+/* line 10, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/questions.scss */
+.edit-question:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+/* line 1, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/schools.scss */
+.details-container {
+  display: none;
+}
+
+/* line 4, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/schools.scss */
+.details {
+  border: 1px solid lightgray;
+  height: 1.5em;
+}
+/* line 8, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/schools.scss */
+.details:hover {
+  border: 1px solid gray;
+}
+/* line 11, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/schools.scss */
+.details:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+/* line 16, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/schools.scss */
+.rule {
+  margin-bottom: 1em;
+}
+
+/* line 32, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/application.css.scss */
 body {
   margin: 0px;
 }
 
-/* line 34, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/application.css.scss */
+/* line 36, C:/Users/Owner/Desktop/projects/where_we_dream/app/assets/stylesheets/application.css.scss */
 p {
   font-size: 16px;
 }
