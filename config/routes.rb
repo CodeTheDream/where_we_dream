@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   root 'pages#home'
+
+  get 'login' => 'sessions#new'
+  delete 'logout' => 'sessions#destroy'
+  post 'sessions/create'
+
   patch 'new_question_partial' => 'admin/questions#partial'
-  # patch 'edi_questions' => 'admin/questions#update'
   get 'schools' => 'pages#schools'
   # match 'schools', :via => :search, :to => 'pages#schools'
-  # get ':school_name'
+
+  resources :users
 
   namespace :admin do
     resources :schools

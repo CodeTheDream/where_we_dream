@@ -1,4 +1,5 @@
 //= require jquery
+//= require parsley
 //= require jquery_ujs
 //= require_tree .
 function setCoverHeight() {
