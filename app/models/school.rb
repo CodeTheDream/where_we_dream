@@ -10,18 +10,28 @@ class School < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where("name LIKE ? OR city LIKE ?","%#{search}%","%#{search}%")
+      # hits = []
+      # terms = search.split
+      # terms.each do |term|
+      #   School.where("name LIKE :q OR city LIKE :q",q: "%#{term}%")
+      # end
+      # where("name LIKE ? OR city LIKE ?","%#{search}%","%#{search}%")
+      if search[/public|private/i]
+        search.gsub(/public/i, "true")
+      end
+      search_length = search.split.length
+      array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? true : false : "%#{term}%"}
+      p array
+      where([(['name LIKE ? OR city LIKE ? OR public LIKE ?'] * search_length).join(' AND ')] + (array))
     else
       all
     end
   end
 
   def self.states
-    [
-      'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA',
-      'KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ',
-      'NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT',
-      'VA','WA','WV','WI','WY'
+    %w[
+      AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO
+      MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY
     ]
   end
 
