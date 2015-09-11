@@ -18,8 +18,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.9'
 group :production do
   gem 'puma'
-  gem 'rails_12factor'
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do

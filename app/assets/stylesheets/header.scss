@@ -1,3 +1,7 @@
+.fa-expeditedssl.fa-stack-2x {
+  font-size:1.9em;
+  padding-top:.02em;
+}
 #header-image {
   height: 100%;
   width: 100%;
@@ -5,7 +9,6 @@
   background-position: center;
   background-size: cover;
 }
-
 #mobile-nav {
   color: #2e2f33;
   display: none;
@@ -22,16 +25,13 @@
   div {
     position: relative;
   }
-
   h3 {
     margin: 0 0 .5em;
   }
-
   p {
     font-family: 'Exo', sans-serif;
     margin: 0;
   }
-
   span {
     position: absolute;
     width:100%;
@@ -53,13 +53,11 @@
     float: left;
   }
 }
-
 .header-text {
   @include mobile {
     display: none;
   }
 }
-
 #features {
   display: none;
   &:hover {
@@ -69,11 +67,9 @@
     display: inline;
   }
 }
-
 .header--hidden {
   @include transform( translateY(-100%) );
 }
-
 header.navigation {
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
@@ -104,13 +100,10 @@ header.navigation {
   border-bottom: 1px solid #efefef;
   // color: $navigation-color;
   color: white;
-
   @include transition( transform .5s );
-
   @include mobile {
     height: $navigation-height-mobile;
   }
-
   .navigation-wrapper {
     @include clearfix;
     @include outer-container;
@@ -123,17 +116,14 @@ header.navigation {
     @include laptop {
       width: 970px;
     }
-
     @include tablet {
       width: 750px;
     }
-
     @include mobile {
       width: 100%;
       padding: 0 2%;
     }
   }
-
   .logo {
     margin-right: .5em;
     font-size: 1.2em;
@@ -141,14 +131,11 @@ header.navigation {
       margin-right: .1em;
     }
   }
-
   // Nav menu
-
   nav {
     float: right;
     z-index: 9999999;
   }
-
   ul.navigation-menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
@@ -158,15 +145,11 @@ header.navigation {
     padding: 0;
     width: 100%;
     z-index: 9999;
-
     &.show {
       display: block;
     }
-
   }
-
   // The nav items
-
   ul li.nav-link {
     background: transparent;
     display: inline;
@@ -179,7 +162,6 @@ header.navigation {
     &:first-child {
       padding: 0;
     }
-
     @include mobile {
       padding-left: .5em;
       background: transparent;
@@ -188,7 +170,6 @@ header.navigation {
       text-decoration: none;
       width: auto;
     }
-
     a {
       // color: $navigation-color;
       color: white;
@@ -202,59 +183,46 @@ header.navigation {
       }
     }
   }
-
   .active-nav-item a {
     border-bottom: 1px solid $navigation-color;
     padding-bottom: 3px;
   }
-
   // Sub menus
-
   li.more.nav-link {
     // padding-right: 0;
     padding-right: $navigation-submenu-padding;
-
     @include media($horizontal-bar-mode) {
       padding-right: $navigation-submenu-padding;
     }
-
     > ul > li:first-child a  {
       padding-top: 1em;
     }
-
     a {
       margin-right: $navigation-submenu-padding;
     }
-
     > a {
       padding-right: 0.6em;
     }
-
     > a:after {
       @include position(absolute, auto -0.4em auto auto);
       content: '\25BE';
       color: $navigation-color;
     }
   }
-
   li.more {
     overflow: visible;
     // padding-right: 0;
     padding-right: 0.8em;
     position: relative;
-
     a {
       padding-right: 0.8em;
     }
-
     > a {
       padding-right: 1.6em;
       position: relative;
-
       @include media($horizontal-bar-mode) {
         margin-right: $navigation-submenu-padding;
       }
-
       &:after {
         content: '›';
         font-size: 1.2em;
@@ -262,51 +230,41 @@ header.navigation {
         right: $navigation-submenu-padding / 2;
       }
     }
-
     &:focus > .submenu,
     &:hover > .submenu {
       display: block;
     }
-
     @include media($horizontal-bar-mode) {
       padding-right: 0.8em;
       position: relative;
     }
   }
-
   ul.submenu {
     display: none;
     padding-left: 0;
-
     left: -$navigation-submenu-padding;
     position: absolute;
     top: 1.5em;
-
     @include media($horizontal-bar-mode) {
       left: -$navigation-submenu-padding;
       position: absolute;
       top: 1.5em;
     }
-
     .submenu {
       left: $navigation-submenu-width - 0.2em;
       top: 0;
-
       @include media($horizontal-bar-mode) {
         left: $navigation-submenu-width - 0.2em;
         top: 0;
       }
     }
-
     li {
       display: block;
       padding-right: 0;
       line-height: $navigation-height / 1.3;
-
       @include mobile {
         line-height: $navigation-height-mobile / 1.3;
       }
-
       a {
         display: inline-block;
         text-align: right;
@@ -314,26 +272,19 @@ header.navigation {
       }
     }
   }
-
   // Search bar
-
   .search-bar {
     $search-bar-border-color: $base-border-color;
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10%);
-
     float: left;
     padding: 0.85em 0.85em 0.7em 0.6em;
     // width: 60%;
     width: 16em;
-
-
     display: inline-block;
     position: relative;
-
     form {
       position: relative;
-
       input[type=search] {
         @include box-sizing(border-box);
         background: $navigation-search-background;
@@ -345,12 +296,10 @@ header.navigation {
         margin: 0;
         padding: 0.5em 0.8em;
         width: 100%;
-
         @include media($horizontal-bar-mode) {
           width: 100%;
         }
       }
-
       button[type=submit] {
         background: $navigation-search-background;
         border: none;
@@ -361,7 +310,6 @@ header.navigation {
         position: absolute;
         right: 0.3em;
         top: 0.3em;
-
         img {
           height: 12px;
           opacity: 0.7;
@@ -369,12 +317,10 @@ header.navigation {
         }
       }
     }
-
     @include media($horizontal-bar-mode) {
       display: inline-block;
       position: relative;
       width: 16em;
-
       input {
         @include box-sizing(border-box);
         display: block;

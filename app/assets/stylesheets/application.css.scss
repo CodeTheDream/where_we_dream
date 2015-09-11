@@ -24,6 +24,7 @@
 @import 'footer';
 @import 'questions';
 @import 'schools';
+@import 'features';
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,200');
 @import url('https://fonts.googleapis.com/css?family=Exo:200italic,200');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
@@ -31,8 +32,14 @@
 
 body {
   margin: 0px;
+
 }
 
 p {
   font-size: 16px;
+}
+a, h1, h2, h3, h4, h5, h6, p, ul, li, footer, img, div, i {
+  &::selection {
+    background: transparentize(yellow, .6);
+  }
 }

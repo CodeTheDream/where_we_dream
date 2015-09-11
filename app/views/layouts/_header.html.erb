@@ -25,24 +25,33 @@
     </ul>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li id="admin" class="nav-link">
-          <a href="javascript:void(0)" class="login">
-            <span class="fa-stack">
-              <i class="fa fa-circle-thin fa-stack-2x"></i>
-              <i class="fa fa-unlock-alt fa-stack-1x"></i>
-            </span>
-            <span class='header-text'>Admin</span>
-          </a>
-        </li>
-        <li class="nav-link" style="display:none;">
-          <a href="javascript:void(0)" class="login">
-            <span class="fa-stack">
-              <i class="fa fa-circle-thin fa-stack-2x"></i>
-              <i class="fa fa-user fa-stack-1x"></i>
-            </span>
-            <span class='header-text'>Login<span>
-          </a>
-        </li>
+        <% if admin_or_above? %>
+          <li id="admin" class="nav-link">
+            <a href="javascript:void(0)" class="login">
+              <span class="fa-stack">
+                <% if god? %>
+                  <i class="fa fa-expeditedssl fa-stack-2x"></i>
+                <% else %>
+                  <i class="fa fa-circle-thin fa-stack-2x"></i>
+                  <i class="fa fa-unlock-alt fa-stack-1x"></i>
+                  <!-- <i class="fa fa-user-secret fa-stack-1x"></i> -->
+                <% end %>
+              </span>
+              <span class='header-text'><%= user_type %></span>
+            </a>
+          </li>
+        <% end %>
+        <% unless logged_in? %>
+          <li class="nav-link">
+            <a href="/login" class="login">
+              <span class="fa-stack">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-user-plus fa-stack-1x" style="padding-left:.1em;"></i>
+              </span>
+              <span class='header-text'>Login<span>
+            </a>
+          </li>
+        <% end %>
         <li id="features" class="nav-link">
           <span class="fa-stack">
             <i class="fa fa-circle-thin fa-stack-2x"></i>
@@ -55,14 +64,14 @@
   <nav id="mobile-nav">
     <div id="nav-features">
       <div class="feature">
-        <a href="javascript:void(0)"><span></span></a>
+        <a href="/schools"><span></span></a>
         <h3>Schools</h3>
         <p>Browse through our <%= School.count %> schools</p>
       </div>
       <div class="feature">
         <a href="javascript:void(0)"><span></span></a>
         <h3>Scholarships</h3>
-        <p>Browse through our '5' known immigrant-friendly scholarship!</p>
+        <p>Browse through our '5' scholarships</p>
       </div>
       <div class="feature">
         <a href="javascript:void(0)"><span></span></a>
@@ -85,6 +94,11 @@
         <%= link_to '<span></span>'.html_safe, admin_questions_path %>
         <h3>Questions</h3>
         <p>Edit questions.</p>
+      </div>
+      <div class="feature">
+        <%= link_to '<span></span>'.html_safe, admin_users_path %>
+        <h3>Users</h3>
+        <p>Edit users.</p>
       </div>
     </div>
     <div id="nav-other">

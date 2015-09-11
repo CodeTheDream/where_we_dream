@@ -29,13 +29,11 @@ input[type="text"] {
 table.pretty {
 	border-collapse: collapse;
 }
-
 .pretty td,
 .pretty th {
-  padding: 4px 10px;
+  padding: 0 3px 1px;
   border: solid 1px #AAA;
 }
-
 .asc:after{
   content: " \25BC";
 }

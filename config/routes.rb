@@ -9,11 +9,9 @@ Rails.application.routes.draw do
   get 'schools' => 'pages#schools'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
-  resources :users
-
   namespace :admin do
     resources :schools
     resources :questions
+    resources :users, except: :show
   end
-
 end

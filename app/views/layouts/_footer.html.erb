@@ -11,6 +11,7 @@
         <li><h3>Content</h3></li>
         <li><a href="http://www.codethedream.org/about/">About</a></li>
         <li><a href="http://www.codethedream.org/contact/">Contact</a></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
       </ul>
       <ul class="left">
         <li><h3>Legal</h3></li>
@@ -46,7 +47,16 @@
       </ul>
     </div>
     <div>
-      <p class="copywrite">© 2015 Where We Dream | Code The Dream</p>
+      <p>
+        <%= link_to "About", "http://www.codethedream.org/about/" %> |
+        <%= link_to "Contact", "http://www.codethedream.org/contact/" %> |
+        <%= link_to "Terms and Conditions", "javascript:void(0)" %> |
+        <%= link_to "Privacy Policy", "javascript:void(0)" %>
+        <% if logged_in? %>
+          | <%= link_to "Logout", logout_path, method: :delete %>
+        <% end %>
+      </p><br>
+      <p class="copywrite">©<%= Date.today.year %> Where We Dream</p>
     <div>
   </div>
 </footer>
