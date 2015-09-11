@@ -35,4 +35,12 @@ module ApplicationHelper
   def user_type
     session[:user_type]
   end
+
+  def sort_column
+    %w[name rating public city complete].include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end

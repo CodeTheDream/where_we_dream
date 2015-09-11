@@ -5,7 +5,7 @@ class Admin::SchoolsController < ApplicationController
 
   def index
     School.where(name: nil).destroy_all
-    @schools = School.search(params[:search])
+    @schools = School.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -32,7 +32,7 @@ class Admin::SchoolsController < ApplicationController
   def create
     @school = School.create(new_school_params)
     if @school.update(school_params)
-      @school.update(rating: @school.rating!)
+      @school.update(rating: @school.rating!, complete: complete?)
       redirect_to admin_schools_path, notice: 'School was successfully created.'
     else
       School.destroy(@school.id)
@@ -42,7 +42,7 @@ class Admin::SchoolsController < ApplicationController
 
   def update
     if @school.update(school_params)
-      @school.update(rating: @school.rating!)
+      @school.update(rating: @school.rating!, complete: complete?)
       redirect_to admin_schools_path, notice: 'School was successfully updated.'
     else
       redirect_to edit_admin_school_path(@school), notice: 'Update failed'

@@ -11,6 +11,7 @@ class CreateSchools < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.boolean :public
+      t.boolean :complete
 
       t.timestamps null: false
     end

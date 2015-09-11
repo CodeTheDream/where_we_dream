@@ -9,6 +9,10 @@ class Rule < ActiveRecord::Base
     self.question.value
   end
 
+  def no_answer?
+    answer == nil
+  end
+
   def answer!
     case answer
     when true

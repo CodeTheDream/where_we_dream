@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150909201256) do
     t.string   "state"
     t.string   "zip"
     t.boolean  "public"
+    t.boolean  "complete"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

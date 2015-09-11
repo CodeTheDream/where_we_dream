@@ -8,6 +8,8 @@ class School < ActiveRecord::Base
 
   accepts_nested_attributes_for :rules
 
+  attr_accessor :info
+
   def self.search(search)
     if search
       # hits = []
@@ -16,9 +18,6 @@ class School < ActiveRecord::Base
       #   School.where("name LIKE :q OR city LIKE :q",q: "%#{term}%")
       # end
       # where("name LIKE ? OR city LIKE ?","%#{search}%","%#{search}%")
-      if search[/public|private/i]
-        search.gsub(/public/i, "true")
-      end
       search_length = search.split.length
       array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? true : false : "%#{term}%"}
       p array
@@ -57,5 +56,14 @@ class School < ActiveRecord::Base
 
   def public?
     public ? 'Public' : 'Private'
+  end
+
+  def complete?
+    # if any of the school attributes == nil or any of it's rules don't have answers
+    !(attributes.values.include?(nil) || rules.select(&:no_answer?).any?)
+  end
+
+  def info
+    incomplete?
   end
 end
