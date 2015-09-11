@@ -1,0 +1,9 @@
+<% if admin_or_above? %>
+  <h1>New User</h1>
+<% else %>
+  <h1>Sign Up</h1>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', :back %>
