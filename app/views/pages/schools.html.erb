@@ -22,10 +22,14 @@
     <% @schools.each do |school| %>
       <tr>
         <td><%= school.name %></td>
-        <td><%= school.rating! %>%</td>
+        <td><%= school.rating.round %>%</td>
         <td><%= school.public? %></td>
         <td><%= school.city %></td>
-        <td><%= link_to 'Show', admin_school_path(school) %></td>
+        <td>
+          <%= link_to admin_school_path(school) do %>
+            <i class="fa fa-eye mobile-only"></i><span class="desktop-only">Show</span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

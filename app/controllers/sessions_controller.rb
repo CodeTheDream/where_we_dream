@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       end
     else
       session[:user_id] = nil     # if not, clear session and go to login page, just in case db was dropped but didn't log out.
+      session[:user_type] = nil
     end
   end
 

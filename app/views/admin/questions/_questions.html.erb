@@ -3,8 +3,10 @@
     <div>
       <span>
         <%= text_area_tag 'question', question.value, class: 'edit-question', id: question.id %>
-        <%= link_to admin_question_path(question), method: :delete, remote: true, class: 'destroy-button' do %>
-          <i class="fa fa-trash-o"></i>
+        <% if god? %>
+          <%= link_to admin_question_path(question), method: :delete, remote: true, class: 'destroy-button' do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
         <% end %>
       </span>
     </div>

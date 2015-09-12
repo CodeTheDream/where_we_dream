@@ -46,7 +46,9 @@ function autoHideHeader() {
   $(window).scroll(function(){
     // clearTimeout(timer);
     if ($(window).scrollTop() > previous  && $(window).width() <= 768) {  //scroll down
-      $('header').addClass('header--hidden');
+      if ( !($('#nav-features').is(":visible") || $('#nav-admin').is(":visible")) ) {
+        $('header').addClass('header--hidden');
+      }
     } else {                                                              //scroll up
       $('header').removeClass('header--hidden');
     };

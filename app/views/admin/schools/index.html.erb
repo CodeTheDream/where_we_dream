@@ -24,13 +24,25 @@
         <td><%= number += 1 %></td>
         <td><%= school.complete? ? "✓" : "INC" %></td>
         <td><%= school.name %></td>
-        <td><%= link_to 'Show', admin_school_path(school) %></td>
-        <td><%= link_to 'Edit', edit_admin_school_path(school) %></td>
-        <td><%= link_to 'Destroy', admin_school_path(school), method: :delete %></td>
+        <td>
+          <%= link_to admin_school_path(school) do %>
+            <i class="fa fa-eye mobile-only"></i><span class="desktop-only">Show</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_admin_school_path(school) do %>
+            <i class="fa fa-pencil-square-o mobile-only"></i><span class="desktop-only">Edit</span>
+          <% end %>
+        </td>
+        <% if god? %>
+          <td>
+            <%= link_to admin_school_path(school), method: :delete do %>
+              <i class="fa fa-ban mobile-only"></i><span class="desktop-only">Destroy</span>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br><br>
 <%= link_to 'Back', :back %>

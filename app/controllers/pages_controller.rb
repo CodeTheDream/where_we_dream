@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    User.any? ? () : (session[:user_id], session[:user_type] = nil)
     @page = "home"
   end
 

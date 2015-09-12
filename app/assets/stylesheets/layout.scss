@@ -6,6 +6,16 @@
     padding: 55px 15px 30px;
   }
 }
+.desktop-only {
+  @include mobile {
+    display: none;
+  }
+}
+.mobile-only {
+  @include immobile {
+    display: none !important;
+  }
+}
 textarea {
   font: inherit;
   // margin-bottom: 1px;
@@ -13,7 +23,9 @@ textarea {
   height: 1em;
   resize: none;
 }
-input[type="text"] {
+input[type="text"],
+input[type="number"],
+select {
   font: inherit;
   width: 98%;
 }
@@ -28,15 +40,17 @@ input[type="text"] {
 }
 table.pretty {
 	border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%
 }
 .pretty td,
 .pretty th {
-  padding: 0 3px 1px;
-  border: solid 1px #AAA;
+  padding: 0 4px 1px;
+  border-bottom: solid 1px #AAA;
 }
 .asc:after{
-  content: " \25BC";
+  content: "\25BC";
 }
 .desc:after{
-  content: " \25B2";
+  content: "\25B2";
 }
