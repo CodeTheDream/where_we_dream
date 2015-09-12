@@ -1,46 +1,29 @@
 <h1 style="display:inline">All Schools</h1>
 <%= link_to 'New School', new_admin_school_path, style: 'float:right;' %>
-<%= form_tag admin_schools_path, :method => 'get', class: 'form-search' do %>
-  <%= hidden_field_tag :direction, params[:direction] %>
-  <%= hidden_field_tag :sort, params[:sort] %>
-  <i class="fa fa-search"></i>
-  <%= text_field_tag :search, params[:search], placeholder: 'Search by name' %>
-<% end %>
+<%= render 'layouts/search', path: admin_schools_path, placeholder: 'Search schools' %>
 
 <table class="pretty">
   <thead>
     <tr>
       <th colspan='1'>#</th>
       <th><%= sortable "complete", "Info" %></th>
+      <th><%= sortable "rating" %></th>
       <th><%= sortable "name" %></th>
-      <th colspan='3'></th>
+      <th><%= sortable "public" %></th>
+      <th><%= sortable "city" %></th>
     </tr>
   </thead>
 
   <tbody>
     <% number = 0 %>
     <% @schools.each do |school| %>
-      <tr>
+      <tr  data-href="/admin/schools/<%= school.id %>" class="tr-content">
         <td><%= number += 1 %></td>
         <td><%= school.complete? ? "✓" : "INC" %></td>
+        <td><%= school.rating.round %>%</td>
         <td><%= school.name %></td>
-        <td>
-          <%= link_to admin_school_path(school) do %>
-            <i class="fa fa-eye mobile-only"></i><span class="desktop-only">Show</span>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to edit_admin_school_path(school) do %>
-            <i class="fa fa-pencil-square-o mobile-only"></i><span class="desktop-only">Edit</span>
-          <% end %>
-        </td>
-        <% if god? %>
-          <td>
-            <%= link_to admin_school_path(school), method: :delete do %>
-              <i class="fa fa-ban mobile-only"></i><span class="desktop-only">Destroy</span>
-            <% end %>
-          </td>
-        <% end %>
+        <td><%= school.public? %></td>
+        <td><%= school.city %></td>
       </tr>
     <% end %>
   </tbody>

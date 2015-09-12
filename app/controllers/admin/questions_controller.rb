@@ -31,7 +31,10 @@ class Admin::QuestionsController < ApplicationController
     if @question.value.blank?
       @questions = Question.all
     elsif @question.save
-      School.all.each{ |school| school.rules.create(question: @question) }
+      School.all.each do |school|
+        school.rules.create(question: @question)
+        school.update(rating: rating!)
+      end
       @questions = Question.all
     end
   end

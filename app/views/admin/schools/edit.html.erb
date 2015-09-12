@@ -1,5 +1,9 @@
-<h1>Editing School</h1>
-
+<h1 style="display:inline;">Editing School</h1>
+<% if god? %>
+  <%= link_to admin_school_path(@school), method: :delete, style: "float:right;color:red;" do %>
+    <i class="fa fa-ban fa-2x mobile-only"></i><span class="desktop-only">Destroy</span>
+  <% end %>
+<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Back', :back %>

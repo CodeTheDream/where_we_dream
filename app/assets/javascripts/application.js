@@ -46,7 +46,7 @@ function autoHideHeader() {
   $(window).scroll(function(){
     // clearTimeout(timer);
     if ($(window).scrollTop() > previous  && $(window).width() <= 768) {  //scroll down
-      if ( !($('#nav-features').is(":visible") || $('#nav-admin').is(":visible")) ) {
+      if ( !( $('#mobile-nav').is(":visible") ) ) {
         $('header').addClass('header--hidden');
       }
     } else {                                                              //scroll up
@@ -138,6 +138,13 @@ function showAdditionalDetails() {
   });
 };
 
+function clickableTableRows(){
+  $('*[data-href]').click(function(){
+    window.location = $(this).data('href');
+    return false;
+  });
+};
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -147,3 +154,4 @@ $(deleteQuestion);
 $(updateQuestion);
 $(showAdditionalDetails);
 $(makeTextareaElastic);
+$(clickableTableRows);

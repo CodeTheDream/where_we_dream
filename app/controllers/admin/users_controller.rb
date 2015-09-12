@@ -1,10 +1,10 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  include ApplicationHelper
+  helper_method :sort_column
   # GET /users
   def index
-    @users = User.all
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /users/1
@@ -61,5 +61,9 @@ class Admin::UsersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :user_type)
+    end
+
+    def sort_column
+      %w[first_name last_name user_type].include?(params[:sort]) ? params[:sort] : 'first_name'
     end
 end

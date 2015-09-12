@@ -1,10 +1,11 @@
 <h1>Listing Users</h1>
 
+<%= render 'layouts/search', path: admin_users_path, placeholder: 'Search users' %>
+
 <table class="pretty">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th><%= sortable "first_name", "Name" %></th>
       <th>Email</th>
       <th>User type</th>
       <th colspan="2"></th>
@@ -14,12 +15,23 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
+        <td><%= "#{user.first_name} #{user.last_name}" %></td>
         <td><%= user.email %></td>
-        <td><%= user.user_type %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
-        <td><%= link_to 'Destroy', admin_user_path(user), method: 'delete' %></td>
+        <td><%= user.user_type == "God" ? "Cruz" : user.user_type %></td>
+        <td>
+          <% if god? || user.is_in_session?(session[:user_id]) %>
+              <%= link_to edit_admin_user_path(user) do %>
+                <i class="fa fa-pencil-square-o mobile-only"></i><span class="desktop-only">Edit</span>
+              <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if god? || ( user.viewer? && admin_or_above? ) %>
+            <%= link_to admin_user_path(user), method: :delete do %>
+              <i class="fa fa-ban mobile-only"></i><span class="desktop-only">Destroy</span>
+            <% end %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

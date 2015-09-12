@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   patch 'new_question_partial' => 'admin/questions#partial'
   get 'schools' => 'pages#schools'
   # match 'schools', :via => :search, :to => 'pages#schools'
-
+  get	'/schools/:id'	=> 'admin/schools#show'
   namespace :admin do
     resources :schools
     resources :questions

@@ -2,6 +2,7 @@ class Admin::SchoolsController < ApplicationController
   before_action :authenticate_admin
   before_action :set_school, only: [:show, :edit, :update, :destroy]
   before_action :set_states, only: [:new, :edit]
+  helper_method :sort_column
 
   def index
     School.where(name: nil).destroy_all
@@ -9,14 +10,6 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def show
-    # unless @school.rules.count == Question.count
-    #   array1 = Question.all.map(&:id)
-    #   array2 = @school.rules.map{|x| x.question.id}
-    #   array1 -= array2
-    #   array1.each do |id|
-    #     @school.rules.create(question_id: id)
-    #   end
-    # end
   end
 
   def new
@@ -75,5 +68,9 @@ class Admin::SchoolsController < ApplicationController
         :name, :link, :rating, :students, :undocumented_students, :street, :city,
         :state, :zip, :public, rules_attributes: [:id, :answer, :details]
       )
+    end
+
+    def sort_column
+      %w[name rating public city complete].include?(params[:sort]) ? params[:sort] : "name"
     end
 end
