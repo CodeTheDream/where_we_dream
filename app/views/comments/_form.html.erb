@@ -9,8 +9,11 @@
       </ul>
     </div>
   <% end %>
+
+  <%= f.hidden_field :user_id, value: session[:user_id] %>
+
   <div class="field">
-    <%= f.text_area :content, placeholder: "Add a public comment..." %>
+    <%= f.text_area :content, rows: 1, placeholder: "Add a public comment..." %>
   </div>
   <div class="field">
     <%= f.submit %>

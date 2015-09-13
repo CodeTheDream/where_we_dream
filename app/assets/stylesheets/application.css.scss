@@ -38,7 +38,7 @@ body {
 p {
   font-size: 16px;
 }
-a, h1, h2, h3, h4, h5, h6, p, ul, li, footer, img, div, i, table, th, td, br, input {
+a, h1, h2, h3, h4, h5, h6, p, ul, li, header, footer, img, div, i, table, th, td, br, input, strong, form, textarea {
   &::selection {
     background: transparentize(yellow, .6);
   }
