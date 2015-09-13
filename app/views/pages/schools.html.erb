@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <% @schools.each do |school| %>
-      <tr data-href="/schools/<%= school.id %>" class="tr-content">
+      <tr data-href=<%= school_path(school) %> class="tr-content">
         <td><%= school.name %></td>
         <td><%= school.rating.round %>%</td>
         <td><%= school.public? %></td>

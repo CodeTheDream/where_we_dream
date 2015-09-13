@@ -5,6 +5,7 @@ class School < ActiveRecord::Base
   validates :zip, format: { with: /\A\d{5}(\z|-\d{4}\z)/, message: "Zip code should be 12345 or 12345-1234" }, allow_blank: true
 
   has_many :rules, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   accepts_nested_attributes_for :rules
 

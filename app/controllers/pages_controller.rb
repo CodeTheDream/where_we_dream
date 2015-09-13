@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  helper_method :sort_column
   def home
     User.any? ? () : (session[:user_id], session[:user_type] = nil)
     @page = "home"
@@ -6,5 +7,9 @@ class PagesController < ApplicationController
 
   def schools
     @schools = School.search(params[:search]).order(sort_column + " " + sort_direction)
+  end
+
+  private def sort_column
+    %w[name rating public city complete].include?(params[:sort]) ? params[:sort] : "name"
   end
 end

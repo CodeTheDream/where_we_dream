@@ -10,6 +10,9 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def show
+    @commentable = @school
+    @comments = @school.comments
+    @comment = Comment.new
   end
 
   def new

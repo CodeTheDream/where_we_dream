@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
+  get 'comments/new'
+
   root 'pages#home'
 
   get 'login' => 'sessions#new'
@@ -8,7 +12,9 @@ Rails.application.routes.draw do
   patch 'new_question_partial' => 'admin/questions#partial'
   get 'schools' => 'pages#schools'
   # match 'schools', :via => :search, :to => 'pages#schools'
-  get	'/schools/:id'	=> 'admin/schools#show'
+  resources :schools, controller: 'admin/schools', only: :show do
+    resources :comments
+  end
   namespace :admin do
     resources :schools
     resources :questions
