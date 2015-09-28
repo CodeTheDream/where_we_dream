@@ -8,10 +8,14 @@
     </div>
     <div class="footer-links">
       <ul class="left">
+        <li><h3>Account</h3></li>
+        <li><%= link_to "Profile", profile_path %></li>
+        <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+      </ul>
+      <ul class="left">
         <li><h3>Content</h3></li>
         <li><a href="http://www.codethedream.org/about/">About</a></li>
         <li><a href="http://www.codethedream.org/contact/">Contact</a></li>
-        <li><%= link_to "Logout", logout_path, method: :delete %></li>
       </ul>
       <ul class="left">
         <li><h3>Legal</h3></li>

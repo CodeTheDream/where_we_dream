@@ -25,6 +25,8 @@
 @import 'questions';
 @import 'schools';
 @import 'features';
+@import 'comments';
+@import 'users';
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,200');
 @import url('https://fonts.googleapis.com/css?family=Exo:200italic,200');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
@@ -38,7 +40,8 @@ body {
 p {
   font-size: 16px;
 }
-a, h1, h2, h3, h4, h5, h6, p, ul, li, header, footer, img, div, i, table, th, td, br, input, strong, form, textarea {
+a, h1, h2, h3, h4, h5, h6, p, ul, li, header, footer, img, div, i, table, th,
+td, br, input, strong, form, textarea, label, select, span {
   &::selection {
     background: transparentize(yellow, .6);
   }

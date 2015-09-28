@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_admin, except: [:new, :create]
+  before_action :authenticate_admin, except: [:new, :create, :show, :update]
+  before_action :authenticate_update, only: :update
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column
   # GET /users
@@ -29,7 +30,7 @@ class Admin::UsersController < ApplicationController
         redirect_to admin_users_path
       else
         session[:user_id] = @user.id
-        session[:user_id] = @user.type
+        session[:user_type] = @user.type
         redirect_to root_path, notice: 'User was successfully created.'
       end
     else
@@ -40,7 +41,11 @@ class Admin::UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      redirect_to admin_users_path, notice: 'User was successfully updated.'
+      if admin_or_above?
+        redirect_to admin_users_path, notice: 'User was successfully updated.'
+      else
+        redirect_to profile_path, notice: 'Account successfully updated.'
+      end
     else
       render :edit
     end
@@ -60,7 +65,7 @@ class Admin::UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :user_type)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :user_type, :image)
     end
 
     def sort_column

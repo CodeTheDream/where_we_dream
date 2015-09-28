@@ -44,7 +44,6 @@
   </p>
 <% end %>
 
-<%= render 'comments/index' %>
+<h2>All Comments (<%= @comments.count %>)</h2>
 <%= render 'comments/form' %>
-
-<%= link_to 'Back', :back %>
+<%= render 'comments/index' %>

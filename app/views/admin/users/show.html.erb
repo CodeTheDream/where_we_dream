@@ -1,23 +1,12 @@
 <p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+  <strong>Name:</strong>
+  <%= @user.first_name + ' ' + @user.last_name %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @user.email %>
+  <%= mail_to @user.email %>
 </p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
 <p>
   <strong>User type:</strong>
   <%= @user.user_type %>

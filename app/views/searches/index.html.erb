@@ -24,7 +24,7 @@
             <center>
               <h2>Choose a School</h2>
               <%= form_tag schools_path, :class => "search-bar", :method => 'get' do %>
-                <%= text_field_tag :search, params[:search], :type => "search", :placeholder => "Enter School" %>
+                <%= text_field_tag :search, params[:search], :type => "search", :placeholder => "Enter School", class: "wide" %>
                 <button type="submit">
                   <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
                 </button>

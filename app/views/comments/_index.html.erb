@@ -1,8 +1,18 @@
-<h1>Comments</h1>
 <div id="comments">
   <% @comments.each do |comment| %>
     <div class="comment">
-      <strong><%= comment.user.first_name %>:</strong> <%= comment.content %>
+      <div class="user-image">
+        <%= link_to user_path(session[:user_id]) do %>
+          <%= image_tag comment.user.image.url(:thumb) %>
+        <% end %>
+      </div>
+      <div class="comment-content">
+        <strong>
+          <%= link_to comment.user.first_name, user_path(session[:user_id]), class: 'comment-name' %>
+        </strong>
+        <span class="time"><%= created_at(comment) %></span><br>
+        <%= comment.content %>
+      </div>
     </div>
   <% end %>
 </div>

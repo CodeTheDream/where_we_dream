@@ -1,5 +1,5 @@
 class Admin::SchoolsController < ApplicationController
-  before_action :authenticate_admin
+  before_action :authenticate_admin, except: [:show, :update]
   before_action :set_school, only: [:show, :edit, :update, :destroy]
   before_action :set_states, only: [:new, :edit]
   helper_method :sort_column
@@ -11,7 +11,7 @@ class Admin::SchoolsController < ApplicationController
 
   def show
     @commentable = @school
-    @comments = @school.comments
+    @comments = @school.comments.order(created_at: :desc)
     @comment = Comment.new
   end
 

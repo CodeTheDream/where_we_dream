@@ -34,11 +34,21 @@ textarea {
   // height: 1em;
   resize: none;
 }
-input[type="text"],
-input[type="number"],
-select {
+input {
   font: inherit;
+}
+.wide {
   width: 98%;
+}
+input[type="submit"] {
+  background-color: #167AC6;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: darken(#167AC6, 5%);
+  }
 }
 #questions span {
   position: relative;

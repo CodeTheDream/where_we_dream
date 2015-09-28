@@ -39,4 +39,12 @@ module ApplicationHelper
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+
+  def created_at(comment)
+    distance_of_time_in_words(comment.created_at!, Time.now) + " ago"
+  end
+
+  def user
+    User.find(session[:user_id])
+  end
 end
