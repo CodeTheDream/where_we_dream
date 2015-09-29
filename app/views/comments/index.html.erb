@@ -1,8 +1,8 @@
+<h2><%= @school.name %></h2>
+<h3>Comments · <%= @comments.count %></h3>
 <div id="comments">
   <% @comments.each do |comment| %>
     <div class="comment">
-      <a href="#" class="comment-click"><span class="click-area"></span></a>
-      <i class="fa fa-caret-square-o-down comment-dropdown"></i>
       <div class="user-image">
         <%= link_to user_path(comment.user.id) do %>
           <%= image_tag comment.user.image.url(:thumb) %>
@@ -12,12 +12,9 @@
         <strong>
           <%= link_to comment.user.first_name, user_path(comment.user.id), class: 'comment-name' %>
         </strong>
-        <span class="time"><%= created_at(comment) %></span>
-        <br>
+        <span class="time"><%= created_at(comment) %></span><br>
         <%= comment.content %>
       </div>
     </div>
-    <br>
   <% end %>
-  <%= link_to "All comments",  school_comments_path(@school) %>
 </div>

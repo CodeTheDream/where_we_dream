@@ -3,6 +3,7 @@
   line-height: 1.3em;
   position: relative;
   height: auto;
+  // clear: both;
 }
 .user-image {
   position: relative;
@@ -34,10 +35,18 @@
 }
 .new-comment-container {
   display: block;
-  margin-left: 55px;
+  margin-left: 60px;
 }
 .post {
   float: right;
   padding: 7px 10px;
-
+  display: inline-block;
+}
+.comment-dropdown {
+  font-size: .5em;
+  position: absolute;
+  right: 0;
+}
+.comment-click {
+  display: none;
 }

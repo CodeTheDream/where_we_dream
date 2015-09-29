@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   before_filter :load_commentable
 
   def index
-    @comments = @commentable.comments
+    @school = School.find(params[:school_id])
+    @comments = @commentable.comments.order(created_at: :desc)
   end
 
   def new
@@ -11,11 +12,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new(comment_params)
-    if @comment.save
-      redirect_to @commentable, notice: "Comment created."
-    else
-      render :new
-    end
+    @comment.save
+    redirect_to @commentable
   end
 
   private

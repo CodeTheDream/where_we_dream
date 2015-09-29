@@ -11,13 +11,12 @@
   <% end %>
 
   <%= f.hidden_field :user_id, value: session[:user_id] %>
-  <span class="user-image" style="float:left;">
+  <span class="user-image left">
     <%= image_tag user.image.url(:thumb) %>
   </span>
   <div class="new-comment-container">
     <%= f.text_area :content, rows: 2, placeholder: "Add a comment...", class: "new-comment" %>
-    <div>
-      <%= f.submit "Post", class: "post" %>
-    </div>
+    <%= f.submit "Post", class: "post" %>
   </div>
+  <br/>
 <% end %>

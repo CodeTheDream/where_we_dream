@@ -20,11 +20,13 @@
   <div class="field">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name, class: "wide" %>
-    <%= image_tag @user.image.url %>
   </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
+  <div>
+    <%= f.label :image, "Profile picture" %>
+  </div>
+  <div class="profile-user-image">
+    <%= f.file_field :image, accept: 'image/png,image/jpeg', id: "profilePicFileField" %>
+    <%= image_tag @user.image.url(:small), class: "profile-pic-account" %>
   </div>
   <div class="field">
     <%= f.label :email %><br>

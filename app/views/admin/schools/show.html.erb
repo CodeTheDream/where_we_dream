@@ -26,7 +26,7 @@
 
 <p>
   <strong>Undocumented Students:</strong>
-  <%= @school.undocumented_students %>
+  <%= @school.undocumented_students || "???" %>
 </p>
 
 <p>
@@ -34,16 +34,17 @@
   <%= @school.address %>
 </p>
 
-<strong>Number of questions:</strong> <%= @school.rules.count %>
-
+<% number = 0 %>
 <% @school.rules.each do |r| %>
   <p>
-    <strong><%= r.question! %></strong>
+    <strong><%= number += 1 %>. <%= r.question! %></strong>
     <%= r.answer! %><br/>
     <%= r.details ? r.details : () %>
   </p>
 <% end %>
 
-<h2>All Comments (<%= @comments.count %>)</h2>
-<%= render 'comments/form' %>
+<h2>Comments · <%= @comments.count %></h2>
+<% if logged_in? %>
+  <%= render 'comments/form' %>
+<% end %>
 <%= render 'comments/index' %>
