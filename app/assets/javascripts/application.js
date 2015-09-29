@@ -145,6 +145,19 @@ function clickableTableRows(){
   });
 };
 
+function toggleDropdown() {
+  $(".dropdown-button").click(function() {
+    console.log("clicked");
+    var button, menu;
+    button = $(this);
+    menu = button.siblings(".dropdown-menu");
+    menu.toggleClass("show-menu");
+    menu.children("li").click(function() {
+      menu.removeClass("show-menu");
+      button.html($(this).html());
+    });
+  });
+};
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -155,3 +168,4 @@ $(updateQuestion);
 $(showAdditionalDetails);
 $(makeTextareaElastic);
 $(clickableTableRows);
+$(toggleDropdown)

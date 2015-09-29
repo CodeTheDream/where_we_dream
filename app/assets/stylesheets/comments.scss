@@ -2,14 +2,17 @@
   margin-top: 1em;
   line-height: 1.3em;
   position: relative;
-  height: auto;
-  // clear: both;
+  min-height: $thumb-img-size;
+  &:hover {
+    .dropdown-button {
+      color: lightgray;
+    }
+  }
 }
 .user-image {
   position: relative;
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  width: $thumb-img-size;
   img {
     width: 100%;
   }
@@ -24,14 +27,21 @@
   margin-right: .5em;
 }
 .comment-content {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  padding-left: 10px;
+  display: block;
+  padding-left: $thumb-img-size + 10px;
 }
 .new-comment {
   padding: 5px 10px;
-  width: 100%
+  width: 100%;
+  // &:after {
+  //   @include position(absolute, 0 0 0 0);
+  //   color: black;
+  //   content: "\25b2";
+  //   font-size: 200px;
+  //   pointer-events: none;
+  //   text-shadow: 0 -2px 2px transparentize(black, 0.7);
+  //   top: -0.7em;
+  // }
 }
 .new-comment-container {
   display: block;
@@ -42,11 +52,90 @@
   padding: 7px 10px;
   display: inline-block;
 }
-.comment-dropdown {
-  font-size: .5em;
+.dropdown-button {
+  color: transparent;
+  &:hover {
+    color: gray !important;
+    cursor: pointer;
+  }
+}
+.dropdown-container {
+  font-size: .9em;
   position: absolute;
   right: 0;
 }
-.comment-click {
+.comment-area {
   display: none;
+}
+.reply {
+  color: #555;
+  font-weight: 600;
+  opacity: .75;
+  cursor: pointer;
+  &:hover {
+    color: black
+  }
+}
+.likes,
+.dislikes {
+  color: lightgray;
+  cursor: pointer;
+  &:hover {
+    color: gray;
+  }
+}
+.small {
+  font-size: .8em;
+}
+.pre-wrap {
+  white-space: pre-wrap;
+  cursor: default;
+}
+.dropdown {
+  $base-background-color: white !default;
+  $dropdown-border: 1px solid lightgray;
+  $dropdown-background: $base-background-color;
+  $dropdown-background-hover: #555;
+  $dropdown-padding: 4px 1.5em;
+  $dropdown-distance-from-button: 1.6em;
+
+  // .dropdown-button:after {
+  //   content: "\25BE";
+  // }
+  .dropdown-menu {
+    @include transition (all 0.2s ease-in-out);
+    background: $dropdown-background;
+    border: $dropdown-border;
+    display: none;
+    margin: 0;
+    overflow: show;
+    padding: 8px 0;
+    position: absolute;
+    right: 0;
+    top: $dropdown-distance-from-button;
+    width: 228px;
+    z-index: 99999;
+
+    &:before {
+      @include position(absolute, 0 0 0 213px);
+      color: white;
+      content: "\25b2";
+      font-size: 1.1em;
+      pointer-events: none;
+      text-shadow: 0 -2px 0 transparentize(black, 0.7);
+      top: -0.7em;
+    }
+  }
+  .dropdown-menu li {
+    cursor: pointer;
+    list-style: none;
+    padding: $dropdown-padding;
+  }
+  .dropdown-menu li:hover {
+    background: $dropdown-background-hover;
+    color: white;
+  }
+  .show-menu {
+    display: block;
+  }
 }

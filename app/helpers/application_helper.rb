@@ -47,4 +47,8 @@ module ApplicationHelper
   def user
     User.find(session[:user_id])
   end
+
+  def owner?(comment)
+    comment.user.id == session[:user_id]
+  end
 end

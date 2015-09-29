@@ -12,7 +12,9 @@
 
   <%= f.hidden_field :user_id, value: session[:user_id] %>
   <span class="user-image left">
-    <%= image_tag user.image.url(:thumb) %>
+    <%= link_to user_path(session[:user_id]) do %>
+      <%= image_tag user.image.url(:thumb) %>
+    <% end %>
   </span>
   <div class="new-comment-container">
     <%= f.text_area :content, rows: 2, placeholder: "Add a comment...", class: "new-comment" %>
