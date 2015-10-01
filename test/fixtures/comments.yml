@@ -2,10 +2,10 @@
 
 one:
   content: MyText
-  commentable_id: 
-  commentable_type: Commentable
+  commentable_id: 4
+  commentable_type: School
 
 two:
   content: MyText
-  commentable_id: 
-  commentable_type: Commentable
+  commentable_id: 28
+  commentable_type: School

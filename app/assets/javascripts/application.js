@@ -159,14 +159,34 @@ function toggleDropdown() {
 
 function addNewReply(){
   $('.reply').click(function() {
-    $('#new_reply').remove();
-    var id = $('form').attr('id');
-    var comment_id = $(this).attr('comment-id');
-    var new_comment = $('form').clone().attr('id','new_reply');
-    $('.user-image', new_comment).addClass('reply-spacing reply-image').removeClass('user-image');
-    $('.new-comment-container', new_comment).addClass('reply-spacing');
+    console.log("clicked");
+    var clicked = $(this);
+    var comment_id = clicked.attr('comment-id');
+    if ($("#new_reply").length > 0) {
+      var new_comment = $('#new_reply');
+    } else {
+      var id = $('form').attr('id');
+      var new_comment = $('form').clone().attr('id','new_reply');
+      $('.user-image', new_comment).addClass('reply-spacing reply-image').removeClass('user-image');
+      $('.new-comment-container', new_comment).addClass('reply-spacing');
+    };
     $('.original-comment-id', new_comment).attr('value', comment_id);
-    $(this).closest('.comment').after(new_comment)
+    clicked.closest('.comment').after(new_comment)
+  });
+};
+
+function toggleOpinions(){
+  $('.opinion').click(function(){
+    var clicked = $(this);
+    if (clicked.hasClass("fa-thumbs-up")) {
+      clicked.siblings(".likes").toggleClass("hide");
+      clicked.siblings(".opinion").removeClass("disliked");
+      clicked.toggleClass("liked");
+    } else {
+      clicked.siblings(".likes").addClass("hide");
+      clicked.siblings(".opinion").removeClass("liked");
+      clicked.toggleClass("disliked");
+    };
   });
 };
 
@@ -182,3 +202,4 @@ $(makeTextareaElastic);
 $(clickableTableRows);
 $(toggleDropdown);
 $(addNewReply);
+$(toggleOpinions);

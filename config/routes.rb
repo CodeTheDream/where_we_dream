@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'comments/index'
   get 'comments/new'
+  get 'likes' => 'likes#opinionate', as: "make_opinion"
 
   patch 'new_question_partial' => 'admin/questions#partial'
   get 'schools' => 'pages#schools'

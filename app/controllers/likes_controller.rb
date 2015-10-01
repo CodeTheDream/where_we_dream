@@ -5,4 +5,6 @@ class LikesController < ApplicationController
   end
   def destroy
   end
+  def opinionate
+  end
 end

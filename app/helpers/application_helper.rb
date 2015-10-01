@@ -6,6 +6,15 @@ module ApplicationHelper
     link_to title, params.merge(sort: column, direction: direction), {class: css_class, style: 'text-decoration:none;'}
   end
 
+  def likable(comment)
+    comment.liked? ? "fa fa-thumbs-up opinion liked" : "fa fa-thumbs-up opinion"
+    button_to make_opinion_path, class: css_class, remote: true
+  end
+
+  def dislikable
+
+  end
+
   def logged_in?
     session[:user_id]
   end

@@ -29,7 +29,8 @@
           <br/>
           <%= comment.content %>
           <br/>
-          <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <i class="fa fa-thumbs-up likes"></i>   <i class="fa fa-thumbs-down dislikes"></i></div>
+          <%# make the thumbs up stuff into a link_to inside the appHelper %>
+          <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <span class="likes hide"><%= comment.likes.count + 1 %>   </span><a class="fa fa-thumbs-up opinion"></a>   <i class="fa fa-thumbs-down opinion"></i></div>
         </div>
       </div>
       <% comment.replies.each do |reply| %>
@@ -61,7 +62,7 @@
             <br/>
             <%= reply.content %>
             <br/>
-            <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <i class="fa fa-thumbs-up likes"></i>   <i class="fa fa-thumbs-down dislikes"></i></div>
+            <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <i class="fa fa-thumbs-up opinion"></i>   <i class="fa fa-thumbs-down opinion"></i></div>
           </div>
         </div>
       <% end %>

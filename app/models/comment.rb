@@ -13,4 +13,8 @@ class Comment < ActiveRecord::Base
   def replies
     Comment.where(original_comment_id: id)
   end
+
+  def liked?
+    likes.where(user_id: session[:user_id]).any?
+  end
 end
