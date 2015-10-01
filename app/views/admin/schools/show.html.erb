@@ -43,7 +43,7 @@
   </p>
 <% end %>
 
-<h2>Comments · <%= @comments.count %></h2>
+<h2>Comments · <%= @school.comments.count %></h2>
 <% if logged_in? %>
   <%= render 'comments/form' %>
 <% end %>

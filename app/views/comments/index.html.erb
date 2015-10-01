@@ -1,5 +1,5 @@
 <h2><%= @school.name %></h2>
-<h3>Comments · <%= @comments.count %></h3>
+<h3>Comments · <%= @school.comments.count %></h3>
 <div id="comments">
   <% @comments.each do |comment| %>
     <div class="comment">

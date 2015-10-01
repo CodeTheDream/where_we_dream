@@ -1,0 +1,31 @@
+<div class="comment">
+  <a href="#" class="comment-area"><span class="click-area"></span></a>
+  <div class="user-image left">
+    <%= link_to user_path(@comment.user.id) do %>
+      <%= image_tag @comment.user.image.url(:thumb) %>
+    <% end %>
+  </div>
+  <div class="comment-content">
+    <span class="dropdown">
+      <span class="dropdown-container">
+        <i class="fa fa-caret-square-o-down dropdown-button"></i>
+        <ul class="dropdown-menu dropdown-select">
+          <% if owner?(@comment) %>
+            <li>Edit</li>
+            <li>Remove this comment</li>
+          <% else %>
+            <li>Report spam or abuse</li>
+          <% end %>
+        </ul>
+      </span>
+    </span>
+    <strong>
+      <%= link_to @comment.user.first_name, user_path(@comment.user.id), class: 'comment-name' %>
+    </strong>
+    <span class="time"><%= created_at(@comment) %></span>
+    <br/>
+    <%= @comment.content %>
+    <br/>
+    <div class="pre-wrap"><span class="small reply">Reply</span>   ·   <i class="fa fa-thumbs-up likes"></i>   <i class="fa fa-thumbs-down dislikes"></i></div>
+  </div>
+</div>

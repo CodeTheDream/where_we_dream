@@ -13,12 +13,11 @@ Rails.application.routes.draw do
   get 'profile' => 'pages#profile'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
+  resources :likes, only: [:create, :update, :destroy]
   resources :users, controller: 'admin/users'
-
   resources :schools, controller: 'admin/schools', only: :show do
     resources :comments
   end
-
   namespace :admin do
     resources :schools
     resources :questions

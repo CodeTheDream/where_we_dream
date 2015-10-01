@@ -11,8 +11,8 @@ class Admin::SchoolsController < ApplicationController
 
   def show
     @commentable = @school
-    @comments = @school.comments.order(created_at: :desc)
-    @comment = Comment.new
+    @comments = @school.comments.where(original_comment_id: nil).order(created_at: :desc)
+    @blank_comment = Comment.new
   end
 
   def new

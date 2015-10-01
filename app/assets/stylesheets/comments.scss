@@ -9,13 +9,18 @@
     }
   }
 }
-.user-image {
+.comment-images {
   position: relative;
   display: inline-block;
-  width: $thumb-img-size;
   img {
     width: 100%;
   }
+}
+.user-image {
+  width: $thumb-img-size;
+}
+.reply-image {
+  width: $xs-img-size;
 }
 .time {
   color: gray;
@@ -28,7 +33,7 @@
 }
 .comment-content {
   display: block;
-  padding-left: $thumb-img-size + 10px;
+  margin-left: $thumb-img-size + 10px;
 }
 .new-comment {
   padding: 5px 10px;
@@ -90,6 +95,15 @@
 .pre-wrap {
   white-space: pre-wrap;
   cursor: default;
+}
+.reply-image.reply-spacing {
+  margin-left: 60px;
+}
+.comment-content.reply-spacing {
+  margin-left: 98px;
+}
+.new-comment-container.reply-spacing {
+  margin-left: 98px;
 }
 .dropdown {
   $base-background-color: white !default;

@@ -4,7 +4,42 @@ possible colors :
 rails g scaffold user first_name last_name email password_digest user_type
 rails g controller sessions new create destroy
 
+rails g scaffold like user:references likable:references{polymorphic} value:boolean
+
 god > administrator > moderator&recruiter > viewer
+
+rails generate
+  migration
+    migration
+
+  model
+    model
+    migration
+
+  controller
+    controller
+    routes
+    views
+
+  resource
+    model
+      test
+    migration
+    controller
+      test
+      fixtures
+    routes
+    helper
+    assets
+      scss
+      coffee
+
+  scaffold
+    model
+    migration
+    controller
+    routes
+    views
 
 can do anything = god
 can delete comments = moderator|god|admin

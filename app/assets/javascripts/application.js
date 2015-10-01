@@ -147,10 +147,8 @@ function clickableTableRows(){
 
 function toggleDropdown() {
   $(".dropdown-button").click(function() {
-    console.log("clicked");
-    var button, menu;
-    button = $(this);
-    menu = button.siblings(".dropdown-menu");
+    var button = $(this);
+    var menu = button.siblings(".dropdown-menu");
     menu.toggleClass("show-menu");
     menu.children("li").click(function() {
       menu.removeClass("show-menu");
@@ -158,6 +156,20 @@ function toggleDropdown() {
     });
   });
 };
+
+function addNewReply(){
+  $('.reply').click(function() {
+    $('#new_reply').remove();
+    var id = $('form').attr('id');
+    var comment_id = $(this).attr('comment-id');
+    var new_comment = $('form').clone().attr('id','new_reply');
+    $('.user-image', new_comment).addClass('reply-spacing reply-image').removeClass('user-image');
+    $('.new-comment-container', new_comment).addClass('reply-spacing');
+    $('.original-comment-id', new_comment).attr('value', comment_id);
+    $(this).closest('.comment').after(new_comment)
+  });
+};
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -168,4 +180,5 @@ $(updateQuestion);
 $(showAdditionalDetails);
 $(makeTextareaElastic);
 $(clickableTableRows);
-$(toggleDropdown)
+$(toggleDropdown);
+$(addNewReply);
