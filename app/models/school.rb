@@ -6,7 +6,7 @@ class School < ActiveRecord::Base
 
   has_many :rules, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
-  has_many :likes, as: :likable, dependent: :destroy
+  has_many :opinions, as: :opinionable, dependent: :destroy
 
   accepts_nested_attributes_for :rules
 

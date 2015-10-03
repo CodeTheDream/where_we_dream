@@ -11,8 +11,8 @@ class LikeTest < ActiveSupport::TestCase
     assert_difference ["@comment.likes.count","@user.likes.count"] do
       like.save
     end
-    assert_equal "Comment", like.likable_type
-    assert_equal @comment.id, like.likable_id
+    assert_equal "Comment", like.opinionable_type
+    assert_equal @comment.id, like.opinionable_id
   end
 
   test "user has many likes" do

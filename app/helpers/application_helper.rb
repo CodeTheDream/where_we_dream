@@ -6,18 +6,33 @@ module ApplicationHelper
     link_to title, params.merge(sort: column, direction: direction), {class: css_class, style: 'text-decoration:none;'}
   end
 
-  def likable(comment)
-    comment.liked? ? "fa fa-thumbs-up opinion liked" : "fa fa-thumbs-up opinion"
-    button_to make_opinion_path, class: css_class, remote: true
+  def thumbs_up(resource)
+    resource.liked?(user_id) ? liked = " liked": liked = ""
+    ("<i class='fa fa-thumbs-up opinion" + liked + "'></i>").html_safe
   end
 
-  def dislikable
-
+  def thumbs_down(resource)
+    resource.disliked?(user_id) ? disliked = " disliked": disliked = ""
+    ("<i class='fa fa-thumbs-down opinion" + disliked + "'></i>").html_safe
   end
 
-  def logged_in?
+  def likes(resource)
+    if resource.liked?(user_id)
+      hide = ""
+      likes = resource.likes
+    else
+      hide = " hide"
+      likes = resource.likes + 1
+    end
+    likes = likes.to_s
+    ("<span class='likes"+hide+"'>"+likes+"   </span>").html_safe
+  end
+
+  def user_id
     session[:user_id]
   end
+
+  alias_method :logged_in?, :user_id
 
   def admin_or_above?
     %w[Admin God].include?(session[:user_type])
@@ -50,7 +65,7 @@ module ApplicationHelper
   end
 
   def created_at(comment)
-    distance_of_time_in_words(comment.created_at!, Time.now) + " ago"
+    distance_of_time_in_words(comment.created_at, Time.now) + " ago"
   end
 
   def user

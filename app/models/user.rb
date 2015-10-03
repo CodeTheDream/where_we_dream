@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :likes, as: :likable, dependent: :destroy
+  # has_many :opinions, as: :opinionable, dependent: :destroy
   has_attached_file :image, styles: { large: "230x230>", medium: "160x160>", small: "100x100>", thumb: "50x50>", xs: "28x28>" }, default_url: "/default_1.jpg"
-  
+
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true # with format
 
   def self.search(search)
     if search

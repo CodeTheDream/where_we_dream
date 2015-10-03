@@ -1,0 +1,11 @@
+one:
+  user_id:
+  opinionable_id:
+  opinionable_type: Comment
+  value: false
+
+two:
+  user_id:
+  opinionable_id:
+  opinionable_type: School
+  value: false

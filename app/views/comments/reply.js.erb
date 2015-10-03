@@ -1,4 +1,0 @@
-$("#new_reply").remove();
-$("#" + <%= @comment.original_comment_id %>).closest(".comment-thread").append("<%= j( render 'reply') %>");
-$(addNewReply);
-// $(toggleDropdown);

@@ -56,6 +56,7 @@ function autoHideHeader() {
   });
 };
 
+// pretty sure we can get rid of this method and make the link remote nah mean
 function addQuestionsPartial() {
   $("#new-question").click(
     function() {
@@ -159,13 +160,11 @@ function toggleDropdown() {
 
 function addNewReply(){
   $('.reply').click(function() {
-    console.log("clicked");
     var clicked = $(this);
     var comment_id = clicked.attr('comment-id');
     if ($("#new_reply").length > 0) {
       var new_comment = $('#new_reply');
     } else {
-      var id = $('form').attr('id');
       var new_comment = $('form').clone().attr('id','new_reply');
       $('.user-image', new_comment).addClass('reply-spacing reply-image').removeClass('user-image');
       $('.new-comment-container', new_comment).addClass('reply-spacing');
@@ -178,15 +177,43 @@ function addNewReply(){
 function toggleOpinions(){
   $('.opinion').click(function(){
     var clicked = $(this);
+    var sibling = clicked.siblings(".opinion");
+    var opinionable = clicked.closest(".opinionable");
+    var opinionable_id = opinionable.attr("id");
+    if (opinionable.is(".comment")) {
+      var opinionable_type = "Comment";
+    } else if (opinionable.is(".school")) {
+      var opinionable_type = "School";
+    }
     if (clicked.hasClass("fa-thumbs-up")) {
       clicked.siblings(".likes").toggleClass("hide");
-      clicked.siblings(".opinion").removeClass("disliked");
       clicked.toggleClass("liked");
+      sibling.removeClass("disliked");
     } else {
       clicked.siblings(".likes").addClass("hide");
-      clicked.siblings(".opinion").removeClass("liked");
       clicked.toggleClass("disliked");
+      sibling.removeClass("liked");
     };
+    var liked = clicked.is(".liked");
+    var disliked = clicked.is(".disliked");
+    if (liked) {
+      value = true;
+    } else if (disliked) {
+      value = false;
+    } else {
+      value = ""
+    }
+    $.ajax({
+      url: "/opinions",
+      type: "POST",
+      data: {
+        'like' : {
+          'opinionable_id': opinionable_id,
+          'opinionable_type': opinionable_type,
+          'value': value
+        }
+      }
+    })
   });
 };
 

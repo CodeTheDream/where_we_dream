@@ -1,4 +1,10 @@
-$("#new_comment").replaceWith("<%= j( render 'form') %>");
-$("#comments").prepend("<%= j( render 'comment') %>");
+<% if @comment.original_comment_id %>
+  $("#new_reply").remove();
+  $("#" + <%= @comment.original_comment_id %>).closest(".comment-thread").append("<%= j( render 'reply') %>");
+<% else %>
+  $("#new_comment").replaceWith("<%= j( render 'form') %>");
+  $("#comments").prepend("<%= j( render 'comment') %>");
+<% end %>
+$(toggleDropdown);
 $(addNewReply);
-// $(toggleDropdown);
+$(toggleOpinions);

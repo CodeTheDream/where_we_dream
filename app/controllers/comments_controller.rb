@@ -14,7 +14,10 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(comment_params)
     @comment.save
     @blank_comment = @commentable.comments.new
-    render :reply if @comment.original_comment_id
+  end
+
+  def update
+    # write some gangsta code here
   end
 
   def destroy

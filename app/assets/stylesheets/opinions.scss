@@ -1,0 +1,27 @@
+$default-thumb-color: lightgray;
+$like-color: rgb(63,159,63);
+$dislike-color: rgb(255,79,79);
+.opinion {
+  color: $default-thumb-color;
+  cursor: pointer;
+  &:hover {
+    color: darken($default-thumb-color, 25%);
+  }
+}
+.liked,
+.likes {
+  color: $like-color;
+  &:hover {
+    color: darken($like-color, 10%);
+  }
+}
+.disliked {
+  color: $dislike-color;
+  &:hover {
+    color: darken($dislike-color, 10%);
+  }
+}
+.pre-wrap {
+  white-space: pre-wrap;
+  cursor: default;
+}

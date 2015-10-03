@@ -1,6 +1,3 @@
-$default-thumb-color: lightgray;
-$like-color: rgb(63,159,63);
-$dislike-color: rgb(255,79,79);
 .comment {
   margin-top: 1em;
   line-height: 1.3em;
@@ -12,18 +9,17 @@ $dislike-color: rgb(255,79,79);
     }
   }
 }
-.comment-images {
-  position: relative;
-  display: inline-block;
-  img {
-    width: 100%;
-  }
-}
 .user-image {
   width: $thumb-img-size;
 }
 .reply-image {
   width: $xs-img-size;
+}
+.user-image,
+.reply-image {
+  img {
+    width: 100%;
+  }
 }
 .time {
   color: gray;
@@ -84,32 +80,8 @@ $dislike-color: rgb(255,79,79);
     color: black
   }
 }
-.opinion {
-  color: $default-thumb-color;
-  cursor: pointer;
-  &:hover {
-    color: darken($default-thumb-color, 25%);
-  }
-}
-.liked,
-.likes {
-  color: $like-color;
-  &:hover {
-    color: darken($like-color, 10%);
-  }
-}
-.disliked {
-  color: $dislike-color;
-  &:hover {
-    color: darken($dislike-color, 10%);
-  }
-}
 .small {
   font-size: .8em;
-}
-.pre-wrap {
-  white-space: pre-wrap;
-  cursor: default;
 }
 .reply-image.reply-spacing {
   margin-left: 60px;

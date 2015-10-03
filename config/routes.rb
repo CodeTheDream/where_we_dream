@@ -7,14 +7,13 @@ Rails.application.routes.draw do
 
   get 'comments/index'
   get 'comments/new'
-  get 'likes' => 'likes#opinionate', as: "make_opinion"
+  post 'opinions' => 'opinions#opinionate'
 
   patch 'new_question_partial' => 'admin/questions#partial'
   get 'schools' => 'pages#schools'
-  get 'profile' => 'pages#profile'
+  post 'profile' => 'pages#profile'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
-  resources :likes, only: [:create, :update, :destroy]
   resources :users, controller: 'admin/users'
   resources :schools, controller: 'admin/schools', only: :show do
     resources :comments
