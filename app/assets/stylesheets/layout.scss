@@ -66,7 +66,7 @@ table.pretty {
 }
 .pretty td,
 .pretty th {
-  padding: 0 4px 1px;
+  padding: 1px 4px;
   @include mobile {
     border-bottom: solid 1px #AAA;
   }

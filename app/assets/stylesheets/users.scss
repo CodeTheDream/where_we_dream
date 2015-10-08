@@ -11,14 +11,57 @@
 .profile-pic-account {
   cursor: pointer;
 }
+.profile-user-image,
+.small-image,
+.student-image {
+  display: inline-block;
+  img {
+    width: 100%
+  }
+}
 .profile-user-image {
   position: relative;
-  display: inline-block;
   height: 70px;
   width: 70px;
   img {
     width: 100%;
   }
+}
+.small-image {
+  width: $s-img-size;
+  height: $s-img-size;
+}
+.student-image {
+  vertical-align: middle;
+  height: $xs-img-size;
+  width: $xs-img-size;
+}
+.fa-map-marker.fa-stack-1x {
+  color: #DB493C;
+  font-size: 1.5em;
+}
+.fa-circle.fa-stack-1x {
+  color: #842D28;
+  font-size: .7em;
+  line-height: 1.4em;
+}
+.fa-stack.thin {
+  width: 1em;
+  line-height: 1.3em;
+  height: 1.3em;
+  top: -.3em;
+}
+.fa-envelope {
+  color: gray;
+}
+.fa-facebook-official {
+  color: #4862A3;
+}
+.fa-twitter-square {
+  color: #55ACEE;
+}
+.fa-linkedin-square {
+  color: #0077B5;
 }
 .update {
   padding: 12px;
@@ -38,6 +81,19 @@
   // border-collapse:collapse
 }
 .profile-name-container {
-  display: block;
-  margin-left: 80px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.gray {
+  color: gray;
+}
+.link {
+  text-decoration: none;
+  color: #34A853;
+  color: #EA4335;
+  color: #FBBC05;
+  color: #4285F4;
+}
+.thin-margin {
+  margin-top: .5em;
 }

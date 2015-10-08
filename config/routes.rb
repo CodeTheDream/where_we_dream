@@ -11,10 +11,11 @@ Rails.application.routes.draw do
 
   patch 'new_question_partial' => 'admin/questions#partial'
   get 'schools' => 'pages#schools'
-  post 'profile' => 'pages#profile'
+  get 'profile' => 'pages#profile'
+  get 'students' => 'pages#students'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
-  resources :users, controller: 'admin/users'
+  resources :users, controller: 'admin/users', only: [:show, :update, :edit]
   resources :schools, controller: 'admin/schools', only: :show do
     resources :comments
   end

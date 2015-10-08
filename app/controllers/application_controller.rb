@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_update
     #session[:user_id] is stored as a Fixnum. params[:id] is stored as a string
-    unless session[:user_id].to_s == params[:id]
+    unless session[:user_id].to_s == params[:id] || session[:user_type] == "God"
       redirect_to login_path
     end
   end

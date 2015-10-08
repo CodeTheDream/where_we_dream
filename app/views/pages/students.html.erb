@@ -1,0 +1,27 @@
+<h1>Listing Students</h1>
+
+<%= render 'layouts/search', path: students_path, placeholder: 'Search students' %>
+
+<table class="pretty">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th><%= sortable "first_name" %></th>
+      <th><%= sortable "last_name" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr data-href=<%= user_path(user) %> class="tr-content">
+        <td><%= image_tag user.image.url(:xs), class: "student-image" %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_admin_user_path %>

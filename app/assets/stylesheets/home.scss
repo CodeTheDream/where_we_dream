@@ -39,7 +39,7 @@
     text-align: center;
     left: 0;
     right: 0;
-    margin: 80px auto;
+    margin: 0 auto 80px;
 
     @include tablet {
       width: 90%
@@ -73,6 +73,10 @@
       }
     }
 
+    i {
+      font-size: 48px;
+      color: #9E9E9E;
+    }
     img {
       display: block;
       height: 3em;

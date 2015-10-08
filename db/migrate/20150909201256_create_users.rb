@@ -3,6 +3,12 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :first_name
       t.string :last_name
+      t.string :city
+      t.string :state
+      t.text :bio
+      t.string :facebook_url
+      t.string :twitter_name
+      t.string :linkedin_url
       t.string :email
       t.string :password_digest
       t.string :user_type

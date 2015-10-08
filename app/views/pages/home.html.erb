@@ -1,22 +1,32 @@
 <div class="flex-boxes">
   <a href="schools" class="flex-box flex-box-big">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+    <%= image_tag "school_1" %>
     <h1 class="flex-title">Schools</h1>
     <p>Browse through our <%= School.count %> schools and find out which is best for you!</p>
   </a>
   <a href="javascript:void(0)" class="flex-box">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+    <%= image_tag "money_1" %>
+    <%#= image_tag "money_2.png" %>
+    <%#= image_tag "money_3.gif" %>
+    <%#= image_tag "money_4.gif" %>
     <h1 class="flex-title">Scholarships</h1>
     <p>Browse through and apply for our '5' known immigrant-friendly scholarships!</p>
   </a>
   <a href="javascript:void(0)" class="flex-box">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+    <%#= image_tag "sponsor_1" %>
+    <%#= image_tag "sponsor_2.gif" %>
+    <%= image_tag "sponsor_3" %>
     <h1 class="flex-title">Sponsors</h1>
     <p>Browse through our sponsors and meet people who want to help fund your dreams!</p>
   </a>
-  <a href="javascript:void(0)" class="flex-box flex-box-big">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+  <a href="students" class="flex-box flex-box-big">
+    <%= image_tag "student_1" %>
+    <%#= image_tag "student_2.gif" %>
+    <%#= image_tag "graduation_cap" %>
+    <!-- <div style="height:52px;">
+      <i class="fa fa-graduation-cap"></i>
+    </div> -->
     <h1 class="flex-title">Students</h1>
-    <p>Browse through our '29' students who strive to fulfill their DREAMs.</p>
+    <p>Browse through our <%= User.students.count %> students who strive to fulfill their DREAMs.</p>
   </a>
 </div>

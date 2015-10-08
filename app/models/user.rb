@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.students
+    where(user_type: "Student")
+  end
+
   def type
     user_type
   end
@@ -30,5 +34,13 @@ class User < ActiveRecord::Base
 
   def user_type!
     user_type == "God" ? "Creator" : user_type
+  end
+
+  def name
+    first_name + " " + last_name
+  end
+
+  def location
+    city.empty? || state.empty? ? nil : city + ", " + state
   end
 end

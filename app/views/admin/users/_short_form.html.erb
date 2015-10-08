@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :user_type %><br>
-    <%= f.select :user_type, options_for_select(user_types), include_blank: true, class: "wide" %>
+    <%= f.select :user_type, options_for_select(user_types), {include_blank: true}, {class: "wide"} %>
   </div>
   <div class="actions">
     <%= f.submit %>

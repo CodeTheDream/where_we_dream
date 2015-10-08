@@ -1,0 +1,48 @@
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <span class="profile-user-image" style="float:left;">
+    <%= f.file_field :image, accept: 'image/png,image/jpeg', id: "profilePicFileField" %>
+    <%= image_tag @user.image.url(:small), class: "profile-pic-account" %>
+  </span>
+  <div class="profile-name-container">
+      <%= f.text_field :first_name, class: "resizable edit-name", placeholder: "First name" %>
+      <%= f.text_field :last_name, class: "resizable edit-name", placeholder: "Last name" %>
+    <p>
+      <%= @user.user_type! %>
+    </p>
+  </div>
+  <div>
+    <%= f.label :location %><br/>
+    <%= f.text_field :city, class: "resizable edit-name", placeholder: "City" %>
+    <%= f.select :state, options_for_select(@states, @user.state), {}, {class: "resizable edit-name"} %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, class: "wide" %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: "wide" %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook_url, "Facebook" %><br>
+    <%= f.text_field :facebook_url, placeholder: "URL (http://www.example.com/)", class: "wide" %>
+  </div>
+  <div class="field">
+    <label>Twitter</label><br>
+    <%= f.text_field :twitter_name, placeholder: "Twitter Name", class: "wide" %>
+  </div>
+  <div class="field">
+    <%= f.label :linkedin_url, "LinkedIn" %><br>
+    <%= f.text_field :linkedin_url, placeholder: "URL (http://www.example.com/)", class: "wide" %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br>
+    <%= f.text_area :bio, placeholder: "Enter some few details about yourself.", class: "wide" %>
+  </div>
+  <div class="field">
+    <%= f.label :user_type %><br>
+    <%= f.select :user_type, options_for_select(user_types), include_blank: true, class: "wide" %>
+  </div>
+  <%= f.submit 'Update', class: 'update' %>
+
+<% end %>
