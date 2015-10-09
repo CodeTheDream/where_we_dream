@@ -2,8 +2,9 @@ module ApplicationHelper
   def sortable(column, title = nil)
     title ||= column.titleize
     direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
-    css_class = column == sort_column ? "#{direction}" : nil
-    link_to title, params.merge(sort: column, direction: direction), {class: css_class, style: 'text-decoration:none;'}
+    css_direction = direction == "asc" ? "desc" : "asc"
+    css_class = column == sort_column ? "blue-link #{css_direction}" : "blue-link"
+    link_to title, params.merge(sort: column, direction: direction), {class: css_class}
   end
 
   def thumbs_up(resource)
@@ -74,5 +75,9 @@ module ApplicationHelper
 
   def owner?(comment)
     comment.user.id == session[:user_id]
+  end
+
+  def copywrite_year
+    Date.today.year == 2015 ? 2015 : "2015-#{today}"
   end
 end

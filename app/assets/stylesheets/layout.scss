@@ -30,7 +30,7 @@
 textarea {
   font: inherit;
   // margin-bottom: 1px;
-  width: 98%;
+  width: 100%;
   // height: 1em;
   resize: none;
 }
@@ -57,8 +57,9 @@ input[type="submit"] {
   color: crimson;
   position: absolute;
   right: 0;
-  margin: .3em;
-}
+  margin: .25em;
+  font-size: 1.1em !important;
+  }
 table.pretty {
 	border-collapse: collapse;
   margin-bottom: 1em;
@@ -77,11 +78,13 @@ table.pretty {
     background: #f2f2f2;
   }
 }
-.asc:after{
-  content: "\25BC";
+.asc:after {
+  font-family: FontAwesome;
+  content: " \f106";
 }
-.desc:after{
-  content: "\25B2";
+.desc:after {
+  font-family: FontAwesome;
+  content: " \f107";
 }
 .left {
   float: left;
@@ -91,4 +94,55 @@ table.pretty {
 }
 .hide {
   display: none;
+}
+.blue-link {
+  text-decoration: none;
+  color: #4285F4;
+}
+.thin-font {
+  font-weight: lighter;
+}
+.thick-font {
+  font-weight: bolder;
+}
+.quotes {
+  margin-left: 1em;
+}
+.image-padding {
+  margin-right: 1em;
+  margin-bottom: .5em;
+}
+.team-member-container {
+  min-height: $m-img-size;
+}
+.twin {
+  @include immobile {
+    display: table-cell;
+  }
+  @include mobile {
+    display: block;
+  }
+}
+.table {
+  .twin:nth-child(2) {
+    p {
+      padding-bottom: 1em;
+    }
+  }
+  @include immobile {
+    .twin:nth-child(2) {
+      border-left: 1px solid lightgray;
+      padding-left: 1em;
+    }
+  }
+  @include mobile {
+    .twin:nth-child(2) {
+      border-top: 1px solid lightgray;
+    }
+  }
+  display: table;
+  width: 100%;
+}
+.indent {
+  margin-left: 1em;
 }

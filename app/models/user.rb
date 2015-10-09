@@ -41,6 +41,6 @@ class User < ActiveRecord::Base
   end
 
   def location
-    city.empty? || state.empty? ? nil : city + ", " + state
+    city.blank? || state.blank? ? nil : city + ", " + state
   end
 end

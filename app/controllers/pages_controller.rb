@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   helper_method :sort_column
+
   def home
     User.any? ? () : (session[:user_id], session[:user_type] = nil)
     @page = "home"
@@ -16,6 +17,14 @@ class PagesController < ApplicationController
 
   def students
     @users = User.students.search(params[:search]).order(sort_column + " " + sort_direction)
+  end
+
+  def about
+    @cruz = User.find_by_email("nunez.a.cruz@gmail.com")
+  end
+
+  def contact
+
   end
 
   private def sort_column

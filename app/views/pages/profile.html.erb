@@ -21,7 +21,7 @@
   </p>
 <% end %>
 <p>
-  <%= mail_to @user.email, class: "link" do %>
+  <%= mail_to @user.email, class: "blue-link" do %>
     <span>
       <i class="fa fa-envelope"></i>
     </span>
@@ -30,7 +30,7 @@
 </p>
 <% unless @user.facebook_url.empty? %>
   <p>
-    <%= link_to @user.facebook_url, class: "link" do %>
+    <%= link_to @user.facebook_url, class: "blue-link" do %>
       <span>
         <i class="fa fa-facebook-official"></i>
       </span>
@@ -40,7 +40,7 @@
 <% end %>
 <% unless @user.twitter_name.empty? %>
   <p>
-    <%= link_to "https://twitter.com/" + @user.twitter_name, class: "link" do %>
+    <%= link_to "https://twitter.com/" + @user.twitter_name, class: "blue-link" do %>
       <span>
         <i class="fa fa-twitter-square"></i>
       </span>
@@ -50,7 +50,7 @@
 <% end %>
 <% unless @user.linkedin_url.empty? %>
   <p>
-    <%= link_to @user.linkedin_url, class: "link" do %>
+    <%= link_to @user.linkedin_url, class: "blue-link" do %>
       <span>
         <i class="fa fa-linkedin-square"></i>
       </span>
@@ -63,5 +63,7 @@
   <p class="pre-wrap"><%= @user.bio %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', edit_user_path(@user), class: "blue-link" %> |
+<%= link_to :back, class: "blue-link" do %>
+  <i class="fa fa-arrow-left"></i> Back
+<% end %>

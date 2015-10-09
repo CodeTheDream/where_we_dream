@@ -2,12 +2,12 @@
   <% @questions.each do |question| %>
     <div>
       <span>
-        <%= text_area_tag 'question', question.value, class: 'edit-question', id: question.id %>
         <% if god? %>
           <%= link_to admin_question_path(question), method: :delete, remote: true, class: 'destroy-button' do %>
             <i class="fa fa-trash-o"></i>
           <% end %>
         <% end %>
+        <%= text_area_tag 'question', question.value, class: 'edit-question', id: question.id %>
       </span>
     </div>
   <% end %>

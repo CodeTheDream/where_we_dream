@@ -13,7 +13,7 @@
   <div>
     <%= f.label :location %><br/>
     <%= f.text_field :city, class: "resizable edit-name", placeholder: "City" %>
-    <%= f.select :state, options_for_select(@states, @user.state), {}, {class: "resizable edit-name"} %>
+    <%= f.select :state, options_for_select(@states), {include_blank: "-State-"}, {class: "resizable edit-name"} %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
@@ -37,12 +37,14 @@
   </div>
   <div class="field">
     <%= f.label :bio %><br>
-    <%= f.text_area :bio, placeholder: "Enter some few details about yourself.", class: "wide" %>
+    <%= f.text_area :bio, placeholder: "Enter a few details about yourself.", class: "wide" %>
   </div>
-  <div class="field">
-    <%= f.label :user_type %><br>
-    <%= f.select :user_type, options_for_select(user_types), include_blank: true, class: "wide" %>
-  </div>
+  <% if admin_or_above? %>
+    <div class="field">
+      <%= f.label :user_type %><br>
+      <%= f.select :user_type, options_for_select(user_types), {}, {class: "wide"} %>
+    </div>
+  <% end %>
   <%= f.submit 'Update', class: 'update' %>
 
 <% end %>

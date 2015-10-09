@@ -1,11 +1,23 @@
-<h3>
-  <%= @school.name %> (<%= @school.public? %>)
-  <% if admin_or_above? && request.path.include?("admin") %>
-    <%= link_to edit_admin_school_path(@school), style: "float:right;" do %>
-      <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
-    <% end %>
+<% if admin_or_above? && request.path.include?("admin") %>
+  <%= link_to edit_admin_school_path(@school), style: "float:right;" do %>
+    <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
   <% end %>
+<% end %>
+
+<h3>
+  <%= link_to @school.link, class: "blue-link", target: "_blank" do %>
+    <%= @school.name %>
+  <% end %>
+  (<%= @school.public? %>)
 </h3>
+
+<p class="">
+  <span class="fa-stack thin">
+    <i class="fa fa-circle fa-stack-1x"></i>
+    <i class="fa fa-map-marker fa-stack-1x"></i>
+  </span>
+  <%= @school.address %>
+</p>
 
 <p>
   <strong>Rating:</strong>
@@ -13,15 +25,8 @@
 </p>
 
 <p>
-  <strong>Link:</strong>
-  <%= link_to @school.link, target: '_blank' do %>
-    <%= @school.link %>
-  <% end %>
-</p>
-
-<p>
   <strong>Students:</strong>
-  <%= @school.students %>
+  <%= @school.students || "???" %>
 </p>
 
 <p>
@@ -29,15 +34,11 @@
   <%= @school.undocumented_students || "???" %>
 </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @school.address %>
-</p>
 
 <% number = 0 %>
 <% @school.rules.each do |r| %>
   <p>
-    <strong><%= number += 1 %>. <%= r.question! %></strong>
+    <strong><%= number += 1 %>. <%= r.question!.gsub("the school", r.school.name) %></strong>
     <%= r.answer! %><br/>
     <%= r.details ? r.details : () %>
   </p>

@@ -16,20 +16,15 @@
       <% end %>
       <ul class="left">
         <li><h3>Content</h3></li>
-        <li><a href="http://www.codethedream.org/about/">About</a></li>
-        <li><a href="http://www.codethedream.org/contact/">Contact</a></li>
-      </ul>
-      <ul class="left">
-        <li><h3>Legal</h3></li>
-        <li><a href="javascript:void(0)">Terms and Conditions</a></li>
-        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
       <ul class="footer-social right">
         <li><h3>Follow Us</h3></li><br>
         <li>
-          <a href="javascript:void(0)">
+          <a href="https://www.facebook.com/wherewedream">
             <span class="fa-stack">
-              <i class="fa fa-circle fa-stack-2x external "></i>
+              <i class="fa fa-circle fa-stack-2x external"></i>
               <i class="fa fa-facebook fa-stack-1x internal"></i>
             </span>
           </a>
@@ -37,16 +32,8 @@
         <li>
           <a href="javascript:void(0)">
             <span class="fa-stack">
-              <i class="fa fa-circle fa-stack-2x external "></i>
+              <i class="fa fa-circle fa-stack-2x external"></i>
               <i class="fa fa-twitter fa-stack-1x internal"></i>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0)">
-            <span class="fa-stack">
-              <i class="fa fa-circle fa-stack-2x external "></i>
-              <i class="fa fa-youtube-play fa-stack-1x internal"></i>
             </span>
           </a>
         </li>
@@ -54,15 +41,14 @@
     </div>
     <div>
       <p>
-        <%= link_to "About", "http://www.codethedream.org/about/" %> |
-        <%= link_to "Contact", "http://www.codethedream.org/contact/" %> |
-        <%= link_to "Terms and Conditions", "javascript:void(0)" %> |
-        <%= link_to "Privacy Policy", "javascript:void(0)" %>
+        <%= link_to "About", "/about" %> |
+        <%= link_to "Contact", "/contact" %>
         <% if logged_in? %>
+          | <%= link_to "Profile", "/profile" %>
           | <%= link_to "Logout", logout_path, method: :delete %>
         <% end %>
       </p><br>
-      <p class="copywrite">©<%= Date.today.year %> Where We Dream</p>
+      <p class="copywrite">©<%= copywrite_year %> Where We Dream</p>
     <div>
   </div>
 </footer>

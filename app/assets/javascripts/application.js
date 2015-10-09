@@ -114,7 +114,7 @@ function goThruArray() {
     var array = $('.details');
   }
   $.each(array, function() {
-    $(this).height(this.scrollHeight - 4)
+    $(this).height(this.scrollHeight - 4);
   });
 }
 
