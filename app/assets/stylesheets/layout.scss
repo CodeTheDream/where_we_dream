@@ -40,12 +40,15 @@ input {
 .wide {
   width: 98%;
 }
-input[type="submit"] {
+input[type="submit"],
+.submit {
+  text-decoration: none;
   background-color: #167AC6;
   border: none;
   border-radius: 3px;
   color: white;
   cursor: pointer;
+  margin-bottom: .5em;
   &:hover {
     background-color: darken(#167AC6, 5%);
   }
@@ -145,4 +148,15 @@ table.pretty {
 }
 .indent {
   margin-left: 1em;
+}
+.field {
+  padding-bottom: .5em;
+}
+input[type="email"],
+input[type="password"] {
+  padding: .2em;
+}
+.button {
+  padding: 7px 10px;
+  display: inline-block;
 }

@@ -1,0 +1,64 @@
+<div>
+  <span class="small-image left">
+    <%= image_tag @user.image.url(:small) %>
+  </span>
+  <div class="profile-name-container">
+    <h2 class="thin-margin">
+      <%= @user.name %>
+    </h2>
+    <p>
+      <%= @user.user_type! %>
+    </p>
+  </div>
+</div>
+<% if @user.location %>
+  <p>
+    <span class="fa-stack thin">
+      <i class="fa fa-circle fa-stack-1x"></i>
+      <i class="fa fa-map-marker fa-stack-1x"></i>
+    </span>
+    <%= @user.location %>
+  </p>
+<% end %>
+<p>
+  <%= mail_to @user.email, class: "blue-link" do %>
+    <span>
+      <i class="fa fa-envelope"></i>
+    </span>
+    <%= @user.email %><br>
+  <% end %>
+</p>
+<% if @user.facebook_url.present? %>
+  <p>
+    <%= link_to @user.facebook_url, class: "blue-link" do %>
+      <span>
+        <i class="fa fa-facebook-official"></i>
+      </span>
+      <%= @user.name %><br>
+    <% end %>
+  </p>
+<% end %>
+<% if @user.twitter_name.present? %>
+  <p>
+    <%= link_to "https://twitter.com/" + @user.twitter_name, class: "blue-link" do %>
+      <span>
+        <i class="fa fa-twitter-square"></i>
+      </span>
+      <%= @user.twitter_name %><br>
+    <% end %>
+  </p>
+<% end %>
+<% if @user.linkedin_url.present? %>
+  <p>
+    <%= link_to @user.linkedin_url, class: "blue-link" do %>
+      <span>
+        <i class="fa fa-linkedin-square"></i>
+      </span>
+      <%= @user.name %><br>
+    <% end %>
+  </p>
+<% end %>
+<% if @user.bio.present? %>
+  <h3>Bio</h3>
+  <p class="pre-wrap"><%= @user.bio %></p>
+<% end %>
