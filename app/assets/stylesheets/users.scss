@@ -27,6 +27,9 @@
     width: 100%;
   }
 }
+.medium-image {
+  width: $m-img-size;
+}
 .small-image {
   width: $s-img-size;
   height: $s-img-size;
