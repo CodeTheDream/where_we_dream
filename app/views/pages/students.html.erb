@@ -14,7 +14,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr data-href=<%= user_path(user) %> class="tr-content">
-        <td><%= image_tag user.image.url(:xs), class: "student-image" %></td>
+        <td><%= image_tag user.image.url(:thumb), class: "student-image" %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
       </tr>

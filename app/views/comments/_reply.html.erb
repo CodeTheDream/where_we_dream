@@ -2,7 +2,7 @@
   <a href="#" class="comment-area"><span class="click-area"></span></a>
   <div class="left reply-spacing reply-image">
     <%= link_to user_path(@comment.user.id) do %>
-      <%= image_tag @comment.user.image.url(:xs) %>
+      <%= image_tag @comment.user.image.url(:thumb) %>
     <% end %>
   </div>
   <div class="comment-content reply-spacing">

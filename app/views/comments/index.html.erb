@@ -5,7 +5,7 @@
     <div class="comment">
       <div class="user-image">
         <%= link_to user_path(comment.user.id) do %>
-          <%= image_tag comment.user.image.url(:thumb) %>
+          <%= image_tag comment.user.image.url(:small) %>
         <% end %>
       </div>
       <div class="comment-content">

@@ -1,7 +1,7 @@
 <%= form_for @user, html: { multipart: true } do |f| %>
   <span class="profile-user-image" style="float:left;">
     <%= f.file_field :image, accept: 'image/png,image/jpeg', id: "profilePicFileField" %>
-    <%= image_tag @user.image.url(:small), class: "profile-pic-account" %>
+    <%= image_tag @user.image.url(:medium), class: "profile-pic-account" %>
   </span>
   <div class="profile-name-container">
       <%= f.text_field :first_name, class: "resizable edit-name", placeholder: "First name" %>

@@ -3,7 +3,7 @@
     <a href="#" class="comment-area"><span class="click-area"></span></a>
     <div class="user-image left">
       <%= link_to user_path(@comment.user.id) do %>
-        <%= image_tag @comment.user.image.url(:thumb) %>
+        <%= image_tag @comment.user.image.url(:small) %>
       <% end %>
     </div>
     <div class="comment-content">

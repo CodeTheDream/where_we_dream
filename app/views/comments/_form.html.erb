@@ -14,7 +14,7 @@
   <%= f.hidden_field :original_comment_id, id: nil, class: "original-comment-id" %>
   <span class="user-image left">
     <%= link_to user_path(session[:user_id]) do %>
-      <%= image_tag user.image.url(:thumb) %>
+      <%= image_tag user.image.url(:small) %>
     <% end %>
   </span>
   <div class="new-comment-container">
