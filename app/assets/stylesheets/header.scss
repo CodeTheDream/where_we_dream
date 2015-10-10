@@ -1,10 +1,36 @@
-.fa-expeditedssl.fa-stack-2x {
-  font-size:1.9em;
-  padding-top:.02em;
+#home {
+  position: absolute;
+  @include immobile {
+    float: left;
+  }
+  @include mobile {
+    display: inline-block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+  }
 }
-#header-image {
-  height: 100%;
-  width: 100%;
+#admin {
+  @include immobile {
+    float: right;
+  }
+  @include mobile {
+    float: left;
+  }
+}
+#features {
+  // display: none;
+  float: right;
+  @include mobile {
+    display: inline;
+  }
+}
+.fa-expeditedssl.fa-stack-2x {
+  font-size: 1.9em;
+  padding-top: .02em;
+}
+header {
   background-image: asset_url('scenery_5_header.jpg');
   background-position: center;
   background-size: cover;
@@ -40,15 +66,6 @@
 
   #nav-other {
     float: left;
-  }
-}
-#features {
-  display: none;
-  &:hover {
-    cursor: pointer;
-  }
-  @include mobile {
-    display: inline;
   }
 }
 .header--hidden {
@@ -104,6 +121,7 @@ header.navigation {
       width: 750px;
     }
     @include mobile {
+      display: inline-flex;
       width: 100%;
       padding: 0 2%;
     }
@@ -118,7 +136,9 @@ header.navigation {
   // Nav menu
   nav {
     float: right;
+    display: inline-block;
     z-index: 9999999;
+    width: 100%
   }
   ul.navigation-menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
@@ -140,31 +160,30 @@ header.navigation {
     line-height: $navigation-height;
     overflow: hidden;
     text-align: right;
-    width: 100%;
+    width: auto;
+    max-width: 33%;
     z-index: 9999;
-    padding-left: 2em;
+    display: inline-block;
+    @include transition( color .2s, text-shadow .2s );
+    &:hover {
+      cursor: pointer;
+      color: $navigation-color-hover;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
     &:first-child {
       padding: 0;
     }
+    @include immobile {
+      padding-left: 2em;
+    }
     @include mobile {
-      padding-left: .5em;
-      background: transparent;
       display: inline;
       line-height: $navigation-height-mobile;
       text-decoration: none;
       width: auto;
-    }
-    a {
-      // color: $navigation-color;
-      color: white;
-      display: inline-block;
-      text-decoration: none;
-      @include transition( color .2s, text-shadow .2s );
-
-      &:focus,
-      &:hover {
-        color: $navigation-color-hover;
-      }
     }
   }
   .active-nav-item a {

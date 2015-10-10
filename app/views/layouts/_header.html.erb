@@ -1,43 +1,45 @@
 <% if @page %>
   <style>
-    #header-image {
+    header {
       background-image: none;
     }
     header.navigation {
       color: #2e2f33;
     }
-    header.navigation ul li.nav-link a {
+    header.navigation ul li.nav-link {
       color: #2e2f33;
     }
   </style>
 <% end %>
 <header class="navigation" role="banner">
-  <div id="header-image">
   <div id="header-wrapper" class="navigation-wrapper">
-    <ul class="navigation-menu">
-      <li class="nav-link">
-        <%= link_to root_path do %>
-          <i class="fa fa-graduation-cap logo"></i>
-          Where We DREAM
-        <% end %>
-        </a>
-      </li>
-    </ul>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
+        <li id="home" class="nav-link">
+          <%= link_to root_path do %>
+            <i class="fa fa-graduation-cap logo"></i>
+            <span class="desktop-only">Where We DREAM</span>
+          <% end %>
+          </a>
+        </li>
+        <li id="features" class="nav-link">
+          <span class="fa-stack">
+            <i class="fa fa-circle-thin fa-stack-2x"></i>
+            <i class="fa fa-bars fa-stack-1x"></i>
+          </span>
+          <span class='desktop-only'>Features</span>
+        </li>
         <% if admin_or_above? %>
           <li id="admin" class="nav-link">
-            <a href="javascript:void(0)" class="login">
-              <span class="fa-stack">
-                <% if god? %>
-                  <i class="fa fa-expeditedssl fa-stack-2x"></i>
-                <% else %>
-                  <i class="fa fa-circle-thin fa-stack-2x"></i>
-                  <i class="fa fa-unlock-alt fa-stack-1x"></i>
-                <% end %>
-              </span>
-              <span class='desktop-only'><%= user_type %></span>
-            </a>
+            <span class="fa-stack">
+              <% if god? %>
+                <i class="fa fa-expeditedssl fa-stack-2x"></i>
+              <% else %>
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-unlock-alt fa-stack-1x"></i>
+              <% end %>
+            </span>
+            <span class='desktop-only'><%= user_type %></span>
           </li>
         <% end %>
         <% unless logged_in? %>
@@ -51,12 +53,6 @@
             </a>
           </li>
         <% end %>
-        <li id="features" class="nav-link">
-          <span class="fa-stack">
-            <i class="fa fa-circle-thin fa-stack-2x"></i>
-            <i class="fa fa-bars fa-stack-1x"></i>
-          </span>
-        </li>
       </ul>
     </nav>
   </div>
