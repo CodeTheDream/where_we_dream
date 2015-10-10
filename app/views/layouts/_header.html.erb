@@ -3,9 +3,6 @@
     header {
       background-image: none;
     }
-    header.navigation {
-      color: #2e2f33;
-    }
     header.navigation ul li.nav-link {
       color: #2e2f33;
     }
@@ -17,10 +14,11 @@
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li id="home" class="nav-link">
           <%= link_to root_path do %>
-            <i class="fa fa-graduation-cap logo"></i>
+            <span class="fa-stack">
+              <i id="logo" class="fa fa-graduation-cap fa-stack-1x logo"></i>
+            </span>
             <span class="desktop-only">Where We DREAM</span>
           <% end %>
-          </a>
         </li>
         <li id="features" class="nav-link">
           <span class="fa-stack">
@@ -43,7 +41,7 @@
           </li>
         <% end %>
         <% unless logged_in? %>
-          <li class="nav-link">
+          <li id="login" class="nav-link">
             <a href="/login" class="login">
               <span class="fa-stack">
                 <i class="fa fa-circle-thin fa-stack-2x"></i>

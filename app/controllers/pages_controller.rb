@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def about
-    @cruz = User.find_by_email("nunez.a.cruz@gmail.com")
+    @cruz = User.find_by_email("cruz@wherewedream.org")
   end
 
   def contact

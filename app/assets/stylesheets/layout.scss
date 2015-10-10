@@ -164,3 +164,10 @@ input[type="password"] {
   padding: 7px 10px;
   display: inline-block;
 }
+.logo {
+  margin-right: .5em;
+  font-size: 1.2em;
+  @include mobile {
+    margin-right: .1em;
+  }
+}

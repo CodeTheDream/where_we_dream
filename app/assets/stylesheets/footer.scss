@@ -60,13 +60,6 @@
     padding-bottom: $space-below-logo/2;
     margin-bottom: $space-below-logo/2;
     border-bottom: 1px solid darken(white, 80%);
-    .logo {
-      margin-right: .5em;
-      font-size: 1.2em;
-      @include mobile {
-        margin-right: .1em;
-      }
-    }
   }
 
   .footer-links {

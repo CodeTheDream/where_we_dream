@@ -1,3 +1,8 @@
+#logo {
+  @include mobile {
+    font-size: 2em;
+  }
+}
 #home {
   position: absolute;
   @include immobile {
@@ -8,9 +13,10 @@
     left: 0;
     right: 0;
     margin: auto;
-    text-align: center;
+    text-align: left;
   }
 }
+#login,
 #admin {
   @include immobile {
     float: right;
@@ -121,16 +127,8 @@ header.navigation {
       width: 750px;
     }
     @include mobile {
-      display: inline-flex;
       width: 100%;
       padding: 0 2%;
-    }
-  }
-  .logo {
-    margin-right: .5em;
-    font-size: 1.2em;
-    @include mobile {
-      margin-right: .1em;
     }
   }
   // Nav menu
@@ -161,13 +159,15 @@ header.navigation {
     overflow: hidden;
     text-align: right;
     width: auto;
-    max-width: 33%;
+    max-width: 2.5em;
     z-index: 9999;
     display: inline-block;
-    @include transition( color .2s, text-shadow .2s );
+    @include transition( all .2s );
     &:hover {
       cursor: pointer;
-      color: $navigation-color-hover;
+      @include immobile {
+        color: $navigation-color-hover;
+      }
     }
     a {
       text-decoration: none;
