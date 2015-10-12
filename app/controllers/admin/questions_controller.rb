@@ -33,7 +33,7 @@ class Admin::QuestionsController < ApplicationController
     elsif @question.save
       School.all.each do |school|
         school.rules.create(question: @question)
-        school.update(rating: rating!)
+        school.update(rating: school.rating!)
       end
       @questions = Question.all
     end
