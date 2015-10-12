@@ -1,5 +1,5 @@
 <% if admin_or_above? && request.path.include?("admin") %>
-  <%= link_to edit_admin_school_path(@school), style: "float:right;" do %>
+  <%= link_to edit_admin_school_path(@school), class: "blue-link right" do %>
     <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
   <% end %>
 <% end %>

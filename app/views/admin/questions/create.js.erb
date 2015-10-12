@@ -1,5 +1,5 @@
 $("#questions").replaceWith("<%= j( render 'questions', locals: {questions: @questions }) %>");
-$("#new_question").replaceWith("<%= j(link_to 'New Question', '/', id: 'new-question', remote: true ) %>");
+$("#new_question").replaceWith("<%= j( render 'new_question_button' ) %>");
 $(addQuestionsPartial);
 $(deleteQuestion);
 $(updateQuestion);

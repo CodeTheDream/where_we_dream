@@ -3,9 +3,7 @@
 <%= render 'questions' %>
 <br>
 
-<%= link_to '/', id: 'new-question', class: "blue-link", remote: true do %>
-  <i class="fa fa-plus"></i> Add Question
-<% end %>
+<%= render 'new_question_button' %>
 <br><br>
 <%= link_to :back, class: "blue-link" do %>
   <i class="fa fa-arrow-left"></i> Back
