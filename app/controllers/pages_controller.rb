@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def about
-    @cruz = User.find_by_email("cruz@wherewedream.org")
+    @team_members = User.where.not(team_contribution: nil)
   end
 
   def contact

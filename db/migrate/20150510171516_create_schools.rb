@@ -4,6 +4,7 @@ class CreateSchools < ActiveRecord::Migration
       t.string :name
       t.decimal :rating
       t.string :link
+      t.text :description
       t.integer :students
       t.integer :undocumented_students
       t.string :street

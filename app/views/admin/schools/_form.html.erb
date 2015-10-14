@@ -14,12 +14,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "Name*" %><br>
+    <%= f.label :name, "Name*", class: "required" %><br>
     <%= f.text_field :name, class: "wide" %>
   </div>
   <div class="field">
     <%= f.label :link, "URL (http://www.example.com/)" %><br>
     <%= f.text_field :link, class: "wide" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "wide" %>
   </div>
   <div class="field">
     <%= f.label :street %><br>

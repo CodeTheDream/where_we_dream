@@ -43,4 +43,8 @@ class User < ActiveRecord::Base
   def location
     city.blank? || state.blank? ? nil : city + ", " + state
   end
+
+  def team_member?
+    %w[God Admin Recruiter Moderator].include?(user_type)
+  end
 end

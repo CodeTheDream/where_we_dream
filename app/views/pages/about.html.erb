@@ -13,17 +13,6 @@
 <p>
   Where We Dream is about students helping each other learn the best colleges for them -- schools that go out of their way to help immigrant students achieve their dreams. Let's work together, share what we know, and spread the word.
 </p>
-<h2 class="thin-font">Alternate About</h2>
-<p>
-  As America changes, the educational system has been slow to keep up. Over half our children born today are minorities, and 1 in 4 have an immigrant parent. Yet financial help opportunities for immigrant youth remain remarkably scarce. And that amounts to a lot of missed talent in universities for all of us.
-</p>
-<p>
-  We live in <%= Date.today.year %>, a time where things like
-  <a href="https://fiber.google.com/about/" class="blue-link">google fiber</a>
-  and
-  <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=electric%20supercars" class="blue-link">electric supercars</a>
-  exist, and yet the "United" States of America still struggles to provide their inhabitants equal rights. In a time where America needs the most educated workers it can get, it would make sense to expect higher education out of the population.
-</p>
 <p>
   <a href="http://www.codethedream.org/" class="blue-link thick-font">Code the Dream</a> states that:
 </p>
@@ -31,12 +20,17 @@
   "young people from minority and immigrant backgrounds have great ideas and will play a huge part in our 21st century economy. Already immigrants are more than twice as likely to start their own business, and those businesses create over 25% of new jobs."
 </p>
 <p>
-  What if more people with that drive could afford college? Can you image how their lives could change? Together we can make it happen.
+  What if more people with that drive could afford college? Can you imagine how their lives would change? Together we can make it happen.
 </p>
 <h2 class="thin-font">Our Team</h2>
-<div class="team-member-container">
-  <%= image_tag @cruz.image.url(:large), class: "left image-padding medium-image" %>
-  <p>
-    <strong>Cruz Nunez</strong> built this site.
-  </p>
-</div>
+<% @team_members.each do |member| %>
+  <div class="team-member-container">
+    <%= link_to member do %>
+      <%= image_tag member.image.url(:large), class: "left image-padding medium-image" %>
+    <% end %>
+    <h3 class="thin-font"><%= member.name %></h3>
+    <p>
+      <%= member.team_contribution %>
+    </p>
+  </div>
+<% end %>

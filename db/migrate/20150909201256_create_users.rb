@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.text :bio
+      t.text :team_contribution
       t.string :facebook_url
       t.string :twitter_name
       t.string :linkedin_url

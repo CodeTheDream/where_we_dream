@@ -69,7 +69,7 @@ class Admin::UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :city, :state, :email, :password, :user_type, :image, :bio, :facebook_url, :twitter_name, :linkedin_url)
+      params.require(:user).permit(:first_name, :last_name, :city, :state, :email, :password, :user_type, :image, :team_contribution, :bio, :facebook_url, :twitter_name, :linkedin_url)
     end
 
     def sort_column
