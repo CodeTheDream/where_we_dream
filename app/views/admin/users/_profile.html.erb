@@ -3,7 +3,7 @@
     <%= image_tag @user.image.url(:medium) %>
   </span>
   <div class="profile-name-container">
-    <h2 class="thin-margin">
+    <h2 class="thin-margin thin">
       <%= @user.name %>
     </h2>
     <p>
@@ -59,6 +59,6 @@
   </p>
 <% end %>
 <% if @user.bio.present? %>
-  <h3>Bio</h3>
+  <h3 class="thin">Bio</h3>
   <p class="pre-wrap"><%= @user.bio %></p>
 <% end %>

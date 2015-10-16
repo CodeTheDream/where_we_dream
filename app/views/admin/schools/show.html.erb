@@ -1,23 +1,31 @@
-<% if admin_or_above? && request.path.include?("admin") %>
-  <%= link_to edit_admin_school_path(@school), class: "blue-link right" do %>
-    <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+<div class="flex-container">
+  <h2 class="thin">
+    <%= link_to @school.link, class: "blue-link", target: "_blank" do %>
+      <%= @school.name %>
+    <% end %>
+    (<%= @school.public? %>)
+  </h2>
+  <% if admin_or_above? && request.path.include?("admin") %>
+    <%= link_to edit_admin_school_path(@school), class: "blue-link flex-right" do %>
+      <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-<h3>
-  <%= link_to @school.link, class: "blue-link", target: "_blank" do %>
-    <%= @school.name %>
-  <% end %>
-  (<%= @school.public? %>)
-</h3>
-
-<p class="">
+<p class="topless">
   <span class="fa-stack thin">
     <i class="fa fa-circle fa-stack-1x"></i>
     <i class="fa fa-map-marker fa-stack-1x"></i>
   </span>
   <%= @school.address %>
 </p>
+
+<% if @school.description.present? %>
+  <h3 class="thin">Description</h2>
+  <p>
+    <%= @school.description %>
+  </p>
+<% end %>
 
 <p>
   <strong>Rating:</strong>
@@ -34,11 +42,9 @@
   <%= @school.undocumented_students || "???" %>
 </p>
 
-
-<% number = 0 %>
 <% @school.rules.each do |r| %>
-  <p>
-    <strong><%= number += 1 %>. <%= r.question!.gsub("the school", r.school.name) %></strong>
+  <%= color_paragraph(r.answer) %>
+    <span class="bold"><%= r.question!.gsub("the school", r.school.name) %></span>
     <%= r.answer! %><br/>
     <%= r.details ? r.details : () %>
   </p>

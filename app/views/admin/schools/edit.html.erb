@@ -1,9 +1,11 @@
-<h1 style="display:inline;">Editing School</h1>
-<% if god? %>
-  <%= link_to admin_school_path(@school), method: :delete, style: "float:right;color:red;" do %>
-    <i class="fa fa-ban fa-2x mobile-only"></i><span class="desktop-only">Destroy</span>
+<div class="flex-container">
+  <h1 style="thin">Editing School</h1>
+  <% if god? %>
+    <%= link_to admin_school_path(@school), method: :delete, class: "flex-right red" do %>
+      <i class="fa fa-ban fa-2x mobile-only"></i><span class="desktop-only">Destroy</span>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 <%= render 'form' %>
 
 <%= link_to :back, class: "blue-link" do %>

@@ -29,6 +29,9 @@
 }
 .medium-image {
   width: $m-img-size;
+  @include mobile {
+    width: $s-img-size;
+  }
 }
 .small-image {
   width: $s-img-size;
@@ -52,7 +55,7 @@
   width: 1em;
   line-height: 1.3em;
   height: 1.3em;
-  top: -.3em;
+  top: -.2em;
 }
 .fa-envelope {
   color: gray;

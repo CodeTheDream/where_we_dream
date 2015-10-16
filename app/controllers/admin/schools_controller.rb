@@ -69,7 +69,7 @@ class Admin::SchoolsController < ApplicationController
     def school_params
       params.require(:school).permit(
         :name, :link, :rating, :students, :undocumented_students, :street, :city,
-        :state, :zip, :public, rules_attributes: [:id, :answer, :details]
+        :state, :zip, :public, :description, rules_attributes: [:id, :answer, :details]
       )
     end
 

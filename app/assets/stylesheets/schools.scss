@@ -14,5 +14,29 @@
   }
 }
 .rule {
-  margin-bottom: 1em;
+  margin: .5em 0;
+  padding: .25em .35em;
+  border-radius: 5px;
 }
+.bg-bad {
+  background-color: #FFCFCF;
+}
+.bg-good {
+  background-color: #C4E1FF;
+}
+.bg-neutral {
+  background-color: #F0F0F0;
+}
+// .rule {
+//   margin: 1em 0;
+//   padding-left: .35em ;
+// }
+// .bg-bad {
+//   border-left: 1px solid red;
+// }
+// .bg-good {
+//   border-left: 1px solid blue;
+// }
+// .bg-neutral {
+//   border-left: 1px solid gray;
+// }

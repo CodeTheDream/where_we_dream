@@ -80,4 +80,10 @@ module ApplicationHelper
   def copywrite_year
     Date.today.year == 2015 ? 2015 : "2015-#{today}"
   end
+
+  def color_paragraph(answer)
+    css_array = {true => "bg-good", false => "bg-bad", nil => "bg-neutral"}
+    css_class = css_array[answer]
+    "<p class='rule #{css_class}'>".html_safe
+  end
 end

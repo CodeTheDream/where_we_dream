@@ -1,4 +1,4 @@
-<h1>Schools</h1>
+<h1 class="thin">Schools</h1>
 
 <%= render 'layouts/search', path: schools_path, placeholder: 'Search schools' %>
 
@@ -7,16 +7,23 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th><%= sortable "rating" %></th>
-      <th><%= sortable "public" %></th>
+      <th class="desktop-only"><%= sortable "public" %></th>
       <th><%= sortable "city" %></th>
     </tr>
   </thead>
   <tbody>
     <% @schools.each do |school| %>
       <tr data-href=<%= school_path(school) %> class="tr-content">
-        <td><%= school.name %></td>
+        <td>
+          <%= school.name %>
+          <% if school.public %>
+            <i class="fa fa-unlock mobile-only public"></i>
+          <% else %>
+            <i class="fa fa-lock mobile-only private"></i>
+          <% end %>
+        </td>
         <td><%= school.rating.round %>%</td>
-        <td><%= school.public? %></td>
+        <td class="desktop-only"><%= school.public? %></td>
         <td><%= school.city %></td>
       </tr>
     <% end %>

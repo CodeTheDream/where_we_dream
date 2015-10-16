@@ -12,7 +12,9 @@
   <%= render 'layouts/header' %>
   <%= render 'layouts/cover' if @page == 'home' %>
   <div id='body'>
-    <p id='notice'><%= notice %></p>
+    <% if notice.present? %>
+      <p id='notice'><%= notice %></p>
+    <% end %>
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>

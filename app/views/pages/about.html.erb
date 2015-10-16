@@ -1,9 +1,9 @@
-<h2 class="thin-font">About</h2>
+<h2 class="thinner">About</h2>
 <p>
   Where We Dream gives students from immigrant backgrounds information about what colleges would be best for them and gives them a chance to learn from other students who have faced the same challenges.
 </p>
 
-<h2 class="thin-font">Who We Are</h2>
+<h2 class="thinner">Who We Are</h2>
 <p>
   We are students who want to continue our studies. Many of us were born outside the United States but have lived most of our lives here. We've worked hard, made good grades and been active in our communities. But now many of us have no access to federal financial aid and are forced to pay higher out-of-state tuition. Under those circumstances, going to college can often seem impossible.
 </p>
@@ -14,7 +14,7 @@
   Where We Dream is about students helping each other learn the best colleges for them -- schools that go out of their way to help immigrant students achieve their dreams. Let's work together, share what we know, and spread the word.
 </p>
 <p>
-  <a href="http://www.codethedream.org/" class="blue-link thick-font">Code the Dream</a> states that:
+  <a href="http://www.codethedream.org/" class="blue-link bold">Code the Dream</a> states that:
 </p>
 <p class="quotes">
   "young people from minority and immigrant backgrounds have great ideas and will play a huge part in our 21st century economy. Already immigrants are more than twice as likely to start their own business, and those businesses create over 25% of new jobs."
@@ -22,13 +22,13 @@
 <p>
   What if more people with that drive could afford college? Can you imagine how their lives would change? Together we can make it happen.
 </p>
-<h2 class="thin-font">Our Team</h2>
+<h2 class="thinner">Our Team</h2>
 <% @team_members.each do |member| %>
   <div class="team-member-container">
     <%= link_to member do %>
       <%= image_tag member.image.url(:large), class: "left image-padding medium-image" %>
     <% end %>
-    <h3 class="thin-font"><%= member.name %></h3>
+    <h3 class="thinner"><%= member.name %></h3>
     <p>
       <%= member.team_contribution %>
     </p>

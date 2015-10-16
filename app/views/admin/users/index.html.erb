@@ -1,4 +1,9 @@
-<h1>Listing Users</h1>
+<div class="flex-container">
+  <h1 class="thin">Users</h1>
+  <%= link_to new_admin_user_path, class: 'blue-link flex-right' do %>
+    <i class="fa fa-plus"></i> Add User
+  <% end %>
+</div>
 
 <%= render 'layouts/search', path: admin_users_path, placeholder: 'Search users' %>
 
@@ -36,7 +41,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_admin_user_path %>

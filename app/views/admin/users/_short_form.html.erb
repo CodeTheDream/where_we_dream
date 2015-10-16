@@ -15,11 +15,11 @@
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name, class: "wide" %>
+    <%= f.text_field :first_name %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name, class: "wide" %>
+    <%= f.text_field :last_name %>
   </div>
   <div>
     <%= f.label :image, "Profile picture" %>
@@ -30,17 +30,17 @@
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email, class: "wide" %>
+    <%= f.text_field :email %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.password_field :password, class: "wide" %>
+    <%= f.password_field :password %>
   </div>
   <div class="field">
     <%= f.label :user_type %><br>
-    <%= f.select :user_type, options_for_select(user_types), {include_blank: true}, {class: "wide"} %>
+    <%= f.select :user_type, options_for_select(user_types), include_blank: true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
   </div>
 <% end %>

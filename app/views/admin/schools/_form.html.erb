@@ -15,39 +15,39 @@
 
   <div class="field">
     <%= f.label :name, "Name*", class: "required" %><br>
-    <%= f.text_field :name, class: "wide" %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :link, "URL (http://www.example.com/)" %><br>
-    <%= f.text_field :link, class: "wide" %>
+    <%= f.text_field :link %>
   </div>
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description, class: "wide" %>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :street %><br>
-    <%= f.text_field :street, class: "wide" %>
+    <%= f.text_field :street %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city, class: "wide" %>
+    <%= f.text_field :city %>
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.select :state, options_for_select(@states, "NC"), class: "wide" %>
+    <%= f.select :state, options_for_select(@states, "NC") %>
   </div>
   <div class="field">
     <%= f.label :zip %><br>
-    <%= f.text_field :zip, class: "wide" %>
+    <%= f.text_field :zip %>
   </div>
   <div class="field">
     <%= f.label :students %><br>
-    <%= f.number_field :students, class: "wide" %>
+    <%= f.number_field :students %>
   </div>
   <div class="field">
     <%= f.label :undocumented_students %><br>
-    <%= f.number_field :undocumented_students, class: "wide" %>
+    <%= f.number_field :undocumented_students %>
   </div>
   <div class="field">
     <%= f.label :public %><br>
@@ -66,6 +66,6 @@
     </div>
   <% end %>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "button" %>
   </div>
 <% end %>

@@ -1,17 +1,20 @@
-<h1 style="display:inline">All Schools</h1>
-<%= link_to new_admin_school_path, class: 'blue-link right' do %>
-  <i class="fa fa-plus"></i> Add School
-<% end %>
+<div class="flex-container">
+  <h1 class="thin">Schools</h1>
+  <%= link_to new_admin_school_path, class: 'blue-link flex-right' do %>
+    <i class="fa fa-plus"></i> Add School
+  <% end %>
+</div>
+
 <%= render 'layouts/search', path: admin_schools_path, placeholder: 'Search schools' %>
 
 <table class="pretty">
   <thead>
     <tr>
-      <th colspan='1'>#</th>
+      <th class="desktop-only"colspan='1'>#</th>
       <th><%= sortable "complete", "Info" %></th>
       <th><%= sortable "rating" %></th>
       <th><%= sortable "name" %></th>
-      <th><%= sortable "public" %></th>
+      <th class="desktop-only"><%= sortable "public" %></th>
       <th><%= sortable "city" %></th>
     </tr>
   </thead>
@@ -20,11 +23,22 @@
     <% number = 0 %>
     <% @schools.each do |school| %>
       <tr  data-href="/admin/schools/<%= school.id %>" class="tr-content">
-        <td><%= number += 1 %></td>
-        <td><%= school.complete? ? "✓" : "INC" %></td>
+        <td class="desktop-only"><%= number += 1 %></td>
+        <td>
+          <%= school.complete? ? "<span class='bolder'>✓</span>".html_safe : "INC" %>
+        </td>
         <td><%= school.rating.round %>%</td>
-        <td><%= school.name %></td>
-        <td><%= school.public? %></td>
+        <td>
+          <%= school.name %>
+          <% if school.public %>
+            <i class="fa fa-unlock mobile-only public"></i>
+          <% else %>
+            <i class="fa fa-lock mobile-only private"></i>
+          <% end %>
+        </td>
+        <td class="desktop-only">
+          <span><%= school.public? %></span>
+        </td>
         <td><%= school.city %></td>
       </tr>
     <% end %>
