@@ -16,7 +16,7 @@ class School < ActiveRecord::Base
     if search
       search_length = search.split.length
       array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? true : false : "%#{term}%"}
-      where([(['name LIKE ? OR city LIKE ? OR cast(public as boolean) LIKE ?'] * search_length).join(' AND ')] + (array))
+      where([(['name LIKE ? OR city LIKE ? OR cast(public as text) LIKE ?'] * search_length).join(' AND ')] + (array))
     else
       all
     end
