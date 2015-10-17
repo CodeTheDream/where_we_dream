@@ -35,6 +35,7 @@
   margin-left: $thumb-img-size + 10px;
 }
 .new-comment {
+  overflow: hidden;
   padding: 5px 10px;
   width: 100%;
   // &:after {
@@ -50,6 +51,7 @@
 .new-comment-container {
   display: block;
   margin-left: 60px;
+  overflow: hidden;
 }
 .dropdown-button {
   color: transparent;
@@ -134,4 +136,14 @@
   .show-menu {
     display: block;
   }
+}
+.comment-deleted {
+  width: 100%;
+  background-color: #F8F0A8;
+  padding: 1em;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #DDC985;
+  color: #BBA763;
+  margin-top: 1em;
 }

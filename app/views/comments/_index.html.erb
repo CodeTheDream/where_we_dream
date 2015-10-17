@@ -33,7 +33,7 @@
         </div>
       </div>
       <% comment.replies.each do |reply| %>
-        <div class="comment opinionable" id="<%= reply.id %>">
+        <div class="comment comment-reply opinionable" id="<%= reply.id %>">
           <a href="#" class="comment-area"><span class="click-area"></span></a>
           <div class="left reply-spacing reply-image">
             <%= link_to user_path(reply.user.id) do %>

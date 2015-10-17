@@ -153,7 +153,6 @@ function toggleDropdown() {
     menu.toggleClass("show-menu");
     menu.children("li").click(function() {
       menu.removeClass("show-menu");
-      button.html($(this).html());
     });
   });
 };
@@ -162,6 +161,8 @@ function addNewReply(){
   $('.reply').click(function() {
     var clicked = $(this);
     var comment_id = clicked.attr('comment-id');
+    var comment = clicked.closest('.comment');
+    var name = $('.comment-name', comment).html() + ", ";
     if ($("#new_reply").length > 0) {
       var new_comment = $('#new_reply');
     } else {
@@ -169,8 +170,10 @@ function addNewReply(){
       $('.user-image', new_comment).addClass('reply-spacing reply-image').removeClass('user-image');
       $('.new-comment-container', new_comment).addClass('reply-spacing');
     };
+    $('textarea', new_comment).val(name).attr('rows',2)
     $('.original-comment-id', new_comment).attr('value', comment_id);
-    clicked.closest('.comment').after(new_comment)
+    comment.after(new_comment);
+    elasticNewCommentInput();
   });
 };
 
@@ -217,6 +220,33 @@ function toggleOpinions(){
   });
 };
 
+function elasticNewCommentInput(){
+  $('.new-comment').keyup(function() {
+    var height = this.scrollHeight;
+    var rows = (height - 10)/19
+    $(this).attr('rows',rows)
+  });
+};
+
+function commentOptions(){
+  $('span.dropdown li').click(function() {
+    action = $(this).html();
+    comment = $(this).closest('.comment')
+    if (!(comment.is('.comment-reply'))) {
+      comment = $(this).closest('.comment-thread')
+    }
+    // console.log(action)
+    if (action == "Remove this comment") {
+      comment.replaceWith('<div class="comment-deleted">Comment deleted.</div>')
+      $('.comment-deleted').fadeOut(3000)
+    } else if (action == "Edit") {
+      console.log("edit")
+    } else {
+      console.log("report")
+    };
+  });
+};
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -230,3 +260,5 @@ $(clickableTableRows);
 $(toggleDropdown);
 $(addNewReply);
 $(toggleOpinions);
+$(elasticNewCommentInput);
+$(commentOptions);
