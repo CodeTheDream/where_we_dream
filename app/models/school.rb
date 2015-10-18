@@ -18,13 +18,9 @@ class School < ActiveRecord::Base
       search_length = search.split.length
       if Rails.env.development?
         array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? true : false : "%#{term}%"}
-      else
-        array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? "%true%" : "%false%" : "%#{term}%"}
-      end
-      5.times{ p array }
-      if Rails.env.development?
         where([(['name LIKE ? OR city LIKE ? OR cast(public as text) LIKE ?'] * search_length).join(' AND ')] + (array))
       else
+        array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? "%true%" : "%false%" : "%#{term}%"}
         where([(['name ILIKE ? OR city ILIKE ? OR CAST(public AS text) ILIKE ?'] * search_length).join(' AND ')] + (array))
       end
     else
