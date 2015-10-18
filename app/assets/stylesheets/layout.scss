@@ -93,7 +93,7 @@ table.pretty {
   font-weight: 500;
 }
 .pretty td {
-  padding: 2px 4px;
+  padding: 2px 0px 2px 4px;
 }
 .pretty td,
 .pretty th {
@@ -212,7 +212,8 @@ h3 {
   margin-left: auto;
 }
 .public {
-  color: #068FC6;
+  // color: #068FC6;
+  color: #91C8FF;
 }
 .private {
   color: #C145FF;
