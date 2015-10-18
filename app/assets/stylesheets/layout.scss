@@ -84,6 +84,9 @@ table.pretty {
   width: 100%;
   @include mobile {
     font-size: 14px;
+    width: 107%;
+    left: -15px;
+    position: relative;
   }
 }
 .pretty th {
