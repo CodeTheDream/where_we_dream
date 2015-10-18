@@ -17,10 +17,11 @@ class School < ActiveRecord::Base
       Rails.env.development?
       search_length = search.split.length
       array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? true : false : "%#{term}%"}
+      5.times{ p array }
       if Rails.env.development?
         where([(['name LIKE ? OR city LIKE ? OR cast(public as text) LIKE ?'] * search_length).join(' AND ')] + (array))
       else
-        where([(['name ILIKE ? OR city ILIKE ? OR cast(public as text) ILIKE ?'] * search_length).join(' AND ')] + (array))
+        where([(['name ILIKE ? OR city ILIKE ? OR CAST(public AS text) ILIKE ?'] * search_length).join(' AND ')] + (array))
       end
     else
       all
