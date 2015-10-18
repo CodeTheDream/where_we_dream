@@ -49,6 +49,7 @@ input[type="checkbox"], input[type="radio"], .post {
 }
 input[type="submit"],
 .submit {
+  @include appearance(none);
   text-decoration: none;
   background-color: #167AC6;
   border: none;

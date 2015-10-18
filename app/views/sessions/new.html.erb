@@ -5,10 +5,10 @@
     <div id="loginForm">
           <%= form_tag("/sessions/create", method: "post") do |f| %>
           <div class="field">
-            <%= email_field_tag :email, nil, {autocomplete: "off", placeholder: "Email", class: "wide", 'data-parsley-type' => 'email', 'data-parsley-type-message' => "Something doesn't look right with that email address.", 'data-parsley-required' => 'true'} %>
+            <%= email_field_tag :email, nil, {autocomplete: "off", placeholder: "Email", 'data-parsley-type' => 'email', 'data-parsley-type-message' => "Something doesn't look right with that email address.", 'data-parsley-required' => 'true'} %>
           </div>
           <div class="field">
-            <%= password_field_tag :password, nil, {autocomplete: "off", placeholder: "Password", class: "wide", 'data-parsley-required' => 'true'} %>
+            <%= password_field_tag :password, nil, {autocomplete: "off", placeholder: "Password", 'data-parsley-required' => 'true'} %>
           </div>
           <div class="actions">
             <%= submit_tag "Log In", class: "button" %>
