@@ -89,9 +89,11 @@ table.pretty {
 .pretty th {
   font-weight: 500;
 }
+.pretty td {
+  padding: 1px 4px;
+}
 .pretty td,
 .pretty th {
-  padding: 1px 4px;
   @include mobile {
     border-bottom: solid 1px #AAA;
   }
@@ -220,4 +222,10 @@ h3 {
 }
 .top-padding {
   padding-top: 1em;
+}
+.no-flow {
+  overflow: hidden;
+}
+.min-width {
+  width: 1px;
 }

@@ -10,11 +10,11 @@
 <table class="pretty">
   <thead>
     <tr>
-      <th class="desktop-only"colspan='1'>#</th>
-      <th><%= sortable "complete", "Info" %></th>
-      <th><%= sortable "rating" %></th>
+      <th class="min-width desktop-only" colspan='1'>#</th>
+      <th class="min-width"><%= sortable "complete", "Info" %></th>
+      <th class="min-width"><%= sortable "rating" %></th>
+      <th class="min-width desktop-only"><%= sortable "public" %></th>
       <th><%= sortable "name" %></th>
-      <th class="desktop-only"><%= sortable "public" %></th>
       <th><%= sortable "city" %></th>
     </tr>
   </thead>
@@ -28,6 +28,9 @@
           <%= school.complete? ? "<span class='bolder'>✓</span>".html_safe : "INC" %>
         </td>
         <td><%= school.rating.round %>%</td>
+        <td class="desktop-only">
+          <span><%= school.public? %></span>
+        </td>
         <td>
           <%= school.name %>
           <% if school.public %>
@@ -35,9 +38,6 @@
           <% else %>
             <i class="fa fa-lock mobile-only private"></i>
           <% end %>
-        </td>
-        <td class="desktop-only">
-          <span><%= school.public? %></span>
         </td>
         <td><%= school.city %></td>
       </tr>
