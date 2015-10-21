@@ -21,13 +21,6 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
-  <div>
-    <%= f.label :image, "Profile picture" %>
-  </div>
-  <div class="profile-user-image">
-    <%= f.file_field :image, accept: 'image/png,image/jpeg', id: "profilePicFileField" %>
-    <%= image_tag @user.image.url(:medium), class: "profile-pic-account" %>
-  </div>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
@@ -37,7 +30,7 @@
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :user_type %><br>
+    <%= f.label :user_type, "I am a..." %><br>
     <%= f.select :user_type, options_for_select(user_types), include_blank: true %>
   </div>
   <div class="actions">

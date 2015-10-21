@@ -18,6 +18,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.9'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
+# gem 'public_suffix'
+gem 'addressable'
+gem 'letter_opener', :group => :development
+# gem 'addressable'
+
 group :production do
   gem 'puma'
   gem 'pg'

@@ -13,15 +13,19 @@ Rails.application.routes.draw do
   get 'profile' => 'pages#profile'
   get 'students' => 'pages#students'
   get 'about' => 'pages#about'
+  get 'wait' => 'pages#wait'
   get 'contact' => 'pages#contact'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
   patch 'new_question_partial' => 'admin/questions#partial'
 
-  resources :users, controller: 'admin/users', only: [:show, :update, :edit]
+  get 'activate' => 'admin/users#activate'
+  resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
+
   resources :schools, controller: 'admin/schools', only: :show do
     resources :comments
   end
+
   namespace :admin do
     resources :schools
     resources :questions

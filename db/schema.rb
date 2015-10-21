@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20151001023826) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "user_type"
+    t.boolean  "activated"
+    t.boolean  "banned"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

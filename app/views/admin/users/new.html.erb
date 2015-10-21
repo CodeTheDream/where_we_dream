@@ -1,11 +1,13 @@
-<% if admin_or_above? %>
-  <h1>New User</h1>
-<% else %>
-  <h1>Sign Up</h1>
-<% end %>
+<div id="new-user">
+  <% if admin_or_above? %>
+    <h1>New User</h1>
+  <% else %>
+    <h1>Sign Up</h1>
+  <% end %>
 
-<%= render 'short_form' %>
+  <%= render 'short_form' %>
 
-<%= link_to :back, class: "blue-link" do %>
-  <i class="fa fa-arrow-left"></i> Back
-<% end %>
+  <%= link_to :back, class: "blue-link" do %>
+    <i class="fa fa-arrow-left"></i> Back
+  <% end %>
+</div>

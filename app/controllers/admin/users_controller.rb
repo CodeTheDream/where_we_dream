@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_admin, except: [:new, :create, :show, :update, :edit]
+  before_action :authenticate_admin, only: :index
   before_action :authenticate_update, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column
@@ -30,11 +30,12 @@ class Admin::UsersController < ApplicationController
 
     if @user.save
       if admin_or_above?
+        UserMailer.activate(@user).deliver_now
         redirect_to admin_users_path
       else
-        session[:user_id] = @user.id
-        session[:user_type] = @user.type
-        redirect_to root_path, notice: 'User was successfully created.'
+        UserMailer.activate(@user).deliver_now
+        # redirect_to root_path, notice: 'User was successfully created. Please check your email to activate your account.'
+        redirect_to wait_path
       end
     else
       @states = School.states
@@ -59,6 +60,21 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to admin_users_path, notice: 'User was successfully destroyed.'
+  end
+
+  def activate
+    user_id = params[:foo]
+    token = params[:bar]
+    user = User.find(user_id) rescue nil
+    if user && (token == user.password_digest.clean)
+      activated = user.activated
+      user.update(activated: true)
+      session[:user_id] = user.id
+      session[:user_type] = user.type
+      redirect_to root_path, notice: activated ? "Your account is already activated" : "Your account has been activated."
+    else
+      redirect_to login_path, notice: "Something went wrong. Try again or try something else."
+    end
   end
 
   private

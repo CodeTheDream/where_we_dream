@@ -8,17 +8,17 @@ module ApplicationHelper
   end
 
   def thumbs_up(resource)
-    resource.liked?(user_id) ? liked = " liked": liked = ""
+    resource.liked_by?(user_id) ? liked = " liked": liked = ""
     ("<i class='fa fa-thumbs-up opinion" + liked + "'></i>").html_safe
   end
 
   def thumbs_down(resource)
-    resource.disliked?(user_id) ? disliked = " disliked": disliked = ""
+    resource.disliked_by?(user_id) ? disliked = " disliked": disliked = ""
     ("<i class='fa fa-thumbs-down opinion" + disliked + "'></i>").html_safe
   end
 
   def likes(resource)
-    if resource.liked?(user_id)
+    if resource.liked_by?(user_id)
       hide = ""
       likes = resource.likes
     else

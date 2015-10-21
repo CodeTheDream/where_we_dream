@@ -94,7 +94,7 @@ table.pretty {
   font-weight: 500;
 }
 .pretty td {
-  padding: 2px 0px 2px 4px;
+  padding: 3px 0;
 }
 .pretty td,
 .pretty th {
@@ -233,4 +233,7 @@ h3 {
 }
 .min-width {
   width: 1px;
+}
+.center {
+  text-align: center;
 }

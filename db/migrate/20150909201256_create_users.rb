@@ -13,6 +13,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       t.string :user_type
+      t.boolean :activated
+      t.boolean :banned
       t.attachment :image
 
       t.timestamps null: false

@@ -27,6 +27,9 @@ class PagesController < ApplicationController
 
   end
 
+  def wait
+  end
+
   private def sort_column
     if params[:action] == "students"
       %w[first_name last_name].include?(params[:sort]) ? params[:sort] : "first_name"

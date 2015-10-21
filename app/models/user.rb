@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
-  # has_many :opinions, as: :opinionable, dependent: :destroy
   has_attached_file :image, styles: { large: "230x230>", medium: "160x160>", small: "100x100>", thumb: "50x50>", xs: "28x28>" }, default_url: "/default_1.jpg"
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates :email, uniqueness: true # with format
+  validates :email, presence: true, uniqueness: true # with format
 
   def self.search(search)
     if search
@@ -46,5 +45,17 @@ class User < ActiveRecord::Base
 
   def team_member?
     %w[God Admin Recruiter Moderator].include?(user_type)
+  end
+
+  def opinions
+    Opinion.where(user_id: id)
+  end
+
+  def likes?(resource)
+    resource.liked_by?(self)
+  end
+
+  def dislikes?(resource)
+    resource.disliked_by?(self)
   end
 end

@@ -7,9 +7,30 @@ class SchoolTest < ActiveSupport::TestCase
     assert school.save
   end
 
+  test "rating" do
+    school = School.create(name: 'name', rating: 90)
+    assert_equal 90, school.rating
+  end
+
   test "link" do
-    school = School.new(name: 'name', link: 'link')
-    assert school.save
+    refute = School.new(name: 'name', link: 'link').save
+    assert = School.new(name: 'name', link: 'http://google.com').save
+    assert = School.new(name: 'name', link: 'https://google.com').save
+    assert = School.new(name: 'name', link: 'http://www.google.com').save
+    assert = School.new(name: 'name', link: 'https://www.google.com').save
+
+    array = ["http://www.appstate.edu/", "https://www.barton.edu/",
+      "http://belmontabbeycollege.edu/", "http://www.campbell.edu/",
+      "http://www.davidson.edu/", "https://duke.edu/", "http://www.ecu.edu/",
+      "http://www.elon.edu/home/", "http://www.guilford.edu/",
+      "http://www.highpoint.edu/", "http://www.jcsu.edu/",
+      "https://www.jwu.edu/charlotte/", "http://www.lr.edu/",
+      "http://www.meredith.edu/", "https://www.ncsu.edu/",
+      "http://www.queens.edu/", "http://www.salem.edu/", "http://www.unc.edu/",
+      "http://www.uncc.edu/", "https://www.uncg.edu/", "http://uncw.edu/",
+      "http://www.wfu.edu/", "http://www.wingate.edu/"
+    ]
+    array.each{ |link| assert School.new(name: 'name', link: link).save }
   end
 
   test "students" do
@@ -28,17 +49,17 @@ class SchoolTest < ActiveSupport::TestCase
 
   test "street" do
     school = School.new(name: 'name', street: 'street')
-    school.save
+    assert school.save
   end
 
   test "city" do
     school = School.new(name: 'name', city: 'city')
-    school.save
+    assert school.save
   end
 
   test "state" do
     school = School.new(name: 'name', state: 'state')
-    school.save
+    assert school.save
   end
 
   test "zip" do
@@ -64,9 +85,8 @@ class SchoolTest < ActiveSupport::TestCase
   test "address" do
     school1 = School.create(name: 'name', street: "one", city: "two", state: "three", zip: "39902")
     school2 = School.create(name: 'name', street: "one", city: "two", state: "three")
-    assert school2.zip.blank?
     assert_equal 'one, two, three 39902', school1.address
-    assert_equal nil, school2.address
+    assert_nil school2.address
   end
 
   test "rules" do
@@ -85,8 +105,6 @@ class SchoolTest < ActiveSupport::TestCase
   test "nested rules" do
     school = School.create(name: 'school')
     question = Question.create(value: 'sup?')
-
-    assert_equal 0, school.rules.count
 
     school.rules.new(school: school, question: question, answer: true)
 

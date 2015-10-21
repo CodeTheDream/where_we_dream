@@ -13,7 +13,6 @@
       <th class="min-width desktop-only" colspan='1'>#</th>
       <th class="min-width"><%= sortable "complete", "Info" %></th>
       <th class="min-width"><%= sortable "rating" %></th>
-      <th class="min-width desktop-only"><%= sortable "public" %></th>
       <th><%= sortable "name" %></th>
       <th><%= sortable "city" %></th>
     </tr>
@@ -24,19 +23,16 @@
     <% @schools.each do |school| %>
       <tr  data-href="/admin/schools/<%= school.id %>" class="tr-content">
         <td class="desktop-only"><%= number += 1 %></td>
-        <td>
+        <td class="center">
           <%= school.complete? ? "<span class='bolder'>✓</span>".html_safe : "INC" %>
         </td>
-        <td><%= school.rating.round %>%</td>
-        <td class="desktop-only">
-          <span><%= school.public? %></span>
-        </td>
+        <td class="center"><%= school.rating.round %>%</td>
         <td>
           <%= school.name %>
           <% if school.public %>
-            <i class="fa fa-unlock mobile-only public"></i>
+            <i class="fa fa-unlock public"></i>
           <% else %>
-            <i class="fa fa-lock mobile-only private"></i>
+            <i class="fa fa-lock private"></i>
           <% end %>
         </td>
         <td><%= school.city %></td>

@@ -2,8 +2,7 @@ class Rule < ActiveRecord::Base
   belongs_to :school
   belongs_to :question
 
-  validates :school_id, presence: true
-  validates :question_id, presence: true
+  validates_presence_of :school, :question
 
   def question!
     self.question.value
@@ -14,13 +13,6 @@ class Rule < ActiveRecord::Base
   end
 
   def answer!
-    case answer
-    when true
-      "Yes"
-    when false
-      "No"
-    when nil
-      "Unknown"
-    end
+    {true => "Yes", false => "No", nil => "Unknown"}[answer]
   end
 end

@@ -3,6 +3,7 @@ class School < ActiveRecord::Base
   validates :students, numericality: true, allow_blank: true
   validates :undocumented_students, numericality: true, allow_blank: true
   validates :zip, format: { with: /\A\d{5}(\z|-\d{4}\z)/, message: "Zip code should be 12345 or 12345-1234" }, allow_blank: true
+  validates :link, url: true, allow_blank: true
 
   has_many :rules, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
@@ -11,6 +12,8 @@ class School < ActiveRecord::Base
   accepts_nested_attributes_for :rules
 
   attr_accessor :info
+
+  include Opinionable
 
   def self.search(search)
     if search

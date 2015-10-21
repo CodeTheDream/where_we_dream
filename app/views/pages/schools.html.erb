@@ -14,7 +14,7 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr data-href=<%= school_path(school) %> class="tr-content">
-        <td><%= school.rating.round %>%</td>
+        <td class="center"><%= school.rating.round %>%</td>
         <td>
           <%= school.name %>
           <% if school.public %>
