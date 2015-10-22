@@ -28,6 +28,7 @@ class PagesController < ApplicationController
   end
 
   def wait
+    redirect_to root_path, notice: "Account already activated" if logged_in?
   end
 
   private def sort_column

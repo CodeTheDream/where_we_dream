@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@wherewedream.org'
+  default from: 'info@wherewedream.org'
 
   def activate(user)
     @user = user
