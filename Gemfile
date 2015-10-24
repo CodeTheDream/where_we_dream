@@ -22,6 +22,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'addressable'
 gem 'letter_opener', :group => :development
 # gem 'addressable'
+gem 'redcarpet'
 
 group :production do
   gem 'puma'

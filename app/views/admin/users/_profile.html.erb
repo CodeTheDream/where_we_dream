@@ -59,6 +59,7 @@
   </p>
 <% end %>
 <% if @user.bio.present? %>
-  <h3 class="thin">Bio</h3>
-  <p class="pre-wrap"><%= @user.bio %></p>
+  <h2 class="thin">Bio</h2>
+  <!-- <p class="pre-wrap"><%= @user.bio %></p> -->
+  <p class="pre-wrap"><%= markdown_parse(@user.bio) %></p>
 <% end %>

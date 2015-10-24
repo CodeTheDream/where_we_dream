@@ -1,4 +1,5 @@
 <% @school.id ? correct_path = admin_school_path(@school) : correct_path = admin_schools_path %>
+<%# @school.name.nil? ? correct_path = admin_school_path(@school) : correct_path = admin_schools_path %>
 
 <%= form_for(@school, url: correct_path) do |f| %>
   <% if @school.errors.any? %>

@@ -86,4 +86,22 @@ module ApplicationHelper
     css_class = css_array[answer]
     "<p class='rule #{css_class}'>".html_safe
   end
+
+  def notice_helper
+    style = @page == 'home' ?  ' style="position:relative"' : nil
+    "<p id='notice'#{style}>#{notice}</p>".html_safe
+  end
+
+  def markdown_parse(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(
+      link_attributes: {class: "blue-link"}),
+      autoliink: true,
+      strikethrough: true,
+      underline: true,
+      highlight: true,
+      superscript: true,
+      disable_indented_code_blocks: true,
+      space_after_headers: true
+    )
+    markdown.render(text).html_safe  end
 end

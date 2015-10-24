@@ -13,7 +13,7 @@
   <%= render 'layouts/cover' if @page == 'home' %>
   <div id='body'>
     <% if notice.present? %>
-      <p id='notice'><%= notice %></p>
+      <%= notice_helper %>
     <% end %>
     <%= yield %>
   </div>

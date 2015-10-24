@@ -145,6 +145,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    redcarpet (3.3.3)
     refills (0.1.0)
     sass (3.4.18)
     sass-rails (5.0.3)
@@ -204,6 +205,7 @@ DEPENDENCIES
   puma
   rails (= 4.2.1)
   rails_12factor
+  redcarpet
   refills
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

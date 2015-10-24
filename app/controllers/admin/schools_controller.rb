@@ -10,14 +10,16 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def show
-    @title =  @school.name = " | Where We DREAM"
+    @title =  @school.name + " | Where We DREAM"
     @commentable = @school
     @comments = @school.comments.where(original_comment_id: nil).order(created_at: :desc)
     @blank_comment = Comment.new
   end
 
   def new
-    @school = School.create
+    School.where(name: nil).destroy_all
+    id = School.last.id + 1
+    @school = School.create(id: id)
     Question.all.each do |question|
       @school.rules.create(question: question)
     end
@@ -26,6 +28,7 @@ class Admin::SchoolsController < ApplicationController
   def edit
   end
 
+  # this controller action has never been run. You go from the :new view to the :create action because this new view :creates a school.
   def create
     @school = School.create(new_school_params)
     if @school.update(school_params)

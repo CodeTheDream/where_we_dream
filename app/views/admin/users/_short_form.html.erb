@@ -3,7 +3,7 @@
 <%= form_for @user, url: correct_path, html: { multipart: true } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h3>Something's not right:</h3>
 
       <ul>
       <% @user.errors.full_messages.each do |message| %>
@@ -14,23 +14,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
+    <%= f.label :first_name do %>
+      First Name<span class="red">*</span>
+    <% end %><br>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
+    <%= f.label :last_name, "Last Name" %><br>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email do %>
+      Email<span class="red">*</span> (An email will be sent for verification)
+    <% end %><br/>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password do %>
+      Password<span class="red">*</span>
+    <% end %><br>
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :user_type, "I am a..." %><br>
+    <%= f.label :user_type do %>
+      I am a...<span class="red">*</span>
+    <% end %>
+    <br>
     <%= f.select :user_type, options_for_select(user_types), include_blank: true %>
   </div>
   <div class="actions">
