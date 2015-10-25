@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 
   def index
     @school = School.find(params[:school_id])
-    @comments = @commentable.comments.order(created_at: :desc)
+    @comments = @school.comments.where(original_comment_id: nil).order(created_at: :desc)
+    @blank_comment = Comment.new
   end
 
   def new

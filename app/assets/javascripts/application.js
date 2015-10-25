@@ -235,7 +235,6 @@ function commentOptions(){
     if (!(comment.is('.comment-reply'))) {
       comment = $(this).closest('.comment-thread')
     }
-    // console.log(action)
     if (action == "Remove this comment") {
       comment.replaceWith('<div class="comment-deleted">Comment deleted.</div>')
       $('.comment-deleted').fadeOut(3000)

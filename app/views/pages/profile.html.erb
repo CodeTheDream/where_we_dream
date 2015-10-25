@@ -1,7 +1,5 @@
 <%= render 'admin/users/profile' %>
-<%= link_to :back, class: "blue-link" do %>
-  <i class="fa fa-arrow-left"></i> Back
-<% end %> |
-<%= link_to edit_user_path(@user), class: "blue-link" do %>
+<%= back %> |
+<%= link_to edit_user_path(@user) do %>
   <i class="fa fa-pencil"></i> Edit
 <% end %>

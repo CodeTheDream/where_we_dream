@@ -27,7 +27,7 @@
           </strong>
           <span class="time"><%= created_at(comment) %></span>
           <br/>
-          <%= comment.content %>
+          <%= simple_md_parser comment.content %>
           <br/>
           <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <%= likes(comment) %><%= thumbs_up(comment) %>   <%= thumbs_down(comment) %></div>
         </div>
@@ -59,7 +59,7 @@
             </strong>
             <span class="time"><%= created_at(reply) %></span>
             <br/>
-            <%= reply.content %>
+            <%= simple_md_parser reply.content %>
             <br/>
             <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <%= likes(reply) %><%= thumbs_up(reply) %>   <%= thumbs_down(reply) %></div>
           </div>
@@ -67,5 +67,4 @@
       <% end %>
     </div>
   <% end %>
-  <%= link_to "All comments",  school_comments_path(@school), class: "blue-link" %>
 </div>

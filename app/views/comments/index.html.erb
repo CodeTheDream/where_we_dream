@@ -1,20 +1,4 @@
 <h2><%= @school.name %></h2>
 <h3>Comments · <%= @school.comments.count %></h3>
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <div class="comment">
-      <div class="user-image">
-        <%= link_to user_path(comment.user.id) do %>
-          <%= image_tag comment.user.image.url(:small) %>
-        <% end %>
-      </div>
-      <div class="comment-content">
-        <strong>
-          <%= link_to comment.user.first_name, user_path(comment.user.id), class: 'comment-name' %>
-        </strong>
-        <span class="time"><%= created_at(comment) %></span><br>
-        <%= comment.content %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'comments/form' if logged_in? %>
+<%= render 'comments/index' %>

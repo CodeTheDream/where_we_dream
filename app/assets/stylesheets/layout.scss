@@ -5,6 +5,9 @@
   @include mobile {
     padding: 55px 15px 30px;
   }
+  img {
+    max-width: 100%;
+  }
 }
 #notice {
   margin: .5em 0 0;
@@ -131,7 +134,7 @@ table.pretty {
 .hide {
   display: none;
 }
-.blue-link {
+a {
   text-decoration: none;
   color: #4285F4;
 }

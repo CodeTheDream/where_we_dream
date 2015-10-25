@@ -1,12 +1,9 @@
 <div class="flex-container">
-  <h2 class="thin">
-    <%= link_to @school.link, class: "blue-link", target: "_blank" do %>
-      <%= @school.name %>
-    <% end %>
-    (<%= @school.public? %>)
+  <h2>
+    <%= link_to @school.name, @school.link, target: "_blank" %> (<%= @school.public? %>)
   </h2>
   <% if admin_or_above? && request.path.include?("admin") %>
-    <%= link_to edit_admin_school_path(@school), class: "blue-link flex-right" do %>
+    <%= link_to edit_admin_school_path(@school), class: "flex-right" do %>
       <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
     <% end %>
   <% end %>
@@ -21,7 +18,7 @@
 </p>
 
 <% if @school.description.present? %>
-  <h3 class="thin">Description</h2>
+  <h3>Description</h2>
   <p>
     <%= @school.description %>
   </p>
@@ -51,7 +48,6 @@
 <% end %>
 
 <h2>Comments · <%= @school.comments.count %></h2>
-<% if logged_in? %>
-  <%= render 'comments/form' %>
-<% end %>
+<%= render 'comments/form' if logged_in? %>
 <%= render 'comments/index' %>
+<%= link_to "All comments",  school_comments_path(@school) %>

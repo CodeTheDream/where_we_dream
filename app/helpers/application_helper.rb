@@ -3,7 +3,7 @@ module ApplicationHelper
     title ||= column.titleize
     direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
     css_direction = direction == "asc" ? "desc" : "asc"
-    css_class = column == sort_column ? "blue-link #{css_direction}" : "blue-link"
+    css_class = column == sort_column ? "#{css_direction}" : nil
     link_to title, params.merge(sort: column, direction: direction), {class: css_class}
   end
 
@@ -92,9 +92,9 @@ module ApplicationHelper
     "<p id='notice'#{style}>#{notice}</p>".html_safe
   end
 
-  def markdown_parse(text)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(
-      link_attributes: {class: "blue-link"}),
+  def complex_md_parser(text)
+    markdown = Redcarpet::Markdown.new(
+      Redcarpet::Render::HTML,
       autoliink: true,
       strikethrough: true,
       underline: true,
@@ -103,5 +103,48 @@ module ApplicationHelper
       disable_indented_code_blocks: true,
       space_after_headers: true
     )
-    markdown.render(text).html_safe  end
+    markdown.render(text).html_safe
+  end
+
+  def simple_md_parser(text)
+    markdown = Redcarpet::Markdown.new(RenderWithoutWrap.new(
+      hard_wrap: true,
+      disable_indented_code_blocks: true,
+      space_after_headers: true,
+      safe_links_only: true,
+      autolink: true,
+      escape_html: true,
+      no_images: true,
+    ))
+    text = pound_filter text
+    text = asterisk_filter text
+    text = dash_filter text
+    # text = number_filter text # ordered lists are still possible...Not really a big deal.
+    markdown.render(text).html_safe
+  end
+
+  def pound_filter text
+    text.gsub /^#/, '\#'
+  end
+
+  def asterisk_filter text
+    text.gsub /^\*/, '\*'
+  end
+
+  def dash_filter text
+    text.gsub /^-/, '\-'
+  end
+
+  # def number_filter text
+  #   if text[/^\d./].present?
+  #     text[/^\d./].each do |match|
+  #       escape = '\\' + match
+  #       text.gsub match, escape
+  #     end
+  #   end
+  # end
+
+  def back
+    link_to '<i class="fa fa-arrow-left"></i> Back'.html_safe, :back
+  end
 end

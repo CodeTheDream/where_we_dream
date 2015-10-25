@@ -1,6 +1,6 @@
 <div class="flex-container">
   <h1>Schools</h1>
-  <%= link_to new_admin_school_path, class: 'blue-link flex-right' do %>
+  <%= link_to new_admin_school_path, class: 'flex-right' do %>
     <i class="fa fa-plus"></i> Add School
   <% end %>
 </div>
@@ -40,6 +40,4 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to :back, class: "blue-link" do %>
-  <i class="fa fa-arrow-left"></i> Back
-<% end %>
+<%= back %>
