@@ -21,7 +21,7 @@
   <tbody>
     <% number = 0 %>
     <% @schools.each do |school| %>
-      <tr  data-href="/admin/schools/<%= school.id %>" class="tr-content">
+      <tr data-href="/admin/schools/<%= school.id %>" class="tr-content">
         <td class="desktop-only"><%= number += 1 %></td>
         <td class="center">
           <%= school.complete? ? "<span class='bolder'>✓</span>".html_safe : "INC" %>

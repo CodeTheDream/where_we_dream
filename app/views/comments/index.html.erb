@@ -1,4 +1,4 @@
-<h2><%= @school.name %></h2>
+<h2><%= link_to @school.name, school_path(@school) %></h2>
 <h3>Comments · <%= @school.comments.count %></h3>
 <%= render 'comments/form' if logged_in? %>
 <%= render 'comments/index' %>

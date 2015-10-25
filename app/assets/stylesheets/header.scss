@@ -58,7 +58,12 @@ header {
     position: relative;
   }
   h3 {
-    margin: 0 0 .5em;
+    @include immobile {
+      margin: 0 0 .5em;
+    }
+    @include mobile {
+      margin: 0;
+    }
   }
   p {
     font-family: 'Exo', sans-serif;

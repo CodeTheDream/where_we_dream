@@ -13,6 +13,7 @@ function responsiveCoverHeight() {
 
 function toggleMobileNavs() {
   $('#js-navigation-menu li').click( function() {
+    $(window).resize( setMobileNavHeight );
     var id = $(this).attr('id');
     if ($('#nav-' + id).css('display') == 'none') {
       $('#mobile-nav').show();
@@ -239,9 +240,9 @@ function commentOptions(){
       comment.replaceWith('<div class="comment-deleted">Comment deleted.</div>')
       $('.comment-deleted').fadeOut(3000)
     } else if (action == "Edit") {
-      console.log("edit")
+      // console.log("edit")
     } else {
-      console.log("report")
+      // console.log("report")
     };
   });
 };
