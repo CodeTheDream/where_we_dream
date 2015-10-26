@@ -18,8 +18,12 @@ class Admin::SchoolsController < ApplicationController
 
   def new
     School.where(name: nil).destroy_all
-    id = School.last.id + 1
-    @school = School.create(id: id)
+    if School.any?
+      id = School.last.id + 1
+      @school = School.create(id: id)
+    else
+      @school = School.create
+    end
     Question.all.each do |question|
       @school.rules.create(question: question)
     end
