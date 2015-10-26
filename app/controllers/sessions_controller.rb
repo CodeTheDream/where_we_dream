@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
       if user.activated
         if user.authenticate(password)
           session[:user_id] = user.id
-          session[:user_type] = user.type
+          session[:user_type] = "God" if user.id == 1
+          session[:user_type] ||= user.type
           redirect_to root_path, notice: "Welcome #{user.first_name}"
         else
           redirect_to login_path, notice: "Wrong password." + array.sample
