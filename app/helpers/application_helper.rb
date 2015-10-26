@@ -160,4 +160,14 @@ module ApplicationHelper
     user = comment.user.type
     comment.owner?(user_id) || (modder_or_above? && modder_or_below_of?(comment.user))
   end
+
+  def pluralize_without_count(count, noun, text = nil)
+    if count != 0
+      count == 1 ? "#{noun}#{text}" : "#{noun.pluralize}#{text}"
+    end
+  end
+
+  def simple_pluralize count, singular, plural=nil
+    ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
+  end
 end

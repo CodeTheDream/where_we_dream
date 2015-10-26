@@ -4,7 +4,6 @@
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h3>Something's not right:</h3>
-
       <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>

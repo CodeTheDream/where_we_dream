@@ -59,7 +59,7 @@
       <div class="feature">
         <a href="/schools"><span class="click-area"></span></a>
         <h3>Schools</h3>
-        <p>Browse through our <%= School.count %> schools</p>
+        <p>Browse through our <%= pluralize School.count, "school" %></p>
       </div>
       <div class="feature">
         <a href="javascript:void(0)"><span class="click-area"></span></a>
@@ -76,7 +76,7 @@
       <div class="feature">
         <a href="/students"><span class="click-area"></span></a>
         <h3>Students</h3>
-        <p>Browse through our <%= User.students.count %> students</p>
+        <p>Browse through our <%= pluralize User.students.count, "student" %></p>
       </div>
     </div>
     <div id="nav-admin">

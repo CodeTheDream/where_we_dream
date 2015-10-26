@@ -1,8 +1,9 @@
+<% students = User.students.count %>
 <div class="flex-boxes">
   <a href="schools" class="flex-box flex-box-big">
     <%= image_tag "school_1.gif" %>
     <h1 class="flex-title">Schools</h1>
-    <p>Browse through our <%= School.count %> schools and find out which is best for you!</p>
+    <p>Browse through our <%= pluralize School.count, "school" %> and find out which is best for you</p>
   </a>
   <a href="javascript:void(0)" class="flex-box">
     <%= image_tag "money_1.png" %>
@@ -29,6 +30,6 @@
       <i class="fa fa-graduation-cap"></i>
     </div> -->
     <h1 class="flex-title">Students</h1>
-    <p>Browse through our <%= User.students.count %> students who strive to fulfill their DREAMs.</p>
+    <p>Browse through our <%= pluralize students, "student" %> who <%= simple_pluralize students, "strives", "strive" %> to fulfill <%= simple_pluralize students, "his/her", "their" %> DREAMs</p>
   </a>
 </div>
