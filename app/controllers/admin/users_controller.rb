@@ -69,8 +69,8 @@ class Admin::UsersController < ApplicationController
     if user && (token == user.password_digest.clean)
       activated = user.activated
       user.update(activated: true)
-      session[:user_id] = user.id
-      session[:user_type] = user.type
+      session[:user_id] ||= user.id
+      session[:user_type] ||= user.type
       redirect_to root_path, notice: activated ? "Your account is already activated" : "Your account has been activated."
     else
       redirect_to login_path, notice: "Something went wrong. Try again or try something else."

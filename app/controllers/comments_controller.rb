@@ -22,7 +22,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    # write some code here nah mean
+    comment = Comment.find(params[:id])
+    if comment.replies.any?
+      comment.replies.destroy_all
+    end
+    comment.destroy
+    render nothing: true
   end
 
   private

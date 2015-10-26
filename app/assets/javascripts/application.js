@@ -231,14 +231,19 @@ function elasticNewCommentInput(){
 
 function commentOptions(){
   $('span.dropdown li').click(function() {
-    action = $(this).html();
-    comment = $(this).closest('.comment')
+    var action = $(this).html();
+    var comment = $(this).closest('.comment');
+    var id = comment.attr('id');
     if (!(comment.is('.comment-reply'))) {
       comment = $(this).closest('.comment-thread')
     }
     if (action == "Remove this comment") {
       comment.replaceWith('<div class="comment-deleted">Comment deleted.</div>')
-      $('.comment-deleted').fadeOut(3000)
+      $('.comment-deleted').fadeOut(3000);
+      $.ajax({
+        url: "/comments/" + id + "/delete",
+        type: "DELETE",
+      });
     } else if (action == "Edit") {
       // console.log("edit")
     } else {

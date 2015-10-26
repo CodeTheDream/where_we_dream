@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'activate' => 'admin/users#activate'
   resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 
+  delete 'comments/:id/delete' => 'comments#destroy'
   resources :schools, controller: 'admin/schools', only: :show do
     resources :comments
   end

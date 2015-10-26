@@ -37,7 +37,11 @@
   </div>
   <div class="field">
     <%= f.label :user_type do %>
-      I am a...<span class="red">*</span>
+      <% if admin_or_above? %>
+        This account is for a...<span class="red">*</span>
+      <% else %>
+        I am a...<span class="red">*</span>
+      <% end %>
     <% end %>
     <br>
     <%= f.select :user_type, options_for_select(user_types), include_blank: true %>

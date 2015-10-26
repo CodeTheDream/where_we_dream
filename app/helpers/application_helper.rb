@@ -35,8 +35,16 @@ module ApplicationHelper
 
   alias_method :logged_in?, :user_id
 
+  def modder_or_below_of?(user)
+    %w[Moderator Student Teacher School Supporter school_representative].map(&:titleize).include?(user.type)
+  end
+
+  def modder_or_above?
+    %w[Moderator Admin God].include? user_type
+  end
+
   def admin_or_above?
-    %w[Admin God].include?(session[:user_type])
+    %w[Admin God].include? user_type
   end
 
   def admin?
@@ -49,11 +57,11 @@ module ApplicationHelper
 
   def user_types
     if god?
-      %w[God Admin Moderator Recruiter Student Teacher School]
+      %w[Admin Moderator Recruiter Student Teacher School Supporter school_representative].map &:titleize
     elsif admin?
-      %w[Moderator Recruiter Student Teacher School]
+      %w[Moderator Recruiter Student Teacher School Supporter school_representative].map &:titleize
     else
-      %w[Student Teacher Parent]
+      %w[Student Teacher Parent Supporter]
     end
   end
 
@@ -146,5 +154,10 @@ module ApplicationHelper
 
   def back
     link_to '<i class="fa fa-arrow-left"></i> Back'.html_safe, :back
+  end
+
+  def delatable?(comment)
+    user = comment.user.type
+    comment.owner?(user_id) || (modder_or_above? && modder_or_below_of?(comment.user))
   end
 end

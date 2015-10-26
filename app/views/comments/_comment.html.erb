@@ -7,19 +7,16 @@
       <% end %>
     </div>
     <div class="comment-content">
-      <span class="dropdown">
-        <span class="dropdown-container">
-          <i class="fa fa-caret-square-o-down dropdown-button"></i>
-          <ul class="dropdown-menu dropdown-select">
-            <% if owner?(@comment) %>
-              <li>Edit</li>
+      <% if delatable? @comment %>
+        <span class="dropdown">
+          <span class="dropdown-container">
+            <i class="fa fa-caret-square-o-down dropdown-button"></i>
+            <ul class="dropdown-menu dropdown-select">
               <li>Remove this comment</li>
-            <% else %>
-              <li>Report spam or abuse</li>
-            <% end %>
-          </ul>
+            </ul>
+          </span>
         </span>
-      </span>
+      <% end %>
       <strong>
         <%= link_to @comment.user.first_name, user_path(@comment.user.id), class: 'comment-name' %>
       </strong>
