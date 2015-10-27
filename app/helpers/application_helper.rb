@@ -171,7 +171,11 @@ module ApplicationHelper
     ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
   end
 
-  def title(page_title = "Immigrant-friendly schools, scholarships, people")
-    content_for(:title) { page_title + " | Where We DREAM"}
+  def title(page_title = nil )
+    if page_title.present?
+      content_for( :title, page_title + " | Where We DREAM")
+    else
+      content_for?(:title) ? content_for(:title) : APP_CONFIG['default_title']
+    end
   end
 end
