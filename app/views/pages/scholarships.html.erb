@@ -1,8 +1,5 @@
 <div class="flex-container">
   <h1><%= title 'Scholarships' %></h1>
-  <%= link_to new_admin_scholarship_path, class: 'flex-right' do %>
-    <i class="fa fa-plus"></i> Add Scholarship
-  <% end %>
 </div>
 
 <%= render 'layouts/search', path: admin_scholarships_path, placeholder: 'Search scholarships' %>

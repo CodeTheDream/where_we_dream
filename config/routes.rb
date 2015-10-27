@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 
-  resources :scholarships, controller: 'admin/scholarships', only: :show do
+  resources :scholarships, controller: 'admin/scholarships', only: [:show, :delete] do
     resources :comments
   end
 

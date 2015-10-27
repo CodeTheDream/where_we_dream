@@ -1,6 +1,6 @@
 //= require jquery
-//= require parsley
 //= require jquery_ujs
+//= require parsley
 //= require_tree .
 function setCoverHeight() {
   var height = $(window).height();

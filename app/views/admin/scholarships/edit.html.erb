@@ -1,6 +1,7 @@
-<h1>Editing Scholarship</h1>
+<h1><%= title "Editing Scholarship" %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @scholarship %> |
-<%= link_to 'Back', scholarships_path %>
+<%= back %>
+
+<%= destroy @scholarship %>

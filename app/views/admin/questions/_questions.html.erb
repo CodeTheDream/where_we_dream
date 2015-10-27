@@ -3,7 +3,7 @@
     <div>
       <span>
         <% if god? %>
-          <%= link_to admin_question_path(question), method: :delete, remote: true, class: 'destroy-button' do %>
+          <%= link_to admin_question_path(question), method: :delete, remote: true, class: 'destroy-button', data: {confirm: "Are you sure you wanna delete this question?"} do %>
             <i class="fa fa-trash-o"></i>
           <% end %>
         <% end %>

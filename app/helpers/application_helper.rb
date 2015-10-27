@@ -43,6 +43,10 @@ module ApplicationHelper
     %w[Moderator Admin God].include? user_type
   end
 
+  def recruiter_or_above?
+    %w[Recruiter Admin God].include? user_type
+  end
+
   def admin_or_above?
     %w[Admin God].include? user_type
   end
@@ -57,7 +61,7 @@ module ApplicationHelper
 
   def user_types
     if god?
-      %w[Admin Moderator Recruiter Student Teacher School Supporter school_representative].map &:titleize
+      %w[God Admin Moderator Recruiter Student Teacher School Supporter school_representative].map &:titleize
     elsif admin?
       %w[Moderator Recruiter Student Teacher School Supporter school_representative].map &:titleize
     else
@@ -93,10 +97,20 @@ module ApplicationHelper
   end
 
   def back
-    link_to '<i class="fa fa-arrow-left"></i> Back'.html_safe, :back
+    link_to '<span class="button dark-blue-background submit"><i class="fa fa-arrow-left"></i> Back<span>'.html_safe, :back
   end
 
   def simple_pluralize(count, singular, plural = nil)
     ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
+  end
+
+  def destroy(resource)
+    thing = resource.class.to_s.downcase
+    path = "/admin/#{thing}s/#{resource.id}"
+    button_to "Delete", path, method: :delete, class: "button red-background", data: {confirm: "Are you sure to delete this #{thing}?"}
+  end
+
+  def not_self?
+    @user.id != session[:user_id]
   end
 end

@@ -63,8 +63,8 @@ can edit users = nobody
 
 viewers can create comments
 moderators can delete comments && recruiters can create/edit schools
-admin can create questions|schools|recruiters|moderators, delete viewers
-god can create admin|god, delete schools|questions|everyone
+admin can create questions|schools|recruiters|moderators, ban viewers
+god can create admin|god, delete schools|questions|scholarships, ban everyone
 
 URL_encoding {
   "&" => "&amp;",

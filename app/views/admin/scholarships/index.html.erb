@@ -10,18 +10,18 @@
 <table class="pretty">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Deadline</th>
-      <th>Amount</th>
+      <th class="min-width"><%= sortable "deadline" %></th>
+      <th><%= sortable "name" %></th>
+      <th class="min-width"><%= sortable "amount" %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @scholarships.each do |scholarship| %>
-      <tr>
+      <tr data-href="<%= admin_scholarship_path(scholarship) %>"  class="tr-content">
+        <td class="center"><%= simple_date scholarship %></td>
         <td><%= scholarship.name %></td>
-        <td><%= scholarship.deadline %></td>
-        <td><%= scholarship.amount %></td>
+        <td><%= reward scholarship %></td>
       </tr>
     <% end %>
   </tbody>

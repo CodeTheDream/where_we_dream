@@ -69,13 +69,20 @@ input[type="submit"],
   }
 }
 .red-background {
-  text-align: center;
-  width: 100%;
-  background-color: #EA4335;
+  background-color: #EA4335 !important;
   &:hover {
-    background-color: darken(#EA4335, 5%);
+    background-color: darken(#EA4335, 5%) !important;
   }
 }
+.dark-blue-background {
+  text-align: center;
+  background-color: #36465D;
+  width: 100%;
+  &:hover {
+    background-color: darken(#36465D, 5%);
+  }
+}
+
 #questions span {
   position: relative;
 }

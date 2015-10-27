@@ -57,12 +57,12 @@
   <nav id="mobile-nav">
     <div id="nav-features">
       <div class="feature">
-        <a href="schools"><span class="click-area"></span></a>
+        <a href="/schools"><span class="click-area"></span></a>
         <h3>Schools</h3>
         <p>Browse through our <%= pluralize School.count, "school" %></p>
       </div>
       <div class="feature">
-        <a href="scholarships"><span class="click-area"></span></a>
+        <a href="/scholarships"><span class="click-area"></span></a>
         <h3>Scholarships</h3>
         <p>Browse through our <%= pluralize Scholarship.count, "scholarship" %></p>
       </div>
@@ -97,7 +97,7 @@
       <div class="feature">
         <%= link_to '<span class="click-area"></span>'.html_safe, admin_users_path %>
         <h3>Users</h3>
-        <p>Edit users</p>
+        <p><%= pluralize User.count, "user" %></p>
       </div>
     </div>
     <div id="nav-other">

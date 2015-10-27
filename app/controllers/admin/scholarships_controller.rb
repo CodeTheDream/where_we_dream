@@ -1,4 +1,5 @@
 class Admin::ScholarshipsController < ApplicationController
+  before_action :authenticate_recruiter, except: [:show]
   before_action :set_scholarship, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column
 
@@ -25,7 +26,7 @@ class Admin::ScholarshipsController < ApplicationController
     @scholarship = Scholarship.new(scholarship_params)
 
     if @scholarship.save
-      redirect_to @scholarship, notice: 'Scholarship was successfully created.'
+      redirect_to admin_scholarships_path, notice: 'Scholarship was successfully created.'
     else
       render :new
     end
@@ -43,7 +44,7 @@ class Admin::ScholarshipsController < ApplicationController
   # DELETE /scholarships/1
   def destroy
     @scholarship.destroy
-    redirect_to scholarships_url, notice: 'Scholarship was successfully destroyed.'
+    redirect_to admin_scholarships_path, notice: 'Scholarship was successfully destroyed.'
   end
 
   private

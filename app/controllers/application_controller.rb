@@ -48,6 +48,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_recruiter
+    unless logged_in? && recruiter_or_above?
+      redirect_to login_path, notice: "Access denied."
+    end
+  end
+
   def authenticate_update
     #session[:user_id] is stored as a Fixnum. params[:id] is stored as a string
     unless session[:user_id].to_s == params[:id] || session[:user_type] == "God"
