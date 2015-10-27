@@ -170,4 +170,8 @@ module ApplicationHelper
   def simple_pluralize count, singular, plural=nil
     ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
   end
+
+  def title(page_title = "Immigrant-friendly schools, scholarships, people")
+    content_for(:title) { page_title + " | Where We DREAM"}
+  end
 end
