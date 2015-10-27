@@ -6,35 +6,33 @@ class ApplicationController < ActionController::Base
   before_action :prepare_meta_tags, if: "request.get?"
 
   def prepare_meta_tags(options={})
-    site_name   = "Where We DREAM"
-    title       = "Immigrant-friendly schools, scholarships, people"
-    description = "Find out about universities and their polices towards immigrant students, about Immigrant-friendly scholarships, and so much more."
-    image       = options[:image] || "https://s3.amazonaws.com/where-we-dream/wherewedream.jpg"
+    site   = CONFIG['site']
+    title       = CONFIG['title']
+    description = CONFIG['description']
+    image       = options[:image] || CONFIG['image']
     current_url = request.url
 
     # Let's prepare a nice set of defaults
     defaults = {
-      reverse: true,
-      site:        site_name,
+      reverse:     true,
+      site:        site,
       title:       title,
       image:       image,
       description: description,
-      keywords:    %w[web software development mobile app],
-      twitter:     {site_name: site_name,
-                    site: '@thecookieshq',
+      keywords:    %w[immigrant scholarships schools help where we dream],
+      twitter:     {site_name: site,
+                    site: '@' + CONFIG['twitter'],
                     card: 'summary',
                     description: description,
                     image: image},
       og:          {url: current_url,
-                    site_name: site_name,
+                    site_name: site,
                     title: title,
                     image: image,
                     description: description,
                     type: 'website'}
     }
-
     options.reverse_merge!(defaults)
-
     set_meta_tags options
   end
 

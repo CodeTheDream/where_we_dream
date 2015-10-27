@@ -2,6 +2,7 @@
 <html>
 <head>
   <%= display_meta_tags %>
+  <meta name="viewport" content="initial-scale=1">
   <%= favicon_link_tag asset_url('graduation_cap.png') %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -11,9 +12,7 @@
   <%= render 'layouts/header' %>
   <%= render 'layouts/cover' if @page == 'home' %>
   <div id='body'>
-    <% if notice.present? %>
-      <%= notice_helper %>
-    <% end %>
+    <%= notice_helper if notice.present? %>
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>

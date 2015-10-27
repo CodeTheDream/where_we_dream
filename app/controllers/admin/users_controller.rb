@@ -11,6 +11,7 @@ class Admin::UsersController < ApplicationController
 
   # GET /users/1
   def show
+    prepare_meta_tags image: @user.image.url
   end
 
   # GET /users/new
