@@ -15,14 +15,21 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'wait' => 'pages#wait'
   get 'contact' => 'pages#contact'
+  get 'scholarships' => 'pages#scholarships'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
   patch 'new_question_partial' => 'admin/questions#partial'
 
   get 'activate' => 'admin/users#activate'
-  resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 
   delete 'comments/:id/delete' => 'comments#destroy'
+
+  resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
+
+  resources :scholarships, controller: 'admin/scholarships', only: :show do
+    resources :comments
+  end
+
   resources :schools, controller: 'admin/schools', only: :show do
     resources :comments
   end
@@ -31,5 +38,6 @@ Rails.application.routes.draw do
     resources :schools
     resources :questions
     resources :users
+    resources :scholarships
   end
 end

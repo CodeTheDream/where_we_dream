@@ -57,15 +57,14 @@
   <nav id="mobile-nav">
     <div id="nav-features">
       <div class="feature">
-        <a href="/schools"><span class="click-area"></span></a>
+        <a href="schools"><span class="click-area"></span></a>
         <h3>Schools</h3>
         <p>Browse through our <%= pluralize School.count, "school" %></p>
       </div>
       <div class="feature">
-        <a href="javascript:void(0)"><span class="click-area"></span></a>
+        <a href="scholarships"><span class="click-area"></span></a>
         <h3>Scholarships</h3>
-        <p>Coming soon!</p>
-        <!-- <p>Browse through our '5' scholarships</p> -->
+        <p>Browse through our <%= pluralize Scholarship.count, "scholarship" %></p>
       </div>
       <div class="feature">
         <a href="javascript:void(0)"><span class="click-area"></span></a>
@@ -74,7 +73,7 @@
         <!-- <p>Browse through our '20' sponsors</p> -->
       </div>
       <div class="feature">
-        <a href="/students"><span class="click-area"></span></a>
+        <a href="students"><span class="click-area"></span></a>
         <h3>Students</h3>
         <p>Browse through our <%= pluralize User.students.count, "student" %></p>
       </div>
@@ -84,6 +83,11 @@
         <%= link_to '<span class="click-area"></span>'.html_safe, admin_schools_path %>
         <h3>Schools</h3>
         <p>Edit schools</p>
+      </div>
+      <div class="feature">
+        <%= link_to '<span class="click-area"></span>'.html_safe, admin_scholarships_path %>
+        <h3>Scholarships</h3>
+        <p>Edit scholarships</p>
       </div>
       <div class="feature">
         <%= link_to '<span class="click-area"></span>'.html_safe, admin_questions_path %>

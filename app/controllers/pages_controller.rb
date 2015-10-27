@@ -19,6 +19,10 @@ class PagesController < ApplicationController
     @users = User.students.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
+  def scholarships
+    @scholarships = Scholarship.search(params[:search]).order(sort_column + " " + sort_direction)
+  end
+
   def about
     @team_members = User.where.not(team_contribution: nil)
   end
@@ -34,8 +38,10 @@ class PagesController < ApplicationController
   private def sort_column
     if params[:action] == "students"
       %w[first_name last_name].include?(params[:sort]) ? params[:sort] : "first_name"
-    else
+    elsif params[:action] == "schools"
       %w[name rating public city complete].include?(params[:sort]) ? params[:sort] : "name"
+    else
+      %w[name amount deadline].include?(params[:sort]) ? params[:sort] : "name"
     end
   end
 end

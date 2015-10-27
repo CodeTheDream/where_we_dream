@@ -209,9 +209,6 @@ input[type="password"] {
     margin-right: .1em;
   }
 }
-h3 {
-  font-size: 1.25em;
-}
 .flex-container {
   @include display(flex);
   align-items: center;
@@ -228,6 +225,9 @@ h3 {
 }
 .topless {
   margin-top: 0;
+}
+.bottomless {
+  margin-bottom: 0;
 }
 .red {
   color: red;

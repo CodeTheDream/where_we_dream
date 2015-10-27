@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001023826) do
+ActiveRecord::Schema.define(version: 20151027150150) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20151001023826) do
 
   add_index "rules", ["question_id"], name: "index_rules_on_question_id"
   add_index "rules", ["school_id"], name: "index_rules_on_school_id"
+
+  create_table "scholarships", force: :cascade do |t|
+    t.string   "name"
+    t.string   "link"
+    t.text     "description"
+    t.datetime "deadline"
+    t.integer  "amount"
+    t.text     "requirements"
+    t.boolean  "full_ride"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"

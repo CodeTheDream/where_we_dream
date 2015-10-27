@@ -1,12 +1,11 @@
-possible colors :
-  "http://www.siwallpaperhd.com/light-color-yellow-wallpaper-sparknotes-7.html"
+possible colors : "http://www.siwallpaperhd.com/light-color-yellow-wallpaper-sparknotes-7.html"
 
 rails g scaffold user first_name last_name email password_digest user_type
 rails g controller sessions new create destroy
-
 rails g scaffold like user:references opinionable:references{polymorphic} value:boolean
+rails g scaffold scholarship name description:text deadline:datetime amount:integer requirements:text full_ride:boolean
 
-def rails generate
+rails generate
   migration
     migration
 
@@ -34,8 +33,10 @@ def rails generate
 
   scaffold
     model
+      test
     migration
     controller
+      test
     routes
     views
 end

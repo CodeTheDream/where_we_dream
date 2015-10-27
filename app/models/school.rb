@@ -17,7 +17,6 @@ class School < ActiveRecord::Base
 
   def self.search(search)
     if search
-      Rails.env.development?
       search_length = search.split.length
       if Rails.env.development?
         array = ((search.split*3).sort).map{ |term| term[/public|private/i] ? term[/public/i] ? true : false : "%#{term}%"}

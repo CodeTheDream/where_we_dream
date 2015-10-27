@@ -28,6 +28,7 @@
 @import 'comments';
 @import 'users';
 @import 'opinions';
+@import 'scholarships';
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Exo:200italic,200');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
@@ -42,6 +43,30 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
+// h1 {
+//   font-size: 2em;
+// }
+h2 {
+  font-size: 1.75em;
+  margin: .8em 0 .3em;
+}
+h3 {
+  font-size: 1.5em;
+  margin: .25em 0;
+}
+h4 {
+  font-size: 1.4em;
+  margin: .2em 0;
+}
+h5 {
+  font-size: 1.3em;
+  margin: .15em 0;
+}
+h6 {
+  font-size: 1.2em;
+  margin: .1em 0;
+}
+
 // a, h1, h2, h3, h4, h5, h6, p, ul, li, header, footer, img, div, i, table, th,
 // td, br, input, strong, form, textarea, label, select, span {
 //   &::selection {

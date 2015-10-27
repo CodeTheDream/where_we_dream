@@ -15,7 +15,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "Name*", class: "required" %><br>
+    <%= f.label :name do %>
+      Name<span class="red">*</span>
+    <% end %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
@@ -54,7 +56,6 @@
     <%= f.label :public %><br>
     <%= f.check_box :public %>
   </div>
-
   <%= f.fields_for :rules do |ff| %>
     <div class="rule">
       <%= ff.object.question! %><br>

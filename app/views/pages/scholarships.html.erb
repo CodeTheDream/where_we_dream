@@ -1,0 +1,28 @@
+<div class="flex-container">
+  <h1><%= title 'Scholarships' %></h1>
+  <%= link_to new_admin_scholarship_path, class: 'flex-right' do %>
+    <i class="fa fa-plus"></i> Add Scholarship
+  <% end %>
+</div>
+
+<%= render 'layouts/search', path: admin_scholarships_path, placeholder: 'Search scholarships' %>
+
+<table class="pretty">
+  <thead>
+    <tr>
+      <th class="min-width"><%= sortable "deadline" %></th>
+      <th><%= sortable "name" %></th>
+      <th class="min-width"><%= sortable "amount" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scholarships.each do |scholarship| %>
+      <tr data-href="<%= scholarship_path(scholarship) %>"  class="tr-content">
+        <td class="center"><%= simple_date scholarship %></td>
+        <td><%= scholarship.name %></td>
+        <td><%= reward scholarship %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

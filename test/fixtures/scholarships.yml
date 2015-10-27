@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  deadline: 2015-10-27 11:01:50
+  amount: 1
+  requirements: MyText
+  full_ride:
+
+two:
+  name: MyString
+  description: MyText
+  deadline: 2015-10-27 11:01:50
+  amount: 1
+  requirements: MyText
+  full_ride:

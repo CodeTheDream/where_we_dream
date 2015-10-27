@@ -1,6 +1,6 @@
 <div class="flex-container">
   <h2>
-    <%= link_to title(@school.name), @school.link, target: "_blank" %> (<%= @school.public? %>)
+    <%= link @school %> (<%= @school.public? %>)
   </h2>
   <% if admin_or_above? && request.path.include?("admin") %>
     <%= link_to edit_admin_school_path(@school), class: "flex-right" do %>
@@ -9,7 +9,7 @@
   <% end %>
 </div>
 
-<p class="topless">
+<p>
   <span class="fa-stack thin">
     <i class="fa fa-circle fa-stack-1x"></i>
     <i class="fa fa-map-marker fa-stack-1x"></i>
