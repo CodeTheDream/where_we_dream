@@ -171,7 +171,7 @@ module ApplicationHelper
     ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
   end
 
-  def title(page_title = nil)
+  def page_title(page_title = nil)
     if page_title.present?
       content_for :title, page_title + " | Where We DREAM"
     else

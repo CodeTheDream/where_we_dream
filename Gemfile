@@ -23,6 +23,7 @@ gem 'addressable'
 gem 'letter_opener', :group => :development
 # gem 'addressable'
 gem 'redcarpet'
+gem 'meta-tags'
 
 group :production do
   gem 'puma'
