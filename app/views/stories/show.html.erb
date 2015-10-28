@@ -1,0 +1,16 @@
+<div class="flex-container">
+  <h2><%= title @story.title %> (<%= author %>)</h2>
+  <% if owner? @story %>
+    <%= link_to edit_story_path(@story), class: "flex-right" do %>
+      <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+    <% end %>
+  <% end %>
+</div>
+
+<p class="gray">
+  <%= @story.description %>
+</p>
+
+<%= complex_md_parser @story.body %>
+
+<%= back %>

@@ -67,11 +67,18 @@
         <p>Browse through our <%= pluralize Scholarship.count, "scholarship" %></p>
       </div>
       <div class="feature">
-        <a href="javascript:void(0)"><span class="click-area"></span></a>
-        <h3>Sponsors</h3>
-        <p>Coming soon!</p>
-        <!-- <p>Browse through our '20' sponsors</p> -->
+        <a href="/stories"><span class="click-area"></span></a>
+        <h3>Stories</h3>
+        <p>Browse through our <%= pluralize Story.count, "story" %></p>
       </div>
+      <% if false %>
+        <div class="feature">
+          <a href="javascript:void(0)"><span class="click-area"></span></a>
+          <h3>Sponsors</h3>
+          <p>Coming soon!</p>
+          <!-- <p>Browse through our '20' sponsors</p> -->
+        </div>
+      <% end %>
       <div class="feature">
         <a href="students"><span class="click-area"></span></a>
         <h3>Students</h3>

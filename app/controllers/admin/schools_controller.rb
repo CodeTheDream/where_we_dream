@@ -80,6 +80,8 @@ class Admin::SchoolsController < ApplicationController
       )
     end
 
+    private
+
     def sort_column
       %w[name rating city complete].include?(params[:sort]) ? params[:sort] : "name"
     end

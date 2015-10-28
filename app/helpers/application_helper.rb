@@ -113,4 +113,16 @@ module ApplicationHelper
   def not_self?
     @user.id != session[:user_id]
   end
+
+  def author
+    unless @story.anonymous
+      link_to @story.author, user
+    else
+      "anonymous"
+    end
+  end
+
+  def updated_at(thing)
+    distance_of_time_in_words(thing.updated_at, Time.now) + " ago"
+  end
 end
