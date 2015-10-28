@@ -1,5 +1,5 @@
-<% title 'All comments on ' + @school.name %>
-<h2><%= link_to @school.name, school_path(@school) %></h2>
-<h3>Comments · <%= @school.comments.count %></h3>
+<% title 'All comments on ' + @commentable.name %>
+<h2><%= link_to @commentable.name, @commentable %></h2>
+<h3>Comments · <%= @commentable.comments.count %></h3>
 <%= render 'comments/form' if logged_in? %>
 <%= render 'comments/index' %>

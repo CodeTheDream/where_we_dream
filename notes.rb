@@ -4,6 +4,7 @@ rails g scaffold user first_name last_name email password_digest user_type
 rails g controller sessions new create destroy
 rails g scaffold like user:references opinionable:references{polymorphic} value:boolean
 rails g scaffold scholarship name description:text deadline:datetime amount:integer requirements:text full_ride:boolean
+rails g scaffold story title description:text body:text anonymous:boolean
 
 rails generate
   migration

@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
   before_filter :load_commentable
 
   def index
-    @school = School.find(params[:school_id])
-    @comments = @school.comments.where(original_comment_id: nil).order(created_at: :desc)
+    @comments = @commentable.comments.where(original_comment_id: nil).order(created_at: :desc)
     @blank_comment = Comment.new
   end
 
+  # Does this controller action even run?
   def new
     @comment = @commentable.comments.new
   end
@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     @blank_comment = @commentable.comments.new
   end
 
+  # I still have not written any gangsta code
   def update
     # write some gangsta code here
   end

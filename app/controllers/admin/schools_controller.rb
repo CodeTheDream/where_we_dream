@@ -10,7 +10,6 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def show
-    @title =  @school.name + " | Where We DREAM"
     @commentable = @school
     @comments = @school.comments.where(original_comment_id: nil).order(created_at: :desc)
     @blank_comment = Comment.new

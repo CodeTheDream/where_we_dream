@@ -69,6 +69,9 @@ input[type="submit"],
   }
 }
 .red-background {
+  width: 100%;
+  text-align: center;
+
   background-color: #EA4335 !important;
   &:hover {
     background-color: darken(#EA4335, 5%) !important;

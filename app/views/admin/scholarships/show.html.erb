@@ -18,4 +18,9 @@
 <h3>Requirements:</h3>
 <%= complex_md_parser @scholarship.requirements %>
 
+<h2>Comments · <%= @scholarship.comments.count %></h2>
+<%= render 'comments/form' if logged_in? %>
+<%= link_to 'All comments',  scholarship_comments_path(@scholarship) %>
+<%= render 'comments/index' %>
+
 <%= back %>

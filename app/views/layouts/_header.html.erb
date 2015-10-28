@@ -27,7 +27,7 @@
           </span>
           <span class='desktop-only'>Features</span>
         </li>
-        <% if admin_or_above? %>
+        <% if recruiter_or_above? %>
           <li id="admin" class="nav-link">
             <span class="fa-stack">
               <% if god? %>
@@ -89,16 +89,18 @@
         <h3>Scholarships</h3>
         <p>Edit scholarships</p>
       </div>
-      <div class="feature">
-        <%= link_to '<span class="click-area"></span>'.html_safe, admin_questions_path %>
-        <h3>Questions</h3>
-        <p>Edit questions</p>
-      </div>
-      <div class="feature">
-        <%= link_to '<span class="click-area"></span>'.html_safe, admin_users_path %>
-        <h3>Users</h3>
-        <p><%= pluralize User.count, "user" %></p>
-      </div>
+      <% if admin_or_above? %>
+        <div class="feature">
+          <%= link_to '<span class="click-area"></span>'.html_safe, admin_questions_path %>
+          <h3>Questions</h3>
+          <p>Edit questions</p>
+        </div>
+        <div class="feature">
+          <%= link_to '<span class="click-area"></span>'.html_safe, admin_users_path %>
+          <h3>Users</h3>
+          <p><%= pluralize User.count, "user" %></p>
+        </div>
+      <% end %>
     </div>
     <div id="nav-other">
 

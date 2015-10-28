@@ -27,11 +27,11 @@ Rails.application.routes.draw do
   resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 
   resources :scholarships, controller: 'admin/scholarships', only: [:show, :delete] do
-    resources :comments
+    resources :comments, except: [:show, :update, :destroy]
   end
 
   resources :schools, controller: 'admin/schools', only: :show do
-    resources :comments
+    resources :comments, except: [:show, :update, :destroy]
   end
 
   namespace :admin do

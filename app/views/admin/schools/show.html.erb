@@ -47,5 +47,5 @@
 
 <h2>Comments · <%= @school.comments.count %></h2>
 <%= render 'comments/form' if logged_in? %>
-<%= render 'comments/index' %>
 <%= link_to "All comments",  school_comments_path(@school) %>
+<%= render 'comments/index' %>

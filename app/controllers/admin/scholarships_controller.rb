@@ -10,6 +10,9 @@ class Admin::ScholarshipsController < ApplicationController
 
   # GET /scholarships/1
   def show
+    @commentable = @scholarship
+    @comments = @scholarship.comments.where(original_comment_id: nil).order(created_at: :desc)
+    @blank_comment = Comment.new
   end
 
   # GET /scholarships/new

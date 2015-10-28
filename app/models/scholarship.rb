@@ -2,6 +2,11 @@ class Scholarship < ActiveRecord::Base
   validates_presence_of :name, :requirements, :deadline
   validate :amount_or_full_ride
 
+  has_many :opinions, as: :opinionable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
+
+  include Opinionable
+
   def self.search(search)
     if search
       search_length = search.split.length
