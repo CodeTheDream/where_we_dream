@@ -1,6 +1,9 @@
 <% title 'My Profile' %>
-<%= render 'admin/users/profile' %>
-<%= back %> |
-<%= link_to edit_user_path(@user) do %>
+
+<%= link_to edit_user_path(@user), class: 'right', style: 'margin-right:1em;margin-top:1em;' do %>
   <i class='fa fa-pencil'></i> Edit
 <% end %>
+
+<%= render 'admin/users/profile' %>
+
+<%= back %>
