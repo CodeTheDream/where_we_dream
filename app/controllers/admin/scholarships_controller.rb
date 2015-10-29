@@ -5,7 +5,7 @@ class Admin::ScholarshipsController < ApplicationController
 
   # GET /scholarships
   def index
-    @scholarships = Scholarship.all
+    @scholarships = Scholarship.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   # GET /scholarships/1
