@@ -10,6 +10,9 @@ class StoriesController < ApplicationController
 
   # GET /stories/1
   def show
+    @commentable = @story
+    @comments = @commentable.comments.where(original_comment_id: nil).order(created_at: :desc)
+    @blank_comment = Comment.new
   end
 
   # GET /stories/new

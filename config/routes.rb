@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
   delete 'comments/:id/delete' => 'comments#destroy'
 
-  resources :stories
+  resources :stories do
+    resources :comments, except: [:show, :update, :destroy]
+  end
 
   resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 

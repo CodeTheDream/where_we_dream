@@ -2,6 +2,11 @@ class Story < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :title, :description, :body, :user
 
+  has_many :opinions, as: :opinionable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
+
+  include Opinionable
+
   def self.search(search)
     if search
       search_length = search.split.length
@@ -18,10 +23,10 @@ class Story < ActiveRecord::Base
   end
 
   def author
-    if user
-      user.name
-    else
+    if anonymous
       "anonymous"
+    else
+      user.name
     end
   end
 end

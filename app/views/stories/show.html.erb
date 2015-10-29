@@ -14,3 +14,8 @@
 <%= complex_md_parser @story.body %>
 
 <%= back %>
+
+<h2>Comments · <%= @commentable.comments.count %></h2>
+<%= render 'comments/form' if logged_in? %>
+<%= link_to "All comments",  school_comments_path(@commentable) %>
+<%= render 'comments/index' %>

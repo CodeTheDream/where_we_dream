@@ -36,7 +36,7 @@ module ApplicationHelper
   alias_method :logged_in?, :user_id
 
   def modder_or_below_of?(user)
-    %w[Moderator Student Teacher School Supporter school_representative].map(&:titleize).include?(user.type)
+    %w[Moderator Student Teacher School Supporter School\ Representative].include?(user.type)
   end
 
   def modder_or_above?
@@ -61,9 +61,9 @@ module ApplicationHelper
 
   def user_types
     if god?
-      %w[God Admin Moderator Recruiter Student Teacher School Supporter school_representative].map &:titleize
+      %w[God Admin Moderator Recruiter Student Teacher School Supporter School\ Representative]
     elsif admin?
-      %w[Moderator Recruiter Student Teacher School Supporter school_representative].map &:titleize
+      %w[Moderator Recruiter Student Teacher School Supporter School\ Representative]
     else
       %w[Student Teacher Parent Supporter]
     end
