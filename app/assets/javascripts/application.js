@@ -188,12 +188,18 @@ function toggleOpinions(){
       var opinionable_type = "Comment";
     } else if (opinionable.is(".school")) {
       var opinionable_type = "School";
+    } else if (opinionable.is(".scholarship")) {
+      var opinionable_type = "Scholarship";
+    } else if (opinionable.is(".story")) {
+      var opinionable_type = "Story";
     }
     if (clicked.hasClass("fa-thumbs-up")) {
       clicked.siblings(".likes").toggleClass("hide");
+      clicked.siblings(".dislikes").addClass("hide");
       clicked.toggleClass("liked");
       sibling.removeClass("disliked");
     } else {
+      clicked.siblings(".dislikes").toggleClass("hide");
       clicked.siblings(".likes").addClass("hide");
       clicked.toggleClass("disliked");
       sibling.removeClass("liked");

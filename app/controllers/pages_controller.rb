@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def schools
+    School.where(name: nil).destroy_all
     @schools = School.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 

@@ -27,9 +27,9 @@
           <%= simple_md_parser comment.content %>
           <br/>
           <% if logged_in? %>
-            <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <%= likes(comment) %><%= thumbs_up(comment) %>   <%= thumbs_down(comment) %></div>
+            <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <%= likes(comment) %>   <%= thumbs_up(comment) %>   <%= thumbs_down(comment) %></div>
           <% else %>
-            <div class="pre-wrap"><%= likes(comment) %><%= thumbs_up(comment) %>   <%= thumbs_down(comment) %></div>
+            <div class="pre-wrap"><%= likes(comment) %>   <%= thumbs_up(comment) %>   <%= thumbs_down(comment) %></div>
           <% end %>
         </div>
       </div>
@@ -59,7 +59,7 @@
             <br/>
             <%= simple_md_parser reply.content %>
             <br/>
-            <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <%= likes(reply) %><%= thumbs_up(reply) %>   <%= thumbs_down(reply) %></div>
+            <div class="pre-wrap"><span comment-id="<%= comment.id %>" class="small reply">Reply</span>   ·   <%= likes(reply) %>   <%= thumbs_up(reply) %>   <%= thumbs_down(reply) %></div>
           </div>
         </div>
       <% end %>

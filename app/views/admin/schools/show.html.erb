@@ -1,49 +1,57 @@
-<div class="flex-container">
-  <h2>
-    <%= link @school %> (<%= @school.public? %>)
-  </h2>
-  <% if admin_or_above? && request.path.include?("admin") %>
-    <%= link_to edit_admin_school_path(@school), class: "flex-right" do %>
-      <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+<div id="<%= @school.id %>" class="school opinionable">
+  <div class="flex-container">
+    <h2>
+      <%= link @school %> (<%= @school.public? %>)
+    </h2>
+    <% if admin_or_above? && request.path.include?("admin") %>
+      <%= link_to edit_admin_school_path(@school), class: "flex-right" do %>
+        <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+      <% end %>
     <% end %>
+  </div>
+
+  <div class="pre-wrap"><%= thumbs_up(@school) %>  <%= likes(@school) %>    <%= thumbs_down(@school) %>  <%= dislikes(@school) %></div>
+
+  <div class="top-padding small gray">
+    Updated <%= updated_at @school %>
+  </div>
+
+  <p>
+    <span class="fa-stack thin">
+      <i class="fa fa-circle fa-stack-1x"></i>
+      <i class="fa fa-map-marker fa-stack-1x"></i>
+    </span>
+    <%= @school.address %>
+  </p>
+
+  <% if @school.description.present? %>
+    <h3>Description</h3>
+    <%= simple_md_parser description(@school.description) %>
+  <% end %>
+
+  <p>
+    <span class="bold">Rating:</span>
+    <%= @school.rating %>
+  </p>
+
+  <p>
+    <span class="bold">Students:</span>
+    <%= @school.students || "???" %>
+  </p>
+
+  <p>
+    <span class="bold">Undocumented Students:</span>
+    <%= @school.undocumented_students || "???" %>
+  </p>
+
+  <% @school.rules.each do |r| %>
+    <%= color_paragraph(r.answer) %>
+      <span class="bold"><%= r.question!.gsub("the school", title) %></span>
+      <%= r.answer! %><br/>
+      <%= r.answer != nil ? simple_md_parser(r.details) : () %>
+    </p>
   <% end %>
 </div>
-
-<p>
-  <span class="fa-stack thin">
-    <i class="fa fa-circle fa-stack-1x"></i>
-    <i class="fa fa-map-marker fa-stack-1x"></i>
-  </span>
-  <%= @school.address %>
-</p>
-
-<% if @school.description.present? %>
-  <h3>Description</h2>
-  <%= simple_md_parser description(@school.description) %>
-<% end %>
-
-<p>
-  <span class="bold">Rating:</span>
-  <%= @school.rating %>
-</p>
-
-<p>
-  <span class="bold">Students:</span>
-  <%= @school.students || "???" %>
-</p>
-
-<p>
-  <span class="bold">Undocumented Students:</span>
-  <%= @school.undocumented_students || "???" %>
-</p>
-
-<% @school.rules.each do |r| %>
-  <%= color_paragraph(r.answer) %>
-    <span class="bold"><%= r.question!.gsub("the school", title) %></span>
-    <%= r.answer! %><br/>
-    <%= r.answer != nil ? simple_md_parser(r.details) : () %>
-  </p>
-<% end %>
 
 <h2>Comments · <%= @school.comments.count %></h2>
 <%= render 'comments/form' if logged_in? %>

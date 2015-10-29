@@ -26,7 +26,19 @@ module ApplicationHelper
       likes = resource.likes + 1
     end
     likes = likes.to_s
-    ("<span class='likes"+hide+"'>"+likes+"   </span>").html_safe
+    ("<span class='likes"+hide+"'>"+likes+"</span>").html_safe
+  end
+
+  def dislikes(resource)
+    if resource.disliked_by?(user_id)
+      hide = ""
+      dislikes = resource.dislikes
+    else
+      hide = " hide"
+      dislikes = resource.dislikes + 1
+    end
+    dislikes = dislikes.to_s
+    ("<span class='dislikes"+hide+"'>"+dislikes+"</span>").html_safe
   end
 
   def user_id

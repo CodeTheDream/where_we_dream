@@ -1,23 +1,30 @@
-<div class="flex-container">
-  <h2><%= link @scholarship %> (<%= reward %>)</h2>
-  <% if admin_or_above? && request.path.include?("admin") %>
-    <%= link_to edit_admin_scholarship_path(@scholarship), class: "flex-right" do %>
-      <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+<div id="<%= @scholarship.id %>" class="scholarship opinionable">
+  <div class="flex-container">
+    <h2><%= link @scholarship %> (<%= reward %>)</h2>
+    <% if admin_or_above? && request.path.include?("admin") %>
+      <%= link_to edit_admin_scholarship_path(@scholarship), class: "flex-right" do %>
+        <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+  <div class="pre-wrap"><%= thumbs_up(@scholarship) %>  <%= likes(@scholarship) %>    <%= thumbs_down(@scholarship) %>  <%= dislikes(@scholarship) %></div>
+
+  <div class="top-padding small gray">
+    Updated <%= updated_at @scholarship %>
+  </div>
+
+  <h3>Description:</h3>
+  <%= complex_md_parser @scholarship.description %>
+
+  <h3>Deadline:</h3>
+  <p>
+    <%= full_date_time %>
+  </p>
+
+  <h3>Requirements:</h3>
+  <%= complex_md_parser @scholarship.requirements %>
 </div>
-
-<h3>Description:</h3>
-<%= complex_md_parser @scholarship.description %>
-
-<h3>Deadline:</h3>
-<p>
-  <%= full_date_time %>
-</p>
-
-<h3>Requirements:</h3>
-<%= complex_md_parser @scholarship.requirements %>
-
 <h2>Comments · <%= @scholarship.comments.count %></h2>
 <%= render 'comments/form' if logged_in? %>
 <%= link_to 'All comments',  scholarship_comments_path(@scholarship) %>

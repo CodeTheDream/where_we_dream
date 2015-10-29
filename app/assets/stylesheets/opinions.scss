@@ -15,7 +15,8 @@ $dislike-color: rgb(255,79,79);
     color: darken($like-color, 10%);
   }
 }
-.disliked {
+.disliked,
+.dislikes {
   color: $dislike-color;
   &:hover {
     color: darken($dislike-color, 10%);
