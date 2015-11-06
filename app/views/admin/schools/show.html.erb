@@ -1,7 +1,7 @@
 <div id="<%= @school.id %>" class="school opinionable">
   <div class="flex-container">
     <h2>
-      <%= link @school %> (<%= @school.public? %>)
+      <%= link @school %> <span class="desktop-only">(<%= @school.public? %>)</span>
     </h2>
     <% if admin_or_above? && request.path.include?("admin") %>
       <%= link_to edit_admin_school_path(@school), class: "flex-right" do %>

@@ -119,7 +119,7 @@ module ApplicationHelper
   def destroy(resource)
     thing = resource.class.to_s.downcase
     path = "/admin/#{thing}s/#{resource.id}"
-    button_to "Delete", path, method: :delete, class: "button red-background", data: {confirm: "Are you sure to delete this #{thing}?"}
+    button_to "Delete", path, method: :delete, class: "button red-background", data: {confirm: "Are you sure you want to delete this #{thing}?"}
   end
 
   def not_self?
@@ -134,7 +134,11 @@ module ApplicationHelper
     end
   end
 
-  def updated_at(thing)
-    distance_of_time_in_words(thing.updated_at, Time.now) + " ago"
+  def link(resource)
+    if resource.link
+      link_to title(resource.name), resource.link, target: "_blank"
+    else
+      title(resource.name)
+    end
   end
 end

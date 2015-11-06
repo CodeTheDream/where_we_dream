@@ -12,16 +12,16 @@
 <table class="pretty">
   <thead>
     <tr>
-      <th><%= sortable "updated_at", "Published" %></th>
+      <th class="min-width"><%= sortable "updated_at", "Published" %></th>
       <th><%= sortable "title" %></th>
-      <th>User</th>
+      <th class="min-width">User</th>
     </tr>
   </thead>
 
   <tbody>
     <% @stories.each do |story| %>
       <tr data-href="<%= story_path(story) %>" class="tr-content">
-        <td><%= updated_at story %></td>
+        <td class="center"><%= (updated_at story).abbreviate %></td>
         <td><%= story.title %></td>
         <td><%= story.author %></td>
       </tr>

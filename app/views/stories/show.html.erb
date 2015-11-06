@@ -1,6 +1,6 @@
 <div id="<%= @story.id %>" class="story opinionable">
   <div class="flex-container">
-    <h2><%= title @story.title %> (<%= author %>)</h2>
+    <h2><%= title @story.title %></h2>
     <% if owner? @story %>
       <%= link_to edit_story_path(@story), class: "flex-right" do %>
         <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
@@ -10,8 +10,12 @@
 
   <div class="pre-wrap"><%= thumbs_up(@story) %>  <%= likes(@story) %>    <%= thumbs_down(@story) %>  <%= dislikes(@story) %></div>
 
+  <div class="top-padding">
+    <%= author %>
+  </div>
+
   <div class="top-padding small gray">
-    Updated <%= updated_at @story %>
+    <%= updated_and_created_at @story %>
   </div>
 
   <p class="small gray">

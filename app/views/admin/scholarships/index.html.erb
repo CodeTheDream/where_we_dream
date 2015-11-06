@@ -19,7 +19,7 @@
   <tbody>
     <% @scholarships.each do |scholarship| %>
       <tr data-href="<%= admin_scholarship_path(scholarship) %>"  class="tr-content">
-        <td class="center"><%= simple_date scholarship %></td>
+        <td class="center"><%= simple_date scholarship.deadline %></td>
         <td><%= scholarship.name %></td>
         <td><%= reward scholarship %></td>
       </tr>
