@@ -128,7 +128,7 @@ module ApplicationHelper
 
   def author
     unless @story.anonymous
-      link_to @story.author, user
+      link_to @story.author, @story.user
     else
       "anonymous"
     end
