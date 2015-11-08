@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
       title:       title,
       image:       image,
       description: description,
-      keywords:    %w[immigrant scholarships schools help where we dream],
+      keywords:    %w[where we dream immigrant scholarships schools help daca deferred action illegal],
       twitter:     {site_name: site,
                     site: '@' + CONFIG['twitter'],
                     card: 'summary',
