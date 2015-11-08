@@ -63,6 +63,10 @@ module ApplicationHelper
     %w[Admin God].include? user_type
   end
 
+  def team_member?
+    %w[Recruiter Moderator Admin God].include? user_type
+  end
+
   def admin?
     user_type == 'Admin'
   end

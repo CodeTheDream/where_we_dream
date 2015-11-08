@@ -13,7 +13,7 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <tr data-href=<%= user_path(user) %> class="tr-content">
+      <tr data-href="<%= user_path(user) %>" class="tr-content">
         <td><%= image_tag user.image.url(:thumb), class: "student-image" %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
@@ -21,7 +21,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_admin_user_path %>

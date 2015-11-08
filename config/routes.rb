@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   post 'opinions' => 'opinions#opinionate'
 
   get 'schools' => 'pages#schools'
-  get 'profile' => 'pages#profile'
   get 'students' => 'pages#students'
   get 'about' => 'pages#about'
   get 'wait' => 'pages#wait'

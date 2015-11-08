@@ -10,7 +10,7 @@
       <% if logged_in? %>
         <ul class="left">
           <li><h3>Account</h3></li>
-          <li><%= link_to "Profile", profile_path %></li>
+          <li><%= link_to "Profile", user_path(user_id) %></li>
           <li><%= link_to "Log Out", logout_path, method: :delete %></li>
         </ul>
       <% end %>
@@ -44,7 +44,7 @@
         <%= link_to "About", "/about" %> |
         <%= link_to "Contact", "/contact" %>
         <% if logged_in? %>
-          | <%= link_to "Profile", "/profile" %>
+          | <%= link_to "Profile", user_path(user_id) %>
           | <%= link_to "Logout", logout_path, method: :delete %>
         <% end %>
       </p><br>

@@ -1,7 +1,9 @@
 <div class="flex-container">
   <h1><%= title 'Users' %></h1>
-  <%= link_to new_admin_user_path, class: 'flex-right' do %>
-    <i class="fa fa-plus"></i> Add User
+  <% if admin_or_above? %>
+    <%= link_to new_admin_user_path, class: 'flex-right' do %>
+      <i class="fa fa-plus"></i> Add User
+    <% end %>
   <% end %>
 </div>
 
@@ -19,7 +21,7 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr data-href="<%= user_path(user) %>" class="tr-content">
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.user_type! %></td>

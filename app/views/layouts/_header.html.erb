@@ -80,7 +80,7 @@
         </div>
       <% end %>
       <div class="feature">
-        <a href="students"><span class="click-area"></span></a>
+        <a href="/students"><span class="click-area"></span></a>
         <h3>Students</h3>
         <p>Browse through our <%= pluralize User.students.count, "student" %></p>
       </div>
@@ -96,18 +96,18 @@
         <h3>Scholarships</h3>
         <p>Edit scholarships</p>
       </div>
-      <% if admin_or_above? %>
+      <% if god? %>
         <div class="feature">
           <%= link_to '<span class="click-area"></span>'.html_safe, admin_questions_path %>
           <h3>Questions</h3>
           <p>Edit questions</p>
         </div>
-        <div class="feature">
-          <%= link_to '<span class="click-area"></span>'.html_safe, admin_users_path %>
-          <h3>Users</h3>
-          <p><%= pluralize User.count, "user" %></p>
-        </div>
       <% end %>
+      <div class="feature">
+        <%= link_to '<span class="click-area"></span>'.html_safe, admin_users_path %>
+        <h3>Users</h3>
+        <p><%= pluralize User.count, "user" %></p>
+      </div>
     </div>
     <div id="nav-other">
 

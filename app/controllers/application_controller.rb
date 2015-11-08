@@ -48,6 +48,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_team_member
+    unless session[:user_id] && team_member?
+      redirect_to login_path
+    end
+  end
+
   def authenticate_recruiter
     unless logged_in? && recruiter_or_above?
       redirect_to login_path, notice: "Access denied."

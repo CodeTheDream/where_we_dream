@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
   def viewer?
-    %w[Student Teacher Parent].include?(type)
+    %w[Student Teacher Parent Supporter].include?(type)
   end
 
   def is_in_session?(user_id)
