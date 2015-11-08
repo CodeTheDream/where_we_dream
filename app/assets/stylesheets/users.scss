@@ -75,6 +75,14 @@
     width: 100%;
   }
 }
+.edit {
+  margin-right:1em;
+  margin-top:1em;
+  @include mobile {
+    position:absolute;
+    right: 0;
+  }
+}
 .edit-name {
   @include immobile {
     width: 49%;
