@@ -50,7 +50,7 @@ class Admin::UsersController < ApplicationController
       if admin_or_above?
         redirect_to admin_users_path, notice: 'User was successfully updated.'
       else
-        redirect_to profile_path, notice: 'Account successfully updated.'
+        redirect_to user_path(@user), notice: 'Account successfully updated.'
       end
     else
       render :edit
