@@ -11,9 +11,6 @@
   Even for those of us who were born here, figuring out college applications, financial aid and scholarships is tough if your parents don't already know the process. Because many of these issues are unique to us, even teachers and guidance counselors don't always have the best advice.
 </p>
 <p>
-  Where We Dream is about students helping each other learn the best colleges for them -- schools that go out of their way to help immigrant students achieve their dreams. Let's work together, share what we know, and spread the word.
-</p>
-<p>
   <a href="http://www.codethedream.org/" class="bold">Code the Dream</a> states that:
 </p>
 <p class="quotes">
@@ -22,13 +19,16 @@
 <p>
   What if more people with that drive could afford college? Can you imagine how their lives would change? Together we can make it happen.
 </p>
+<p>
+  Many people have wanted this site for a long time; a place full of resources and a supporting community, a place where students learn about the best colleges for them—schools that go out of their way to help immigrant students succeed. It's finally here. This is <em>our</em> site. This is <em>Where We Dream</em>.
+</p>
 <h2 class="thinner">Our Team</h2>
 <% @team_members.each do |member| %>
   <div class="team-member-container">
     <%= link_to member do %>
       <%= image_tag member.image.url(:large), class: "left image-padding medium-image" %>
     <% end %>
-    <h3 class="thinner"><%= member.name %></h3>
+    <h4 class="thinner"><%= member.name %></h3>
     <p>
       <%= member.team_contribution %>
     </p>

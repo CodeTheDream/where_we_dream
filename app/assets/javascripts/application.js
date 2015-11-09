@@ -258,6 +258,24 @@ function commentOptions(){
   });
 };
 
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.profile-pic-account').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function showChosenProfilePic() {
+  $("#profilePicFileField").change(function () {
+    readURL(this);
+  });
+};
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -273,3 +291,4 @@ $(addNewReply);
 $(toggleOpinions);
 $(elasticNewCommentInput);
 $(commentOptions);
+$(showChosenProfilePic);
