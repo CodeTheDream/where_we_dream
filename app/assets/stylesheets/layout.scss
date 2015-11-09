@@ -163,12 +163,15 @@ a {
 .quotes {
   margin-left: 1em;
 }
+.margin-right,
 .image-padding {
   margin-right: 1em;
-  margin-bottom: .5em;
 }
 .team-member-container {
   min-height: $m-img-size;
+  @include mobile {
+    min-height: $s-img-size;
+  }
 }
 .twin {
   @include immobile {
