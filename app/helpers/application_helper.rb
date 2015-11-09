@@ -77,9 +77,9 @@ module ApplicationHelper
 
   def user_types
     if god?
-      %w[God Admin Moderator Recruiter Student Teacher School Supporter School\ Representative]
+      %w[Admin Moderator Recruiter School\ Representative Student Teacher Parent Supporter]
     elsif admin?
-      %w[Moderator Recruiter Student Teacher School Supporter School\ Representative]
+      %w[Moderator Recruiter School\ Representative Student Teacher Parent Supporter School\ Representative]
     else
       %w[Student Teacher Parent Supporter]
     end

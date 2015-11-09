@@ -13,9 +13,9 @@
   <thead>
     <tr>
       <th><%= sortable "first_name", "Name" %></th>
-      <th>Email</th>
+      <th class="desktop-only">Email</th>
       <th>User type</th>
-      <th colspan="2"></th>
+      <th colspan="1" hidden="hidden"></th>
     </tr>
   </thead>
 
@@ -23,16 +23,9 @@
     <% @users.each do |user| %>
       <tr data-href="<%= user_path(user) %>" class="tr-content">
         <td><%= user.name %></td>
-        <td><%= user.email %></td>
+        <td class="desktop-only"><%= user.email %></td>
         <td><%= user.user_type! %></td>
-        <td>
-          <% if god? || user.is_in_session?(session[:user_id]) %>
-              <%= link_to edit_admin_user_path(user) do %>
-                <i class="fa fa-pencil-square-o mobile-only"></i><span class="desktop-only">Edit</span>
-              <% end %>
-          <% end %>
-        </td>
-        <td>
+        <td hidden="hidden">
           <% if god? || ( user.viewer? && admin_or_above? ) %>
             <%= link_to admin_user_path(user), method: :delete do %>
               <i class="fa fa-ban mobile-only"></i><span class="desktop-only">Destroy</span>

@@ -1,5 +1,9 @@
 <h1>Editing User</h1>
 
-<%= render 'long_form' %>
+<% if not_self? %>
+  <%= render 'admin_form' %>
+<% else %>
+  <%= render 'long_form' %>
+<% end %>
 
 <%= back %>

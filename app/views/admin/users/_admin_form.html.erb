@@ -1,0 +1,32 @@
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <div class="top-padding no-flow">
+    <span class="medium-image left">
+      <%= image_tag @user.image.url(:medium) %>
+    </span>
+    <div class="profile-name-container">
+      <h2 class="thin-margin thin">
+        <%= title @user.name %>
+      </h2>
+      <p>
+        <%= @user.user_type! %>
+      </p>
+    </div>
+  </div>
+
+  <% if admin_or_above? && not_self? %>
+    <div class="field">
+      <%= f.label :user_type %><br>
+      <%= f.select :user_type, options_for_select(user_types, @user.type) %>
+    </div>
+  <% end %>
+
+  <% if @user.team_member? %>
+    <div class="field">
+      <%= f.label :team_contribution, "Team Contribution" %>
+      <%= f.text_area :team_contribution, placeholder: "Say how #{@user.first_name} contributes to this site. This will be on the About page." %>
+    </div>
+  <% end %>
+
+  <%= f.submit 'Update', class: 'update' %>
+
+<% end %>
