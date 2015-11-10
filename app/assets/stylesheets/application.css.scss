@@ -43,28 +43,46 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
-// h1 {
-//   font-size: 2em;
-// }
+h1 {
+  font-size: 2em;
+  @include mobile {
+    font-size: 1.75em;
+  }
+}
 h2 {
   font-size: 1.75em;
   margin: .8em 0 .3em;
+  @include mobile {
+    font-size: 1.5em;
+  }
 }
 h3 {
   font-size: 1.5em;
   margin: .25em 0;
+  @include mobile {
+    font-size: 1.4em;
+  }
 }
 h4 {
   font-size: 1.4em;
   margin: .2em 0;
+  @include mobile {
+    font-size: 1.3em;
+  }
 }
 h5 {
   font-size: 1.3em;
   margin: .15em 0;
+  @include mobile {
+    font-size: 1.2em;
+  }
 }
 h6 {
   font-size: 1.2em;
   margin: .1em 0;
+  @include mobile {
+    font-size: 1.1em;
+  }
 }
 
 // a, h1, h2, h3, h4, h5, h6, p, ul, li, header, footer, img, div, i, table, th,

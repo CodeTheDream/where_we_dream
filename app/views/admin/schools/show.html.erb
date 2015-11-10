@@ -10,7 +10,15 @@
     <% end %>
   </div>
 
-  <div class="pre-wrap"><%= thumbs_up(@school) %>  <%= likes(@school) %>    <%= thumbs_down(@school) %>  <%= dislikes(@school) %></div>
+  <% if @school.likes! == "no opinions" %>
+    <div class="no-opinions-bar bottom-margin"></div>
+  <% else %>
+    <div class="dislikes-bar bottom-margin">
+      <div class="likes-bar" width="<%= @school.likes! %>"></div>
+    </div>
+  <% end %>
+
+  <div class="pre-wrap"> <%= thumbs_up(@school) %>  <%= likes(@school) %>    <%= thumbs_down(@school) %>  <%= dislikes(@school) %></div>
 
   <div class="top-padding small gray">
     Updated <%= updated_at @school %>
@@ -31,7 +39,7 @@
 
   <p>
     <span class="bold">Rating:</span>
-    <%= @school.rating %>
+    <%= @school.rating! %>
   </p>
 
   <p>

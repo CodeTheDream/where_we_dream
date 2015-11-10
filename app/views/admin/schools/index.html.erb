@@ -1,5 +1,5 @@
 <div class="flex-container">
-  <h1><%= title "Admin: Schools" %></h1>
+  <h1><%= title "Schools" %></h1>
   <%= link_to new_admin_school_path, class: 'flex-right' do %>
     <i class="fa fa-plus"></i> Add School
   <% end %>
@@ -12,7 +12,7 @@
     <tr>
       <th class="min-width desktop-only" colspan='1'>#</th>
       <th class="min-width"><%= sortable "complete", "Info" %></th>
-      <th class="min-width"><%= sortable "rating" %></th>
+      <th class="min-width"><%= sortable "rating", "Rank" %></th>
       <th><%= sortable "name" %></th>
       <th><%= sortable "city" %></th>
     </tr>
@@ -26,7 +26,16 @@
         <td class="center">
           <%= school.complete? ? "<span class='bolder'>✓</span>".html_safe : "INC" %>
         </td>
-        <td class="center"><%= school.rating! %></td>
+        <td class="center">
+          <%= school.rating! %>
+          <% if school.likes! == "no opinions" %>
+            <div class="no-opinions-bar"></div>
+          <% else %>
+            <div class="dislikes-bar">
+              <div class="likes-bar" width="<%= school.likes! %>"></div>
+            </div>
+          <% end %>
+        </td>
         <td>
           <%= school.name %>
           <% if school.public %>
