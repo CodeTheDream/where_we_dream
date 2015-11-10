@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def schools
     School.where(name: nil).destroy_all
-    @schools = School.search(params[:search]).order(sort_column + " " + sort_direction)
+    @schools = School.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
   def profile
@@ -17,11 +17,11 @@ class PagesController < ApplicationController
   end
 
   def students
-    @users = User.students.search(params[:search]).order(sort_column + " " + sort_direction)
+    @users = User.students.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
   def scholarships
-    @scholarships = Scholarship.search(params[:search]).order(sort_column + " " + sort_direction)
+    @scholarships = Scholarship.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
   def about

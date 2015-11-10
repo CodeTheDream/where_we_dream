@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
 
   # GET /stories
   def index
-    @stories = Story.search(params[:search]).order(sort_column + " " + sort_direction)
+    @stories = Story.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
   # GET /stories/1

@@ -6,7 +6,7 @@ class Admin::SchoolsController < ApplicationController
 
   def index
     School.where(name: nil).destroy_all
-    @schools = School.search(params[:search]).order(sort_column + " " + sort_direction)
+    @schools = School.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
   def show

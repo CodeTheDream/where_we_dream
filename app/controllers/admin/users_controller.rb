@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.search(params[:search]).order(sort_column + " " + sort_direction)
+    @users = User.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
   # GET /users/1
