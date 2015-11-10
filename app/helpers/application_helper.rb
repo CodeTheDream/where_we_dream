@@ -149,4 +149,29 @@ module ApplicationHelper
       title(resource.name)
     end
   end
+
+  def lock(school = nil, mobile_only: false)
+    school = @school unless school
+    visibility = mobile_only ? "mobile-only" : ""
+    title = school.public?
+    lock = school.public ? "fa-unlock public" : "fa-lock private"
+    "<i title='#{title}' class='fa #{lock} #{visibility}'></i>".html_safe
+  end
+
+  def desktop_only(string = "")
+    "<span class='desktop-only'>#{string}</span>".html_safe
+  end
+
+  def likes_bar(opinionable, flex: false, sides: false, bottom: false, mobile: false)
+    bm = bottom ? mobile ? "bottom-margin-2" : "bottom-margin" : ""
+    bm += " short-bar" if sides
+    bm += " flex" if flex
+    if opinionable.likes! == "no opinions"
+      "<div class='no-opinions-bar #{bm}'></div>".html_safe
+    else
+      "<div class='dislikes-bar #{bm}'>
+        <div class='likes-bar' width='#{opinionable.likes!}'></div>
+      </div>".html_safe
+    end
+  end
 end

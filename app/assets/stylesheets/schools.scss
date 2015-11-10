@@ -4,9 +4,11 @@
   max-width: 160px;
 }
 .no-opinions-bar, .dislikes-bar {
+  background-color: red;
+}
+.short-bar {
   margin-left: 2px;
   margin-right: 2px;
-  background-color: red;
 }
 .likes-bar {
   background-color: green;

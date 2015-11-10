@@ -16,6 +16,31 @@
   left: 0;
   right: 0;
 }
+.description {
+  margin-top: 6px;
+}
+.story-title {
+  @include mobile {
+    font-size: 1em;
+    font-weight: 500;
+  };
+}
+.gray-hover {
+  position: relative;
+  transition: background-color .3s;
+  &:hover {
+    background-color: darken(white, 5%);
+  }
+}
+.header {
+  margin-top: 22px;
+}
+.absolute {
+  position: absolute;
+}
+.block {
+  display: block;
+}
 .click-area {
   position: absolute;
   width:100%;
@@ -167,6 +192,12 @@ a {
 .image-padding {
   margin-right: 1em;
 }
+.margin-right-2 {
+  margin-right: 1em;
+  @include mobile {
+    margin-right: .7em;
+  };
+}
 .team-member-container {
   min-height: $m-img-size;
   @include mobile {
@@ -222,6 +253,9 @@ input[type="password"] {
     margin-right: .1em;
   }
 }
+.flex {
+  display: flex;
+}
 .flex-container {
   @include display(flex);
   align-items: center;
@@ -248,8 +282,13 @@ input[type="password"] {
 .top-padding {
   padding-top: 1em;
 }
-.bottom-margin {
+.bottom-margin, .bottom-margin-2 {
   margin-bottom: 1em;
+}
+.bottom-margin-2 {
+  @include mobile {
+    margin-bottom: .5em;
+  }
 }
 .no-flow {
   overflow: hidden;

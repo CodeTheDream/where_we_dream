@@ -1,14 +1,24 @@
 <div id="<%= @story.id %>" class="story opinionable">
-  <div class="flex-container">
-    <h2><%= title @story.title %></h2>
+  <div class="flex-container header">
+      <span class="small-image left margin-right-2">
+        <% if @story.anonymous %>
+          <%= image_tag "/default_1.jpg" %>
+        <% else %>
+          <%= image_tag @story.user.image.url(:medium) %>
+        <% end %>
+      </span>
+    <div class="block">
+      <h2 class="story-title topless"><%= title @story.title %></h2>
+      <%= likes_bar @story, bottom: true, mobile: true %>
+      <div class="pre-wrap"><%= thumbs_up(@story) %>  <%= likes(@story) %>    <%= thumbs_down(@story) %>  <%= dislikes(@story) %></div>
+    </div>
     <% if owner? @story %>
       <%= link_to edit_story_path(@story), class: "flex-right" do %>
-        <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+        <i class="fa fa-pencil-square-o mobile-only" style="font-size:1.5em;"></i><span class="desktop-only">Edit</span>
       <% end %>
     <% end %>
   </div>
 
-  <div class="pre-wrap"><%= thumbs_up(@story) %>  <%= likes(@story) %>    <%= thumbs_down(@story) %>  <%= dislikes(@story) %></div>
 
   <div class="top-padding">
     <%= author %>
@@ -18,14 +28,12 @@
     <%= updated_and_created_at @story %>
   </div>
 
-  <p class="small gray">
+  <p class="gray">
     <%= @story.description %>
   </p>
 
   <%= complex_md_parser @story.body %>
 </div>
-
-<%= back %>
 
 <h2>Comments · <%= @commentable.comments.count %></h2>
 <%= render 'comments/form' if logged_in? %>

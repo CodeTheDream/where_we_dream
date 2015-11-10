@@ -9,22 +9,24 @@
 
 <%= render 'layouts/search', path: schools_path, placeholder: 'Search stories' %>
 
-<table class="pretty">
-  <thead>
-    <tr>
-      <th class="min-width"><%= sortable "updated_at", "Published" %></th>
-      <th><%= sortable "title" %></th>
-      <th>User</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stories.each do |story| %>
-      <tr data-href="<%= story_path(story) %>" class="tr-content">
-        <td class="center"><%= (updated_at story).abbreviate %></td>
-        <td><%= story.title %></td>
-        <td><%= story.author %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @stories.each do |story| %>
+  <div class="gray-hover">
+    <a href="<%= story_path(story) %>"><span class="click-area"></span></a>
+    <div class="no-flow">
+      <span class="user-image left margin-right-2">
+        <% if story.anonymous %>
+          <%= image_tag "/default_1.jpg" %>
+        <% else %>
+          <%= image_tag story.user.image.url(:small) %>
+        <% end %>
+      </span>
+      <h6 class="bold"><%= story.title %></h6>
+      <span class="small gray"><%= story.author %> · <%= (updated_at story).abbreviate %></span>
+      <%= likes_bar story, flex: true %>
+    </div>
+    <div class="description">
+      <%= story.description %>
+    </div>
+  </div>
+  <hr>
+<% end %>

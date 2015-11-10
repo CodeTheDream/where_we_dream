@@ -1,7 +1,9 @@
 <div id="<%= @school.id %>" class="school opinionable">
   <div class="flex-container">
     <h2>
-      <%= link @school %> <span class="desktop-only">(<%= @school.public? %>)</span>
+      <%= link @school %>
+      <%= desktop_only "(#{@school.public?})" %>
+      <%= lock mobile_only: true %>
     </h2>
     <% if admin_or_above? && request.path.include?("admin") %>
       <%= link_to edit_admin_school_path(@school), class: "flex-right" do %>
@@ -10,15 +12,9 @@
     <% end %>
   </div>
 
-  <% if @school.likes! == "no opinions" %>
-    <div class="no-opinions-bar bottom-margin"></div>
-  <% else %>
-    <div class="dislikes-bar bottom-margin">
-      <div class="likes-bar" width="<%= @school.likes! %>"></div>
-    </div>
-  <% end %>
+  <%= likes_bar @school, bottom: true %>
 
-  <div class="pre-wrap"> <%= thumbs_up(@school) %>  <%= likes(@school) %>    <%= thumbs_down(@school) %>  <%= dislikes(@school) %></div>
+  <div class="pre-wrap"><%= thumbs_up(@school) %>  <%= likes(@school) %>    <%= thumbs_down(@school) %>  <%= dislikes(@school) %></div>
 
   <div class="top-padding small gray">
     Updated <%= updated_at @school %>
@@ -38,19 +34,23 @@
   <% end %>
 
   <p>
-    <span class="bold">Rating:</span>
+    <span class="bold">Rank:</span>
     <%= @school.rating! %>
   </p>
 
-  <p>
-    <span class="bold">Students:</span>
-    <%= @school.students || "???" %>
-  </p>
+  <% if @school.students.present? %>
+    <p>
+      <span class="bold">Students:</span>
+      <%= @school.students || "???" %>
+    </p>
+  <% end %>
 
-  <p>
-    <span class="bold">Undocumented Students:</span>
-    <%= @school.undocumented_students || "???" %>
-  </p>
+  <% if @school.undocumented_students.present? %>
+    <p>
+      <span class="bold">Undocumented Students:</span>
+      <%= @school.undocumented_students || "???" %>
+    </p>
+  <% end %>
 
   <% @school.rules.each do |r| %>
     <%= color_paragraph(r.answer) %>
