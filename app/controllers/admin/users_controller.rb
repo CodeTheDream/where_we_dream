@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_team_member, only: :index
-  before_action :authenticate_update, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_update, only: [:edit, :update]
   helper_method :sort_column
 
   # GET /users

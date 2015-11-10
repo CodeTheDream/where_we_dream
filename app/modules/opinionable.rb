@@ -22,4 +22,10 @@ module Opinionable
   def dislikes
     opinions.where(value: false).count
   end
+
+  def likes!
+    total = likes + dislikes
+    return "no opinions" if total == 0
+    (likes.to_f/total.to_f)*100
+  end
 end

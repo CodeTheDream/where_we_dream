@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
     %w[God Admin Recruiter Moderator].include?(user_type)
   end
 
+  def below_admin?
+    !%w[God Admin].include?(user_type)
+  end
+
   def opinions
     Opinion.where(user_id: id)
   end

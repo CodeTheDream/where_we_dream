@@ -29,6 +29,10 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label :rating %>
+    <%= f.select :rating, options_for_select({A: 1, B: 2, C: 3, D: 4, F: 5, "INC" => 6}, @school.rating) %>
+  </div>
+  <div class="field">
     <%= f.label :street %><br>
     <%= f.text_field :street %>
   </div>

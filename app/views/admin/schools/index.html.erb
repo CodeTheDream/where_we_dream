@@ -26,7 +26,7 @@
         <td class="center">
           <%= school.complete? ? "<span class='bolder'>✓</span>".html_safe : "INC" %>
         </td>
-        <td class="center"><%= school.rating.round %>%</td>
+        <td class="center"><%= school.rating! %></td>
         <td>
           <%= school.name %>
           <% if school.public %>

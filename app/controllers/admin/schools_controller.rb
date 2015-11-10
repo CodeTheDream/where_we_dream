@@ -35,7 +35,7 @@ class Admin::SchoolsController < ApplicationController
   def create
     @school = School.create(new_school_params)
     if @school.update(school_params)
-      @school.update(rating: @school.rating!, complete: @school.complete?)
+      @school.update(complete: @school.complete?)
       redirect_to admin_schools_path, notice: 'School was successfully created.'
     else
       School.destroy(@school.id)
@@ -45,7 +45,7 @@ class Admin::SchoolsController < ApplicationController
 
   def update
     if @school.update(school_params)
-      @school.update(rating: @school.rating!, complete: @school.complete?)
+      @school.update(complete: @school.complete?)
       redirect_to admin_schools_path, notice: 'School was successfully updated.'
     else
       redirect_to edit_admin_school_path(@school), notice: 'Update failed'

@@ -1,9 +1,8 @@
-<% if user_id == @user.id || admin_or_above? %>
+<% if self? || (@user.below_admin? && admin_or_above?) || god? %>
   <%= link_to edit_user_path(@user), class: 'right edit' do %>
     <i class='fa fa-pencil'></i> Edit
   <% end %>
 <% end %>
-
 <div class="top-padding no-flow">
   <span class="medium-image left">
     <%= image_tag @user.image.url(:medium) %>

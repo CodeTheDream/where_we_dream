@@ -126,8 +126,12 @@ module ApplicationHelper
     button_to "Delete", path, method: :delete, class: "button red-background", data: {confirm: "Are you sure you want to delete this #{thing}?"}
   end
 
+  def self?
+    @user.id == session[:user_id]
+  end
+
   def not_self?
-    @user.id != session[:user_id]
+    !self?
   end
 
   def author

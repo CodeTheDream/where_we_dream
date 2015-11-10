@@ -276,6 +276,17 @@ function showChosenProfilePic() {
   });
 };
 
+function loadLikesBars() {
+  $(window).load(function(){
+    $.each($(".likes-bar"), function() {
+      $(this).css("width", $(this).attr("width") + "%");
+    });
+    $.each($(".no-opinions-bar"), function() {
+      $(this).css("background-color", "lightgray")
+    });
+  })
+}
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -292,3 +303,4 @@ $(toggleOpinions);
 $(elasticNewCommentInput);
 $(commentOptions);
 $(showChosenProfilePic);
+$(loadLikesBars)

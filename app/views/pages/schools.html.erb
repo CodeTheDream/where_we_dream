@@ -14,7 +14,16 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr data-href="<%= school_path(school) %>" class="tr-content">
-        <td class="center"><%= school.rating.round %>%</td>
+        <td class="center">
+          <%= school.rating! %>
+          <% if school.likes! == "no opinions" %>
+            <div class="no-opinions-bar"></div>
+          <% else %>
+            <div class="dislikes-bar">
+              <div class="likes-bar" width="<%= school.likes! %>"></div>
+            </div>
+          <% end %>
+        </td>
         <td>
           <%= school.name %>
           <% if school.public %>

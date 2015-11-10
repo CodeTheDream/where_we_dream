@@ -54,7 +54,7 @@ class School < ActiveRecord::Base
   end
 
   def rating!
-    (((rules.all.select(&:answer).count).to_f/(rules.count).to_f)*100).round(2) rescue 0
+    {1 => "A", 2 => "B", 3 => "C", 4 => "D", 5 => "F", 6 => "INC"}[rating.to_i] || "?"
   end
 
   def public?
