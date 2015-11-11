@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :rating %>
-    <%= f.select :rating, options_for_select({A: 1, B: 2, C: 3, D: 4, F: 5, "INC" => 6}, @school.rating) %>
+    <%= f.select :rating, options_for_select({A: 1, B: 2, C: 3, D: 4, F: 5, "INC" => 6}, @school.rating.to_i) %>
   </div>
   <div class="field">
     <%= f.label :street %><br>
