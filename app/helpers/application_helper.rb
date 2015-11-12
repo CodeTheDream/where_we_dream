@@ -151,11 +151,18 @@ module ApplicationHelper
   end
 
   def lock(school = nil, mobile_only: false)
-    school = @school unless school
+    school = school || @school
+    school.public ? public_lock(mobile_only) : private_lock(mobile_only)
+  end
+
+  def public_lock(mobile_only = nil)
     visibility = mobile_only ? "mobile-only" : ""
-    title = school.public?
-    lock = school.public ? "fa-unlock public" : "fa-lock private"
-    "<i title='#{title}' class='fa #{lock} #{visibility}'></i>".html_safe
+    "<i title='Public' class='fa fa-unlock public #{visibility}'></i>".html_safe
+  end
+
+  def private_lock(mobile_only = nil)
+    visibility = mobile_only ? "mobile-only" : ""
+    "<i title='Private' class='fa fa-lock private #{visibility}'></i>".html_safe
   end
 
   def desktop_only(string = "")

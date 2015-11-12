@@ -7,6 +7,8 @@
 <%= anchor_link "The problem?", "problem" %>
 <%= anchor_link "The solution?", "solution" %>
 <%= anchor_link "Schools?", "schools" %>
+<%= anchor_link "What are #{public_lock} and #{private_lock} ?", "locks" %>
+<%= anchor_link "Public vs. private schools?", "schoolprivacy" %>
 <%= anchor_link "Schools have ranks?", "ranks" %>
 <%= anchor_link "Scholarships?", "scholarships" %>
 <%= anchor_link "Stories?", "stories" %>
@@ -55,6 +57,38 @@
 
 <p>
   We are working on adding more schools and information on those schools to the website, so just be patient. Or if you are impatient, reach out and ask to be recruiter, that way you can add the information yourself. Don't be shy. You'll never get anything done by sitting around and doing nothing!
+</p>
+
+<%= anchor_tag "What are #{public_lock} and #{private_lock} ?", "locks" %>
+
+<p>
+  If you are on mobile, you will see <%= public_lock %> and <%= private_lock %> while looking at schools. These locks are used to save space because you have a lot less screen area on mobile. So, instead of saying a school is public with text, we save space by denoting public schools with the <%= public_lock %> icon. Private schools get the <%= private_lock %> icon.
+</p>
+
+<%= anchor_tag "Public vs. private schools?", "schoolprivacy" %>
+
+<p>
+  That's right. Universities can be either public universities or private universities.
+</p>
+
+<p>
+  Most Public universites were founded by government. State money runs public universities. The cost to study at these schools, aka tuition, is usually lower at public universities.
+</p>
+
+<p>
+  Private colleges are not funded by the state. They rely on tuition and private contribution. Since the state does not help with the money, tuition is often higher at private universities.
+</p>
+
+<p>
+  However, because public schools are funded by the state, they also have to follow state laws. If the state does not grant undocumented students in-state status, public schools must charge these students up to 4 times the cost of in-state tuition.
+</p>
+
+<p>
+  Private schools don't have to worry about that. They can accept who they want, charge them in-state or not. It's up to the school.
+</p>
+
+<p>
+  So in the end, a private school might be cheaper than a public school, if you're undocumented.
 </p>
 
 <%= anchor_tag "Schools have ranks?", "ranks" %>
