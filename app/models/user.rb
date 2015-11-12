@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
     resource.disliked_by?(self)
   end
 
+  def does_not_have_enough_profile_info?
+    image.blank?
+  end
+
   private
 
   def email_presence

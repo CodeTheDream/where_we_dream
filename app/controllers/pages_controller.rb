@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     User.any? ? () : (session[:user_id], session[:user_type] = nil)
     @page = "home"
+    @user = User.find(user_id) rescue nil
   end
 
   def schools
@@ -29,6 +30,10 @@ class PagesController < ApplicationController
   end
 
   def contact
+
+  end
+
+  def faqs
 
   end
 

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'wait' => 'pages#wait'
   get 'contact' => 'pages#contact'
   get 'scholarships' => 'pages#scholarships'
+  get 'FAQs' => 'pages#faqs'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
   patch 'new_question_partial' => 'admin/questions#partial'

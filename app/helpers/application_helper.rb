@@ -174,4 +174,24 @@ module ApplicationHelper
       </div>".html_safe
     end
   end
+
+  def anchor_tag(phrase, link = nil, tag: nil, top: true)
+    top = top ? "<a href='#top' class='small'>Back to top</a>" : ""
+    link = link || phrase
+    if tag == false
+      "<a name='#{link}'></a>".html_safe
+    elsif tag
+      "<a name='#{link}'></a><#{additional_tag}>#{phrase} #{top}</#{additional_tag}>".html_safe
+    else
+      "<a name='#{link}'></a><h3>#{phrase} #{top}</h3>".html_safe
+    end
+  end
+
+  def anchor_link(phrase, link = nil)
+    if link
+      "<a href='##{link}'>#{phrase}</a><br/>".html_safe
+    else
+      "<a href='##{phrase}'>#{phrase}</a><br/>".html_safe
+    end
+  end
 end

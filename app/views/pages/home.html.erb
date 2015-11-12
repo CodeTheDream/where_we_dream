@@ -1,3 +1,9 @@
+<% if @user && @user.does_not_have_enough_profile_info? %>
+  <p>
+    Hey, if you haven't added additional information to your <%= link_to "profile", user_path(user_id) %> yet, now is the time to do so!
+  </p>
+<% end %>
+
 <% students = User.students.count %>
 <div class="flex-boxes">
   <a href="schools" class="flex-box flex-box-big">
