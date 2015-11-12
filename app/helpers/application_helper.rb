@@ -189,9 +189,9 @@ module ApplicationHelper
 
   def anchor_link(phrase, link = nil)
     if link
-      "<a href='##{link}'>#{phrase}</a><br/>".html_safe
+      "<a href='##{link}' class='anchor-link'>#{phrase}</a><br/>".html_safe
     else
-      "<a href='##{phrase}'>#{phrase}</a><br/>".html_safe
+      "<a href='##{phrase}' class='anchor-link'>#{phrase}</a><br/>".html_safe
     end
   end
 end

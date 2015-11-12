@@ -287,6 +287,16 @@ function loadLikesBars() {
   })
 }
 
+function moveAnchorTags() {
+  $(window).on("hashchange", function() {
+    if ($(window).width() > 768) {
+      old_position = $(window).scrollTop()
+      new_position = old_position - 85;
+      window.scrollTo(window.scrollX, new_position)
+    };
+  });
+}
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -303,4 +313,5 @@ $(toggleOpinions);
 $(elasticNewCommentInput);
 $(commentOptions);
 $(showChosenProfilePic);
-$(loadLikesBars)
+$(loadLikesBars);
+$(moveAnchorTags);

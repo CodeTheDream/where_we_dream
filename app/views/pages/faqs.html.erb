@@ -1,10 +1,11 @@
 <a name="top"></a>
 <h2><%= title "FAQs" %></h2>
 <p>
-  This page will explain the website in general and all the specificities of the features—known as WWD S4 (<strong>S</strong>chools, <strong>S</strong>cholarships, <strong>S</strong>tories, <strong>S</strong>tudents), your ability as a user on the site, and some fun facts. Lets begin with the website.
+  This page will explain the Where We Dream (WWD) in general and all the specificities of the features—AKA WWD S4 (<span class="bold">S</span>chools, <span class="bold">S</span>cholarships, <span class="bold">S</span>tories, <span class="bold">S</span>tudents), your ability as a user on the site, and some fun facts. Lets begin with the website.
 </p>
 
-<%= anchor_link "Where We Dream?", "wwd" %>
+<%= anchor_link "The problem?", "problem" %>
+<%= anchor_link "The solution?", "solution" %>
 <%= anchor_link "Schools?", "schools" %>
 <%= anchor_link "Schools have ranks?", "ranks" %>
 <%= anchor_link "Scholarships?", "scholarships" %>
@@ -18,18 +19,30 @@
 <%= anchor_link "Awesome! How do I sign up??", "signup" %>
 <%= anchor_link "My account is set up, but how do I edit my details?", "profile" %>
 
-
-
-<%= anchor_tag "Where We Dream?", "wwd", top: false %>
+<%= anchor_tag "The problem?", "problem" %>
 
 <p>
-  Great question! This website is another attempt by <%= link_to "Cruz Núñez", user_path(1) %> to reach equal access to education, especially for undocumented immigrant students. If he can't do it with lobbying, rallies, posters, youth empowerment trainings, newspaper articles, school board support letters, web podcasts, museum spotlight, university CBPR research studies and civil disobedience events, then maybe a website will work. The topic is too big to take on on this one page, so the next best things are this <%= link_to "Ted Talk", "https://youtu.be/dcM0usGVKKI" %> by my friend Eddie, and this <%= link_to "spoken word", "https://youtu.be/5AWbXbYH5hQ" %> by my friend Marco, on IYF's <%= link_to "youtube channel", "https://www.youtube.com/channel/UCtZcHKGd-vUJbKEbN8A8UfA" %>.
+  The "equal access to education for anyone regardless of documentation" problem is too big to tackle on this page. If you really want learn about that thing that can inspire the best of students to drop out, self deport, stay in minimum-wage jobs, and abandon any hope they had for a future, listen to Bill and Cruz's talk about the issue <%= link_to "here", "https://soundcloud.com/user-549835400/episode-3-in-state-tuition-for-undocumented-immigrants" %>. The article will come soon. You can also listen to <%= link_to "Eddie's Ted Talk", "https://youtu.be/dcM0usGVKKI" %>, and <%= link_to "Marco's spoken word", "https://youtu.be/5AWbXbYH5hQ" %> on <%= link_to "IYF's youtube channel", "https://www.youtube.com/channel/UCtZcHKGd-vUJbKEbN8A8UfA" %> to educate yourself.
+</p>
+
+<p>
+  You will be able to see more of the problem when you open your eyes and notice the people around you and listen to what they have to say.
+</p>
+
+<%= anchor_tag "The solution?", "solution" %>
+
+<p>
+  Great question! Where We Dream is simply another attempt by <%= link_to "Cruz Núñez", user_path(1) %> to reach equal access to education, especially for undocumented immigrant students. He's tried lobbying, rallies, posters, youth empowerment trainings, newspaper articles, school board support letters, web podcasts, museum spotlight, university CBPR research studies and civil disobedience events. If the laws and policies are still unchanged, then maybe we can have a place full of resources and a supporting community, a place where students learn about the best colleges for them—schools that go out of their way to help immigrant students succeed.
+</p>
+
+<p>
+  We can do it. It will work. It’s worth it. If our goal is a well-educated society, it shouldn't matter whether someone has documentation or not. They are part of the community, the society, but they systematically can’t access education. When they should go to college, but don’t because of policies or lack of resources, we overall pay the price in poverty or in human pain and suffering.
 </p>
 
 <%= anchor_tag "Schools?", "schools" %>
 
 <p>
-  Another great question! Because not many schools have easy access to information about how they treat undocumented students, forcing students to spend a lot of time researching, and eventually giving up because the situation is too overwhelming. With the Schools feature, students quickly get important information that applies directly to them; information like "Does the school accept undocumented students?" or "Does the school have any merit-based scholarships available for undocumented students?". This is very important information that the students need to know!
+  Great question! Because not many schools have easy access to information about how they treat undocumented students, forcing students to spend a lot of time researching, and eventually giving up because the situation is too overwhelming. With the Schools feature, students quickly get important information that applies directly to them; information like "Does the school accept undocumented students?" or "Does the school have any merit-based scholarships available for undocumented students?". This is very important information that the students need to know!
 </p>
 
 <p>
@@ -137,11 +150,10 @@
   Easy right?
 </p>
 
-<h3>But Cruz, you said there were two Markdowns?</h3>
 <%= anchor_tag "But Cruz, you said there were two Markdowns?", "twomarkdowns" %>
 
 <p>
-  So you were paying attention I see. Well done. WWD uses Markdown again in the body of stories, and in your biography on your profile page. The difference this time is that you here you can do all the stuff from simple Markdown, but also do headers, unordered lists, images, superscript, highlight, underline, and strikethrough. Check it out.
+  So you were paying attention I see. Well done. WWD uses Markdown again in the body of stories, and in your biography on your profile page. The difference this time is that you here you can do all the stuff from simple Markdown, but also do headers, unordered lists, images, superscript, highlight, underline, and strikethrough. WWD calls it full Markdown. Check it out.
 </p>
 
 <p>
@@ -189,7 +201,7 @@
     regular link: <%= "<http://cruznunez.io/>" %>
   </span><br/><br/>
   <span class="quotes">
-    ![Cool arrest photo](https://scontent-atl3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1176169_618490728183067_941334988_n.jpg?oh=c991157d5f2445ff7be0502d9e845e11&oe=56B3CD3B)
+    ![Cool arrest photo](http://tinyurl.com/cool-arrest-photo)
   </span><br/><br/>
   <span class="quotes">
     - Unordered
@@ -234,7 +246,8 @@ super^script
 [hyperlink](http://cruznunez.io/)
 
 regular link: <http://cruznunez.io/>
-![Cool arrest photo](https://scontent-atl3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1176169_618490728183067_941334988_n.jpg?oh=c991157d5f2445ff7be0502d9e845e11&oe=56B3CD3B)
+
+![Cool arrest photo](http://tinyurl.com/cool-arrest-photo)
 
 - Unordered
 * Unordered
@@ -242,6 +255,10 @@ regular link: <http://cruznunez.io/>
 
 1. Ordered
 2. Ordered" %>
+
+<p>
+  You have all this power to write more clearly, to paint a better picture, with emphasis, with hyperlinks, and much more! If you want to learn even more, check out this <%= link_to "page", "https://daringfireball.net/projects/markdown/basics" %>.
+</p>
 
 <%= anchor_tag "Awesome! How do I sign up??", "signup" %>
 
