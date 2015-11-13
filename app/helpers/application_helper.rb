@@ -202,67 +202,21 @@ module ApplicationHelper
     end
   end
 
-  def deadline_icon(deadline)
-    if deadline > Time.now # future
-      dot = case deadline - Time.now
-      when 0..1.month; "●"
-      when 1.month..2.months; "◕"
-      when 2.months..3.months; "◑"
-      when 3.months..4.months; "◔"
-      when 4.months..5.months; "○"
-      else "◌"
+  def deadline_icon(deadline, size = nil)
+    unless deadline.class == Fixnum
+      num = if deadline > Time.now # future
+        case deadline - Time.now
+        when 0..1.month; 1
+        when 1.month..2.months; 2
+        when 2.months..3.months; 3
+        when 3.months..4.months; 4
+        when 4.months..5.months; 5
+        else 6
+        end
+      else # past
+        7
       end
-      css_class = %w[● ○ ◌].include?(dot) ? "dot-roids" : ""
-      "<span class='absolute liked left-2 dot #{css_class}'>#{dot}</span>".html_safe
-    else # past
-      "<span class='absolute disliked left-2 dot dot-roids'>●</span>".html_safe
     end
-  end
-
-  def deadline_icon_2(deadline)
-    if deadline > Time.now # future
-      dot = case deadline - Time.now
-      when 0..1.month; "&#9679;"
-      when 1.month..2.months; "&#9685;"
-      when 2.months..3.months; "&#9681;"
-      when 3.months..4.months; "&#9684;"
-      when 4.months..5.months; "&#9675;"
-      else "&#9676;"
-      end
-      css_class = %w[&#9679; &#9675; &#9676;].include?(dot) ? "dot-roids" : ""
-      "<span class='absolute liked left-2 #{css_class}'>#{dot}</span>".html_safe
-    else # past
-      "<span class='absolute disliked left-2 dot-roids'>&#9679;</span>".html_safe
-    end
-  end
-
-  def deadline_icon_3(deadline)
-    if deadline > Time.now # future
-      case deadline - Time.now
-      when 0..1.month
-        dot, css_class, y = "&#9679;", "full", 11
-      when 1.month..2.months
-        dot, css_class, y = "&#9685;", "normal", 10
-      when 2.months..3.months
-        dot, css_class, y = "&#9681;", "normal", 10
-      when 3.months..4.months
-        dot, css_class, y = "&#9684;", "normal", 10
-      when 4.months..5.months
-        dot, css_class, y = "&#9675;", "empty", 11
-      else
-        dot, css_class, y = "&#9676;", "dotted", 11
-      end
-      "<svg width='11px' height='11px'>
-        <text x='-1' y='#{y}' class='green-fill #{css_class}'>
-          #{dot}
-        </text>
-      </svg>".html_safe
-    else # past
-      "<svg width='11px' height='11px'>
-        <text x=''-1' y='11' class='red-fill full'>
-          &#9679;
-        </text>
-      </svg>".html_safe
-    end
+    image_tag "deadline_icon_#{num}.gif", style: "height:#{size || 10}px;"
   end
 end
