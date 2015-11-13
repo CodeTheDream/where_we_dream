@@ -212,10 +212,8 @@ table.pretty {
   font-family: 'Times', serif;
 }
 .dot-roids {
-  font-size: 18px;
-  bottom: -2px;
-  @include immobile {
-  }
+  // font-size: 18px;
+  // bottom: -2px;
 }
 a {
   text-decoration: none;
