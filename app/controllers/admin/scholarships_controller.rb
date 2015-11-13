@@ -38,7 +38,7 @@ class Admin::ScholarshipsController < ApplicationController
   # PATCH/PUT /scholarships/1
   def update
     if @scholarship.update(scholarship_params)
-      redirect_to @scholarship, notice: 'Scholarship was successfully updated.'
+      redirect_to admin_scholarships_path, notice: 'Scholarship was successfully updated.'
     else
       render :edit
     end
