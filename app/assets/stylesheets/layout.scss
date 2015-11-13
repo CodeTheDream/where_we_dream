@@ -217,7 +217,7 @@ table.pretty {
   // bottom: -2px;
 }
 svg text {
-  font-family: Times, serif;
+  font-family: Times, serif !important;
 }
 .green-fill {
   fill: green;
@@ -226,7 +226,9 @@ svg text {
   fill: red;
 }
 .normal {
-  font-size: 15px;
+  @include mobile {
+    font-size: 11px;
+  }
 }
 .full, .empty {
   font-size: 21px;
