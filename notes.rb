@@ -94,3 +94,6 @@ URL_encoding {
 "$2a$10$Cr1W3TAdouGMnkCZLUsUMO/u2ecwI7T.HQ.C/PWPqmZn6Kz1PgMu2" # original
 " $ 2a $ 10 $ Cr1W3TAdouGMnkCZLUsUMO / u2ecwI7T.HQ.C / PWPqmZn6Kz1PgMu2"
 "%242a%2410%24Cr1W3TAdouGMnkCZLUsUMO%2Fu2ecwI7T.HQ.C%2FPWPqmZn6Kz1PgMu2" # parser output
+
+
+◉◍◎◌○◔◑◕●

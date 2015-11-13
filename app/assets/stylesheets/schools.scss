@@ -4,14 +4,16 @@
   max-width: 160px;
 }
 .no-opinions-bar, .dislikes-bar {
-  background-color: red;
+  // background-color: crimson;
+  background-color: #EA4335;
 }
 .short-bar {
   margin-left: 2px;
   margin-right: 2px;
 }
 .likes-bar {
-  background-color: green;
+  // background-color: green;
+  background-color: #35AB54;
   width: 0;
 }
 .no-opinions-bar {

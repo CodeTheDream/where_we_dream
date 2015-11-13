@@ -9,6 +9,18 @@
     max-width: 100%;
   }
 }
+.relative {
+  position: relative;
+}
+.inner-left-padding {
+  padding-left: 1.3em;
+}
+.in-input {
+  position: absolute;
+  top: .35em;
+  left: .4em;
+  z-index: 1;
+}
 #notice {
   margin: .5em 0 0;
   text-align: center;
@@ -23,6 +35,20 @@
     margin-bottom: 5px;
   }
 }
+.scholarship ul {
+  li {
+    display: block;
+    &::before {
+      // color: #005eb8;
+      color: #EA4335;
+      font-family: FontAwesome;
+      content: "\f105";
+      padding: 0 4px 0 0;
+      margin: 0 0 0 -9px;
+    }
+  }
+}
+
 .white {
   color: white;
 }
@@ -173,11 +199,18 @@ table.pretty {
 .left {
   float: left;
 }
+.left-2 {
+  left: 2px;
+}
 .right {
   float: right;
 }
 .hide {
   display: none;
+}
+.dot-roids {
+  font-size: 18px;
+  bottom: -2px;
 }
 a {
   text-decoration: none;

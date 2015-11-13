@@ -27,9 +27,10 @@
     <%= f.label :facebook_url, "Facebook" %><br>
     <%= f.text_field :facebook_url, placeholder: "URL (http://www.example.com/)" %>
   </div>
-  <div class="field">
-    <label>Twitter</label><br>
-    <%= f.text_field :twitter_name, placeholder: "Twitter Name" %>
+  <label>Twitter</label><br>
+  <div class="relative">
+    <i class="fa fa-at in-input"></i>
+    <%= f.text_field :twitter_name, placeholder: "Twitter Name", class: "inner-left-padding" %>
   </div>
   <div class="field">
     <%= f.label :linkedin_url, "LinkedIn" %><br>
