@@ -208,6 +208,9 @@ table.pretty {
 .hide {
   display: none;
 }
+.dot {
+  font-family: 'Times', serif;
+}
 .dot-roids {
   @include immobile {
     font-size: 18px;

@@ -213,9 +213,9 @@ module ApplicationHelper
       else "◌"
       end
       css_class = %w[● ○ ◌].include?(dot) ? "dot-roids" : ""
-      "<span class='absolute liked left-2 #{css_class}'>#{dot}</span>".html_safe
+      "<span class='absolute liked left-2 dot #{css_class}'>#{dot}</span>".html_safe
     else # past
-      "<span class='absolute disliked left-2 dot-roids'>●</span>".html_safe
+      "<span class='absolute disliked left-2 dot dot-roids'>●</span>".html_safe
     end
   end
 
