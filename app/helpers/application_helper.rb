@@ -205,6 +205,23 @@ module ApplicationHelper
   def deadline_icon(deadline)
     if deadline > Time.now # future
       dot = case deadline - Time.now
+      when 0..1.month; "●"
+      when 1.month..2.months; "◕"
+      when 2.months..3.months; "◑"
+      when 3.months..4.months; "◔"
+      when 4.months..5.months; "○"
+      else "◌"
+      end
+      css_class = %w[● ○ ◌].include?(dot) ? "dot-roids" : ""
+      "<span class='absolute liked left-2 #{css_class}'>#{dot}</span>".html_safe
+    else # past
+      "<span class='absolute disliked left-2 dot-roids'>●</span>".html_safe
+    end
+  end
+
+  def deadline_icon_2(deadline)
+    if deadline > Time.now # future
+      dot = case deadline - Time.now
       when 0..1.month; "&#9679;"
       when 1.month..2.months; "&#9685;"
       when 2.months..3.months; "&#9681;"
