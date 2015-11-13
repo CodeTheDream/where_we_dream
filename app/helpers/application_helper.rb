@@ -203,8 +203,10 @@ module ApplicationHelper
   end
 
   def deadline_icon(deadline, size = nil)
-    unless deadline.class == Fixnum
-      num = if deadline > Time.now # future
+    num = if deadline.class == Fixnum
+      deadline
+    else
+      if deadline > Time.now # future
         case deadline - Time.now
         when 0..1.month; 1
         when 1.month..2.months; 2

@@ -11,6 +11,7 @@
   <%= anchor_link "Public vs. private schools?", "schoolprivacy" %>
   <%= anchor_link "Schools have ranks?", "ranks" %>
   <%= anchor_link "Scholarships?", "scholarships" %>
+  <%= anchor_link "What are #{deadline_icon 2, 12}, #{deadline_icon 5, 12}, and #{deadline_icon 7, 12}?", "deadlineicons" %>
   <%= anchor_link "Stories?", "stories" %>
   <%= anchor_link "Students?", "students" %>
   <%= anchor_link "Likes?", "likes" %>
@@ -110,6 +111,40 @@
 
 <p>
   Again, you can search using keywords, and sort using the top row of hte table. Scholarships contain a link to the actual website where you can apply from, details about the scholarship, such as the reward amount, the background, the requirements, and the deadline.
+</p>
+
+<%= anchor_tag "What are #{deadline_icon 2, 16}, #{deadline_icon 5, 16}, and #{deadline_icon 7, 16}?", "deadlineicons" %>
+
+<p>
+  Deadline icons are a way to help see how much time there is before a scholarship is due.
+</p>
+
+<p>
+  <%= deadline_icon 1, 13 %> is barely visible, therefore there is a lot of time left before the application is due. There are over 5 months before the application is due
+</p>
+
+<p>
+  <%= deadline_icon 2, 13 %> is more visible, therefore there is less time before the application is due. The application is due in between 4 and 5 months.
+</p>
+
+<p>
+  <%= deadline_icon 3, 13 %> means the application for the scholarship is due in between 3 and 4 months.
+</p>
+
+<p>
+  <%= deadline_icon 4, 13 %> means the application is due in between 2 and 3 months.
+</p>
+
+<p>
+  <%= deadline_icon 5, 13 %> means you have between 1 and 2 months before the deadline.
+</p>
+
+<p>
+  <%= deadline_icon 6, 13 %> means you better hurry up, because you have less than 1 month before the deadline.
+</p>
+
+<p>
+  <%= deadline_icon 7, 13 %> means we are past the deadline. Hopefully you applied in time!
 </p>
 
 <%= anchor_tag "Stories?", "stories" %>
