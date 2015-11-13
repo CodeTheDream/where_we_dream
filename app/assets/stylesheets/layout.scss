@@ -209,11 +209,27 @@ table.pretty {
   display: none;
 }
 .dot {
-  font-family: 'Times', serif;
+  font-family: Times, serif;
+  // font-family: Georgia, serif;
 }
 .dot-roids {
   // font-size: 18px;
   // bottom: -2px;
+}
+svg text {
+  font-family: Times, serif;
+}
+.green-fill {
+  fill: green;
+}
+.red-fill {
+  fill: red;
+}
+.full, .empty {
+  font-size: 21px;
+}
+.dotted {
+  font-size: 20px;
 }
 a {
   text-decoration: none;

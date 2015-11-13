@@ -235,4 +235,34 @@ module ApplicationHelper
       "<span class='absolute disliked left-2 dot-roids'>&#9679;</span>".html_safe
     end
   end
+
+  def deadline_icon_3(deadline)
+    if deadline > Time.now # future
+      case deadline - Time.now
+      when 0..1.month
+        dot, css_class, y = "&#9679;", "full", 11
+      when 1.month..2.months
+        dot, css_class, y = "&#9685;", "normal", 10
+      when 2.months..3.months
+        dot, css_class, y = "&#9681;", "normal", 10
+      when 3.months..4.months
+        dot, css_class, y = "&#9684;", "normal", 10
+      when 4.months..5.months
+        dot, css_class, y = "&#9675;", "empty", 11
+      else
+        dot, css_class, y = "&#9676;", "dotted", 11
+      end
+      "<svg width='11px' height='11px'>
+        <text x='-1' y='#{y}' class='green-fill #{css_class}'>
+          #{dot}
+        </text>
+      </svg>".html_safe
+    else # past
+      "<svg width='11px' height='11px'>
+        <text x=''-1' y='11' class='red-fill full'>
+          &#9679;
+        </text>
+      </svg>".html_safe
+    end
+  end
 end
