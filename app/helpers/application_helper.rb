@@ -187,36 +187,29 @@ module ApplicationHelper
     link = link || phrase
     if tag == false
       "<a name='#{link}'></a>".html_safe
-    elsif tag
-      "<a name='#{link}'></a><#{additional_tag}>#{phrase} #{top}</#{additional_tag}>".html_safe
     else
-      "<a name='#{link}'></a><h3>#{phrase} #{top}</h3>".html_safe
+      "<a name='#{link}'></a><#{tag || "h3"}>#{phrase} #{top}</#{tag || "h3"}>".html_safe
     end
   end
 
   def anchor_link(phrase, link = nil)
-    if link
-      "<li><a href='##{link}' class='anchor-link'>#{phrase}</a></li>".html_safe
-    else
-      "<li><a href='##{phrase}' class='anchor-link'>#{phrase}</a><br/></li>".html_safe
-    end
+    "<li><a href='##{link || phrase}' class='anchor-link'>#{phrase}</a></li>".html_safe
   end
 
   def deadline_icon(deadline, size = nil)
-    num = if deadline.class == Fixnum
+    num = if Fixnum === deadline
       deadline
     else
       if deadline > Time.now # future
         case deadline - Time.now
-        when 0..1.month; 1
-        when 1.month..2.months; 2
-        when 2.months..3.months; 3
-        when 3.months..4.months; 4
-        when 4.months..5.months; 5
-        else 6
+        when 0..1.month; 6
+        when 1.month..2.months; 5
+        when 2.months..3.months; 4
+        when 3.months..4.months; 3
+        when 4.months..5.months; 2
+        else 1
         end
-      else # past
-        7
+      else 7 # past
       end
     end
     image_tag "deadline_icon_#{num}.gif", style: "height:#{size || 10}px;"
