@@ -5,7 +5,7 @@ class String
   end
 
   def abbreviate
-    self.gsub(/ minut(es|e)/, "m")
+    self.gsub(/ minut(es|e)/, "min")
     .gsub(/ hou(rs|r)/, "h")
     .gsub(/ da(ys|y)/, "d")
     .gsub(/ mont(hs|h)/, "mo")

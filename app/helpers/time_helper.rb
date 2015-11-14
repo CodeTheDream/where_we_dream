@@ -9,8 +9,9 @@ module TimeHelper
 
   def full_date_time
     now, due, span, mobile = Time.now, @scholarship.deadline, '<span class="desktop-only">', '</span><span class="mobile-only">'
-    day, month, date, d = %w[a b].map{ |x| "#{span}%#{x.upcase}#{mobile}%#{x}</span>" } + [due.day.ordinalize, distance_of_time_in_words(due, now)]
-    distance, datetime = due > now ? "In " + d : d + " ago", due.strftime("#{day}, #{month} #{date} at %I:%M %P")
+    day, month, date, d = %w[a b].map{ |x| "#{span}%#{x.upcase}#{mobile}%#{x}</span>" } + ["#{span}#{due.day.ordinalize}#{mobile}#{due.day}</span>", time_ago_in_words(due)]
+    d, datetime = due > now ? "In " + d : d + " ago", due.strftime("#{day}, #{month} #{date} at %I:%M %P")
+    distance = "#{span}#{d}#{mobile}#{d.abbreviate}</span>"
     "#{distance} (#{datetime})".html_safe
   end
 
