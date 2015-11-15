@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include ApplicationHelper
+  include UsersHelper
   before_action :prepare_meta_tags, if: "request.get?"
 
   def prepare_meta_tags(options={})
@@ -62,7 +63,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_update
     #session[:user_id] is stored as a Fixnum. params[:id] is stored as a string
-    unless user_id.to_s == params[:id] || (@user.below_admin? && admin_or_above?) || god? 
+    unless user_id.to_s == params[:id] || (@user.below_admin? && admin_or_above?) || god?
       redirect_to login_path, notice: "You're not allowed to do that"
     end
   end
