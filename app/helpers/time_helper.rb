@@ -8,15 +8,19 @@ module TimeHelper
   end
 
   def full_date_time
-    now, due, span, mobile = Time.now, @scholarship.deadline, '<span class="desktop-only">', '</span><span class="mobile-only">'
-    day, month, date, d = %w[a b].map{ |x| "#{span}%#{x.upcase}#{mobile}%#{x}</span>" } + ["#{span}#{due.day.ordinalize}#{mobile}#{due.day}</span>", time_ago_in_words(due)]
-    d, datetime = due > now ? "In " + d : d + " ago", due.strftime("#{day}, #{month} #{date} at %I:%M %P")
-    distance = "#{span}#{d}#{mobile}#{d.abbreviate}</span>"
+    due, d = @scholarship.deadline, time_in_words(@scholarship.deadline)
+    day, month, date, distance = desktop_mobile("%A"=>"%a", "%B"=>"%b", due.day.ordinalize => due.day, d => d.abbreviate)
+    datetime = due.strftime("#{day}, #{month} #{date} at %I:%M %P")
     "#{distance} (#{datetime})".html_safe
   end
 
   def simple_date(time)
     time.strftime("%-m/%-d")
+  end
+
+  def time_in_words(time)
+    d = time_ago_in_words(time)
+    time > Time.now ? "In " + d : d + " ago"
   end
 
   def updated_and_created_at(thing)
@@ -28,6 +32,6 @@ module TimeHelper
   end
 
   def updated_at(thing)
-    time_ago_in_words(thing.updated_at) + " ago"
+    time_in_words(thing.updated_at)
   end
 end

@@ -1,4 +1,4 @@
-module CommentHelper
+module CommentsHelper
   def delatable?(comment)
     user = comment.user.type
     # This comment is delatable if you are the owner, a modder and the owner is a viewer, or you are Cruz

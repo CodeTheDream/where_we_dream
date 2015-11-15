@@ -17,7 +17,7 @@
             <span class="fa-stack">
               <i id="logo" class="fa fa-graduation-cap fa-stack-1x logo"></i>
             </span>
-            <span class="desktop-only">Where We DREAM</span>
+            <%= desktop_only "Where We DREAM" %>
           <% end %>
         </li>
         <li id="features" class="nav-link">
@@ -25,19 +25,14 @@
             <i class="fa fa-circle-thin fa-stack-2x"></i>
             <i class="fa fa-bars fa-stack-1x"></i>
           </span>
-          <span class='desktop-only'>Features</span>
+          <%= desktop_only "Features" %>
         </li>
         <% if recruiter_or_above? %>
           <li id="admin" class="nav-link">
             <span class="fa-stack">
-              <% if god? %>
-                <i class="fa fa-expeditedssl fa-stack-2x"></i>
-              <% else %>
-                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                <i class="fa fa-unlock-alt fa-stack-1x"></i>
-              <% end %>
+              <i class="fa fa-expeditedssl fa-stack-2x"></i>
             </span>
-            <span class='desktop-only'><%= user_type %></span>
+            <%= desktop_only user_type %>
           </li>
         <% end %>
         <% unless logged_in? %>
@@ -47,7 +42,7 @@
                 <i class="fa fa-circle-thin fa-stack-2x"></i>
                 <i class="fa fa-user-plus fa-stack-1x" style="padding-left:.1em;"></i>
               </span>
-              <span class='desktop-only'>Log In<span>
+              <%= desktop_only "Log In" %>
             </a>
           </li>
         <% end %>

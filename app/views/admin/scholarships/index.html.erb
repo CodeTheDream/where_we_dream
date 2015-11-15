@@ -1,7 +1,7 @@
 <div class="flex-container">
   <h1><%= title 'Scholarships' %></h1>
   <%= link_to new_admin_scholarship_path, class: 'flex-right' do %>
-    <i class="fa fa-plus"></i> <span class="desktop-only">Add Scholarship</span>
+    <i class="fa fa-plus"></i> <%= desktop_only "Add Scholarship" %>
   <% end %>
 </div>
 

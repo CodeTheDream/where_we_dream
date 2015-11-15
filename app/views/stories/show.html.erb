@@ -14,7 +14,7 @@
     </div>
     <% if owner? @story %>
       <%= link_to edit_story_path(@story), class: "flex-right" do %>
-        <i class="fa fa-pencil-square-o mobile-only" style="font-size:1.5em;"></i><span class="desktop-only">Edit</span>
+        <%= desktop_mobile "Edit" => "<i class='fa fa-pencil-square-o' style='font-size:1.5em;'></i>" %>
       <% end %>
     <% end %>
   </div>

@@ -3,7 +3,7 @@
     <h2><%= link @scholarship %> (<%= reward %>)</h2>
     <% if admin_or_above? && request.path.include?("admin") %>
       <%= link_to edit_admin_scholarship_path(@scholarship), class: "flex-right" do %>
-        <i class="fa fa-pencil-square-o fa-2x mobile-only"></i><span class="desktop-only">Edit</span>
+        <%= desktop_mobile "Edit" => "<i class='fa fa-pencil-square-o fa-2x'></i>" %>
       <% end %>
     <% end %>
   </div>

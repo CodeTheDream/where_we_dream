@@ -28,7 +28,7 @@
         <td hidden="hidden">
           <% if god? || ( user.viewer? && admin_or_above? ) %>
             <%= link_to admin_user_path(user), method: :delete do %>
-              <i class="fa fa-ban mobile-only"></i><span class="desktop-only">Destroy</span>
+              <%= desktop_mobile "Destroy" => "<i class='fa fa-ban'></i>" %>
             <% end %>
           <% end %>
         </td>

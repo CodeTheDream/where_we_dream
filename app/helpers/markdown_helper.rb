@@ -23,19 +23,16 @@ module MarkdownHelper
       escape_html: true,
       no_images: true,
     ))
-    text = pound_filter text
-    text = asterisk_filter text
-    text = dash_filter text
-    text = plus_filter text
-    # text = number_filter text # ordered lists are still possible...Not really a big deal.
+    text = plus_filter dash_filter asterisk_filter pound_filter text
     markdown.render(text).html_safe
-  end
-  def pound_filter text
-    text.gsub /^#/, '\#'
   end
 
   def asterisk_filter text
     text.gsub /^\*\s{1}/, '\* '
+  end
+
+  def pound_filter text
+    text.gsub /^#/, '\#'
   end
 
   def dash_filter text
@@ -45,13 +42,4 @@ module MarkdownHelper
   def plus_filter text
     text.gsub /^\+/, '\+'
   end
-
-  # def number_filter text
-  #   if text[/^\d./].present?
-  #     text[/^\d./].each do |match|
-  #       escape = '\\' + match
-  #       text.gsub match, escape
-  #     end
-  #   end
-  # end
 end
