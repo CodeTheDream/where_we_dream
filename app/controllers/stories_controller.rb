@@ -3,6 +3,8 @@ class StoriesController < ApplicationController
   before_action :set_user, only: [:new]
   helper_method :sort_column
 
+  include ViewHelper
+
   # GET /stories
   def index
     @stories = Story.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
@@ -13,6 +15,9 @@ class StoriesController < ApplicationController
     @commentable = @story
     @comments = @commentable.comments.where(original_comment_id: nil).order(created_at: :desc)
     @blank_comment = Comment.new
+    if @story.user.twitter_name.present? && !@story.anonymous?
+      twitter @story.user.twitter_name
+    end
   end
 
   # GET /stories/new

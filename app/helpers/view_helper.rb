@@ -17,6 +17,16 @@ module ViewHelper
     link_to '<span class="button dark-blue-background submit"><i class="fa fa-arrow-left"></i> Back<span>'.html_safe, :back
   end
 
+  def click_area(path)
+    link_to '<span class="click-area"></span>'.html_safe, path
+  end
+
+  def description(string = nil)
+    set_meta_tags description: string if string
+    prepare_meta_tags
+    super
+  end
+
   def desktop_mobile(hash)
     hash = hash.map{ |key, value| desktop_only(key) + mobile_only(value) }
     hash.size == 1 ? hash[0] : hash
@@ -33,5 +43,16 @@ module ViewHelper
   def notice_helper
     style = @page == 'home' ?  ' style="position:relative"' : nil
     "<p id='notice'#{style}>#{notice}</p>".html_safe
+  end
+
+  def title(string = nil)
+    set_meta_tags(title: string) if string
+    prepare_meta_tags
+    super
+  end
+
+  def twitter(string)
+    set_meta_tags(twitter: {creator: string})
+    string
   end
 end

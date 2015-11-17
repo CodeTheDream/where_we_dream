@@ -24,24 +24,29 @@ Rails.application.routes.draw do
 
   delete 'comments/:id/delete' => 'comments#destroy'
 
+  resources :schools, controller: 'admin/schools', only: :show do
+    resources :comments, except: [:show, :update, :destroy]
+  end
+
+  resources :scholarships, controller: 'admin/scholarships', only: [:show, :delete] do
+    resources :comments, except: [:show, :update, :destroy]
+  end
+
+  resources :states, controller: 'admin/states', only: [:index, :show] do
+    resources :comments, except: [:show, :update, :destroy]
+  end
+
   resources :stories do
     resources :comments, except: [:show, :update, :destroy]
   end
 
   resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 
-  resources :scholarships, controller: 'admin/scholarships', only: [:show, :delete] do
-    resources :comments, except: [:show, :update, :destroy]
-  end
-
-  resources :schools, controller: 'admin/schools', only: :show do
-    resources :comments, except: [:show, :update, :destroy]
-  end
-
   namespace :admin do
     resources :schools
     resources :questions
     resources :users
     resources :scholarships
+    resources :states
   end
 end

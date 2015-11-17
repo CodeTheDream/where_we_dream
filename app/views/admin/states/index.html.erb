@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<div class="flex-container">
+  <h1><%= title "States" %></h1>
+  <% if admin_or_above? && request.path.include?("admin") %>
+    <%= link_to new_admin_state_path, class: 'flex-right' do %>
+      <i class="fa fa-plus"></i> Add State
+    <% end %>
+  <% end %>
+</div>
+
+<p>
+  <% @states.each do |state| %>
+    <%= link_to state.abbreviation, admin_state_path(state) %>
+  <% end %>
+</p>

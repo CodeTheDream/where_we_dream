@@ -52,17 +52,22 @@
   <nav id="mobile-nav">
     <div id="nav-features">
       <div class="feature">
-        <a href="/schools"><span class="click-area"></span></a>
+        <%= click_area schools_path %>
         <h3>Schools</h3>
         <p>Browse through our <%= pluralize School.count, "school" %></p>
       </div>
       <div class="feature">
-        <a href="/scholarships"><span class="click-area"></span></a>
+        <%= click_area scholarships_path %>
         <h3>Scholarships</h3>
         <p>Browse through our <%= pluralize Scholarship.count, "scholarship" %></p>
       </div>
       <div class="feature">
-        <a href="/stories"><span class="click-area"></span></a>
+        <%= click_area states_path %>
+        <h3>States</h3>
+        <p>Browse through our <%= pluralize State.count, "state" %>
+      </div>
+      <div class="feature">
+        <%= click_area stories_path %>
         <h3>Stories</h3>
         <p>Browse through our <%= pluralize Story.count, "story" %></p>
       </div>
@@ -75,31 +80,36 @@
         </div>
       <% end %>
       <div class="feature">
-        <a href="/students"><span class="click-area"></span></a>
+        <%= click_area students_path %>
         <h3>Students</h3>
         <p>Browse through our <%= pluralize User.students.count, "student" %></p>
       </div>
     </div>
     <div id="nav-admin">
       <div class="feature">
-        <%= link_to '<span class="click-area"></span>'.html_safe, admin_schools_path %>
+        <%= click_area admin_schools_path %>
         <h3>Schools</h3>
         <p>Edit schools</p>
       </div>
       <div class="feature">
-        <%= link_to '<span class="click-area"></span>'.html_safe, admin_scholarships_path %>
+        <%= click_area admin_scholarships_path %>
         <h3>Scholarships</h3>
         <p>Edit scholarships</p>
       </div>
       <% if god? %>
         <div class="feature">
-          <%= link_to '<span class="click-area"></span>'.html_safe, admin_questions_path %>
+          <%= click_area admin_states_path %>
+          <h3>States</h3>
+          <p>Edit states</p>
+        </div>
+        <div class="feature">
+          <%= click_area admin_questions_path %>
           <h3>Questions</h3>
           <p>Edit questions</p>
         </div>
       <% end %>
       <div class="feature">
-        <%= link_to '<span class="click-area"></span>'.html_safe, admin_users_path %>
+        <%= click_area admin_users_path %>
         <h3>Users</h3>
         <p><%= pluralize User.count, "user" %></p>
       </div>

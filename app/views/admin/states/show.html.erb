@@ -1,0 +1,21 @@
+<div class="flex-container">
+  <h2><%= title @state.name %></h2>
+  <% if admin_or_above? && request.path.include?("admin") %>
+    <%= link_to edit_admin_state_path(@state), class: 'flex-right' do %>
+      <%= desktop_mobile "Edit" => "<i class='fa fa-pencil-square-o fa-2x'></i>" %>
+    <% end %>
+  <% end %>
+</div>
+
+<p>
+  <%= @state.in_state? %>
+</p>
+<% if @state.description.present? %>
+  <h3>Description</h3>
+  <%= complex_md_parser @state.description %>
+<% end %>
+
+<% @schools.each do |school| %>
+  <%= link_to school.name, school %><br/>
+<% end %>
+<%= back %>

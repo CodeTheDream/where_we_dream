@@ -63,7 +63,7 @@ class Admin::SchoolsController < ApplicationController
     end
 
     def set_states
-      @states = School.states
+      @states = State.abbreviations
     end
 
     def new_school_params

@@ -5,13 +5,15 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include UsersHelper
   before_action :prepare_meta_tags, if: "request.get?"
+  helper_method :prepare_meta_tags
 
   def prepare_meta_tags(options={})
-    site   = CONFIG['site']
-    title       = CONFIG['title']
-    description = CONFIG['description']
-    image       = options[:image] || CONFIG['image']
+    site        = CONFIG['site']
+    title       = options[:title] || meta_tags[:title] || CONFIG['title']
+    description = options[:description] || meta_tags[:description] || CONFIG['description']
+    image       = options[:image] || meta_tags[:image] || CONFIG['image']
     current_url = request.url
+    creator = meta_tags[:twitter][:creator] rescue nil
 
     # Let's prepare a nice set of defaults
     defaults = {
@@ -21,8 +23,10 @@ class ApplicationController < ActionController::Base
       image:        image,
       description:  description,
       keywords:     CONFIG['keywords'].split,
-      twitter: {    site_name: site,
+      twitter: {    title: title,
+                    site_name: site,
                     site: '@' + CONFIG['twitter'],
+                    creator: creator,
                     card: 'summary',
                     description: description,
                     image: image },

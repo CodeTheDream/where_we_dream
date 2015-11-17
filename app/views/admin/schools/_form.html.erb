@@ -1,4 +1,4 @@
-<% @school.id ? correct_path = admin_school_path(@school) : correct_path = admin_schools_path %>
+<% correct_path = @school.id ? admin_school_path(@school) : admin_schools_path %>
 <%# @school.name.nil? ? correct_path = admin_school_path(@school) : correct_path = admin_schools_path %>
 
 <%= form_for(@school, url: correct_path) do |f| %>
@@ -72,6 +72,6 @@
     </div>
   <% end %>
   <div class="actions">
-    <%= f.submit "Submit", class: "button" %>
+    <%= f.submit class: "button" %>
   </div>
 <% end %>

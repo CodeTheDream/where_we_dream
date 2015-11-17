@@ -5,6 +5,7 @@ rails g controller sessions new create destroy
 rails g scaffold like user:references opinionable:references{polymorphic} value:boolean
 rails g scaffold scholarship name description:text deadline:datetime amount:integer requirements:text full_ride:boolean
 rails g scaffold story title description:text body:text user:references anonymous:boolean
+rails g scaffold state name abbreviation in_state:boolean description:text
 
 rails generate
   migration

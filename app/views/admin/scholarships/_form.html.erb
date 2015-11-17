@@ -1,4 +1,4 @@
-<% @scholarship.id ? correct_path = admin_scholarship_path(@scholarship) : correct_path = admin_scholarships_path %>
+<% correct_path = @scholarship.id ? admin_scholarship_path(@scholarship) : admin_scholarships_path %>
 <%= form_for(@scholarship, url: correct_path) do |f| %>
   <% if @scholarship.errors.any? %>
     <div id="error_explanation">

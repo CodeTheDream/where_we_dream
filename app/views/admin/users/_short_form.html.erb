@@ -1,4 +1,4 @@
-<% @user.id ? correct_path = admin_user_path(@user) : correct_path = admin_users_path %>
+<% correct_path = @user.id ? admin_user_path(@user) : admin_users_path %>
 
 <%= form_for @user, url: correct_path, html: { multipart: true } do |f| %>
   <% if @user.errors.any? %>
