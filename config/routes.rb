@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :comments, except: [:show, :update, :destroy]
   end
 
+  get "states/data" => "admin/states#data"
   resources :states, controller: 'admin/states', only: [:index, :show] do
     resources :comments, except: [:show, :update, :destroy]
   end

@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-# gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.9'
 gem 'paperclip', '~> 4.2'
@@ -25,6 +25,8 @@ gem 'letter_opener', :group => :development
 gem 'redcarpet'
 gem 'meta-tags'
 gem 'kaminari'
+gem 'd3_rails'
+gem 'topojson-rails'
 
 group :production do
   gem 'puma'

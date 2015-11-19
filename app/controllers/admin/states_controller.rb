@@ -1,6 +1,11 @@
 class Admin::StatesController < ApplicationController
   before_action :set_state, only: [:show, :edit, :update, :destroy]
 
+  # GET /states/data.json
+  def data
+    @states = State.all
+  end
+
   # GET /states
   def index
     @states = State.all.order(name: :asc)
@@ -27,7 +32,7 @@ class Admin::StatesController < ApplicationController
     @state = State.new(state_params)
 
     if @state.save
-      redirect_to @state, notice: 'State was successfully created.'
+      redirect_to admin_states_path, notice: 'State was successfully created.'
     else
       render :new
     end
@@ -36,7 +41,7 @@ class Admin::StatesController < ApplicationController
   # PATCH/PUT /states/1
   def update
     if @state.update(state_params)
-      redirect_to admin_state_path(@state), notice: 'State was successfully updated.'
+      redirect_to admin_states_path, notice: 'State was successfully updated.'
     else
       render :edit
     end
@@ -45,7 +50,7 @@ class Admin::StatesController < ApplicationController
   # DELETE /states/1
   def destroy
     @state.destroy
-    redirect_to states_url, notice: 'State was successfully destroyed.'
+    redirect_to admin_states_path, notice: 'State was successfully destroyed.'
   end
 
   private

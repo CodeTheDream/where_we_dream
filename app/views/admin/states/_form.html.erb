@@ -20,7 +20,9 @@
   <% end %>
   <div class="field">
     <%= f.label :in_state %><br>
-    <%= f.check_box :in_state %>
+    <%= f.radio_button :in_state, true %> yes
+    <%= f.radio_button :in_state, false %> no
+    <%= f.radio_button :in_state, '' %> idk
   </div>
   <div class="field">
     <%= f.label :description %><br>
