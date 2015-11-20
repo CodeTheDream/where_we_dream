@@ -142,7 +142,7 @@ function showAdditionalDetails() {
   });
 };
 
-function clickableTableRows(){
+function clickableDataHrefs(){
   $('*[data-href]').click(function(){
     window.location = $(this).data('href');
     return false;
@@ -308,7 +308,7 @@ $(deleteQuestion);
 $(updateQuestion);
 $(showAdditionalDetails);
 $(makeTextareaElastic);
-$(clickableTableRows);
+$(clickableDataHrefs);
 $(toggleDropdown);
 $(addNewReply);
 $(toggleOpinions);

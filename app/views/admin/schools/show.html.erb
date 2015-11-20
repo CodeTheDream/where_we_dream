@@ -29,7 +29,7 @@
 
   <% if @school.description.present? %>
     <h3>Description</h3>
-    <%= simple_md_parser description(@school.description) %>
+    <%= simple_md description(@school.description) %>
   <% end %>
 
   <p>
@@ -55,7 +55,7 @@
     <%= color_paragraph(r.answer) %>
       <span class="bold"><%= r.question!.gsub("the school", title) %></span>
       <%= r.answer! %><br/>
-      <%= r.answer != nil ? simple_md_parser(r.details) : () %>
+      <%= r.answer != nil ? simple_md(r.details) : () %>
     </p>
   <% end %>
 </div>

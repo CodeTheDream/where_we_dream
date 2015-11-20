@@ -172,7 +172,7 @@ table.pretty {
   font-weight: 500;
 }
 .pretty td {
-  padding: 3px 0;
+  padding: 4px 0;
 }
 .pretty td,
 .pretty th {
@@ -180,11 +180,11 @@ table.pretty {
     border-bottom: solid 1px #AAA;
   }
 }
-.tr-content {
-  &:hover {
-    cursor: pointer;
-    background: #f2f2f2;
-  }
+.tr-content:hover {
+  background: #f2f2f2;
+}
+*[data-href]:hover {
+  cursor: pointer;
 }
 .asc:after, .desc:after {
   font-family: FontAwesome;
@@ -372,6 +372,12 @@ input[type="password"] {
 }
 .center {
   text-align: center;
+}
+#canvas-svg,
+.center-div {
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 ul {
   padding-left: 1.3em;

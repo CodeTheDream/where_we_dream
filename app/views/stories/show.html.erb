@@ -32,7 +32,7 @@
     <%= description @story.description %>
   </p>
 
-  <%= complex_md_parser @story.body %>
+  <%= full_md @story.body %>
 </div>
 
 <h2>Comments · <%= @commentable.comments.count %></h2>

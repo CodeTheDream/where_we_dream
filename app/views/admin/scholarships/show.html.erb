@@ -8,14 +8,14 @@
     <% end %>
   </div>
 
-  <div class="pre-wrap"><%= thumbs_up(@scholarship) %>  <%= likes(@scholarship) %>    <%= thumbs_down(@scholarship) %>  <%= dislikes(@scholarship) %></div>
+  <div class="pre-wrap"><%= thumbs_up @scholarship %>  <%= likes @scholarship %>    <%= thumbs_down @scholarship %>  <%= dislikes @scholarship %></div>
 
   <div class="top-padding small gray">
     Updated <%= updated_at @scholarship %>
   </div>
 
   <h3>Description:</h3>
-  <%= complex_md_parser @scholarship.description %>
+  <%= full_md @scholarship.description %>
 
   <h3>Deadline:</h3>
   <p>
@@ -23,7 +23,7 @@
   </p>
 
   <h3>Requirements:</h3>
-  <%= complex_md_parser @scholarship.requirements %>
+  <%= full_md @scholarship.requirements %>
 </div>
 <h2>Comments · <%= @scholarship.comments.count %></h2>
 <%= render 'comments/form' if logged_in? %>

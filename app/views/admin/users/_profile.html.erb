@@ -65,5 +65,5 @@
 <% end %>
 <% if @user.bio.present? %>
   <h2>Bio</h2>
-  <%= complex_md_parser @user.bio %>
+  <%= full_md @user.bio %>
 <% end %>

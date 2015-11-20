@@ -1,28 +1,37 @@
-function mapBuilder() {
+function mapBuilder(url) {
+
+  console.log(url)
+  var view_width = $("#body").width();
 
   d3.csv("/population.csv", function(err, data) {
 
     var config = {"state":"state_or_territory","value":"population_estimate_for_july_1_2013_number"}
 
     var H_MAX = 500,
-        W_MAX = 900,
-        width = "100%",
-        height = convertHeight(),
-        SCALE = convertScale(height),
+        W_MAX = H_MAX*1.8,
+        height = height(),
+        width = ( view_width >= W_MAX ? W_MAX+"px" : "100%" ),
+        SCALE = scale(height),
         MAP_STATE = config.state,
         MAP_VALUE = config.value,
-        tuition_data = $.getJSON('/states/data.json');
+        path = d3.geo.path(),
+        valueById = d3.map();
+    // This clears the map, useful when window resizes.
+    $("#canvas-svg").replaceWith("<div id='canvas-svg'></div>");
 
-    function convertHeight(){
-      var width = $("#body").width();
-      if (width >= W_MAX) {
+    var svg = d3.select("#canvas-svg").attr("style", "width:" + width ).append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    function height(){
+      if (view_width >= W_MAX) {
         return H_MAX;
       } else {
-        return width*H_MAX/W_MAX;
+        return view_width*H_MAX/W_MAX;
       }
     };
 
-    function convertScale(height){
+    function scale(height){
       if (height >= H_MAX ) {
         return 1
       } else {
@@ -42,26 +51,48 @@ function mapBuilder() {
       }
     }
 
-    var valueById = d3.map();
+    function code(id) {
+      return id_code[id]
+    };
 
-    var path = d3.geo.path();
+    function inState(id) {
+      try {
+        var in_state = wwd_data.responseJSON[code(id)].in_state;
+      } catch (e) {
+        var in_state = null;
+      };
+      if (in_state) {
+        return "in-state";
+      } else if (in_state == false) {
+        return "out-of-state";
+      };
+    };
 
-    var svg = d3.select("#canvas-svg").append("svg")
-        .attr("width", width)
-        .attr("height", height);
+    function statePath(id) {
+      try {
+        var db_id = wwd_data.responseJSON[code(id)].id;
+      } catch (e) {
+        var db_id = null;
+      };
+      if (db_id) {
+        return url + "/" + db_id;
+      };
+    };
 
     d3.tsv("/us-state-names.tsv", function(error, names) {
 
-      name_id_map = {};
-      id_name_map = {};
+      name_id = {};
+      id_name = {};
+      id_code = {};
 
       for (var i = 0; i < names.length; i++) {
-        name_id_map[names[i].name] = names[i].id;
-        id_name_map[names[i].id] = names[i].name;
+        name_id[names[i].name] = names[i].id;
+        id_name[names[i].id] = names[i].name;
+        id_code[names[i].id] = names[i].code;
       }
 
       data.forEach(function(d) {
-        var id = name_id_map[d[MAP_STATE]];
+        var id = name_id[d[MAP_STATE]];
         valueById.set(id, +d[MAP_VALUE]);
       });
 
@@ -73,34 +104,15 @@ function mapBuilder() {
             .data(topojson.feature(us, us.objects.states).features)
           .enter().append("path")
             .attr("transform", "scale(" + SCALE + ")")
-            .attr("class", function(d) {
-              var map_id = d.id;
-              for (var i = 0; i < names.length; i++) {
-                var state_id = names[i].id;
-                if (state_id == map_id) {
-                  try {
-                    var state_name = names[i].code;
-                    var in_state = tuition_data.responseJSON[state_name];
-                  } catch (e) {
-                    var in_state = null;
-                  };
-                };
-              };
-              if (in_state == true) {
-                return "in-state";
-              } else if (in_state == false) {
-                return "out-of-state";
-              } else {
-                return "nothing";
-              };
-            })
+            .attr("data-href", function(d){ return statePath(d.id) })
+            .attr("class", function(d){ return inState(d.id) })
             .attr("d", path)
             .on("mousemove", function(d) {
                 var html = "";
 
                 html += "<div class=\"tooltip_kv\">";
                 html += "<span class=\"tooltip_key\">";
-                html += id_name_map[d.id];
+                html += id_name[d.id];
                 html += "</span>";
                 html += "<span class=\"tooltip_value\">";
                 html += (valueById.get(d.id) ? valueFormat(valueById.get(d.id)) : "");
@@ -137,6 +149,8 @@ function mapBuilder() {
             .attr("class", "states")
             .attr("transform", "scale(" + SCALE + ")")
             .attr("d", path);
+
+        clickableDataHrefs();
 
       });
     });

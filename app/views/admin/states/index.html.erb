@@ -12,17 +12,31 @@
 <div id="canvas-svg"></div>
 
 <script>
-  mapBuilder();
+  // declaring wwd_data outside the function is important for resize reasons
+  var wwd_data = $.getJSON('/states/data.json');
+  mapBuilder("<%= request.path %>");
+  $(window).resize(function() { mapBuilder("<%= request.path %>"); });
 </script>
 
 <p>
-  <% @states.each do |state| %>
-    <%= link_to state.abbreviation, admin_state_path(state), class: "#{!state.in_state ? state.in_state == nil ? 'no-state' : 'out-of-state' : 'in-state' }" %>
+  <% @states.each_with_index do |state, index| %>
+    <%= link state %>
+    <%= "|" unless index == @states.size - 1 %>
   <% end %>
 </p>
 
 <h3>Overwiew</h3>
 
 <p>
-  In general, there are 50 states. Some grant undocumented students in-state tuition status, others don't. Soon you will be able to click a state and go to that state's page.
+  In general, there are 50 states. Some grant undocumented students in-state tuition status, others don't. Click on a state to learn more about that state.
 </p>
+
+<p>
+  Check out this <%= link_to "PDF", "http://www2.ed.gov/about/overview/focus/supporting-undocumented-youth.pdf" %>
+</p>
+
+<p>
+  Also, check out this map from the <%= link_to "NCSL", "http://www.ncsl.org/research/immigration/tuition-benefits-for-immigrants.aspx" %>:
+</p>
+
+<%= image_tag "in_state_map.gif", class: "block center-div" %>

@@ -1,5 +1,5 @@
 module MarkdownHelper
-  def complex_md_parser(text)
+  def full_md(text)
     markdown = Redcarpet::Markdown.new(
       Redcarpet::Render::HTML,
       autoliink: true,
@@ -13,7 +13,7 @@ module MarkdownHelper
     markdown.render(text).html_safe
   end
 
-  def simple_md_parser(text)
+  def simple_md(text)
     markdown = Redcarpet::Markdown.new(RenderWithoutWrap.new(
       hard_wrap: true,
       disable_indented_code_blocks: true,

@@ -1,5 +1,5 @@
 <div class="flex-container">
-  <h2><%= title @state.name %></h2>
+  <h1><%= title @state.name %></h1>
   <% if admin_or_above? && request.path.include?("admin") %>
     <%= link_to edit_admin_state_path(@state), class: 'flex-right' do %>
       <%= desktop_mobile "Edit" => "<i class='fa fa-pencil-square-o fa-2x'></i>" %>
@@ -7,15 +7,22 @@
   <% end %>
 </div>
 
-<p>
+<p class="topless">
   <%= @state.in_state? %>
 </p>
+
 <% if @state.description.present? %>
-  <h3>Description</h3>
-  <%= complex_md_parser @state.description %>
+  <%= full_md @state.description %>
 <% end %>
 
-<% @schools.each do |school| %>
-  <%= link_to school.name, school %><br/>
+<h3>Schools</h3>
+<% if @schools.any? %>
+  <% @schools.each do |school| %>
+    <%= link_to school.name, school %><br/>
+  <% end %>
+<% else %>
+  <p>
+    There are no schools for this state...yet.
+  </p>
 <% end %>
 <%= back %>

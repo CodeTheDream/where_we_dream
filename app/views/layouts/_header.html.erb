@@ -78,12 +78,12 @@
           <p>Coming soon!</p>
           <!-- <p>Browse through our '20' sponsors</p> -->
         </div>
+        <div class="feature">
+          <%= click_area students_path %>
+          <h3>Students</h3>
+          <p>Browse through our <%= pluralize User.students.count, "student" %></p>
+        </div>
       <% end %>
-      <div class="feature">
-        <%= click_area students_path %>
-        <h3>Students</h3>
-        <p>Browse through our <%= pluralize User.students.count, "student" %></p>
-      </div>
     </div>
     <div id="nav-admin">
       <div class="feature">
@@ -96,12 +96,14 @@
         <h3>Scholarships</h3>
         <p>Edit scholarships</p>
       </div>
-      <% if god? %>
+      <% if admin_or_above? %>
         <div class="feature">
           <%= click_area admin_states_path %>
           <h3>States</h3>
           <p>Edit states</p>
         </div>
+      <% end %>
+      <% if god? %>
         <div class="feature">
           <%= click_area admin_questions_path %>
           <h3>Questions</h3>
@@ -113,9 +115,6 @@
         <h3>Users</h3>
         <p><%= pluralize User.count, "user" %></p>
       </div>
-    </div>
-    <div id="nav-other">
-
     </div>
   </nav>
 </header>

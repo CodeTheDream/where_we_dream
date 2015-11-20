@@ -22,7 +22,7 @@
       </strong>
       <span class="time"><%= created_at(@comment) %></span>
       <br/>
-      <%= simple_md_parser @comment.content %>
+      <%= simple_md @comment.content %>
       <br/>
       <div class="pre-wrap"><span comment-id="<%= @comment.id %>" class="small reply">Reply</span>   ·   <%= likes(@comment) %><%= thumbs_up(@comment) %>   <%= thumbs_down(@comment) %></div>
     </div>
