@@ -57,14 +57,11 @@ function mapBuilder(url) {
 
     function inState(id) {
       try {
-        var in_state = wwd_data.responseJSON[code(id)].in_state;
+        var in_state = wwd_data.responseJSON[code(id)].in_state_css;
       } catch (e) {
         var in_state = null;
-      };
-      if (in_state) {
-        return "in-state";
-      } else if (in_state == false) {
-        return "out-of-state";
+      } finally {
+        return in_state;
       };
     };
 

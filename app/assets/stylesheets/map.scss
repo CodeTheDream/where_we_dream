@@ -3,8 +3,9 @@
   stroke: #fff;
   stroke-linejoin: round;
 }
-.states-choropleth {
-  fill: #ccc;
+.states-choropleth { // default color gray
+  fill: #D1D5D8;
+  // fill: #ddd;
 }
 #tooltip-container {
   position: absolute;
@@ -21,14 +22,66 @@
   margin-left: 20px;
   float: right;
 }
-.in-state {
-  fill: blue;
+.in-state { // some soft of blue
+  fill: #446CB3; // sane, kinda boring
+  // fill: #4183D7; // lighthearted
+  // fill: #59ABE3; //
+  // fill: #64C1F4; // chill, kinda instense
+  // fill: #19B5FE; // friendly
+  // fill: #97CEF4; // old baby blue
+  // fill: #3A539B; // serious, trustworthy
+  // fill: #679DF6; // happy
+  // fill: #6DDCEB;
+  // opacity: .6;
   color: blue;
 }
-.out-of-state {
-  color: red;
-  fill: red;
+.in-state-aid { // some sort of gold
+  // fill: #E6AB1F; // light brown
+  // fill: #FBD137; // not bad
+  // fill: #FBF140; // not bad
+  // fill: #E5A41E; // light brown
+  fill: gold;
+  opacity: .85;
+  color: #E6C200;
 }
-.no-state {
+.university-aid { // some sort of green
+  // fill: #2ECC71; // not bad
+  // fill: #32B251; // not bad
+  // fill: #7EEF50;
+  // fill: #33853A;
+  fill: #2ECD1A;
+  // fill: #2ED20E;
+  // opacity: .95;
+  color: green;
+}
+.out-of-state { // some sort of red
+  // fill: #f22613; // not bad
+  fill: #FF1515; // red x .92
+  // fill: #D31A27; // dark af
+  // fill: #EB2002; //
+  // opacity: .9;
+  color: red;
+}
+.neutral {
   color: gray !important;
+}
+.sq-in-state,
+.sq-in-state-aid,
+.sq-university-aid,
+.sq-out-of-state {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+}
+.sq-in-state {
+  background-color: #446CB3
+}
+.sq-in-state-aid {
+  background-color: gold;
+}
+.sq-university-aid {
+  background-color: #2ECD1A;
+}
+.sq-out-of-state {
+  background-color: #FF1515;
 }

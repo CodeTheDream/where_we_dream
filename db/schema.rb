@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20151117003004) do
   create_table "states", force: :cascade do |t|
     t.string   "name"
     t.string   "abbreviation"
-    t.boolean  "in_state"
+    t.integer  "in_state"
     t.text     "description"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

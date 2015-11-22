@@ -27,9 +27,7 @@ module ApplicationHelper
 
   def link(resource)
     if State === resource
-      in_state = resource.in_state
-      css_class = !in_state ? in_state == nil ? 'no-state' : 'out-of-state' : 'in-state'
-      link_to resource.abbreviation, admin_state_path(resource), class: css_class, title: resource.name
+      link_to resource.abbreviation, admin_state_path(resource), class: resource.in_state_css, title: resource.name
     elsif resource.link
       link_to title(resource.name), resource.link, target: "_blank"
     else

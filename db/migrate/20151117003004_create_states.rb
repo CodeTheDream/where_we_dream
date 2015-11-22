@@ -3,7 +3,7 @@ class CreateStates < ActiveRecord::Migration
     create_table :states do |t|
       t.string :name
       t.string :abbreviation
-      t.boolean :in_state
+      t.integer :in_state
       t.text :description
 
       t.timestamps null: false

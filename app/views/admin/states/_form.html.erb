@@ -19,10 +19,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :in_state %><br>
-    <%= f.radio_button :in_state, true %> yes
-    <%= f.radio_button :in_state, false %> no
-    <%= f.radio_button :in_state, '' %> idk
+    <%= f.label :in_state, "State policies" %><br>
+    <% State.options.each do |key, value| %>
+      <%= f.radio_button :in_state, key %><%= f.label "in_state_#{key}", value[:option] %><br/>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
