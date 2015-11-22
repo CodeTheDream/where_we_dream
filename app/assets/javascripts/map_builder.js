@@ -10,7 +10,7 @@ function mapBuilder(url) {
     var H_MAX = 500,
         W_MAX = H_MAX*1.8,
         height = height(),
-        width = ( view_width >= W_MAX ? W_MAX+"px" : "100%" ),
+        width = ( view_width >= W_MAX ? W_MAX+"px" : "110%" ),
         SCALE = scale(height),
         MAP_STATE = config.state,
         MAP_VALUE = config.value,
@@ -27,7 +27,7 @@ function mapBuilder(url) {
       if (view_width >= W_MAX) {
         return H_MAX;
       } else {
-        return view_width*H_MAX/W_MAX;
+        return view_width*H_MAX/W_MAX*1.1;
       }
     };
 

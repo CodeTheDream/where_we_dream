@@ -1,3 +1,12 @@
+#canvas-svg {
+  position: relative;
+  @include immobile {
+    left: -30px;
+  }
+  @include mobile {
+    left: -40px;
+  }
+}
 .states {
   fill: none;
   stroke: #fff;
@@ -84,4 +93,7 @@
 }
 .sq-out-of-state {
   background-color: #FF1515;
+}
+#key {
+  max-width: 420px;
 }

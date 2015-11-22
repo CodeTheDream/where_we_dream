@@ -8,7 +8,6 @@
 </div>
 
 <div id="tooltip-container"></div>
-
 <div id="canvas-svg"></div>
 
 <script>
@@ -17,16 +16,19 @@
   mapBuilder("<%= request.path %>");
   $(window).resize(function() { mapBuilder("<%= request.path %>"); });
 </script>
-
-<div id="keys">
+<% if false %>
+<!-- <div id="keys">
   <h4>Key</h4>
-  <div class="small">
+  <div class="small-mobile">
     <span class="sq-in-state"></span> States with laws providing in-state tuition<br/>
     <span class="sq-in-state-aid"></span> States with laws providing in-state tuition and state financial aid<br/>
     <span class="sq-university-aid"></span> States offering in-state benefits via university systems<br/>
     <span class="sq-out-of-state"></span> States barring in-state benefits<br/>
   </div>
-</div>
+</div> -->
+<% end %>
+
+<div id="key"><%= image_tag "keys.jpg", id: "key" %></div>
 
 <p>
   <% @states.each_with_index do |state, index| %>

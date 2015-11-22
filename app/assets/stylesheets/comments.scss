@@ -80,6 +80,11 @@
 .small {
   font-size: 14px;
 }
+.small-mobile {
+  @include mobile {
+    font-size: 12px;
+  }
+}
 .reply-image.reply-spacing {
   margin-left: 60px;
 }
