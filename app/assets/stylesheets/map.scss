@@ -1,12 +1,12 @@
-#canvas-svg {
-  position: relative;
-  @include immobile {
-    left: -30px;
-  }
-  @include mobile {
-    left: -40px;
-  }
-}
+// #canvas-svg {
+  // position: relative;
+  // @include immobile {
+  //   left: -30px;
+  // }
+  // @include mobile {
+  //   left: -40px;
+  // }
+// }
 .states {
   fill: none;
   stroke: #fff;
