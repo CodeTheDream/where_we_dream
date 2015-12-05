@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_team_member, only: :index
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_states, only: :edit
   before_action :authenticate_update, only: [:edit, :update]
   helper_method :sort_column
 
@@ -17,12 +18,10 @@ class Admin::UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @states = School.states
   end
 
   # GET /users/1/edit
   def edit
-    @states = School.states
   end
 
   # POST /users

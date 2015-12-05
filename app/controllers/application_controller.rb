@@ -43,6 +43,10 @@ class ApplicationController < ActionController::Base
     set_meta_tags options
   end
 
+  def set_states
+    @states = State.abbreviations
+  end
+
   def authenticate_user
     unless logged_in?
       redirect_to login_path, notice: "Must be logged in"

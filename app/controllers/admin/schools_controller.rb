@@ -62,10 +62,6 @@ class Admin::SchoolsController < ApplicationController
       @school = School.find(params[:id])
     end
 
-    def set_states
-      @states = State.abbreviations
-    end
-
     def new_school_params
       params.require(:school).permit(
         :name, :link, :rating, :students, :undocumented_students, :street, :city,
