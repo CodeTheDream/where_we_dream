@@ -9,11 +9,12 @@
   }
 }
 #notice {
-  margin: .5em 0 0;
+  margin: 0;
+  padding: .5em 0;
   text-align: center;
-  position: absolute;
   left: 0;
   right: 0;
+  text-shadow: 1px;
 }
 .relative {
   position: relative;

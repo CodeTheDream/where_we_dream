@@ -12,7 +12,6 @@
   <%= render 'layouts/header' %>
   <%= render 'layouts/cover' if @page == 'home' %>
   <div id='body'>
-    <%= notice_helper if notice.present? %>
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>

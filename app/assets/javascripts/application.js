@@ -47,12 +47,17 @@ function setMobileNavHeight() {
 previous = 0;
 function autoHideHeader() {
   $(window).scroll(function(){
-    // clearTimeout(timer);
-    if ($(window).scrollTop() > previous  && $(window).width() <= 768) {  //scroll down
-      if ( !( $('#mobile-nav').is(":visible") ) ) {
+    var scroll_down = $(window).scrollTop() > previous;
+    var nav_is_closed = !( $('#mobile-nav').is(":visible") );
+    var window_is_phone_width = $(window).width() <= 768;
+    if (scroll_down) {
+      $('#notice').fadeOut(500, function() {
+        $(this).remove();
+      });
+      if ( nav_is_closed && window_is_phone_width ) {
         $('header').addClass('header--hidden');
-      }
-    } else {                                                              //scroll up
+      };
+    } else {
       $('header').removeClass('header--hidden');
     };
     previous = $(window).scrollTop();

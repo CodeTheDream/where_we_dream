@@ -1,6 +1,5 @@
 function mapBuilder(url) {
 
-  console.log(url)
   var view_width = $("#body").width();
 
   d3.csv("/population.csv", function(err, data) {

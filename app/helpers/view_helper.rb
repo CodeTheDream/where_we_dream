@@ -41,8 +41,8 @@ module ViewHelper
   end
 
   def notice_helper
-    style = @page == 'home' ?  ' style="position:relative"' : nil
-    "<p id='notice'#{style}>#{notice}</p>".html_safe
+    style = @page == 'home' ?  'text-shadow:0 0 5px black;' : 'color:black;'
+    "<p id='notice' style='#{style}'>#{notice}</p>".html_safe
   end
 
   def title(title = nil, output = nil)
