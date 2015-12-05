@@ -12,11 +12,6 @@ class PagesController < ApplicationController
     @schools = School.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
-  def profile
-    @user = User.find(session[:user_id])
-    @states = School.states
-  end
-
   def students
     @users = User.students.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
@@ -27,14 +22,6 @@ class PagesController < ApplicationController
 
   def about
     @team_members = User.where.not(team_contribution: nil)
-  end
-
-  def contact
-
-  end
-
-  def faqs
-
   end
 
   def wait

@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class StateTest < ActiveSupport::TestCase
+  setup do
+    @state = states(:one)
+  end
+
   test "name required" do
     s1 = State.new(abbreviation: "NC")
     s2 = State.new(abbreviation: "NC", name: "name")
@@ -15,10 +19,7 @@ class StateTest < ActiveSupport::TestCase
     assert s2.save
   end
 
-  test "body required" do
-    s1 = @user.stories.new(title: "title", description: "description")
-    s2 = @user.stories.new(title: "title", description: "description", body: "body")
-    refute s1.save
-    assert s2.save
+  test "schools method" do
+    assert_equal 1, @state.schools.count
   end
 end

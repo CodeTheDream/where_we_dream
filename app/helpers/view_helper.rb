@@ -45,8 +45,8 @@ module ViewHelper
     "<p id='notice'#{style}>#{notice}</p>".html_safe
   end
 
-  def title(string = nil)
-    set_meta_tags(title: string) if string
+  def title(title = nil, output = nil)
+    set_meta_tags(title: title) if title
     prepare_meta_tags
     super
   end

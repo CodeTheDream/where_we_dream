@@ -2,30 +2,18 @@ class Admin::QuestionsController < ApplicationController
   before_action :authenticate_admin
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
-  # GET /questions
+  # GET admin/questions
   def index
     @questions = Question.all
     @question = Question.new
   end
 
-  # GET /questions/1
-  def show
-  end
-
-  # GET /questions/new
+  # GET admin/questions/new
   def new
     @question = Question.new
   end
 
-  def partial
-    @question = Question.new
-  end
-
-  # GET /questions/1/edit
-  def edit
-  end
-
-  # POST /questions
+  # POST admin/questions
   def create
     @question = Question.new(question_params)
     if @question.value.blank?
@@ -38,7 +26,7 @@ class Admin::QuestionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /questions/1
+  # PATCH/PUT admin/questions/1
   def update
     if @question.update(question_params)
       render nothing: true
@@ -47,7 +35,7 @@ class Admin::QuestionsController < ApplicationController
     end
   end
 
-  # DELETE /questions/1
+  # DELETE admin/questions/1
   def destroy
     @question.destroy
     render nothing: true

@@ -1,13 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
-  abbreviation: MyString
-  in_state: false
+  name: North Carolina
+  abbreviation: NC
+  in_state: 1
   description: MyText
 
 two:
   name: MyString
   abbreviation: MyString
-  in_state: false
+  in_state: 2
   description: MyText

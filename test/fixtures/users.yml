@@ -5,11 +5,11 @@ one:
   last_name: MyString
   email: MyString
   password_digest: MyString
-  user_type: MyString
+  user_type: Student
 
 two:
   first_name: MyString
   last_name: MyString
   email: MyString
   password_digest: MyString
-  user_type: MyString
+  user_type: Admin

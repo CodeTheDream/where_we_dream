@@ -18,3 +18,52 @@
   left: .4em;
   z-index: 1;
 }
+table.pretty {
+	border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%;
+  @include mobile {
+    font-size: 14px;
+    width: 100vw;
+    left: -15px;
+    position: relative;
+  }
+}
+.pretty th {
+  font-weight: 500;
+}
+.pretty td {
+  padding: 4px 0;
+}
+.pretty td,
+.pretty th {
+  @include mobile {
+    border-bottom: solid 1px #AAA;
+  }
+}
+.tr-content:hover {
+  background: #f2f2f2;
+}
+*[data-href]:hover {
+  cursor: pointer;
+}
+.asc:after, .desc:after {
+  font-family: FontAwesome;
+  margin-left: .1em;
+}
+.asc:after {
+  content: "\f106";
+}
+.desc:after {
+  content: "\f107";
+}
+.flex {
+  display: flex;
+}
+.flex-container {
+  @include display(flex);
+  align-items: center;
+}
+.flex-right {
+  margin-left: auto;
+}

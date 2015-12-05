@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   get 'FAQs' => 'pages#faqs'
   # match 'schools', :via => :search, :to => 'pages#schools'
 
-  patch 'new_question_partial' => 'admin/questions#partial'
-
   get 'activate' => 'admin/users#activate'
 
   delete 'comments/:id/delete' => 'comments#destroy'
@@ -45,7 +43,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :schools
-    resources :questions
+    resources :questions, except: [:show, :edit]
     resources :users
     resources :scholarships
     resources :states

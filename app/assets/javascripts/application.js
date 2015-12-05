@@ -64,8 +64,8 @@ function addQuestionsPartial() {
   $("#new-question").click(
     function() {
       $.ajax({
-        url: "/new_question_partial",
-        type: "PATCH",
+        url: "/admin/questions/new",
+        type: "GET",
       });
     }
   )

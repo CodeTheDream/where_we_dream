@@ -1,6 +1,4 @@
-// Place all the styles related to the questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the questions here.
 .edit-question {
   border: 1px solid transparent;
   padding-right: 1em;
@@ -13,4 +11,14 @@
     outline: none;
     border: 1px solid black;
   }
+}
+#questions span {
+  position: relative;
+}
+.fa-trash-o {
+  color: crimson;
+  position: absolute;
+  right: 0;
+  margin: .25em;
+  font-size: 1.1em !important;
 }

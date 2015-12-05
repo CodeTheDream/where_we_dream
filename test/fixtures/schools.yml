@@ -6,7 +6,7 @@ one:
   undocumented_students: 1
   street: MyString
   city: MyString
-  state: MyString
+  state: NC
   zip: MyString
   public: true
 
