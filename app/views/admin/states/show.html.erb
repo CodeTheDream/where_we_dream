@@ -18,7 +18,9 @@
 <h3>Schools</h3>
 <% if @schools.any? %>
   <% @schools.each do |school| %>
-    <%= link_to school.name, school %><br/>
+    <div class="double-spaced">
+      <%= link_to school.name, school %>
+    </div>
   <% end %>
 <% else %>
   <p>

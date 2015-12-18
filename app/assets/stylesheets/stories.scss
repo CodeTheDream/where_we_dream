@@ -1,3 +1,11 @@
-// Place all the styles related to the stories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.padding-wrap {
+  padding: .5em;
+  margin-left: -.5em;
+  margin-right: -.5em;
+}
+.padding-wrap-2 {
+  padding: 0 .5em;
+  margin-left: -.5em;
+  margin-right: -.5em;
+  border-radius: 10px;
+}

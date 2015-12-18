@@ -10,25 +10,7 @@
 <%= render 'layouts/search', path: schools_path, placeholder: 'Search stories' %>
 
 <% @stories.each do |story| %>
-  <div class="gray-hover">
-    <a href="<%= story_path(story) %>"><span class="click-area"></span></a>
-    <div class="no-flow">
-      <span class="user-image left margin-right-2">
-        <% if story.anonymous %>
-          <%= image_tag "/default_1.jpg" %>
-        <% else %>
-          <%= image_tag story.user.image.url(:small) %>
-        <% end %>
-      </span>
-      <h6 class="bold"><%= story.title %></h6>
-      <span class="small gray"><%= story.author %> · <%= (updated_at story).abbreviate %></span>
-      <%= likes_bar story, flex: true %>
-    </div>
-    <div class="description">
-      <%= story.description %>
-    </div>
-  </div>
-  <hr>
+  <%= render "brief", story: story %>
 <% end %>
 
 <%= paginate @stories %>

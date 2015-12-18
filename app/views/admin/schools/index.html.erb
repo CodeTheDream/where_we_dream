@@ -38,11 +38,7 @@
         </td>
         <td>
           <%= school.name %>
-          <% if school.public %>
-            <i class="fa fa-unlock public"></i>
-          <% else %>
-            <i class="fa fa-lock private"></i>
-          <% end %>
+          <%= lock school %>
         </td>
         <td><%= school.city %></td>
       </tr>

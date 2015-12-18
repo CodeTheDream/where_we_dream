@@ -16,6 +16,9 @@
   right: 0;
   text-shadow: 1px;
 }
+.hr-thin {
+  border-bottom: 0;
+}
 .relative {
   position: relative;
 }
@@ -156,6 +159,9 @@ input[type="submit"],
 }
 .hide {
   display: none;
+}
+.light-green {
+  color: #34A752
 }
 .green {
   color: green;

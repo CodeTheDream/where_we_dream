@@ -21,7 +21,6 @@ gem 'aws-sdk', '< 2.0'
 # gem 'public_suffix'
 gem 'addressable'
 gem 'letter_opener', :group => :development
-# gem 'addressable'
 gem 'redcarpet'
 gem 'meta-tags'
 gem 'kaminari'

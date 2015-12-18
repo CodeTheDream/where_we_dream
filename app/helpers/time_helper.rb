@@ -14,8 +14,26 @@ module TimeHelper
     "#{distance} (#{datetime})".html_safe
   end
 
+  def recently_created?(resource, words: nil)
+    just_created = resource.created_at == resource.updated_at
+
+    if words
+      just_created ? "created" : "updated"
+    else
+      just_created
+    end
+  end
+
   def simple_date(time)
     time.strftime("%-m/%-d")
+  end
+
+  def time(resource)
+    if recently_created?(resource)
+      "added #{time_in_words(resource.updated_at)}"
+    else
+      "updated #{time_in_words(resource.updated_at)}"
+    end
   end
 
   def time_in_words(time)
