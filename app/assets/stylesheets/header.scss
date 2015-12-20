@@ -4,6 +4,7 @@
   }
 }
 #home {
+  width: 30%; // A width must be specified in order for the icon to be centered correctly in IE.
   position: absolute;
   @include immobile {
     float: left;

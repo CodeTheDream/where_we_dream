@@ -41,7 +41,8 @@ module ViewHelper
   end
 
   def notice_helper
-    style = @page == 'home' ?  'text-shadow:0 0 5px black;' : 'color:black;'
+    style = ['home', 'Log In'].include?(@page) ?  'text-shadow:0 0 5px black;' : 'color:black;'
+    style += "font-size:20px;" if @page == 'home'
     "<p id='notice' style='#{style}'>#{notice}</p>".html_safe
   end
 

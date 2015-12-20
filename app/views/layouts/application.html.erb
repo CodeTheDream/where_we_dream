@@ -10,10 +10,14 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <%= render 'layouts/cover' if ['home', 'Log In'].include? @page %>
-  <div id='body'>
+  <%= render 'layouts/cover' if @page == 'home' %>
+  <% if @page == 'Log In' %>
     <%= yield %>
-  </div>
+  <% else %>
+    <div id='body'>
+      <%= yield %>
+    </div>
+  <% end %>
   <%= render 'layouts/footer' %>
 </body>
 </html>

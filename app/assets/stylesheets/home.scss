@@ -136,10 +136,26 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  top: 50%;
   @include transform( translateY(-50%) );
 }
+.cover-content {
+  top: 50%;
+  width: 90%;
+  text-align: center;
+  font-family: 'Exo', sans-serif;
+  h1 {
+    font-size: 8vw;
+    font-size: 8vmax;
+    margin: 0 0 .68em 0;
+  }
+  footer {
+    text-shadow: 1px 1px black;
+    font-size: 3vw;
+    font-size: 3vmax;
+  }
+}
 .cover-content-2 {
+  top: 45%;
   font-family: 'Raleway', sans-serif;
   h1 {
     font-family: 'Exo', sans-serif;
@@ -149,23 +165,6 @@
   }
   @include immobile {
     width: 50%;
-  }
-}
-.cover-content {
-  width: 90%;
-  text-align: center;
-  font-family: 'Exo', sans-serif;
-
-  h1 {
-    font-size: 8vw;
-    font-size: 8vmax;
-    margin: 0 0 .68em 0;
-  }
-
-  footer {
-    text-shadow: 1px 1px black;
-    font-size: 3vw;
-    font-size: 3vmax;
   }
 }
 .italics {
