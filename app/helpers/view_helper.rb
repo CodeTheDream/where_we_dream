@@ -14,7 +14,7 @@ module ViewHelper
   end
 
   def back
-    link_to '<span class="button dark-blue-background submit"><i class="fa fa-arrow-left"></i> Back<span>'.html_safe, :back
+    link_to '<span class="dark-blue-button"><i class="fa fa-arrow-left"></i> Back<span>'.html_safe, :back
   end
 
   def click_area(path)

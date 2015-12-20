@@ -10,7 +10,7 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <%= render 'layouts/cover' if @page == 'home' %>
+  <%= render 'layouts/cover' if ['home', 'Log In'].include? @page %>
   <div id='body'>
     <%= yield %>
   </div>

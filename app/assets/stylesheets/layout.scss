@@ -117,37 +117,6 @@ input[type="checkbox"], input[type="radio"], .post {
 .wide {
   width: 98%;
 }
-input[type="submit"],
-.submit {
-  @include appearance(none);
-  text-decoration: none;
-  background-color: #167AC6;
-  border: none;
-  border-radius: 3px;
-  color: white;
-  cursor: pointer;
-  margin-bottom: .5em;
-  &:hover {
-    background-color: darken(#167AC6, 5%);
-  }
-}
-.red-background {
-  width: 100%;
-  text-align: center;
-
-  background-color: #EA4335 !important;
-  &:hover {
-    background-color: darken(#EA4335, 5%) !important;
-  }
-}
-.dark-blue-background {
-  text-align: center;
-  background-color: #36465D;
-  width: 100%;
-  &:hover {
-    background-color: darken(#36465D, 5%);
-  }
-}
 .left {
   float: left;
 }
@@ -244,10 +213,6 @@ a {
 input[type="email"],
 input[type="password"] {
   padding: .2em;
-}
-.button {
-  padding: 7px 10px;
-  display: inline-block;
 }
 .logo {
   margin-right: .5em;

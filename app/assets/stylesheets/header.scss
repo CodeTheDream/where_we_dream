@@ -308,22 +308,6 @@ header.navigation {
           width: 100%;
         }
       }
-      button[type=submit] {
-        background: $navigation-search-background;
-        border: none;
-        bottom: 0.3em;
-        left: auto;
-        outline: none;
-        padding: 0 9px;
-        position: absolute;
-        right: 0.3em;
-        top: 0.3em;
-        img {
-          height: 12px;
-          opacity: 0.7;
-          padding: 1px;
-        }
-      }
     }
     @include media($horizontal-bar-mode) {
       display: inline-block;
