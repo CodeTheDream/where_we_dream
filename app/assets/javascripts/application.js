@@ -304,6 +304,14 @@ function moveAnchorTags() {
   });
 }
 
+function fixedBackgroundImage(name) {
+  $(window).scroll(function () {
+    var scrolledY = $(window).scrollTop();
+    var position = 'center ' + scrolledY + 'px';
+    $("." + name).css('background-position', position);
+  })
+}
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
