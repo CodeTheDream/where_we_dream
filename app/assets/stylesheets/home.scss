@@ -119,7 +119,7 @@
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  @include background-size( cover );
   z-index: 0;
   // background-attachement: fixed; makes the image sticky. It doesn't pay attention to scrolling. Kind of cool.
   background-attachment: fixed;
