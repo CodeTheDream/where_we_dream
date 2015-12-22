@@ -122,7 +122,7 @@
   @include background-size( cover );
   z-index: 0;
   // background-attachement: fixed; makes the image sticky. It doesn't pay attention to scrolling. Kind of cool. Doesn't work on mobile browsers though; too expensive/processing power.
-  background-attachment: fixed !important;
+  // background-attachment: fixed;
 }
 .cover-img {
   background-image: asset_url('scenery_5.jpg');
