@@ -107,21 +107,22 @@
 }
 .cover {
   position: relative;
-  background-color: #F8FE00;
+  // background: #F8FE00;
   min-height: 300px;
   width: 100%;
   color: white;
 }
 .cover-img,
 .cover-img-2 {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   @include background-size( cover );
-  z-index: 0;
-  // background-attachement: fixed; makes the image sticky. It doesn't pay attention to scrolling. Kind of cool. Doesn't work on mobile browsers though; too expensive/processing power.
+  z-index: -1;
+  // background-attachement: fixed; makes the image sticky. It doesn't pay attention to scrolling. Cool but doesn't work on mobile browsers though; too expensive/processing power.
+  // There is a javascript work around, but there is a lag on mobile
   // background-attachment: fixed;
 }
 .cover-img {
