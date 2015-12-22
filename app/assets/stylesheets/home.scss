@@ -113,8 +113,7 @@
   color: white;
 }
 .cover-img,
-.cover-img-2,
-.cover-img-3 {
+.cover-img-2 {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -122,14 +121,14 @@
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 0;
-  // background-attachment: fixed;
-  // this css property makes the image sticky. It doesn't pay attention to scrolling
+  // background-attachement: fixed; makes the image sticky. It doesn't pay attention to scrolling. Kind of cool.
+  background-attachment: fixed;
 }
 .cover-img {
   background-image: asset_url('scenery_5.jpg');
 }
 .cover-img-2 {
-  background-image: asset_url('scenery_5_blur.png');
+  background-image: asset_url('scenery_5_blur.jpg');
 }
 .cover-content, .cover-content-2 {
   position: absolute;
