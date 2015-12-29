@@ -61,6 +61,7 @@ function autoHideHeader() {
       $('header').removeClass('header--hidden');
     };
     previous = $(window).scrollTop();
+    return false;
   });
 };
 
