@@ -1,7 +1,7 @@
 <a name="top"></a>
 <h2><%= title "FAQs" %></h2>
 <p>
-  This page will explain the Where We Dream (WWD) in general and all the specificities of the features—AKA WWD S4 (<span class="bold">S</span>chools, <span class="bold">S</span>cholarships, <span class="bold">S</span>tories, <span class="bold">S</span>tudents), your ability as a user on the site, and some fun facts. Lets begin with the problem.
+  This page will explain the Where We Dream (WWD) in general and all the specificities of the features—AKA WWD S4 <%= simple_md "(**S**chools, **S**cholarships, **S**tates, **S**tories)," %> your ability as a user on the site, and some fun facts. Lets begin with the problem.
 </p>
 <ul class="anchor-links">
   <%= anchor_link "The problem?", "problem" %>
@@ -12,8 +12,8 @@
   <%= anchor_link "Schools have ranks?", "ranks" %>
   <%= anchor_link "Scholarships?", "scholarships" %>
   <%= anchor_link "What are #{deadline_icon 2, 12}, #{deadline_icon 5, 12}, and #{deadline_icon 7, 12}?", "deadlineicons" %>
+  <%= anchor_link "States?", "states" %>
   <%= anchor_link "Stories?", "stories" %>
-  <%= anchor_link "Students?", "students" %>
   <%= anchor_link "Likes?", "likes" %>
   <%= anchor_link "Wait...comments?", "comments"%>
   <%= anchor_link "Cool, but can I type comments in bold?", "bold" %>
@@ -147,6 +147,12 @@
   <%= deadline_icon 7, 13 %> means we are past the deadline. Hopefully you applied in time!
 </p>
 
+<%= anchor_tag "States?", "states" %>
+
+<p>
+  Yes, as Bill said in his <%= link_to "podcast", "https://soundcloud.com/user-549835400/episode-3-in-state-tuition-for-undocumented-immigrants" %>, the matter of immigrant education is a state's rights issue. It varies from state to state. You can look at each state that has any information on it by clicking on it on the map. Read about them <%= link_to "here", states_path %>.
+</p>
+
 <%= anchor_tag "Stories?", "stories" %>
 
 <p>
@@ -157,20 +163,10 @@
   Anyone with an account can write a story. You don't have to be undocumented.
 </p>
 
-<%= anchor_tag "Students?", "students" %>
-
-<p>
-  Yes, because it's not just about students searching for opportunities, the opportunities want to search for students, too. This website was made for the students, so we might as well give them a spotlight, too. Some might ask, "but don't you think some students would want their privacy and remain hidden from people?"
-</p>
-
-<p>
-  They may, and that is why no one is forced to have an account on the website. The studets can remain hidden by simply not having an account here. And if they do create one, they are not forced to write down their location, contact information, biography, or upload a profile picture. They could also create an "Supporter" account. It's up to them really. However, you never know if a curse could really be a blessing in disguise!
-</p>
-
 <%= anchor_tag "Likes?", "likes" %>
 
 <p>
-  Yes. You should be familiar with this one. Facebook, YouTube, iFunny, they all have some sort of liking system. Where We Dream has one, too. You can see them when you visit the schools page. Under the schools' rank, you see the proportion of people who <span style="color: green;">liked</span> and <span class="red">disliked</span> the school. If nobody has given an opinion on the school yet, the likes bar will appear <span class="gray">gray</span>. You can also like scholarships, stories, and comments, but not people.
+  Yes. You should be familiar with this one. Facebook, YouTube, iFunny, they all have some sort of liking system. Where We Dream has one, too. You can see them when you visit the schools page. Under the schools' rank, you see the proportion of people who <span class="green">liked</span> and <span class="red">disliked</span> the school. If nobody has given an opinion on the school yet, the likes bar will appear <span class="gray">gray</span>. You can also like scholarships, stories, and comments, but not people.
 </p>
 
 <%= anchor_tag "Wait...comments?", "comments" %>
