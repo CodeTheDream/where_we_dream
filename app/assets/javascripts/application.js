@@ -304,6 +304,31 @@ function moveAnchorTags() {
   });
 }
 
+function smoothScroll() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    var path = $(this).attr('href');
+    var link = $('a[name=' + path.slice(1) + ']');
+    var start = $(window).scrollTop();
+    var stop = target = link.offset().top;
+    var distance = Math.abs(start - stop);
+    if (distance < 1000) {
+      var time = distance*3/5;
+    } else if (distance < 2000) {
+      var time = distance/2;
+    } else if (distance < 4000) {
+      var time = distance/4;
+    } else {
+      var time = distance/5;
+    };
+    // console.log("distance: " + distance + ", time: " + time);
+    $('html,body').animate(
+      {scrollTop: target},
+      time
+    );
+    return false;
+  });
+};
+
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(toggleMobileNavs);
@@ -322,3 +347,4 @@ $(commentOptions);
 $(showChosenProfilePic);
 $(loadLikesBars);
 $(moveAnchorTags);
+$(smoothScroll);

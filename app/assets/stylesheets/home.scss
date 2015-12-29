@@ -6,9 +6,9 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 1em;
+  margin: 1em;
   @include mobile {
-    padding: .8em;
+    margin: .8em;
   }
 }
 
