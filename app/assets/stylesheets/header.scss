@@ -4,7 +4,6 @@
   }
 }
 #home {
-  width: 30%; // A width must be specified in order for the icon to be centered correctly in IE.
   position: absolute;
   @include immobile {
     float: left;
@@ -15,6 +14,8 @@
     right: 0;
     margin: auto;
     text-align: left;
+    // A width must be specified in order for the icon to be centered correctly in IE.
+    width: 20%;
   }
 }
 #login,
