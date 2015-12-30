@@ -292,40 +292,39 @@ function loadLikesBars() {
     $.each($(".no-opinions-bar"), function() {
       $(this).css("background-color", "lightgray")
     });
-  })
-}
-
-function moveAnchorTags() {
-  $(window).on("hashchange", function() {
-    if ($(window).width() > 768) {
-      old_position = $(window).scrollTop()
-      new_position = old_position - 85;
-      window.scrollTo(window.scrollX, new_position)
-    };
   });
 }
+
+function setDestination(link) {
+  var value = link.offset().top;
+  if ($(window).width() > 768) {
+    value -= 85;
+  };
+  return value;
+};
+
+function putTime(distance) {
+  if (distance < 1000) {
+    var time = distance*3/5;
+  } else if (distance < 2000) {
+    var time = distance/2;
+  } else if (distance < 4000) {
+    var time = distance/4;
+  } else {
+    var time = distance/5;
+  };
+  return time;
+};
 
 function smoothScroll() {
   $('a[href*=#]:not([href=#])').click(function() {
     var path = $(this).attr('href');
     var link = $('a[name=' + path.slice(1) + ']');
     var start = $(window).scrollTop();
-    var stop = target = link.offset().top;
+    var stop = target = setDestination(link);
     var distance = Math.abs(start - stop);
-    if (distance < 1000) {
-      var time = distance*3/5;
-    } else if (distance < 2000) {
-      var time = distance/2;
-    } else if (distance < 4000) {
-      var time = distance/4;
-    } else {
-      var time = distance/5;
-    };
-    // console.log("distance: " + distance + ", time: " + time);
-    $('html,body').animate(
-      {scrollTop: target},
-      time
-    );
+    var time = putTime(distance);
+    $('html,body').animate( {scrollTop: target}, time);
     return false;
   });
 };
@@ -347,5 +346,4 @@ $(elasticNewCommentInput);
 $(commentOptions);
 $(showChosenProfilePic);
 $(loadLikesBars);
-$(moveAnchorTags);
 $(smoothScroll);
