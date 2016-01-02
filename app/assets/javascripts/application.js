@@ -44,6 +44,12 @@ function setMobileNavHeight() {
   $('.feature:visible').css('padding', height2 + 'px 0');
 };
 
+function removeNotice() {
+  $('#notice').fadeOut(500, function() {
+    $(this).remove();
+  });
+};
+
 previous = 0;
 function autoHideHeader() {
   $(window).scroll(function(){
@@ -51,9 +57,7 @@ function autoHideHeader() {
     var nav_is_closed = !( $('#mobile-nav').is(":visible") );
     var window_is_phone_width = $(window).width() <= 768;
     if (scroll_down) {
-      $('#notice').fadeOut(500, function() {
-        $(this).remove();
-      });
+      removeNotice();
       if ( nav_is_closed && window_is_phone_width ) {
         $('header').addClass('header--hidden');
       };
@@ -61,7 +65,6 @@ function autoHideHeader() {
       $('header').removeClass('header--hidden');
     };
     previous = $(window).scrollTop();
-    return false;
   });
 };
 

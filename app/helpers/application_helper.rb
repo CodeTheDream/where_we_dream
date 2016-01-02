@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def copywrite_year
-    Date.today.year == 2015 ? 2015 : "2015-#{today}"
+    Date.today.year == 2015 ? 2015 : "2015-#{Date.today.year}"
   end
 
   def simple_pluralize(count, singular, plural = nil)
