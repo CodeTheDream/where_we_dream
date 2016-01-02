@@ -9,7 +9,10 @@ module ViewHelper
     if tag == false
       "<a name='#{link}'></a>".html_safe
     else
-      "<a name='#{link}'></a><#{tag || "h3"}>#{phrase} #{top}</#{tag || "h3"}>".html_safe
+      "<#{tag || "h3"}>
+        <a name='#{link}'></a>
+        #{phrase} #{top}
+      </#{tag || "h3"}>".html_safe
     end
   end
 

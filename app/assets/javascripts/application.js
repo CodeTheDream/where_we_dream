@@ -321,6 +321,10 @@ function putTime(distance) {
   return time;
 };
 
+function removeHighlight() {
+  $('.highlight').removeClass('highlight');
+};
+
 function smoothScroll() {
   $('a[href*=#]:not([href=#])').click(function() {
     var path = $(this).attr('href');
@@ -329,7 +333,8 @@ function smoothScroll() {
     var stop = target = setDestination(link);
     var distance = Math.abs(start - stop);
     var time = putTime(distance);
-    $('html,body').animate( {scrollTop: target}, time);
+    link.closest('h3').addClass('highlight');
+    $('html,body').animate( {scrollTop: target}, time, removeHighlight);
     return false;
   });
 };
