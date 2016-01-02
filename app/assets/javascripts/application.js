@@ -59,9 +59,11 @@ function autoHideHeader() {
     if (scroll_down) {
       removeNotice();
       if ( nav_is_closed && window_is_phone_width ) {
-        $('header').addClass('header--hidden');
+        if ( !($('header').hasClass('header--hidden')) ) {
+          $('header').addClass('header--hidden');
+        };
       };
-    } else {
+    } else if ( $('header').hasClass('header--hidden') ) {
       $('header').removeClass('header--hidden');
     };
     previous = $(window).scrollTop();
