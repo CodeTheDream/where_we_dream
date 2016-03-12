@@ -25,6 +25,19 @@ class PagesController < ApplicationController
     @scholarships = Scholarship.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
+  def faqs
+    # puppy, kitty, bunny long urls (respectively)
+    # 'http://latinlink.usmediaconsulting.com/wp-content/uploads/2014/05/8-pets.jpg'
+    # 'http://41.media.tumblr.com/tumblr_lr8cybBBXS1qdifw1o1_500.jpg'
+    # 'http://www.rabbit.org/adoption/bunny.jpg'
+
+    @image = {
+      puppy: 'http://goo.gl/X0bHPB',
+      kitty: 'http://goo.gl/fzAkNP',
+      bunny: 'http://goo.gl/Z9zBY'
+    }
+  end
+
   def about
     @team_members = User.where.not(team_contribution: nil)
   end

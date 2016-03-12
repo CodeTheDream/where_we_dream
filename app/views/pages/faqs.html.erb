@@ -267,13 +267,13 @@
     regular link: <%= "<https://twitter.com/>" %>
   </span><br/><br/>
   <span class="quotes">
-    ![Puppy](http://goo.gl/BBkqcy)
+    ![Puppy](<%= @image[:puppy] %>)
   </span><br/>
   <span class="quotes">
-    ![Kitty](http://goo.gl/fzAkNP)
+    ![Kitty](<%= @image[:kitty] %>)
   </span><br/>
   <span class="quotes">
-    ![Bunny](http://goo.gl/Z9zBY)
+    ![Bunny](<%= @image[:bunny] %>)
   </span><br/><br/>
   <span class="quotes">
     - Unordered
@@ -319,9 +319,9 @@ super^script
 
 regular link: <https://twitter.com/>
 
-![Puppy](http://goo.gl/BBkqcy)
-![Kitty](http://goo.gl/fzAkNP)
-![Bunny](http://goo.gl/Z9zBY)
+![Puppy](#{@image[:puppy]})
+![Kitty](#{@image[:kitty]})
+![Bunny](#{@image[:bunny]})
 
 - Unordered
 * Unordered
