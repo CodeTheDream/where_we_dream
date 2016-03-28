@@ -74,6 +74,9 @@
   &:hover {
     color: lighten($twitter-color, 4%);
   }
+  @include mobile {
+    margin-left: .2em;
+  }
 }
 .text-shadow-light {
   text-shadow: 1px 1px 2px black;
