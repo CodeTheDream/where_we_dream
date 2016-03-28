@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validate :first_name_presence
-  validate :email_presence
-  validates :email, uniqueness: true, format: { with: /.+@.+\..+/i } # with format
+  validates :email, presence: true, on: :create, unless: :from_oauth
+  validates :email, presence: true, on: :update, unless: :oauthable?
+  validates :email, uniqueness: true, format: { with: /.+@.+\..+/i }, allow_blank: true
 
   # Checks password presence.
   # Skip because length validation is another form of presence validation
@@ -99,7 +100,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    first_name + " " + last_name
+    "#{first_name} #{last_name}"
   end
 
   def location
@@ -132,21 +133,19 @@ class User < ActiveRecord::Base
 
   private
 
-  def email_presence
-    if email.blank?
-      errors.add(:_, "We need your email. That's how you will log in")
-    end
+  def oauthable?
+    identities.count >= 1
   end
 
   def first_name_presence
     if first_name.blank?
-      errors.add(:__, "At least give us your first name")
+      errors.add(:__, "At least give us your first name.")
     end
   end
 
   def user_type_presence
     if user_type.blank?
-      errors.add(:___, 'You need to choose a category from the dropdown that fits you')
+      errors.add(:___, 'You need to choose a category from the dropdown that fits you.')
     end
   end
 
