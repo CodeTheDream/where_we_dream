@@ -71,11 +71,9 @@
 .fa-twitter-square {
   $twitter-color: #55ACEE;
   color: $twitter-color;
+  margin-left: .2em;
   &:hover {
     color: lighten($twitter-color, 4%);
-  }
-  @include mobile {
-    margin-left: .2em;
   }
 }
 .text-shadow-light {
