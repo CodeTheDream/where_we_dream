@@ -46,12 +46,10 @@
     <%= f.label :bio %><br>
     <%= f.text_area :bio, placeholder: "Enter a few details about yourself." %>
   </div>
-  <% if admin_or_above? && not_self?%>
-    <div class="field">
-      <%= f.label :user_type %><br>
-      <%= f.select :user_type, options_for_select(user_types, @user.type) %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= f.label :user_type %><br>
+    <%= f.select :user_type, options_for_select(user_types, @user.type), include_blank: true %>
+  </div>
   <%= f.submit 'Update', class: 'blue-button' %>
 
 <% end %>

@@ -46,6 +46,7 @@ module ViewHelper
   def notice_helper
     style = ['home', 'Log In'].include?(@page) ?  'text-shadow:0 0 5px black;' : 'color:black;'
     style += "font-size:20px;" if @page == 'home'
+    # notice.strip!.gsub!("\n", '<br/>') # User for debugging
     "<p id='notice' style='#{style}'>#{notice}</p>".html_safe
   end
 

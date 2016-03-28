@@ -4,11 +4,11 @@
 .red-button {
   @include appearance(none);
   border-style: solid;
+  border-radius: 8px;
   color: white;
   cursor: pointer;
   display: inline-block;
   font-size: 18px;
-  border-radius: 5px;
   margin-bottom: .5em;
   outline: none;
   padding: 5px 8px;
@@ -56,4 +56,25 @@
 }
 .width-reset {
   width: initial;
+}
+.fa-facebook,
+.fa-facebook-square,
+.fa-facebook-official {
+  $facebook-color: #4862A3;
+  color: $facebook-color;
+  &:hover {
+    color: lighten($facebook-color, 5%);
+  }
+
+}
+.fa-twitter,
+.fa-twitter-square {
+  $twitter-color: #55ACEE;
+  color: $twitter-color;
+  &:hover {
+    color: lighten($twitter-color, 4%);
+  }
+}
+.text-shadow-light {
+  text-shadow: 1px 1px 2px black;
 }

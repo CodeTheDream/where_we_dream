@@ -38,7 +38,7 @@ class Admin::UsersController < ApplicationController
         redirect_to wait_path
       end
     else
-      @states = School.states
+      @states = State.abbreviations
       render :new
     end
   end
@@ -52,6 +52,9 @@ class Admin::UsersController < ApplicationController
         redirect_to user_path(@user), notice: 'Account successfully updated.'
       end
     else
+      @states = State.abbreviations
+      message = @user.errors.full_messages.join "\n"
+      flash.notice = "#{message}"
       render :edit
     end
   end

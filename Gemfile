@@ -26,6 +26,8 @@ gem 'meta-tags'
 gem 'kaminari'
 gem 'd3_rails'
 gem 'topojson-rails'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :production do
   gem 'puma'

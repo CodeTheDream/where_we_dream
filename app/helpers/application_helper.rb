@@ -35,4 +35,8 @@ module ApplicationHelper
       title(resource.name)
     end
   end
+
+  def oauth_path(provider)
+    "/auth/#{provider}"
+  end
 end

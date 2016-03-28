@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         redirect_to root_path     # if so, go to home page, already logged in
       else
         @user = User.new          # if not, go to login page so they sign in
-        @page = "Log In"
+        @page = 'Log In'
       end
     else
       session[:user_id] = nil     # if not, clear session and go to login page, just in case db was dropped but didn't log out.
@@ -36,9 +36,36 @@ class SessionsController < ApplicationController
     end
   end
 
+  def omniauth
+    @user = User.from_omniauth env['omniauth.auth']
+    if @user.persisted?
+      flash.notice = 'Signed in!'
+      sign_in_and_redirect @user, notice: "Welcome #{@user.first_name}"
+    else
+      session['divise.user_attributes'] = @user.attributes
+      messages = @user.errors.full_messages.join "\n"
+      notice = "
+        Sign in failed!
+        #{@user.errors.count} error(s) occurred:
+        #{messages}
+      "
+      flash.notice = notice
+      redirect_to login_path
+    end
+  end
+
   def destroy
     session[:user_id] = nil
     session[:user_type] = nil
     redirect_to root_path, notice: "Successfully logged out"
+  end
+
+  private
+
+  def sign_in_and_redirect(user, notice: nil)
+    session[:user_id] = user.id
+    session[:user_type] = "God" if user.id == 1
+    session[:user_type] ||= user.type
+    redirect_to root_path, notice: notice
   end
 end

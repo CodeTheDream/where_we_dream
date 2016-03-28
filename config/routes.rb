@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   post 'sessions/create'
 
+  # omniauth routes
+  match 'auth/:provider/callback', via: [:get, :post], to: 'sessions#omniauth'
+
   get 'comments/index'
   get 'comments/new'
   post 'opinions' => 'opinions#opinionate'

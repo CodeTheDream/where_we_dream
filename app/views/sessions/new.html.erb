@@ -1,20 +1,22 @@
 <div class="cover">
   <div class="cover-img-2"></div>
   <div class="cover-content-2">
+    <div class="flex-container justify-between">
+      <h1 class="topless bottomless inline"><%= title 'Log In' %></h1>
+      <%= render 'omniauth_links' %>
+    </div>
 
-    <h1 class="topless"><%= title @page %></h1>
-
-    <%= form_tag("/sessions/create", method: "post") do |f| %>
+    <%= form_tag '/sessions/create', method: 'post' do |f| %>
       <div class="field">
-        <%= email_field_tag :email, nil, class: "tumblr-input", placeholder: "Email" %>
+        <%= email_field_tag :email, nil, class: 'tumblr-input', placeholder: 'Email' %>
       </div>
       <div class="field">
-        <%= password_field_tag :password, nil, class: "tumblr-input", placeholder: "Password" %>
+        <%= password_field_tag :password, nil, class: 'tumblr-input', placeholder: 'Password' %>
       </div>
       <div class="actions">
-        <%= submit_tag "Log In", class: "green-button" %>
+        <%= submit_tag 'Log In', class: 'green-button' %>
       </div>
     <% end %>
-    <%= link_to "Create an Account", new_user_path, class: "red-button" %>
+    <%= link_to 'Create an Account', new_user_path, class: 'red-button' %>
   </div>
 </div>
