@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     user = User.find_with_omniauth(auth)
     if identity.user
       user = identity.user
-      if user.twitter_name != auth.nickname
+      if auth.nickname.present? && user.twitter_name != auth.nickname
         user.update(twitter_name: auth.nickname)
       end
     elsif !user
