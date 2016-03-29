@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-gem 'tzinfo-data'#used for Windows timezone bug
-gem 'coffee-script-source', '1.8.0'#used for windows javascript_include_tag bug
+# gem 'tzinfo-data'#used for Windows timezone bug
+# gem 'coffee-script-source', '1.8.0'#used for windows javascript_include_tag bug
 gem 'rails', '4.2.1'
-ruby '2.1.8'
+ruby '2.3.0'
 gem 'font-awesome-rails'
 gem 'parsley-rails', '~> 2.0.7.0'
 gem 'bourbon'

@@ -211,8 +211,6 @@ GEM
       railties (>= 3.0, < 5.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2015.6)
-      tzinfo (>= 1.0.0)
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -233,7 +231,6 @@ DEPENDENCIES
   bourbon
   byebug
   coffee-rails (~> 4.1.0)
-  coffee-script-source (= 1.8.0)
   d3_rails
   font-awesome-rails
   geokit-rails
@@ -258,7 +255,6 @@ DEPENDENCIES
   spring (~> 1.3.6)
   sqlite3
   topojson-rails
-  tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
