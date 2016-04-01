@@ -28,6 +28,7 @@ gem 'd3_rails'
 gem 'topojson-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 group :production do
   gem 'puma'

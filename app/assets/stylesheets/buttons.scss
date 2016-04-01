@@ -76,6 +76,16 @@
     color: lighten($twitter-color, 4%);
   }
 }
+.fa-google,
+.fa-google-plus,
+.fa-google-plus-square {
+  $google-color: #DC483C;
+  margin-left: .1em;
+  color: $google-color;
+  &:hover {
+    color: darken($google-color, 5%);
+  }
+}
 .text-shadow-light {
   text-shadow: 1px 1px 2px black;
 }
