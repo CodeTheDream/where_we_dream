@@ -14,16 +14,17 @@ Rails.application.routes.draw do
 
   get 'schools' => 'pages#schools'
   get 'students' => 'pages#students'
+  get 'scholarships' => 'pages#scholarships'
+
   get 'about' => 'pages#about'
   get 'wait' => 'pages#wait'
   get 'contact' => 'pages#contact'
-  get 'scholarships' => 'pages#scholarships'
+  get 'privacy' => 'pages#privacy'
   get 'FAQs' => 'pages#faqs'
-  # match 'schools', :via => :search, :to => 'pages#schools'
 
   get 'activate' => 'admin/users#activate'
 
-  delete 'comments/:id/delete' => 'comments#destroy'
+  delete 'comments/:id/delete' => 'comments#destroy' # Find a cleaner way to delete comments
 
   resources :schools, controller: 'admin/schools', only: :show do
     resources :comments, except: [:show, :update, :destroy]

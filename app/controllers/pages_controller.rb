@@ -9,7 +9,6 @@ class PagesController < ApplicationController
     @recent_scholarships = Scholarship.order(updated_at: :desc).limit(3)
     @recent_states = State.order(updated_at: :desc).limit(3)
     @recent_stories = Story.order(updated_at: :desc).limit(3)
-
   end
 
   def schools

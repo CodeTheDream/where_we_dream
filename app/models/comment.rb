@@ -1,3 +1,4 @@
+# Allows users to comment on things like schools and scholarships
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, polymorphic: true
@@ -12,12 +13,8 @@ class Comment < ActiveRecord::Base
     Comment.where(original_comment_id: id)
   end
 
-  def owner? person
-    return false if %w[User Fixnum].include? person.class
-    if person.class == User
-      user.id == person.id
-    else
-      user.id == person
-    end
+  def owner?(person)
+    return false if %w(User Fixnum).include? person.class
+    user.id == (person.class == User) ? person.id : person
   end
 end

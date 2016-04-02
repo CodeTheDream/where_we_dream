@@ -57,33 +57,35 @@
 .width-reset {
   width: initial;
 }
-.fa-facebook,
-.fa-facebook-square,
-.fa-facebook-official {
-  $facebook-color: #4862A3;
-  color: $facebook-color;
-  &:hover {
-    color: lighten($facebook-color, 5%);
-  }
+#log-in {
+  .fa-facebook,
+  .fa-facebook-square,
+  .fa-facebook-official {
+    $facebook-color: #4862A3;
+    color: $facebook-color;
+    &:hover {
+      color: lighten($facebook-color, 5%);
+    }
 
-}
-.fa-twitter,
-.fa-twitter-square {
-  $twitter-color: #55ACEE;
-  color: $twitter-color;
-  margin-left: .2em;
-  &:hover {
-    color: lighten($twitter-color, 4%);
   }
-}
-.fa-google,
-.fa-google-plus,
-.fa-google-plus-square {
-  $google-color: #DC483C;
-  margin-left: .1em;
-  color: $google-color;
-  &:hover {
-    color: darken($google-color, 5%);
+  .fa-twitter,
+  .fa-twitter-square {
+    $twitter-color: #55ACEE;
+    color: $twitter-color;
+    margin-left: .2em;
+    &:hover {
+      color: lighten($twitter-color, 4%);
+    }
+  }
+  .fa-google,
+  .fa-google-plus,
+  .fa-google-plus-square {
+    $google-color: #DC483C;
+    margin-left: .1em;
+    color: $google-color;
+    &:hover {
+      color: darken($google-color, 5%);
+    }
   }
 }
 .text-shadow-light {

@@ -29,7 +29,7 @@ class Admin::ScholarshipsController < ApplicationController
     @scholarship = Scholarship.new(scholarship_params)
 
     if @scholarship.save
-      redirect_to admin_scholarships_path, notice: 'Scholarship was successfully created.'
+      redirect_to admin_scholarships_path, notice: "<a href='#{admin_scholarship_path(@scholarship)}'>Scholarship</a> was successfully created."
     else
       render :new
     end
@@ -38,7 +38,7 @@ class Admin::ScholarshipsController < ApplicationController
   # PATCH/PUT /scholarships/1
   def update
     if @scholarship.update(scholarship_params)
-      redirect_to admin_scholarships_path, notice: 'Scholarship was successfully updated.'
+      redirect_to admin_scholarships_path, notice: "<a href='#{admin_scholarship_path(@scholarship)}'>Scholarship</a> was successfully updated."
     else
       render :edit
     end
