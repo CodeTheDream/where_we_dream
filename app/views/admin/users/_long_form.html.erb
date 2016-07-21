@@ -1,3 +1,5 @@
+<%# this form is for users editing their own information %>
+
 <%= form_for @user, html: { multipart: true } do |f| %>
   <span class="profile-user-image" style="float:left;">
     <%= f.file_field :image, accept: 'image/png,image/jpeg', id: "profilePicFileField" %>
