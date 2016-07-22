@@ -13,8 +13,7 @@
 <script>
   // wwd_data outside the function for resizing reasons
   var wwd_data = $.getJSON('/states/data.json');
-  mapBuilder("<%= request.path %>");
-  $(window).resize(function() { mapBuilder("<%= request.path %>"); });
+  $(window).on('load resize', function() { mapBuilder("<%= request.path %>"); });
 </script>
 <% if false %>
 <!-- <div id="keys">
@@ -28,7 +27,7 @@
 </div> -->
 <% end %>
 
-<div id="key"><%= image_tag "keys.jpg", id: "key" %></div>
+<div id="key"><%= image_tag "keys.png" %></div>
 
 <p>
   <% @states.each_with_index do |state, index| %>
