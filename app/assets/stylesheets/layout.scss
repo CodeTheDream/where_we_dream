@@ -8,6 +8,14 @@
   img {
     max-width: 100%;
   }
+  a {
+    @include immobile {
+      &:hover {
+        // text-decoration: underline;
+        border-bottom: 0.1em solid $link-color;
+      }
+    }
+  }
 }
 #notice {
   margin: auto;
@@ -165,13 +173,8 @@ input[type="checkbox"], input[type="radio"], .post {
 a {
   color: $link-color;
   text-decoration: none;
-  @include immobile {
-    &:hover {
-      // text-decoration: underline;
-      border-bottom: 0.1em solid $link-color;
-    }
-  }
 }
+
 .thinner {
   font-weight: 200;
 }
