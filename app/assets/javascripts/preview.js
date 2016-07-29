@@ -1,4 +1,4 @@
-function preview2() {
+function preview() {
   $('.preview').click(function() {
     var form = $('form');
     var url = form.attr('action').replace(/[^\D]/g, ''); // 'stories/'
@@ -15,4 +15,4 @@ function preview2() {
   });
 };
 
-$(preview2);
+$(preview);
