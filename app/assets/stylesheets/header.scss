@@ -79,7 +79,7 @@ header {
   @include transform( translateY(-100%) );
 }
 header.navigation {
-  background-color: white;
+  background-color: $background;
   height: $height;
   width: 100%;
   z-index: 999;
@@ -128,30 +128,39 @@ header.navigation {
     background: transparent;
     display: inline;
     line-height: $height;
-    width: auto;
     z-index: 9999;
-    @include transition( all .2s );
+    @include transition( all 0.2s );
     &:hover {
       cursor: pointer;
-      @include immobile {
-        color: $color-hover;
+      .desktop-only {
+        border-bottom: 2px solid currentColor;
+        border-radius: 9%;
       }
+      // @include immobile {
+      //   color: $color-hover;
+      // }
     }
     a {
       color: inherit;
-      text-decoration: none;
     }
     &:first-child {
       padding: 0;
+      margin: 0;
     }
-    @include immobile {
-      padding-left: 2em;
+    &:nth-child(2) {
+      @include immobile {
+        padding-left: 1em;
+      }
+    }
+    &:nth-child(3) {
+      @include immobile {
+        padding: 0 1em;
+      }
     }
     @include mobile {
       line-height: $height-mobile;
       max-width: 2.5em;
       text-decoration: none;
-      width: auto;
     }
   }
 }

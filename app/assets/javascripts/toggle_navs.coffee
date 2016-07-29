@@ -3,7 +3,6 @@ toggleNavs = ->
     nav = $("#nav-#{@id}")
     hidden = nav.is ':hidden'
     $('.nav').hide()
-    if hidden
-      nav.css 'display', 'flex'
+    nav.css 'display', 'flex' if hidden
 
 $ toggleNavs

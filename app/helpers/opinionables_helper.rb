@@ -31,7 +31,7 @@ module OpinionablesHelper
       "<div class='no-opinions-bar #{bm}'></div>".html_safe
     else
       "<div class='dislikes-bar #{bm}'>
-        <div class='likes-bar' width='#{opinionable.likes!}'></div>
+        <div class='likes-bar' width='#{opinionable.likes!}%'></div>
       </div>".html_safe
     end
   end

@@ -1,12 +1,7 @@
-// #canvas-svg {
-  // position: relative;
-  // @include immobile {
-  //   left: -30px;
-  // }
-  // @include mobile {
-  //   left: -40px;
-  // }
-// }
+#canvas-svg {
+  // -webkit-filter: grayscale(100%);
+  // filter: grayscale(100%);
+}
 .states {
   fill: none;
   stroke: #fff;
@@ -49,8 +44,7 @@
   // fill: #FBD137; // not bad
   // fill: #FBF140; // not bad
   // fill: #E5A41E; // light brown
-  fill: gold;
-  opacity: .85;
+  fill: #FFDD27; // gold x .85
   color: #E6C200;
 }
 .university-aid { // some sort of green
@@ -64,13 +58,15 @@
   color: green;
 }
 .out-of-state { // some sort of red
+  fill: #FF1A1A; // red x .9
   // fill: #f22613; // not bad
-  fill: #FF1515; // red x .92
-  // fill: #D31A27; // dark af
-  // fill: #EB2002; //
+  // fill: #EB2002; // not bad
+  // fill: #D7313D: // #D31A27 x .9
   // opacity: .9;
   color: red;
 }
+// a.out-of-state {
+// }
 .neutral {
   color: gray !important;
 }

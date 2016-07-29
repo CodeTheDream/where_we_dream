@@ -40,29 +40,29 @@ class State < ActiveRecord::Base
   def self.options
     {
       0 => {
-        css_class: "out-of-state",
-        message: " does not grant undocumented students in-state status.",
-        option: "Anti-immigrant"
+        css_class: 'out-of-state',
+        message: ' does not grant undocumented students in-state status.',
+        option: 'Anti-immigrant'
       },
       1 => {
-        css_class: "neutral",
-        message: " is neatral towards undocumented students or there is not enough information.",
-        option: "Neutral"
+        css_class: 'neutral',
+        message: ' is neatral towards undocumented students or there is not enough information.',
+        option: 'Neutral'
       },
       2 => {
-        css_class: "in-state",
-        message: " grants undocumented students in-state status.",
-        option: "In-state"
+        css_class: 'in-state',
+        message: ' grants undocumented students in-state status.',
+        option: 'In-state'
       },
       3 => {
-        css_class: "in-state-aid",
-        message: " grants undocumented students in-state status & offers state financial aid.",
-        option: "In-state & state aid"
+        css_class: 'in-state-aid',
+        message: ' grants undocumented students in-state status & offers state financial aid.',
+        option: 'In-state & state aid'
       },
       4 => {
-        css_class: "university-aid",
+        css_class: 'university-aid',
         message: "'s university systems offer in-state tuition.",
-        option: "Universities provide in-state"
+        option: 'Universities provide in-state'
       }
     }
   end

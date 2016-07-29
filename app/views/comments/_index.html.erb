@@ -4,7 +4,7 @@
       <div id="<%= comment.id %>" class="comment opinionable">
         <a href="#" class="comment-area"><span class="click-area"></span></a>
         <div class="user-image left">
-          <%= link_to user_path(comment.user.id) do %>
+          <%= link_to user_path(comment.user.id), class: 'image' do %>
             <%= image_tag comment.user.image.url(:small) %>
           <% end %>
         </div>
@@ -37,7 +37,7 @@
         <div class="comment comment-reply opinionable" id="<%= reply.id %>">
           <a href="#" class="comment-area"><span class="click-area"></span></a>
           <div class="left reply-spacing reply-image">
-            <%= link_to user_path(reply.user.id) do %>
+            <%= link_to user_path(reply.user.id), class: 'image' do %>
               <%= image_tag reply.user.image.url(:thumb) %>
             <% end %>
           </div>

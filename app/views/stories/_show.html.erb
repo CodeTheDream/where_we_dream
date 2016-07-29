@@ -1,4 +1,19 @@
 <div class="preview story">
+  <div class="flex-container header">
+      <span class="small-image left margin-right-2">
+        <% if @story.anonymous %>
+          <%= image_tag "/default_1.jpg" %>
+        <% else %>
+          <%= image_tag @story.user.image.url(:medium) %>
+        <% end %>
+      </span>
+    <div class="block">
+      <h2 class="story-title topless"><%= title @story.title %></h2>
+      <%= likes_bar @story, bottom: true, mobile: true %>
+      <div class="pre-wrap"><%= thumbs_up(@story) %>  <%= likes(@story) %>    <%= thumbs_down(@story) %>  <%= dislikes(@story) %></div>
+    </div>
+  </div>
+
   <div class="top-padding">
     <%= author %>
   </div>

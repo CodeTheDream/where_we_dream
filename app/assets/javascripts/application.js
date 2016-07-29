@@ -13,6 +13,7 @@ function responsiveCoverHeight() {
   $( window ).resize( setCoverHeight );
 };
 
+// Keep as global js function
 // pretty sure we can get rid of this method and make the link remote nah mean
 function addQuestionsPartial() {
   $("#new-question").click(
@@ -25,12 +26,14 @@ function addQuestionsPartial() {
   )
 }
 
+// Keep as global js function
 function deleteQuestion() {
   $('.destroy-button').click(function() {
     $($(this).closest('div')).hide();
   });
 };
 
+// Keep as global js function
 function updateQuestion() {
   $(".edit-question").blur(function() {
     sendQuestionUpdate(this);
@@ -64,6 +67,7 @@ function makeTextareaElastic() {
   });
 };
 
+// Keep as global js function
 function goThruArray() {
   if ($('.edit-question').length > 0) {
     var array = $('.edit-question');
@@ -103,6 +107,7 @@ function clickableDataHrefs(){
   });
 };
 
+// Keep as global js function
 function toggleDropdown() {
   $(".dropdown-button").click(function() {
     var button = $(this);
@@ -114,6 +119,7 @@ function toggleDropdown() {
   });
 };
 
+// Keep as global js function
 function addNewReply(){
   $('.reply').click(function() {
     var clicked = $(this);
@@ -134,6 +140,7 @@ function addNewReply(){
   });
 };
 
+// Keep as global js function
 function toggleOpinions(){
   $('.opinion').click(function(){
     var clicked = $(this);
@@ -232,17 +239,6 @@ function showChosenProfilePic() {
   });
 };
 
-function loadLikesBars() {
-  $(window).load(function(){
-    $.each($(".likes-bar"), function() {
-      $(this).css("width", $(this).attr("width") + "%");
-    });
-    $.each($(".no-opinions-bar"), function() {
-      $(this).css("background-color", "lightgray")
-    });
-  });
-}
-
 $(setCoverHeight);
 $(responsiveCoverHeight);
 $(addQuestionsPartial);
@@ -257,4 +253,3 @@ $(toggleOpinions);
 $(elasticNewCommentInput);
 $(commentOptions);
 $(showChosenProfilePic);
-$(loadLikesBars);
