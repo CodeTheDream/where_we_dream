@@ -49,6 +49,11 @@ class StoriesController < ApplicationController
     end
   end
 
+  # POST /stories/1/preview
+  def preview
+    @story = Story.new(story_params)
+  end
+
   # DELETE /stories/1
   def destroy
     @story.destroy

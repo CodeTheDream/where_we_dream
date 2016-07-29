@@ -56,73 +56,51 @@
       </ul>
     </nav>
   </div>
-  <nav id="mobile-nav">
-    <div id="nav-features">
-      <div class="feature">
-        <%= click_area schools_path %>
-        <h3>Schools</h3>
-        <p>Browse through our <%= pluralize School.count, "school" %></p>
-      </div>
-      <div class="feature">
-        <%= click_area scholarships_path %>
-        <h3>Scholarships</h3>
-        <p>Browse through our <%= pluralize Scholarship.count, "scholarship" %></p>
-      </div>
-      <div class="feature">
-        <%= click_area states_path %>
+
+  <nav id="nav-features" role="navigation" class="nav">
+    <%= link_to schools_path do %>
+      <h3>Schools</h3>
+      <p>Browse through our <%= 'school'.pluralize School.count %></p>
+    <% end %>
+    <%= link_to scholarships_path do %>
+      <h3>Scholarships</h3>
+      <p>Browse through our <%= 'scholarship'.pluralize Scholarship.count %></p>
+    <% end %>
+    <%= link_to states_path do %>
+      <h3>States</h3>
+      <p>Browse through our <%= 'state'.pluralize State.count %></p>
+    <% end %>
+    <%= link_to stories_path do %>
+      <h3>Stories</h3>
+      <p>Browse through our <%= 'story'.pluralize Story.count %></p>
+    <% end %>
+  </nav>
+
+  <nav id="nav-admin" role="navigation" class="nav">
+    <%= link_to admin_schools_path do %>
+      <h3>Schools</h3>
+      <p>Edit schools</p>
+    <% end %>
+    <%= link_to admin_scholarships_path do %>
+      <h3>Scholarships</h3>
+      <p>Edit scholarships</p>
+    <% end %>
+    <% if admin_or_above? %>
+      <%= link_to admin_states_path do %>
         <h3>States</h3>
-        <p>Browse through our <%= pluralize State.count, "state" %>
-      </div>
-      <div class="feature">
-        <%= click_area stories_path %>
-        <h3>Stories</h3>
-        <p>Browse through our <%= pluralize Story.count, "story" %></p>
-      </div>
-      <% if false %>
-        <div class="feature">
-          <a href="javascript:void(0)"><span class="click-area"></span></a>
-          <h3>Sponsors</h3>
-          <p>Coming soon!</p>
-          <!-- <p>Browse through our '20' sponsors</p> -->
-        </div>
-        <div class="feature">
-          <%= click_area students_path %>
-          <h3>Students</h3>
-          <p>Browse through our <%= pluralize User.students.count, "student" %></p>
-        </div>
+        <p>Edit states</p>
       <% end %>
-    </div>
-    <div id="nav-admin">
-      <div class="feature">
-        <%= click_area admin_schools_path %>
-        <h3>Schools</h3>
-        <p>Edit schools</p>
-      </div>
-      <div class="feature">
-        <%= click_area admin_scholarships_path %>
-        <h3>Scholarships</h3>
-        <p>Edit scholarships</p>
-      </div>
-      <% if admin_or_above? %>
-        <div class="feature">
-          <%= click_area admin_states_path %>
-          <h3>States</h3>
-          <p>Edit states</p>
-        </div>
+    <% end %>
+    <% if god? %>
+      <%= link_to admin_questions_path do %>
+        <h3>Questions</h3>
+        <p>Edit questions</p>
       <% end %>
-      <% if god? %>
-        <div class="feature">
-          <%= click_area admin_questions_path %>
-          <h3>Questions</h3>
-          <p>Edit questions</p>
-        </div>
-      <% end %>
-      <div class="feature">
-        <%= click_area admin_users_path %>
-        <h3>Users</h3>
-        <p><%= pluralize User.count, "user" %></p>
-      </div>
-    </div>
+    <% end %>
+    <%= link_to admin_users_path do %>
+      <h3>Users</h3>
+      <p><%= pluralize User.count, 'user' %></p>
+    <% end %>
   </nav>
   <%= notice_helper if notice.present? %>
 </header>

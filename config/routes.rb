@@ -40,6 +40,9 @@ Rails.application.routes.draw do
   end
 
   resources :stories do
+    collection do
+      patch 'preview'
+    end
     resources :comments, except: [:show, :update, :destroy]
   end
 

@@ -9,3 +9,36 @@
   margin-right: -.5em;
   border-radius: 10px;
 }
+.slideshow {
+  // display: flex;
+  height: 300px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch; // momentum scrolling in mobile devices
+  white-space: nowrap;
+  img {
+    // height: 100%;
+    height: calc(100% - 4px);
+    max-width: none !important;
+  }
+}
+input[type=submit][disabled] {
+  background: gray;
+  border-color: gray;
+  transition: all 0.6s;
+}
+.vid-wrapper {
+  max-width: 560px;
+}
+.vid-resize {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+  margin-bottom: 1em;
+	height: 0;
+}
+.vid-resize iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

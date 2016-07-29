@@ -13,63 +13,6 @@ function responsiveCoverHeight() {
   $( window ).resize( setCoverHeight );
 };
 
-function toggleMobileNavs() {
-  $('#js-navigation-menu li').click( function() {
-    $(window).resize( setMobileNavHeight );
-    var id = $(this).attr('id');
-    if ($('#nav-' + id).css('display') == 'none') {
-      $('#mobile-nav').show();
-      $('#nav-' + id ).show();
-      if (id=='admin') {
-        $('#nav-features').hide();
-      } else {
-        $('#nav-admin').hide();
-      }
-      setMobileNavHeight();
-    } else {
-      $('#mobile-nav').hide();
-      $('#nav-features').hide();
-      $('#nav-admin').hide();
-    };
-  });
-};
-
-function setMobileNavHeight() {
-  var headerHeight = $('#header-wrapper').height();
-  var height1 = $(window).height() - headerHeight;
-  $('#mobile-nav').height( height1 );
-  var features = $('.feature:visible').length;
-  var featureHeight = $('.feature:visible').height();
-  var height2=($(window).height()-(headerHeight+(features*featureHeight)))/(features*2);
-  $('.feature:visible').css('padding', height2 + 'px 0');
-};
-
-function removeNotice() {
-  $('#notice').fadeOut(500, function() {
-    $(this).remove();
-  });
-};
-
-previous = 0;
-function autoHideHeader() {
-  $(window).scroll(function(){
-    var scroll_down = $(window).scrollTop() > previous;
-    var nav_is_closed = !( $('#mobile-nav').is(":visible") );
-    var window_is_phone_width = $(window).width() <= 768;
-    if (scroll_down) {
-      removeNotice();
-      if ( nav_is_closed && window_is_phone_width ) {
-        if ( !($('header').hasClass('header--hidden')) ) {
-          $('header').addClass('header--hidden');
-        };
-      };
-    } else if ( $('header').hasClass('header--hidden') ) {
-      $('header').removeClass('header--hidden');
-    };
-    previous = $(window).scrollTop();
-  });
-};
-
 // pretty sure we can get rid of this method and make the link remote nah mean
 function addQuestionsPartial() {
   $("#new-question").click(
@@ -261,7 +204,7 @@ function commentOptions(){
       $('.comment-deleted').fadeOut(3000);
       $.ajax({
         url: "/comments/" + id + "/delete",
-        type: "DELETE",
+        type: "DELETE"
       });
     } else if (action == "Edit") {
       // console.log("edit")
@@ -300,49 +243,8 @@ function loadLikesBars() {
   });
 }
 
-function setDestination(link) {
-  var value = link.offset().top;
-  if ($(window).width() > 768) {
-    value -= 85;
-  };
-  return value;
-};
-
-function putTime(distance) {
-  if (distance < 1000) {
-    var time = distance*3/5;
-  } else if (distance < 2000) {
-    var time = distance/2;
-  } else if (distance < 4000) {
-    var time = distance/4;
-  } else {
-    var time = distance/5;
-  };
-  return time;
-};
-
-function removeHighlight() {
-  $('.highlight').removeClass('highlight');
-};
-
-function smoothScroll() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    var path = $(this).attr('href');
-    var link = $('a[name=' + path.slice(1) + ']');
-    var start = $(window).scrollTop();
-    var stop = target = setDestination(link);
-    var distance = Math.abs(start - stop);
-    var time = putTime(distance);
-    link.closest('h3').addClass('highlight');
-    $('html,body').animate( {scrollTop: target}, time, removeHighlight);
-    return false;
-  });
-};
-
 $(setCoverHeight);
 $(responsiveCoverHeight);
-$(toggleMobileNavs);
-$(autoHideHeader);
 $(addQuestionsPartial);
 $(deleteQuestion);
 $(updateQuestion);
@@ -356,4 +258,3 @@ $(elasticNewCommentInput);
 $(commentOptions);
 $(showChosenProfilePic);
 $(loadLikesBars);
-$(smoothScroll);

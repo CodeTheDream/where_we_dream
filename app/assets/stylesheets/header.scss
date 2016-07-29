@@ -1,3 +1,9 @@
+$background: white;
+$color: #2e2f33;
+$color-hover: #F2D50D;
+$height: 80px;
+$height-mobile: 55px;
+
 #logo {
   @include mobile {
     font-size: 2em;
@@ -5,34 +11,25 @@
 }
 #home {
   position: absolute;
-  @include immobile {
-    float: left;
-  }
   @include mobile {
     display: inline-block;
     left: 0;
-    right: 0;
     margin: auto;
+    right: 0;
     text-align: left;
-    // A width must be specified in order for the icon to be centered correctly in IE.
+    // Width required for icon to be centered correctly in IE.
     width: 20%;
   }
 }
 #login,
 #admin {
-  @include immobile {
-    float: right;
-  }
+  float: right;
   @include mobile {
     float: left;
   }
 }
 #features {
-  // display: none;
   float: right;
-  @include mobile {
-    display: inline;
-  }
 }
 .fa-expeditedssl.fa-stack-2x {
   font-size: 1.9em;
@@ -43,21 +40,24 @@ header {
   background-position: center;
   background-size: cover;
 }
-#mobile-nav {
-  color: #2e2f33;
+#nav-features,
+#nav-admin {
+  background: $background;
+  color: $color;
   display: none;
-  background-color: white;
-  width: 100%;
-  border-bottom: 1px solid #efefef;
-
-  .feature {
-    transition: background-color .3s;
+  height: calc(100vh - 80px);
+  @include flex-direction(column);
+  a {
+    @include align-items(center);
+    @include display(flex);
+    @include flex-direction(column);
+    @include flex(1);
+    @include justify-content(center);
+    @include transition( background 0.5s );
+    color: inherit;
     &:hover {
-      background-color: darken(white, 5%);
+      background: darken(white, 5%);
     }
-  }
-  div {
-    position: relative;
   }
   h3 {
     @include immobile {
@@ -71,56 +71,29 @@ header {
     font-family: 'Exo', sans-serif;
     margin: 0;
   }
-  #nav-features,
-  #nav-admin {
-    display: none;
-    text-align: center;
-  }
-
-  #nav-other {
-    float: left;
+  @include mobile {
+    height: calc(100vh - 55px);
   }
 }
 .header--hidden {
   @include transform( translateY(-100%) );
 }
 header.navigation {
-  $base-border-color: gainsboro !default;
-  $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
-  $large-screen: em(860) !default;
-  $navigation-padding: 1em;
-  $navigation-background: #FFB100 !default;
-  $navigation-color: #2e2f33;
-  $navigation-color-hover: #F2D50D;
-  $navigation-height: 80px;
-  $navigation-height-mobile: 55px;
-  $navigation-nav-button-background: $action-color;
-  $navigation-nav-button-background-hover: lighten($navigation-background, 10%);
-  $navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20%);
-  $navigation-search-background: lighten($navigation-background, 5);
-  $navigation-search-border: 1px solid darken($navigation-background, 5);
-  $navigation-submenu-padding: 1em;
-  $navigation-submenu-width: 12em;
-  $horizontal-bar-mode: $large-screen;
-
   background-color: white;
-  height: $navigation-height;
+  height: $height;
   width: 100%;
   z-index: 999;
   position: fixed;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 1.3em;
   border-bottom: 1px solid #efefef;
-  // color: $navigation-color;
   color: white;
-  @include transition( transform .5s );
+  @include transition( transform 0.5s );
   @include mobile {
-    height: $navigation-height-mobile;
+    height: $height-mobile;
   }
   .navigation-wrapper {
-    @include clearfix;
-    @include outer-container;
+    @include clearfix; // Needed for notification positioning
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -140,44 +113,33 @@ header.navigation {
   }
   // Nav menu
   nav {
-    float: right;
-    display: inline-block;
+    width: 100%;
     z-index: 9999999;
-    width: 100%
   }
   ul.navigation-menu {
-    -webkit-transform-style: preserve-3d; // stop webkit flicker
-    clear: both;
     display: inline;
     margin: 0;
-    overflow: visible;
     padding: 0;
-    width: 100%;
     z-index: 9999;
-    &.show {
-      display: block;
-    }
+    -webkit-transform-style: preserve-3d; // stop webkit flicker
   }
   // The nav items
   ul li.nav-link {
     background: transparent;
     display: inline;
-    line-height: $navigation-height;
-    overflow: hidden;
-    text-align: right;
+    line-height: $height;
     width: auto;
     z-index: 9999;
-    display: inline-block;
     @include transition( all .2s );
     &:hover {
       cursor: pointer;
       @include immobile {
-        color: $navigation-color-hover;
+        color: $color-hover;
       }
     }
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
     &:first-child {
       padding: 0;
@@ -186,139 +148,10 @@ header.navigation {
       padding-left: 2em;
     }
     @include mobile {
+      line-height: $height-mobile;
       max-width: 2.5em;
-      display: inline;
-      line-height: $navigation-height-mobile;
       text-decoration: none;
       width: auto;
-    }
-  }
-  .active-nav-item a {
-    border-bottom: 1px solid $navigation-color;
-    padding-bottom: 3px;
-  }
-  // Sub menus
-  li.more.nav-link {
-    // padding-right: 0;
-    padding-right: $navigation-submenu-padding;
-    @include media($horizontal-bar-mode) {
-      padding-right: $navigation-submenu-padding;
-    }
-    > ul > li:first-child a  {
-      padding-top: 1em;
-    }
-    a {
-      margin-right: $navigation-submenu-padding;
-    }
-    > a {
-      padding-right: 0.6em;
-    }
-    > a:after {
-      @include position(absolute, auto -0.4em auto auto);
-      content: '\25BE';
-      color: $navigation-color;
-    }
-  }
-  li.more {
-    overflow: visible;
-    // padding-right: 0;
-    padding-right: 0.8em;
-    position: relative;
-    a {
-      padding-right: 0.8em;
-    }
-    > a {
-      padding-right: 1.6em;
-      position: relative;
-      @include media($horizontal-bar-mode) {
-        margin-right: $navigation-submenu-padding;
-      }
-      &:after {
-        content: '›';
-        font-size: 1.2em;
-        position: absolute;
-        right: $navigation-submenu-padding / 2;
-      }
-    }
-    &:focus > .submenu,
-    &:hover > .submenu {
-      display: block;
-    }
-    @include media($horizontal-bar-mode) {
-      padding-right: 0.8em;
-      position: relative;
-    }
-  }
-  ul.submenu {
-    display: none;
-    padding-left: 0;
-    left: -$navigation-submenu-padding;
-    position: absolute;
-    top: 1.5em;
-    @include media($horizontal-bar-mode) {
-      left: -$navigation-submenu-padding;
-      position: absolute;
-      top: 1.5em;
-    }
-    .submenu {
-      left: $navigation-submenu-width - 0.2em;
-      top: 0;
-      @include media($horizontal-bar-mode) {
-        left: $navigation-submenu-width - 0.2em;
-        top: 0;
-      }
-    }
-    li {
-      display: block;
-      padding-right: 0;
-      line-height: $navigation-height / 1.3;
-      @include mobile {
-        line-height: $navigation-height-mobile / 1.3;
-      }
-      a {
-        display: inline-block;
-        text-align: right;
-        width: 100%;
-      }
-    }
-  }
-  // Search bar
-  .search-bar {
-    $search-bar-border-color: $base-border-color;
-    $search-bar-border: 1px solid $search-bar-border-color;
-    $search-bar-background: lighten($search-bar-border-color, 10%);
-    float: left;
-    padding: 0.85em 0.85em 0.7em 0.6em;
-    // width: 60%;
-    width: 16em;
-    display: inline-block;
-    position: relative;
-    form {
-      position: relative;
-      input[type=search] {
-        box-sizing: border-box;
-        background: $navigation-search-background;
-        border-radius: $base-border-radius * 2;
-        border: $navigation-search-border;
-        color: $navigation-color;
-        font-size: 0.9em;
-        font-style: italic;
-        margin: 0;
-        padding: 0.5em 0.8em;
-        width: 100%;
-        @include media($horizontal-bar-mode) {
-          width: 100%;
-        }
-      }
-    }
-    @include media($horizontal-bar-mode) {
-      display: inline-block;
-      position: relative;
-      width: 16em;
-      input {
-        @include box-sizing(border-box);
-        display: block;
-      }
     }
   }
 }

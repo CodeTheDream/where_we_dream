@@ -1,4 +1,4 @@
-<%= form_for(@story) do |f| %>
+<%= form_for @story do |f| %>
   <% if @story.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
@@ -10,9 +10,9 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :user_id, :value => user_id %>
+  <%= f.hidden_field :user_id, value: user_id %>
   <div class="field">
-    <%= f.label :anonymous, "Anonymous?" %><br>
+    <%= f.label :anonymous, 'Anonymous?' %><br>
     <%= f.check_box :anonymous %>
   </div>
   <div class="field">
@@ -25,9 +25,10 @@
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, rows: 10 %>
   </div>
   <div class="actions">
+    <%= f.submit 'Preview', class: 'blue-button preview' %>
     <%= f.submit class: 'blue-button' %>
   </div>
 <% end %>

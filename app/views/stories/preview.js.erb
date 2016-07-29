@@ -1,0 +1,11 @@
+if ($('.story.preview').length > 0) {
+  $(".story.preview").replaceWith("<%= j( render 'show') %>");
+} else {
+  $("#body").append("<%= j( render 'show') %>");
+};
+
+$('input.preview').attr('disabled', true);
+
+setTimeout( function() {
+  $('input.preview').attr('disabled', false);
+}, 10000);
