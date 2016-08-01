@@ -94,12 +94,18 @@
     font-weight: 500;
   };
 }
-.gray-hover {
+.gray-hover,
+.gray-hover-2 {
   position: relative;
   transition: background-color .3s;
   &:hover {
     background-color: darken(white, 5%);
   }
+}
+.gray-hover-2 {
+  color: initial;
+  margin: 0 -8px;
+  padding: 2px 8px;
 }
 .header {
   margin-top: 22px;

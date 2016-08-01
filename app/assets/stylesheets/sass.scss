@@ -13,9 +13,11 @@ $xs-img-size: 28px;
 // sass variables
 $border-color: #ccc; // applies to all form elements
 $border-radius: 0px; // applies to all form elements
-$transition: .5s ease; // apply to anything we want to have on hover transition effect, like buttons, etc
 $hover-bg: #fff;
 $link-color: #4285F4;
+$color: #2e2f33;
+// $color-hover: #F2D50D;
+
 
 // sass mixins
 @mixin mobile {

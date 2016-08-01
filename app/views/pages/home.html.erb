@@ -12,34 +12,33 @@
 
 <h2 class="topless center">Recent Activity</h2>
 
-<div class="padding-wrap-2 relative gray-hover">
-  <h3>Schools</h3>
-  <%= click_area schools_path %>
-</div>
+<%= link_to schools_path do %>
+  <h3 class="gray-hover-2">Schools</h3>
+<% end %>
 <hr>
 <% @recent_schools.each do |school| %>
   <div class="double-spaced"><%= link_to school.name, school %> <%= lock school %> <span class="gray"><%= time school %></span></div>
 <% end %>
 <br>
-<div class="padding-wrap-2 relative gray-hover">
-  <h3>Scholarships</h3>
-  <%= click_area scholarships_path %>
-</div>
+<%= link_to scholarships_path do %>
+  <h3 class="gray-hover-2">Scholarships</h3>
+<% end %>
 <hr>
 <% @recent_scholarships.each do |scholarship| %>
   <div class="double-spaced"><%= link_to scholarship.name, scholarship %> (<span class="bold light-green"><%= reward scholarship %></span>) <span class="gray"><%= time scholarship %></span></div>
 <% end %>
 <br>
-<div class="padding-wrap-2 relative gray-hover">
-  <h3>States</h3>
-  <%= click_area states_path %>
-</div>
+<%= link_to states_path do %>
+  <h3 class="gray-hover-2">States</h3>
+<% end %>
 <hr>
 <% @recent_states.each do |state| %>
   <div class="double-spaced"><%= link_to state.name, state %> <span class="gray"><%= time state %></span></div>
 <% end %>
 <br>
-<h3>Stories</h3>
+<%= link_to stories_path do %>
+  <h3 class="gray-hover-2">Stories</h3>
+<% end %>
 <hr>
 <% @recent_stories.each do |story| %>
   <%= render "stories/brief", story: story %>
