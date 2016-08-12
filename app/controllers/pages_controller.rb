@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     User.any? ? () : (session[:user_id], session[:user_type] = nil)
     @page = "home"
     @user = User.find(user_id) rescue nil
-    @recent_schools = School.order(updated_at: :desc).limit(3)
+    @recent_schools = School.where.not(name: nil).order(updated_at: :desc).limit(3)
     @recent_scholarships = Scholarship.order(updated_at: :desc).limit(3)
     @recent_states = State.order(updated_at: :desc).limit(3)
     @recent_stories = Story.order(updated_at: :desc).limit(3)
