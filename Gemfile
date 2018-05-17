@@ -20,6 +20,7 @@ gem 'omniauth-twitter'
 gem 'paperclip', '~> 4.2'
 gem 'parsley-rails', '~> 2.0.7.0'
 # gem 'public_suffix'
+gem 'pg'
 gem 'rails', '4.2.6'
 gem 'redcarpet'
 gem 'refills'
@@ -30,7 +31,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '~> 2.0', group: :development
 
 group :production do
-  gem 'pg'
   gem 'puma'
   gem 'rails_12factor'
 end
