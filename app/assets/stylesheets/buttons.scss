@@ -2,7 +2,7 @@
 .dark-blue-button,
 .green-button,
 .red-button {
-  @include appearance(none);
+  appearance: none;
   border-style: solid;
   border-radius: 8px;
   color: white;

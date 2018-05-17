@@ -17,7 +17,7 @@
   // Google chrome has a yellow background that is hard to get rid of.
   // Just delay the yellow background from appearing.
   &:-webkit-autofill {
-    @include transition(background 9999s ease-in-out 9999s);
+    transition: background 9999s ease-in-out 9999s;
   }
 
   &:hover {

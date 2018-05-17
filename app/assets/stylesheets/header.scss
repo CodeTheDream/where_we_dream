@@ -44,14 +44,14 @@ header {
   color: $color;
   display: none;
   height: calc(100vh - 80px);
-  @include flex-direction(column);
+  flex-direction: column;
   a {
-    @include align-items(center);
-    @include display(flex);
-    @include flex-direction(column);
-    @include flex(1);
-    @include justify-content(center);
-    @include transition( background 0.5s );
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    transition: background 0.5s;
     color: inherit;
     &:hover {
       background: darken(white, 5%);
@@ -74,7 +74,7 @@ header {
   }
 }
 .header--hidden {
-  @include transform( translateY(-100%) );
+  transform: translateY(-100%);
 }
 header.navigation {
   background-color: $background;
@@ -86,7 +86,7 @@ header.navigation {
   font-size: 1.3em;
   border-bottom: 1px solid #efefef;
   color: white;
-  @include transition( transform 0.5s );
+  transition: transform 0.5s;
   @include mobile {
     height: $height-mobile;
   }
@@ -127,7 +127,7 @@ header.navigation {
     display: inline;
     line-height: $height;
     z-index: 9999;
-    @include transition( all 0.2s );
+    transition: all 0.2s;
     &:hover {
       cursor: pointer;
       .desktop-only {

@@ -61,7 +61,7 @@ table.pretty {
   display: flex;
 }
 .flex-container {
-  @include display(flex);
+  display: flex;
   align-items: center;
 }
 .flex-right {

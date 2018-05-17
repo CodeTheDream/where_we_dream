@@ -33,7 +33,15 @@
     @include mobile {
       width: 96%;
       ul {
-        @include omega(1n);
+        // @include omega(1n);
+        &:nth-child(1n) {
+          margin-right: 0
+        }
+
+        &:nth-child(1n+1) {
+          clear: left
+        }
+
         float: left;
       }
       h3 {
@@ -73,15 +81,28 @@
     margin: 0;
     padding: 0;
 
-    @include media($medium-screen) {
+    @media screen and (min-width: 40em) {
       width: auto;
       margin-right: 6em;
       &:last-child {
         margin-right: 0;
       }
       // @include span-columns(1.5); //adds width and margin-right
-      @include omega(3n);//allows three ul's before inserting a line break
-      @include clearfix;
+      // @include omega(3n); //allows three ul's before inserting a line break
+      &:nth-child(3n) {
+        margin-right: 0
+      }
+
+      &:nth-child(3n+1) {
+        clear: left
+      }
+
+      // @include clearfix;
+      &::after {
+        clear: both;
+        content: "";
+        display: block
+      }
     }
   }
 
@@ -89,7 +110,7 @@
     line-height: 1.5em;
     list-style: none;
 
-    @include media($medium-screen) {
+    @media screen and (min-width: 40em) {
       text-align: left;
     }
   }

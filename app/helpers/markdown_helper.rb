@@ -2,7 +2,7 @@ module MarkdownHelper
   def full_md(text)
     markdown = Redcarpet::Markdown.new(
       Redcarpet::Render::HTML,
-      autoliink: true,
+      autolink: true,
       strikethrough: true,
       underline: true,
       highlight: true,
