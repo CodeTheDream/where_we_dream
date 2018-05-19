@@ -1,5 +1,5 @@
 class Rule < ActiveRecord::Base
-  belongs_to :school
+  belongs_to :school, inverse_of: :rules
   belongs_to :question
 
   validates_presence_of :school, :question

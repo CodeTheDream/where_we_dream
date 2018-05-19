@@ -1,7 +1,7 @@
-<% correct_path = @school.id ? admin_school_path(@school) : admin_schools_path %>
+<%# correct_path = @school.id ? school_path(@school) : schools_path %>
 <%# @school.name.nil? ? correct_path = admin_school_path(@school) : correct_path = admin_schools_path %>
 
-<%= form_for(@school, url: correct_path) do |f| %>
+<%= form_for(@school) do |f| %>
   <% if @school.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
@@ -62,6 +62,7 @@
   </div>
   <%= f.fields_for :rules do |ff| %>
     <div class="rule">
+      <%= ff.hidden_field :question_id %>
       <%= ff.object.question! %><br>
       <%= ff.radio_button :answer, true %> yes
       <%= ff.radio_button :answer, false %> no

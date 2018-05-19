@@ -30,7 +30,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '~> 2.0', group: :development
 
 group :production do
-  gem 'pg', '~> 0.18.0'
+  gem 'pg', '~> 0.18.0' # v1.0 does not work with heroku lol
   gem 'puma'
   gem 'rails_12factor'
 end

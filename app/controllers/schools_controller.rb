@@ -1,4 +1,4 @@
-class Admin::SchoolsController < ApplicationController
+class SchoolsController < ApplicationController
   before_action :authenticate_admin, except: [:show, :update]
   before_action :set_school, only: [:show, :edit, :update, :destroy]
   before_action :set_states, only: [:new, :edit]
@@ -6,7 +6,9 @@ class Admin::SchoolsController < ApplicationController
 
   def index
     School.where(name: nil).destroy_all
-    @schools = School.search(params[:search]).order("#{sort_column} #{sort_direction}").page(params[:page])
+    @schools = School.search(params[:search])
+                     .order("#{sort_column} #{sort_direction}")
+                     .page(params[:page])
   end
 
   def show
@@ -16,15 +18,11 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def new
-    School.where(name: nil).destroy_all
-    if School.any?
-      id = School.last.id + 1
-      @school = School.create(id: id)
-    else
-      @school = School.create
-    end
+    # this was needed before because we used
+    # School.where(name: nil).destroy_all
+    @school = School.new
     Question.all.each do |question|
-      @school.rules.create(question: question)
+      @school.rules.build(question: question)
     end
   end
 
@@ -33,28 +31,27 @@ class Admin::SchoolsController < ApplicationController
 
   # this controller action has never been run. You go from the :new view to the :create action because this new view :creates a school.
   def create
-    @school = School.create(new_school_params)
-    if @school.update(school_params)
-      @school.update(complete: @school.complete?)
-      redirect_to admin_schools_path, notice: 'School was successfully created.'
+    @school = School.new(school_params)
+    if @school.save
+      @school.update complete: @school.complete?
+      redirect_to schools_path, notice: 'School successfully added'
     else
-      School.destroy(@school.id)
-      redirect_to admin_schools_path
+      redirect_to schools_path
     end
   end
 
   def update
     if @school.update(school_params)
       @school.update(complete: @school.complete?)
-      redirect_to admin_schools_path, notice: 'School was successfully updated.'
+      redirect_to school_path(@school), notice: 'School successfully updated'
     else
-      redirect_to edit_admin_school_path(@school), notice: 'Update failed'
+      redirect_to edit_school_path(@school), notice: 'Update failed'
     end
   end
 
   def destroy
     @school.destroy
-    redirect_to admin_schools_path, notice: 'School was successfully destroyed.'
+    redirect_to schools_path, notice: 'School successfully deleted'
   end
 
   private
@@ -72,7 +69,7 @@ class Admin::SchoolsController < ApplicationController
     def school_params
       params.require(:school).permit(
         :name, :link, :rating, :students, :undocumented_students, :street, :city,
-        :state, :zip, :public, :description, rules_attributes: [:id, :answer, :details]
+        :state, :zip, :public, :description, rules_attributes: [:id, :question_id, :answer, :details]
       )
     end
 

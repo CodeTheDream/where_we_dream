@@ -18,8 +18,7 @@
   width: 100%;
   color: white;
 }
-.cover-img,
-.cover-img-2 {
+.cover-img {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -29,16 +28,20 @@
   @include background-size( cover );
   z-index: -1;
 }
-.cover-img {
-  // background-image: asset_url('scenery_5.jpg');
+.img-1 {
   background-image: asset_url('scenery_4.jpg');
-  // background-image: url('https://timedotcom.files.wordpress.com/2016/06/gettyimages-103049950.jpg');
   // background-image: url('http://mojok.co/wp-content/uploads/2016/06/gty_college_graduation_jc_160420_12x5_1600-1.jpg');
 
 }
-.cover-img-2 {
-  background-image: asset_url('scenery_5_blur.jpg');
+.img-2 {
+  background-image: asset_url('scenery_5.jpg');
 }
+.img-3 {
+  background-image: asset_url('scenery_6.jpg');
+}
+// .img-4 {
+//   background-image: asset_url('scenery_5_blur.jpg');
+// }
 .cover-content, .cover-content-2 {
   position: absolute;
   left: 0;

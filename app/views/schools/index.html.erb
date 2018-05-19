@@ -1,11 +1,13 @@
 <div class="flex-container">
   <h1><%= title "Schools" %></h1>
-  <%= link_to new_admin_school_path, class: 'flex-right' do %>
-    <i class="fa fa-plus"></i> Add School
+  <% if recruiter_or_above? %>
+    <%= link_to new_school_path, class: 'flex-right' do %>
+      <i class="fa fa-plus"></i> Add School
+    <% end %>
   <% end %>
 </div>
 
-<%= render 'layouts/search', path: admin_schools_path, placeholder: 'Search schools' %>
+<%= render 'layouts/search', path: schools_path, placeholder: 'Search schools' %>
 
 <table class="pretty">
   <thead>
@@ -21,7 +23,7 @@
   <tbody>
     <% number = 0 %>
     <% @schools.each do |school| %>
-      <tr data-href="/admin/schools/<%= school.id %>" class="tr-content">
+      <tr data-href="/schools/<%= school.id %>" class="tr-content">
         <td class="desktop-only"><%= number += 1 %></td>
         <td class="center">
           <%= school.complete? ? "<span class='bolder'>✓</span>".html_safe : "INC" %>

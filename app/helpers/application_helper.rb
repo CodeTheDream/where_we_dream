@@ -21,12 +21,7 @@ module ApplicationHelper
 
   def destroy(resource)
     thing = resource.class.to_s.downcase
-    if Story === resource
-      path = "/#{thing.pluralize}/#{resource.id}"
-    else
-      path = "/admin/#{thing.pluralize}/#{resource.id}"
-    end
-    button_to 'Delete', path, method: :delete, class: 'red-button', data: {confirm: "Are you sure you want to delete this #{thing}?"}
+    button_to 'Delete', resource, method: :delete, class: 'red-button', data: { confirm: "Are you sure you want to delete this #{thing}?" }
   end
 
   def link(resource)

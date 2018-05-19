@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'comments/new'
   post 'opinions' => 'opinions#opinionate'
 
-  get 'schools' => 'pages#schools'
+  # get 'schools' => 'pages#schools'
   get 'students' => 'pages#students'
   get 'scholarships' => 'pages#scholarships'
 
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   delete 'comments/:id/delete' => 'comments#destroy' # Find a cleaner way to delete comments
 
-  resources :schools, controller: 'admin/schools', only: :show do
+  resources :schools do
     resources :comments, except: [:show, :update, :destroy]
   end
 
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 
   namespace :admin do
-    resources :schools
+    # resources :schools
     resources :questions, except: [:show, :edit]
     resources :users
     resources :scholarships
