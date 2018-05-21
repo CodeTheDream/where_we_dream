@@ -12,11 +12,13 @@
 
   <%= f.hidden_field :user_id, value: session[:user_id] %>
   <%= f.hidden_field :original_comment_id, id: nil, class: "original-comment-id" %>
+
   <span class="user-image left">
     <%= link_to user_path(session[:user_id]), class: 'image' do %>
       <%= image_tag user.image.url(:small) %>
     <% end %>
   </span>
+
   <div class="new-comment-container">
     <%= f.text_area :content, rows: 2, placeholder: "Add a comment...", class: "new-comment" %>
     <%= f.submit "Post", class: "post blue-button right width-reset" %>

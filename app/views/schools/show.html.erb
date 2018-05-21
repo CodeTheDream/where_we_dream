@@ -11,9 +11,17 @@
     <% end %>
   </div>
 
+  <%# BEFORE LIKES BAR (0 QUERY. USED TO BE 1, 2, 4 AND 6) %>
+
   <%= likes_bar @school, bottom: true %>
 
+  <%# AFTER LIKES BAR %>
+
+  <%# BEFORE THUMBS (0 QUERIES. USED TO BE 2, 4 AND 6) %>
+
   <div class="pre-wrap"><%= thumbs_up(@school) %>  <%= likes(@school) %>    <%= thumbs_down(@school) %>  <%= dislikes(@school) %></div>
+
+  <%# AFTER THUMBS %>
 
   <div class="top-padding small gray">
     Updated <%= updated_at @school %>
@@ -60,7 +68,10 @@
   <% end %>
 </div>
 
-<h2>Comments · <%= @school.comments.count %></h2>
+<h2>Comments · <%= @school.comments.size %></h2>
+
 <%= render 'comments/form' if logged_in? %>
+
 <%= link_to "All comments",  school_comments_path(@school) %>
+
 <%= render 'comments/index' %>

@@ -30,11 +30,12 @@
         </td>
         <td class="center">
           <%= school.rating! %>
-          <% if school.likes! == "no opinions" %>
+          <% percentage = school.likes! %>
+          <% if percentage == "no opinions" %>
             <div class="no-opinions-bar"></div>
           <% else %>
             <div class="dislikes-bar">
-              <div class="likes-bar" width="<%= school.likes! %>"></div>
+              <div class="likes-bar" width="<%= percentage %>"></div>
             </div>
           <% end %>
         </td>

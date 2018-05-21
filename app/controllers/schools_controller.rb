@@ -1,37 +1,42 @@
 class SchoolsController < ApplicationController
-  before_action :authenticate_admin, except: [:show, :update]
-  before_action :set_school, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin, only: [:new, :create, :update, :destroy]
+  before_action :set_school, only: [:update, :destroy]
   before_action :set_states, only: [:new, :edit]
   helper_method :sort_column
 
+  # 32 queries -> 3
   def index
-    School.where(name: nil).destroy_all
     @schools = School.search(params[:search])
+                     .includes(:opinions)
                      .order("#{sort_column} #{sort_direction}")
                      .page(params[:page])
   end
 
+  # 28 queries -> 23 -> 21 -> 19 -> 18 -> 16 -> 13 -> 12 -> 11 -> 7
   def show
+    @school = School.includes(:comments, :opinions, rules: :question)
+                    .find(params[:id])
     @commentable = @school
-    @comments = @school.comments.where(original_comment_id: nil).order(created_at: :desc)
+    @comments = @school.comments.select { |x| x.original_comment_id.nil? }
+                       .sort_by(&:created_at)
     @blank_comment = Comment.new
   end
 
   def new
-    # this was needed before because we used
-    # School.where(name: nil).destroy_all
     @school = School.new
     Question.all.each do |question|
       @school.rules.build(question: question)
     end
   end
 
+  # 9 queries -> 4
   def edit
+    @school = School.includes(rules: :question).find(params[:id])
   end
 
-  # this controller action has never been run. You go from the :new view to the :create action because this new view :creates a school.
   def create
-    @school = School.new(school_params)
+    @school = School.new school_params
+
     if @school.save
       @school.update complete: @school.complete?
       redirect_to schools_path, notice: 'School successfully added'
