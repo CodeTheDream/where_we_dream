@@ -12,9 +12,7 @@ Rails.application.routes.draw do
   get 'comments/new'
   post 'opinions' => 'opinions#opinionate'
 
-  # get 'schools' => 'pages#schools'
   get 'students' => 'pages#students'
-  get 'scholarships' => 'pages#scholarships'
 
   get 'about' => 'pages#about'
   get 'wait' => 'pages#wait'
@@ -30,7 +28,7 @@ Rails.application.routes.draw do
     resources :comments, except: [:show, :update, :destroy]
   end
 
-  resources :scholarships, controller: 'admin/scholarships', only: [:show, :delete] do
+  resources :scholarships do
     resources :comments, except: [:show, :update, :destroy]
   end
 
@@ -49,10 +47,8 @@ Rails.application.routes.draw do
   resources :users, controller: 'admin/users', only: [:new, :show, :update, :edit]
 
   namespace :admin do
-    # resources :schools
     resources :questions, except: [:show, :edit]
     resources :users
-    resources :scholarships
     resources :states
   end
 end

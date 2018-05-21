@@ -1,8 +1,7 @@
-<% correct_path = @scholarship.id ? admin_scholarship_path(@scholarship) : admin_scholarships_path %>
-<%= form_for(@scholarship, url: correct_path) do |f| %>
+<%= form_for @scholarship do |f| %>
   <% if @scholarship.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@scholarship.errors.count, "error") %> prohibited this scholarship from being saved:</h2>
+      <h2>Please fix these <%= pluralize(@scholarship.errors.count, "error") %>:</h2>
 
       <ul>
       <% @scholarship.errors.full_messages.each do |message| %>

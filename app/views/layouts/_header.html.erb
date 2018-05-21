@@ -81,7 +81,7 @@
       <h3>Schools</h3>
       <p>Edit schools</p>
     <% end %>
-    <%= link_to admin_scholarships_path do %>
+    <%= link_to scholarships_path do %>
       <h3>Scholarships</h3>
       <p>Edit scholarships</p>
     <% end %>
@@ -99,7 +99,7 @@
     <% end %>
     <%= link_to admin_users_path do %>
       <h3>Users</h3>
-      <p><%= pluralize User.count, 'user' %></p>
+      <p>Edit users</p>
     <% end %>
   </nav>
   <%= notice_helper if notice.present? %>

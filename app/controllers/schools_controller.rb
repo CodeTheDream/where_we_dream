@@ -4,7 +4,7 @@ class SchoolsController < ApplicationController
   before_action :set_states, only: [:new, :edit]
   helper_method :sort_column
 
-  # 32 queries -> 3
+  # 32 queries -> 3 -> 2
   def index
     @schools = School.search(params[:search])
                      .includes(:opinions)
@@ -12,7 +12,7 @@ class SchoolsController < ApplicationController
                      .page(params[:page])
   end
 
-  # 28 queries -> 23 -> 21 -> 19 -> 18 -> 16 -> 13 -> 12 -> 11 -> 7
+  # 28 queries -> 23 -> 21 -> 19 -> 18 -> 16 -> 13 -> 12 -> 11 -> 7 -> 6
   def show
     @school = School.includes(:comments, :opinions, rules: :question)
                     .find(params[:id])
@@ -29,7 +29,7 @@ class SchoolsController < ApplicationController
     end
   end
 
-  # 9 queries -> 4
+  # 9 queries -> 4 -> 3
   def edit
     @school = School.includes(rules: :question).find(params[:id])
   end
@@ -81,6 +81,6 @@ class SchoolsController < ApplicationController
     private
 
     def sort_column
-      %w[name rating city complete].include?(params[:sort]) ? params[:sort] : "name"
+      %w[name rating city complete].include?(params[:sort]) ? params[:sort] : 'name'
     end
 end
