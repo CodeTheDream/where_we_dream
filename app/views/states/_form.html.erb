@@ -1,6 +1,4 @@
-<% correct_path = @state.id ? admin_state_path(@state) : admin_states_path %>
-
-<%= form_for(@state, url: correct_path) do |f| %>
+<%= form_for @state do |f| %>
   <% if @state.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@state.errors.count, "error") %> prohibited this state from being saved:</h2>

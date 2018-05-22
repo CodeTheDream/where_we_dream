@@ -32,8 +32,7 @@ Rails.application.routes.draw do
     resources :comments, except: [:show, :update, :destroy]
   end
 
-  get "states/data" => "admin/states#data"
-  resources :states, controller: 'admin/states', only: [:index, :show] do
+  resources :states do
     resources :comments, except: [:show, :update, :destroy]
   end
 
@@ -49,6 +48,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :questions, except: [:show, :edit]
     resources :users
-    resources :states
+    # resources :states
   end
 end

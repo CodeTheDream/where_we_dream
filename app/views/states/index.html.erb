@@ -1,7 +1,7 @@
 <div class="flex-container">
   <h1><%= title "States" %></h1>
-  <% if (admin_or_above? && request.path.include?("admin")) && State.names_left.any? %>
-    <%= link_to new_admin_state_path, class: 'flex-right' do %>
+  <% if admin_or_above? && State.names_left.any? %>
+    <%= link_to new_state_path, class: 'flex-right' do %>
       <i class="fa fa-plus"></i> Add State
     <% end %>
   <% end %>
@@ -12,9 +12,11 @@
 
 <script>
   // wwd_data outside the function for resizing reasons
-  var wwd_data = $.getJSON('/states/data.json');
+  var wwd_data = <%= states_data @states %>;
   $(window).on('load resize', function() { mapBuilder("<%= request.path %>"); });
 </script>
+
+
 <% if false %>
 <!-- <div id="keys">
   <h4>Key</h4>

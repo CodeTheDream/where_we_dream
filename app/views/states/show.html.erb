@@ -1,7 +1,7 @@
 <div class="flex-container">
   <h1><%= title @state.name %></h1>
-  <% if admin_or_above? && request.path.include?("admin") %>
-    <%= link_to edit_admin_state_path(@state), class: 'flex-right' do %>
+  <% if admin_or_above? %>
+    <%= link_to edit_state_path(@state), class: 'flex-right' do %>
       <%= desktop_mobile "Edit" => "<i class='fa fa-pencil-square-o fa-2x'></i>" %>
     <% end %>
   <% end %>

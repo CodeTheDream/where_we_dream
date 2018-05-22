@@ -56,7 +56,7 @@ function mapBuilder(url) {
 
     function inState(id) {
       try {
-        var in_state = wwd_data.responseJSON[code(id)].in_state_css;
+        var in_state = wwd_data[code(id)].in_state_css;
       } catch (e) {
         var in_state = null;
       } finally {
@@ -66,7 +66,7 @@ function mapBuilder(url) {
 
     function statePath(id) {
       try {
-        var db_id = wwd_data.responseJSON[code(id)].id;
+        var db_id = wwd_data[code(id)].id;
       } catch (e) {
         var db_id = null;
       };
