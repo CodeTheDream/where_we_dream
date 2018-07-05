@@ -91,6 +91,7 @@ header.navigation {
     height: $height-mobile;
   }
   .navigation-wrapper {
+    box-sizing: border-box;
     @include clearfix; // Needed for notification positioning
     left: 0;
     right: 0;
