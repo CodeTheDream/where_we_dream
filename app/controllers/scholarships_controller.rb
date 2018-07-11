@@ -1,5 +1,5 @@
 class ScholarshipsController < ApplicationController
-  before_action :authenticate_recruiter, except: [:show]
+  before_action :authenticate_recruiter, except: [:index, :show]
   before_action :set_scholarship, only: [:edit, :update, :destroy]
   helper_method :sort_column
 

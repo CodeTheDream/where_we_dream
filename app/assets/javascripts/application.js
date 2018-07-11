@@ -100,13 +100,6 @@ function showAdditionalDetails() {
   });
 };
 
-function clickableDataHrefs(){
-  $('*[data-href]').click(function(){
-    window.location = $(this).data('href');
-    return false;
-  });
-};
-
 // Keep as global js function
 function toggleDropdown() {
   $(".dropdown-button").click(function() {
@@ -246,7 +239,6 @@ $(deleteQuestion);
 $(updateQuestion);
 $(showAdditionalDetails);
 $(makeTextareaElastic);
-$(clickableDataHrefs);
 $(toggleDropdown);
 $(addNewReply);
 $(toggleOpinions);
