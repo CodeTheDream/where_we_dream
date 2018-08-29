@@ -39,9 +39,16 @@
 .img-3 {
   background-image: asset_url('scenery_6.jpg');
 }
-// .img-4 {
-//   background-image: asset_url('scenery_5_blur.jpg');
-// }
+.img-4 {
+  // background-image: asset_url('scenery_5_blur.jpg');
+  background-image: asset_url('book.jpg');
+}
+.img-5 {
+  background-image: asset_url('graduated-latina-student.jpg');
+}
+.img-6 {
+  background-image: asset_url('DSC6137.jpg');
+}
 .cover-content, .cover-content-2 {
   position: absolute;
   left: 0;
@@ -58,6 +65,7 @@
     font-size: 8vw;
     font-size: 8vmax;
     margin: 0 0 .68em 0;
+    text-shadow: 1px 1px black;
   }
   footer {
     text-shadow: 1px 1px black;
