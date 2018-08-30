@@ -7,6 +7,10 @@ class Scholarship < ActiveRecord::Base
 
   include Opinionable
 
+  def open?
+    deadline >= Time.now
+  end
+
   def self.search(search)
     if search
       search_length = search.split.length

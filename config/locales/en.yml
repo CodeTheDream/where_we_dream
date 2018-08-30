@@ -20,10 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   views:
     pagination:
       first: "<<"
       previous: "<"
       next: ">"
       last: ">>"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "<b>1</b> %{entry_name}"
+          other: "<b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "<b>%{first} - %{last}</b> of <b>%{total}</b>"
