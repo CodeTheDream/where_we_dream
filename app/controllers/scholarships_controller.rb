@@ -9,6 +9,7 @@ class ScholarshipsController < ApplicationController
     @scholarships = Scholarship.search(params[:search])
                                .order("#{sort_column} #{sort_direction}")
                                .page(params[:page])
+    @open = Scholarship.search(params[:search]).where('deadline >= ?', Time.now)
   end
 
   # GET /scholarships/1

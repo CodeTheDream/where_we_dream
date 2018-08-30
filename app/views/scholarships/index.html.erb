@@ -10,8 +10,7 @@
 
 <%= render 'layouts/search', path: scholarships_path, placeholder: 'Search scholarships' %>
 
-<%= page_entries_info @scholarships %>,
-<b><%= @scholarships.select(&:open?).count %></b> open
+<%= page_entries_info @scholarships %>, <b><%= @open.count %></b> open
 
 <table class="pretty">
   <thead>
