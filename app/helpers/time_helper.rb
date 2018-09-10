@@ -7,11 +7,21 @@ module TimeHelper
     time.strftime("%-m/%-d/%Y")
   end
 
-  def full_date_time
-    due, d = @scholarship.deadline, time_in_words(@scholarship.deadline)
-    day, month, date, distance = desktop_mobile("%A"=>"%a", "%B"=>"%b", due.day.ordinalize => due.day, d => d.abbreviate)
+  def days_left(time)
+    deadline = time.to_date
+    today = Date.today
+    days = (deadline - today).to_i
+    if days.positive?
+      "#{days} days"
+    else
+      "#{days.abs} days ago"
+    end
+  end
+
+  def full_date_time(due)
+    day, month, date = desktop_mobile("%A"=>"%a", "%B"=>"%b", due.day.ordinalize => due.day)
     datetime = due.strftime("#{day}, #{month} #{date} at %I:%M %P")
-    "#{distance} (#{datetime})".html_safe
+    datetime.html_safe
   end
 
   def recently_created?(resource, words: nil)

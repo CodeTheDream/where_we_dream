@@ -4,14 +4,6 @@
 //= require d3.v3
 //= require topojson
 //= require_tree .
-function setCoverHeight() {
-  var height = $(window).height();
-  $('.cover').height( height );
-};
-
-function responsiveCoverHeight() {
-  $( window ).resize( setCoverHeight );
-};
 
 // Keep as global js function
 // pretty sure we can get rid of this method and make the link remote nah mean
@@ -232,8 +224,6 @@ function showChosenProfilePic() {
   });
 };
 
-$(setCoverHeight);
-$(responsiveCoverHeight);
 $(addQuestionsPartial);
 $(deleteQuestion);
 $(updateQuestion);

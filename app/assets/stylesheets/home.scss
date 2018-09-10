@@ -43,11 +43,9 @@
   // background-image: asset_url('scenery_5_blur.jpg');
   background-image: asset_url('book.jpg');
 }
+// NOTE: image was deleted
 .img-5 {
   background-image: asset_url('graduated-latina-student.jpg');
-}
-.img-6 {
-  background-image: asset_url('DSC6137.jpg');
 }
 .cover-content, .cover-content-2 {
   position: absolute;
@@ -62,13 +60,14 @@
   text-align: center;
   font-family: 'Exo', sans-serif;
   h1 {
-    font-size: 8vw;
     font-size: 8vmax;
     margin: 0 0 .68em 0;
-    text-shadow: 1px 1px black;
+    // text-shadow: 1px 1px black;
+    text-shadow: 0 0 15px rgba(0,0,0,1);
   }
   footer {
-    text-shadow: 1px 1px black;
+    // text-shadow: 1px 1px black;
+    text-shadow: 0 0 15px rgba(0,0,0,1);
     font-size: 3vw;
     font-size: 3vmax;
   }
