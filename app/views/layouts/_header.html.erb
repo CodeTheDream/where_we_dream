@@ -3,9 +3,6 @@
     header {
       background-image: none;
     }
-    header.navigation ul li.nav-link {
-      color: #2e2f33;
-    }
   </style>
 <% end %>
 <% if @page == 'Log In' %>
@@ -15,7 +12,7 @@
     }
   </style>
 <% end %>
-<header class="navigation" role="banner">
+<header class="navigation <%= 'landing top' if ['home', 'Log In'].include? @page %>" role="banner">
   <div id="header-wrapper" class="navigation-wrapper">
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">

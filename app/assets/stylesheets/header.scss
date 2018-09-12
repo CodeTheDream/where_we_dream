@@ -84,11 +84,22 @@ header.navigation {
   position: fixed;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 1.3em;
-  border-bottom: 1px solid #efefef;
+  // border-bottom: 1px solid #efefef;
   color: white;
   transition: transform 0.5s;
   @include mobile {
     height: $height-mobile;
+  }
+
+  &.landing {
+    background: white;
+    color: #2e2f33;
+  }
+  // specific styling for when the header is at the top of the page
+  &.top {
+    background: transparent;
+    color: white;
+    text-shadow: 0 0 0.4em rgba(0,0,0,0.6);
   }
   .navigation-wrapper {
     box-sizing: border-box;

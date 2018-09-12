@@ -40,6 +40,9 @@
 // font-family: sourcesanspro,Helvetica,Arial,sans-serif
 // @import url(http://fonts.googleapis.com/css?family=Monda:400,700);
 
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0px;
 }

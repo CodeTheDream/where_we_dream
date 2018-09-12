@@ -30,11 +30,9 @@
 }
 .img-1 {
   background-image: asset_url('scenery_4.jpg');
-  // background-image: url('http://mojok.co/wp-content/uploads/2016/06/gty_college_graduation_jc_160420_12x5_1600-1.jpg');
-
 }
 .img-2 {
-  background-image: asset_url('scenery_5.jpg');
+  background-image: asset_url('cover/final/scenery_5.jpg');
 }
 .img-3 {
   background-image: asset_url('scenery_6.jpg');
@@ -42,10 +40,6 @@
 .img-4 {
   // background-image: asset_url('scenery_5_blur.jpg');
   background-image: asset_url('book.jpg');
-}
-// NOTE: image was deleted
-.img-5 {
-  background-image: asset_url('graduated-latina-student.jpg');
 }
 .cover-content, .cover-content-2 {
   position: absolute;
@@ -62,12 +56,10 @@
   h1 {
     font-size: 8vmax;
     margin: 0 0 .68em 0;
-    // text-shadow: 1px 1px black;
-    text-shadow: 0 0 15px rgba(0,0,0,1);
+    text-shadow: 0 0 0.3em rgba(0,0,0,1);
   }
   footer {
-    // text-shadow: 1px 1px black;
-    text-shadow: 0 0 15px rgba(0,0,0,1);
+    text-shadow: 0 0 0.4em rgba(0,0,0,1);
     font-size: 3vw;
     font-size: 3vmax;
   }
