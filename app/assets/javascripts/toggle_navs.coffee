@@ -16,4 +16,15 @@ toggleNavs = ->
       else
         header.addClass('top')
 
+scrollNav = ->
+  $(window).scroll ->
+    header = $('header')
+    landing = header.is '.landing'
+    top = $(window).scrollTop()
+    if landing && top == 0
+      header.addClass 'top'
+    else
+      header.removeClass 'top'
+
 $ toggleNavs
+$ scrollNav

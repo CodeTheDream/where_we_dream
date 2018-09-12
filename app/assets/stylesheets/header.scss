@@ -1,3 +1,4 @@
+$background: #262626;
 $background: white;
 $height: 80px;
 $height-mobile: 55px;
@@ -34,7 +35,7 @@ $height-mobile: 55px;
   padding-top: .02em;
 }
 header {
-  background-image: asset_url('scenery_5_header.jpg');
+  // background-image: asset_url('scenery_5_header.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -84,13 +85,12 @@ header.navigation {
   position: fixed;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 1.3em;
-  // border-bottom: 1px solid #efefef;
-  color: white;
-  transition: transform 0.5s;
+  border-bottom: 1px solid #efefef;
+  color: black;
+  transition: transform 0.5s, background-color 0.1s, color 0.05s, border 0.1s;
   @include mobile {
     height: $height-mobile;
   }
-
   &.landing {
     background: white;
     color: #2e2f33;
@@ -100,6 +100,7 @@ header.navigation {
     background: transparent;
     color: white;
     text-shadow: 0 0 0.4em rgba(0,0,0,0.6);
+    border-bottom: 1px solid transparent;
   }
   .navigation-wrapper {
     box-sizing: border-box;
